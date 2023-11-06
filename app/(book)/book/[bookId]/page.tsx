@@ -16,7 +16,7 @@ const service = await axios.get(`${ALL_SERVICES}/${params.bookId}`)
 const data = service.data as Service
 
   return (
-    <div>
+    <div className='p-8'>
     <h3>booking</h3>
     <BookingForm />
     </div>

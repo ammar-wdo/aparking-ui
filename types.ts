@@ -43,7 +43,9 @@ export type Booking = {
   carLicense    :string,
   carModel      :string,
   companyName ?:string,
-  customerId   :string,
+  // customerId   :string,
+  serviceId:string,
+  
   daysofparking :Date,
   departureDate :Date,
   discount  :number
@@ -57,7 +59,7 @@ export type Booking = {
   total  :string,
   vatNumber?:number
   zipcode?:string,
-  Customer  :any
-  Payment  :any[]
+  customer  :any
+  payment  :any[]
 
 }

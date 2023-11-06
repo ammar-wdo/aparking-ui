@@ -11,6 +11,7 @@ export const bookingSchema = z.object({
   carLicense:z.string().min(1),
   carModel:z.string().min(1),
   serviceId:z.string().min(1),
+
   companyName:z.string().optional(),
   arrivalTime:z.string(),
   departureTime:z.string(),
