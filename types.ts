@@ -23,8 +23,11 @@ export type Service = {
     title :string
     zipcode  :string,
     company  :any,
-    Airport :any[] 
+    available:boolean,
+    airports :any[] 
 }
+
+
 
 export type Booking = {
 
@@ -50,10 +53,10 @@ export type Booking = {
   departureDate :Date,
   discount  :number
   flightNumber ?:number
-  parkingId  :string
+
   parkingPrice :number,
   paymentStatus         :string
-  paymentmethod         :string
+  paymentmethod         :" MASTER_CARD" | " VISA_CARD" | "AMERICAN_EXPRESS" | "PAYPALL"
   place?:string,
   returnFlightNumber?:number
   total  :string,

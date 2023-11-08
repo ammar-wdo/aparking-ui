@@ -21,6 +21,8 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { CalendarIcon, Loader } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import Image from "next/image";
 
 type Props = {};
 
@@ -100,7 +102,7 @@ const BookingForm = (props: Props) => {
             name="arrivalDate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>arrival date</FormLabel>
+                <FormLabel>Arrival date</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -140,7 +142,7 @@ const BookingForm = (props: Props) => {
             name="bookingCode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>booking code</FormLabel>
+                <FormLabel>Booking code</FormLabel>
                 <FormControl>
                   <Input placeholder="booking code" {...field} />
                 </FormControl>
@@ -154,7 +156,7 @@ const BookingForm = (props: Props) => {
             name="carColor"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>car color</FormLabel>
+                <FormLabel>Car color</FormLabel>
                 <FormControl>
                   <Input placeholder="booking code" {...field} />
                 </FormControl>
@@ -168,7 +170,7 @@ const BookingForm = (props: Props) => {
             name="carLicense"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>car lisence</FormLabel>
+                <FormLabel>Car lisence</FormLabel>
                 <FormControl>
                   <Input placeholder="booking code" {...field} />
                 </FormControl>
@@ -182,7 +184,7 @@ const BookingForm = (props: Props) => {
             name="carModel"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>car model</FormLabel>
+                <FormLabel>Car model</FormLabel>
                 <FormControl>
                   <Input placeholder="booking code" {...field} />
                 </FormControl>
@@ -197,7 +199,7 @@ const BookingForm = (props: Props) => {
             name="companyName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>companyName</FormLabel>
+                <FormLabel>Company name</FormLabel>
                 <FormControl>
                   <Input placeholder="company name" {...field} />
                 </FormControl>
@@ -211,7 +213,7 @@ const BookingForm = (props: Props) => {
             name="arrivalTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>arrival time</FormLabel>
+                <FormLabel>Arrival time</FormLabel>
                 <FormControl>
                   <Input placeholder="arrivel time" {...field} />
                 </FormControl>
@@ -225,7 +227,7 @@ const BookingForm = (props: Props) => {
             name="departureTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>departure time</FormLabel>
+                <FormLabel>Departure time</FormLabel>
                 <FormControl>
                   <Input placeholder="departure time" {...field} />
                 </FormControl>
@@ -239,7 +241,7 @@ const BookingForm = (props: Props) => {
             name="departureDate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>departure date</FormLabel>
+                <FormLabel>Departure date</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -279,7 +281,7 @@ const BookingForm = (props: Props) => {
             name="discount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>discount</FormLabel>
+                <FormLabel>Discount</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="discount" {...field} />
                 </FormControl>
@@ -293,7 +295,7 @@ const BookingForm = (props: Props) => {
             name="flightNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>flight number</FormLabel>
+                <FormLabel>Flight number</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="fkiht number" {...field} />
                 </FormControl>
@@ -302,26 +304,13 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="parkingId"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Parking Id</FormLabel>
-                <FormControl>
-                  <Input placeholder="parking Id" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+       
           <FormField
             control={form.control}
             name="parkingPrice"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>parking price</FormLabel>
+                <FormLabel>Parking price</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="parking price" {...field} />
                 </FormControl>
@@ -335,7 +324,7 @@ const BookingForm = (props: Props) => {
             name="paymentStatus"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>payment status</FormLabel>
+                <FormLabel>Payment status</FormLabel>
                 <FormControl>
                   <Input placeholder="payment status" {...field} />
                 </FormControl>
@@ -344,26 +333,68 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="paymentMethod"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>payment method</FormLabel>
-                <FormControl>
-                  <Input placeholder="payment method" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+       <FormField
+          control={form.control}
+          name="paymentMethod"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>Payment method</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-1"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between border rounded-md p-1 px-4">
+                    <FormControl>
+                      <RadioGroupItem value="MASTER_CARD" />
+                    </FormControl>
+                    <FormLabel className="capitalize font-semibold">
+                     master card
+                    </FormLabel>
+                    <div className="w-20 aspect-square relative"><Image fill alt="payment" src={'/mastercard.png'} className="object-contain"/></div>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between border rounded-md p-1 px-4">
+                    <FormControl>
+                      <RadioGroupItem value="VISA_CARD" />
+                    </FormControl>
+                    <FormLabel className="capitalize font-semibold">
+                     visa card
+                    </FormLabel>
+                    <div className="w-20 aspect-square relative"><Image fill alt="payment" src={'/visacard.png'} className="object-contain"/></div>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between border rounded-md p-1 px-4">
+                    <FormControl>
+                      <RadioGroupItem value="AMERICAN_EXPRESS" />
+                    </FormControl>
+                    <FormLabel className="capitalize font-semibold">
+                   american express
+                    </FormLabel>
+                    <div className="w-20 aspect-square relative"><Image fill alt="payment" src={'/americanexpress.png'} className="object-contain"/></div>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0 justify-between border rounded-md p-1 px-4">
+                    <FormControl>
+                      <RadioGroupItem value="PAYPALL" />
+                    </FormControl>
+                    <FormLabel className="capitalize font-semibold">
+                     paypall
+                    </FormLabel>
+                    <div className="w-20 aspect-square relative"><Image fill alt="payment" src={'/paypal.webp'} className="object-contain"/></div>
+                  </FormItem>
+                 
+             
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
           <FormField
             control={form.control}
             name="place"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>place</FormLabel>
+                <FormLabel>Place</FormLabel>
                 <FormControl>
                   <Input placeholder="place" {...field} />
                 </FormControl>
@@ -377,7 +408,7 @@ const BookingForm = (props: Props) => {
             name="returnFlightNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>return flight number</FormLabel>
+                <FormLabel>Return flight number</FormLabel>
                 <FormControl>
                   <Input placeholder="return flight number" {...field} />
                 </FormControl>
@@ -405,7 +436,7 @@ const BookingForm = (props: Props) => {
             name="vatNumber"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Total</FormLabel>
+                <FormLabel>Vat number</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="total" {...field} />
                 </FormControl>
@@ -419,7 +450,7 @@ const BookingForm = (props: Props) => {
             name="zipcode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>zipcode</FormLabel>
+                <FormLabel>Zipcode</FormLabel>
                 <FormControl>
                   <Input placeholder="zipcode" {...field} />
                 </FormControl>

@@ -5,7 +5,8 @@ import { z } from "zod"
 import { useParams, useRouter } from "next/navigation"
 import axios from "axios"
 import { ADD_BOOKMARK } from "@/links"
-import { toast } from "@/components/ui/use-toast"
+import { toast } from "sonner"
+
 
 type Props = {
     arrivalDate:Date,
@@ -33,21 +34,14 @@ const router = useRouter()
         
 const result = await axios.post(ADD_BOOKMARK,values)
 console.log(result)
+toast.success('Successfully booked')
 
 
-toast({
-    title: "Success",
-    description:"booked successfully",
-  });
 
       } catch (error) {
         console.log(error)
 
-        toast({
-            title: "failed",
-            description:"booked failed",
-            variant:'destructive'
-          });
+        toast.error('Something went wrong')
       }
        
       }
