@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation"
 import axios from "axios"
 import { ADD_BOOKMARK } from "@/links"
 import { toast } from "sonner"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Service } from "@/types"
 
 
@@ -23,6 +23,8 @@ export const useBooking = ({arrivalDate,arrivalTime,departureDate,departureTime,
   const params = useParams()
 
   const serviceId = params.bookId
+
+
 
   const form = useForm<z.infer<typeof bookingSchema>>({
       resolver: zodResolver(bookingSchema),
@@ -44,10 +46,14 @@ form.setValue('total',totalPrice ?? 0)
   const newArrivalDate = form.getValues('arrivalDate')
   const newDepartureDate = form.getValues('departureDate')
 
-    const parkingDays = calculateParkingDays(newArrivalDate,newDepartureDate)
+  
+
+  const parkingDays = calculateParkingDays(newArrivalDate,newDepartureDate) +1
   
    
     form.setValue('daysofparking',parkingDays)
+
+  
 
   },[form.watch('arrivalDate'),form.watch('departureDate')])
 
@@ -56,9 +62,10 @@ form.setValue('total',totalPrice ?? 0)
 
 const router = useRouter()
      async function onSubmit(values: z.infer<typeof bookingSchema>) {
-        console.log(values)
+     
+     
       try {
-        
+      
 const result = await axios.post(ADD_BOOKMARK,values)
 router.push(result.data.url)
 console.log(result)

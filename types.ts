@@ -34,9 +34,9 @@ export type Booking = {
     id :string,
   createdAt :Date,
   updatedAt :Date,
-  BookingOnBusinessName?:string
-  ExtraServiceFee :number,
-  Status        :string
+  bookingOnBusinessName?:string
+  extraServiceFee :number,
+  status        :string
   arrivalTime   :string
   departureTime :string
   address?:string
@@ -55,7 +55,7 @@ export type Booking = {
   flightNumber ?:number
 
   parkingPrice :number,
-  paymentStatus         :string
+  paymentStatus        :string
   paymentmethod         :" MASTER_CARD" | " VISA_CARD" | "AMERICAN_EXPRESS" | "PAYPALL"
   place?:string,
   returnFlightNumber?:number

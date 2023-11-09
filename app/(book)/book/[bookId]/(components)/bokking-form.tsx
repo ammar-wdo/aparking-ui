@@ -45,8 +45,8 @@ const BookingForm = ({service}: Props) => {
   const isLoading = form.formState.isSubmitting;
 
   const [date, setDate] = useState<DateRange | undefined>({
-    from: new Date(Date.now()),
-    to: addDays(new Date(Date.now()), 0),
+    from: new Date(form.getValues('arrivalDate')),
+    to: addDays(new Date(form.getValues('departureDate')), 0),
   })
 
   return (
@@ -60,7 +60,7 @@ const BookingForm = ({service}: Props) => {
               <FormItem>
                 <FormLabel>Booking business name</FormLabel>
                 <FormControl>
-                  <Input placeholder="bkking business name" {...field} />
+                  <Input placeholder="booking business name" {...field} />
                 </FormControl>
 
                 <FormMessage />
@@ -139,7 +139,7 @@ const BookingForm = ({service}: Props) => {
         </PopoverContent>
       </Popover>
     
-            <p className="text-xs uppercase p-2">{`Parking days: ${form.watch('daysofparking')}` }</p>
+            <p className="text-xs uppercase p-2">{`Parking days: ${form.watch('daysofparking')}` || 1 }</p>
             
 
           
@@ -147,7 +147,7 @@ const BookingForm = ({service}: Props) => {
             <p className="text-xs uppercase p-2">{`Total price: $${form.watch('total')}` }</p>
             
 
-         
+      
 
     </div>
 
@@ -383,20 +383,7 @@ const BookingForm = ({service}: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="paymentStatus"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Payment status</FormLabel>
-                <FormControl>
-                  <Input placeholder="payment status" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    
        <FormField
           control={form.control}
           name="paymentMethod"

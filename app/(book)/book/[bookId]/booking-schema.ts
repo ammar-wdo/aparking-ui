@@ -21,13 +21,13 @@ total:z.coerce.number().nonnegative(),
   flightNumber:z.coerce.number().optional(),
 
   parkingPrice:z.coerce.number(),
-  paymentStatus:z.string().min(1),
+  
   paymentMethod:z.enum(['MASTER_CARD','VISA_CARD','AMERICAN_EXPRESS','PAYPALL']),
   place:z.string().optional(),
   returnFlightNumber:z.coerce.number().optional(),
 
   vatNumber:z.coerce.number().optional(),
-  zipcode:z.string().min(1)
+  zipcode:z.string().optional()
   
 })
 
@@ -72,7 +72,7 @@ export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTi
     flightNumber:0,
  total:0,
     parkingPrice:0,
-    paymentStatus:'',
+
     paymentMethod:'MASTER_CARD' as const ,
     place:'',
     returnFlightNumber:0,
