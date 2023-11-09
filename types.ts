@@ -5,7 +5,7 @@ export type Service = {
     updatedAt :Date,
     spots  :number,
     isActive :boolean
-  
+    pricings :         number[]
     address:string,
     arrivalTodos? :string
     city :string,

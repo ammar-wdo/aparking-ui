@@ -18,7 +18,7 @@ const data = service.data as Service
   return (
     <div className='p-8'>
     <h3>booking</h3>
-    <BookingForm />
+    <BookingForm service={data} />
     </div>
   )
 }

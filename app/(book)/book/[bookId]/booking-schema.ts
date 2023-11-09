@@ -3,7 +3,7 @@ import * as z from "zod"
 export const bookingSchema = z.object({
   bookingOnBusinessName: z.string().optional(),
   extraServiceFee:z.coerce.number(),
-  status:z.string().min(1),
+
   address:z.string().optional(),
   arrivalDate:z.date(),
   bookingCode:z.string(),
@@ -11,7 +11,7 @@ export const bookingSchema = z.object({
   carLicense:z.string().min(1),
   carModel:z.string().min(1),
   serviceId:z.string().min(1),
-
+total:z.coerce.number().nonnegative(),
   companyName:z.string().optional(),
   arrivalTime:z.string(),
   departureTime:z.string(),
@@ -25,33 +25,37 @@ export const bookingSchema = z.object({
   paymentMethod:z.enum(['MASTER_CARD','VISA_CARD','AMERICAN_EXPRESS','PAYPALL']),
   place:z.string().optional(),
   returnFlightNumber:z.coerce.number().optional(),
-  total:z.coerce.number().positive(),
+
   vatNumber:z.coerce.number().optional(),
   zipcode:z.string().min(1)
   
 })
 
+export function calculateParkingDays(arrivalDate:Date,departureDate:Date) {
+  const arrival = new Date(arrivalDate);
+  const departure = new Date(departureDate);
+
+  // Calculate the time difference in milliseconds
+
+
+  const timeDiff = departure.getTime() - arrival.getTime();
+
+  // Calculate the number of days (rounded up)
+  const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+  return days;
+  }
+
 export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTime:string,departureTime:string,serviceId:string)=>{
     
  
-  function calculateParkingDays(arrivalDate:Date,departureDate:Date) {
-      const arrival = new Date(arrivalDate);
-      const departure = new Date(departureDate);
-    
-      // Calculate the time difference in milliseconds
-      const timeDiff = departure.getTime() - arrival.getTime();
-    
-      // Calculate the number of days (rounded up)
-      const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    
-      return days;
-      }
+
     
     
     return{
       bookingOnBusinessName:"",
     extraServiceFee:0,
-    status:"",
+   
     address:"",
     arrivalDate:arrivalDate,
     bookingCode:"",
@@ -66,13 +70,13 @@ export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTi
     departureDate:new Date(Date.now()),
     discount:0,
     flightNumber:0,
- 
+ total:0,
     parkingPrice:0,
     paymentStatus:'',
     paymentMethod:'MASTER_CARD' as const ,
     place:'',
     returnFlightNumber:0,
-    total:0,
+    
     vatNumber:0,
     zipcode:''
 

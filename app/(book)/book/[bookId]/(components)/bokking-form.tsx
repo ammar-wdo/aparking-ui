@@ -18,25 +18,37 @@ import {
   PopoverTrigger,
 } from "@radix-ui/react-popover";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 import { CalendarIcon, Loader } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
+import { DateRange } from "react-day-picker";
+import { useState } from "react";
+import { Service } from "@/types";
 
-type Props = {};
+type Props = {
+  service:Service| null
+};
 
 
 
-const BookingForm = (props: Props) => {
+const BookingForm = ({service}: Props) => {
   const { form, onSubmit } = useBooking({
-    arrivalDate: new Date("11-1-2023"),
+    arrivalDate: new Date(Date.now()),
     departureDate: new Date(Date.now()),
     arrivalTime: "11:00",
     departureTime: "24:00",
+    service
   });
 
   const isLoading = form.formState.isSubmitting;
+
+  const [date, setDate] = useState<DateRange | undefined>({
+    from: new Date(Date.now()),
+    to: addDays(new Date(Date.now()), 0),
+  })
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -69,20 +81,7 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="status"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Status</FormLabel>
-                <FormControl>
-                  <Input placeholder="status" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      
           <FormField
             control={form.control}
             name="address"
@@ -97,6 +96,62 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
+
+
+
+
+<div className={cn("grid gap-2", )}>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button
+            id="date"
+            variant={"outline"}
+            className={cn(
+              "w-full justify-start text-left font-normal",
+              !date && "text-muted-foreground"
+            )}
+          >
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {date?.from ? (
+              date.to ? (
+                <>
+                  {format(date.from, "LLL dd, y")} -{" "}
+                  {format(date.to, "LLL dd, y")}
+                </>
+              ) : (
+                format(date.from, "LLL dd, y")
+              )
+            ) : (
+              <span>Pick a date</span>
+            )}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto p-0" align="start">
+          <Calendar
+          disabled={(date)=>date < new Date(Date.now())}
+            initialFocus
+            mode="range"
+            defaultMonth={date?.from}
+            selected={date}
+            onSelect={(e)=>{setDate(e);form.setValue('arrivalDate',e?.from || new Date(Date.now()));form.setValue('departureDate',e?.to || new Date(Date.now()))}}
+            numberOfMonths={2}
+          />
+        </PopoverContent>
+      </Popover>
+    
+            <p className="text-xs uppercase p-2">{`Parking days: ${form.watch('daysofparking')}` }</p>
+            
+
+          
+     
+            <p className="text-xs uppercase p-2">{`Total price: $${form.watch('total')}` }</p>
+            
+
+         
+
+    </div>
+
+          {/* <div className="flex  w-full flex-col gap-5">
           <FormField
             control={form.control}
             name="arrivalDate"
@@ -109,7 +164,7 @@ const BookingForm = (props: Props) => {
                       <Button
                         variant={"outline"}
                         className={cn(
-                          "w-[240px] pl-3 text-left font-normal",
+                          "w-full pl-3 text-left font-normal",
                           !field.value && "text-muted-foreground"
                         )}
                       >
@@ -127,7 +182,7 @@ const BookingForm = (props: Props) => {
                       mode="single"
                       selected={field.value}
                       onSelect={field.onChange}
-                      disabled={(date) => date < new Date()}
+                      disabled={(date) => date < new Date() }
                       initialFocus
                     />
                   </PopoverContent>
@@ -137,6 +192,54 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
+
+<FormField
+            control={form.control}
+            name="departureDate"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Departure date</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-w-full pl-3 text-left font-normal",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          format(field.value, "PPP")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) => date < form.getValues("arrivalDate") }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className="flex items-center text-sm p-2  py-1 bg-muted-foreground rounded-full border w-fit text-background">
+            <p>{`Parking days: ${form.watch('daysofparking')}` }</p>
+            
+
+          </div>
+          </div> */}
           <FormField
             control={form.control}
             name="bookingCode"
@@ -236,46 +339,7 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="departureDate"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel>Departure date</FormLabel>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <Button
-                        variant={"outline"}
-                        className={cn(
-                          "w-[240px] pl-3 text-left font-normal",
-                          !field.value && "text-muted-foreground"
-                        )}
-                      >
-                        {field.value ? (
-                          format(field.value, "PPP")
-                        ) : (
-                          <span>Pick a date</span>
-                        )}
-                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                      </Button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={field.value}
-                      onSelect={field.onChange}
-                      disabled={(date) => date < form.getValues("arrivalDate")}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      
           <FormField
             control={form.control}
             name="discount"
@@ -417,20 +481,7 @@ const BookingForm = (props: Props) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="total"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Total</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="total" {...field} />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      
           <FormField
             control={form.control}
             name="vatNumber"
