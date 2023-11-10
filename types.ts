@@ -24,7 +24,8 @@ export type Service = {
     zipcode  :string,
     company  :any,
     available:boolean,
-    airports :any[] 
+    airports :any[] ,
+    totalPrice:number
 }
 
 

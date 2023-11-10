@@ -30,6 +30,7 @@ export const useSearchForm = ({startDateProp,startTimeProp,endDateProp,endTimePr
         setOpenStart(false)
         
         if(startDate){
+            console.log(startDate)
             if(!startTime){
                 setOpenStartTime(true)
             }else if(!endTime){

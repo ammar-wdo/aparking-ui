@@ -10,7 +10,7 @@ const Banner = (props: Props) => {
       <div className="container">
     
         <Header />
-        <div className="lg:px-32 text-white">
+        <div className="xllg:px-32 text-white mt-20">
         <h2 className="lg:text-4xl font-semibold">
         Your hassle-free parking solution.
       </h2>

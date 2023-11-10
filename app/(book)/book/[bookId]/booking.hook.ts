@@ -38,7 +38,7 @@ const totalPrice = myPricing?.reduce((i,value)=>i+value,0)
 
 form.setValue('total',totalPrice ?? 0)
 
-    },[form.watch('daysofparking')])
+    },[form.getValues('daysofparking')])
 
 
   useEffect(()=>{
@@ -55,7 +55,7 @@ form.setValue('total',totalPrice ?? 0)
 
   
 
-  },[form.watch('arrivalDate'),form.watch('departureDate')])
+  },[form.getValues('arrivalDate'),form.getValues('departureDate')])
 
 
   

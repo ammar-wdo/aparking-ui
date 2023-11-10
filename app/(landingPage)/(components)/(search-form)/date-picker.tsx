@@ -40,7 +40,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4 " />
-          {date ? format(date, "dd-mm-yyyy") : <span className="
+          {date ? format(new Date(date), "dd-MM-yyyy") : <span className="
           ">Pick a date</span>}
         </Button>
       </PopoverTrigger>
@@ -55,7 +55,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
         } }
           mode="single"
           selected={date}
-          onSelect={(e)=>{setDate(e);console.log(e)}}
+          onSelect={(e)=>{setDate(e);}}
           initialFocus
         />
       </PopoverContent>

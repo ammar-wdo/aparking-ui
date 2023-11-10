@@ -40,7 +40,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp}: Props
       {<div className={cn("fixed inset-0 opacity-0 duration-300 bg-black/60 delay-100",(openStart||openEnd||openStartTime||openEndTime) && 'opacity-100 ')}></div>}
    
 
-      <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative">
+      <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative ">
         <div className="grid lg:grid-cols-3 flex-1 gap-1">
           <div className="p-4 bg-white flex flex-col gap-1 pb-1">
             <h3 className="text-black font-semibold">Airport</h3>

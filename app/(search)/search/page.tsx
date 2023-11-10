@@ -8,7 +8,9 @@ import axios from 'axios'
 import format from 'date-fns/format'
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import React from 'react'
+import qs from 'query-string'
 
 type Props = {
   searchParams:{[key:string]:string | string[]  | undefined}
@@ -16,18 +18,29 @@ type Props = {
 
 const page = async({searchParams}: Props) => {
 
-    const services = await axios.get(ALL_SERVICES)
-    const data = services.data as Service[]
-
-const startDate = searchParams['startDate'] as string 
+  const startDate = searchParams['startDate'] as string 
 const endDate = searchParams['endDate'] as string 
 const startTime = searchParams['startTime'] as string 
 const endTime = searchParams['endTime'] as string 
 
+if(!startDate || !endDate || !startTime|| !endTime) return redirect('/')
+
+const url = qs.stringifyUrl({
+  url:ALL_SERVICES,
+  query:{
+    startDate,endDate,startTime,endTime
+  }
+})
+
+    const services = await axios.get(url)
+    const data = services.data as Service[]
+
+
+
 
 
   return (
-    <div className='bg-gray-200'>
+    <div className='bg-gray-200 pb-10 min-h-screen'>
       <div className='min-h-[300px] bg-indigo-500'>
         <div className='container'>
           <Header />
@@ -47,19 +60,22 @@ const endTime = searchParams['endTime'] as string
 
 
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-10 p-10 relative z-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-20 relative z-10'>
       {!data.length && <p>no data</p>}
 
-{data?.map((service)=><div key={service.id} className='p-3 border rounded-md flex flex-col gap-5'>
-    <p>{service.address}</p>
+{data?.map((service)=><div key={service.id} className='p-5 bg-white  rounded-md flex flex-col gap-5'>
     <p>{service.title}</p>
+   
     <p>{service.city}</p>
     <p>{service.description}</p>
-    <div className='w-full aspect-video relative'>
-        <Image src={service.logo} alt='logo' fill className='object-cover'/>
-    </div>
+    <p>${service.totalPrice}</p>
+    
+<div className='flex items-center gap-3 mt-auto'>
 
-    <Link className={cn(!service.available && 'cursor-not-allowed')} href={service.available ? `/book/${service.id}` : ''}><Button disabled={!service.available}>complete reservation</Button></Link>
+<Link className={cn("w-1/2",!service.available && 'cursor-not-allowed')} href={service.available ? `/book/${service.id}` : ''}><button className={cn('w-full rounded-xl bg-indigo-500 hover:bg-indigo-500/90  transition text-sm flex-shrink-0  py-2 text-white px-3')} disabled={!service.available}>Details</button></Link>
+<Link className={cn("w-1/2",!service.available && 'cursor-not-allowed')} href={service.available ? `/book/${service.id}` : ''}><button className={('w-full rounded-xl bg-orange-600 py-2 text-white transition hover:bg-orange-600/90 text-sm flex-shrink-0 px-3')} disabled={!service.available}>Book Now</button></Link>
+</div>
+    
 </div>)}
 
     </div>

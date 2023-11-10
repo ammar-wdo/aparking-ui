@@ -24,13 +24,12 @@ import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { DateRange } from "react-day-picker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Service } from "@/types";
 
 type Props = {
   service:Service| null
 };
-
 
 
 const BookingForm = ({service}: Props) => {
@@ -48,6 +47,15 @@ const BookingForm = ({service}: Props) => {
     from: new Date(form.getValues('arrivalDate')),
     to: addDays(new Date(form.getValues('departureDate')), 0),
   })
+
+
+// const [mount, setMount] = useState(false)
+
+// useEffect(()=>{
+//   setMount(true)
+// },[])
+
+// if(!mount) return null
 
   return (
     <Form {...form}>
@@ -139,7 +147,7 @@ const BookingForm = ({service}: Props) => {
         </PopoverContent>
       </Popover>
     
-            <p className="text-xs uppercase p-2">{`Parking days: ${form.watch('daysofparking')}` || 1 }</p>
+            <p className="text-xs uppercase p-2">{`Parking days: ${form.watch('daysofparking')}`  }</p>
             
 
           
