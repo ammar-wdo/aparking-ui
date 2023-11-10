@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.container{
+  @apply 3xl:max-w-[1500px] max-w-[1400px] w-full px-4 mx-auto
+}
+
+.siteButton{
+  @apply px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3
+}
