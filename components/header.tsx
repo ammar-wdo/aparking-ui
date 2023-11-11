@@ -3,6 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Logo from "./logo";
 
 type Props = {};
 
@@ -23,12 +24,9 @@ const Header = (props: Props) => {
     },
   ];
   return (
-    <div className="flex justify-between py-10 text-white items-center relative z-10">
-      <Link href={'/'}>
-      <div className="relative w-32 aspect-video ">
-        <Image src={'/aparking-logo.svg'} fill alt="logo"/>
-
-      </div></Link>
+    <div className="bg-indigo-500 ">
+       <div className="flex justify-between py-10 text-white items-center relative z-10 container">
+    <Logo />
       
       <nav className="flex md:gap-14 gap-6">
         {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center">{label} {Icon && Icon}</Link>)}
@@ -36,6 +34,8 @@ const Header = (props: Props) => {
         <button type="button" className="flex items-center ">EN <ChevronDown className="w-4 h-4 ml-1" /></button>
       </nav>
     </div>
+    </div>
+   
   );
 };
 

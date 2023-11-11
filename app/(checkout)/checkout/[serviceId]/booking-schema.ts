@@ -7,6 +7,9 @@ export const bookingSchema = z.object({
   address:z.string().optional(),
   arrivalDate:z.date(),
   bookingCode:z.string(),
+  firstName:z.string().min(1),
+  lastName:z.string().min(1),
+  email:z.string().email(),
   carColor:z.string().min(1),
   carLicense:z.string().min(1),
   carModel:z.string().min(1),
@@ -19,10 +22,15 @@ total:z.coerce.number().nonnegative().min(1,{message:'Wrong in pricing table'}),
   departureDate:z.date(),
   discount:z.coerce.number(),
   flightNumber:z.coerce.number().optional(),
+  isCompany:z.boolean(),
+  phoneNumber:z.string().refine((value) => {
+    const phoneRegex =/^(?:[0-9]){1,3}(?:[ -]*[0-9]){6,14}$/;
+    return phoneRegex.test(value);
+  }, "Invalid phone number"),
 
   parkingPrice:z.coerce.number(),
   
-  paymentMethod:z.enum(['MASTER_CARD','VISA_CARD','AMERICAN_EXPRESS','PAYPALL']),
+  paymentMethod:z.enum(['IDEAL','CREDIT_CARD','PAYPAL']),
   place:z.string().optional(),
   returnFlightNumber:z.coerce.number().optional(),
 
@@ -31,20 +39,7 @@ total:z.coerce.number().nonnegative().min(1,{message:'Wrong in pricing table'}),
   
 })
 
-export function calculateParkingDays(arrivalDate:Date,departureDate:Date) {
-  const arrival = new Date(arrivalDate);
-  const departure = new Date(departureDate);
 
-  // Calculate the time difference in milliseconds
-
-
-  const timeDiff = departure.getTime() - arrival.getTime();
-
-  // Calculate the number of days (rounded up)
-  const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-
-  return days;
-  }
 
 export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTime:string,departureTime:string,serviceId:string)=>{
     
@@ -55,25 +50,28 @@ export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTi
     return{
       bookingOnBusinessName:"",
     extraServiceFee:0,
-   
+   email:'',
     address:"",
-    arrivalDate:arrivalDate,
+    arrivalDate,
     bookingCode:"",
     carColor:"",
     carLicense:"",
+    firstName:'',
+    lastName:'',
     carModel:"",
     serviceId:serviceId,
     companyName:"",
-    daysofparking:calculateParkingDays(arrivalDate,departureDate),
+    daysofparking:0,
     arrivalTime:arrivalTime || '',
     departureTime:departureTime || '',
-    departureDate:new Date(Date.now()),
+    departureDate,
     discount:0,
-    flightNumber:0,
+    isCompany:false,
+    flightNumber:undefined,
  total:0,
     parkingPrice:0,
-
-    paymentMethod:'MASTER_CARD' as const ,
+phoneNumber:'',
+    paymentMethod:'IDEAL' as const ,
     place:'',
     returnFlightNumber:0,
     

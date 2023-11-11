@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { bookingDefaultValues, bookingSchema, calculateParkingDays } from "./booking-schema"
+import { bookingDefaultValues, bookingSchema } from "./booking-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useParams, useRouter } from "next/navigation"
@@ -15,10 +15,13 @@ type Props = {
     departureDate:Date,
     arrivalTime:string,
     departureTime:string,
-    service:Service | null
+  
 }
 
-export const useBooking = ({arrivalDate,arrivalTime,departureDate,departureTime,service}:Props)=>{
+export const useBooking = ({arrivalDate,arrivalTime,departureDate,departureTime}:Props)=>{
+
+
+  useEffect(()=>{},[arrivalDate,departureDate])
 
   const params = useParams()
 
@@ -32,30 +35,10 @@ export const useBooking = ({arrivalDate,arrivalTime,departureDate,departureTime,
     })
 
 
-    useEffect(()=>{
-const myPricing = service?.pricings.slice(0,form.getValues('daysofparking'))
-const totalPrice = myPricing?.reduce((i,value)=>i+value,0)
-
-form.setValue('total',totalPrice ?? 0)
-
-    },[form.getValues('daysofparking')])
+ 
 
 
-  useEffect(()=>{
-
-  const newArrivalDate = form.getValues('arrivalDate')
-  const newDepartureDate = form.getValues('departureDate')
-
-  
-
-  const parkingDays = calculateParkingDays(newArrivalDate,newDepartureDate) +1
-  
-   
-    form.setValue('daysofparking',parkingDays)
-
-  
-
-  },[form.getValues('arrivalDate'),form.getValues('departureDate')])
+ 
 
 
   

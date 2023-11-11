@@ -10,11 +10,12 @@ type Props = {
   startDateProp?:Date,
   endDateProp?:Date,
   startTimeProp?:string,
-  endTimeProp?:string
+  endTimeProp?:string,
+  change?:boolean
 
 };
 
-const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp}: Props) => {
+const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change}: Props) => {
   const {
     startDate,
     setStartDate,
@@ -76,7 +77,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp}: Props
           </div>
         </div>
         <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3">
-          Search
+         {change ?  "Change":"Search"}
         </button>
       </section>
     </div>
