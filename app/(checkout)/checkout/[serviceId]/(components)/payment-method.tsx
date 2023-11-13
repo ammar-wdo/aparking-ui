@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
-import { bookingSchema } from "../booking-schema";
+
 import {
   FormControl,
   FormDescription,
@@ -21,21 +21,21 @@ import { Separator } from "@/components/ui/separator";
 import { CheckCheck, ChevronLeft, ChevronRightIcon } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { bookingSchema } from "@/schemas";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
   setCarStep:Dispatch<SetStateAction<boolean>>,
   carStep:boolean,
   setPayStep:Dispatch<SetStateAction<boolean>>,
-  payStep:boolean
+  payStep:boolean,
+ 
 };
 
 const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep }: Props) => {
 
-const toCheckOut = ()=>{
-console.log('To Check Out')
 
-}
 
   return (
     <div className="space-y-5  bg-white p-6">
@@ -123,7 +123,7 @@ console.log('To Check Out')
         <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
           {<ChevronLeft className="mr-1 h-4 w-4" />}Back
         </button>
-        <button  onClick={toCheckOut} type="submit" className="flex items-center bg-orange-500 text-sm transition hover:bg-orange-500/90 text-white rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</button>
+        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" className="flex items-center bg-orange-500 text-sm transition hover:bg-orange-500/90 text-white rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
       </div>
       </>}
     </div>

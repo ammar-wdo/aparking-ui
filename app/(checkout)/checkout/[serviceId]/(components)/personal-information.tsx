@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
-import { bookingSchema } from "../booking-schema";
+
 import {
   FormControl,
   FormDescription,
@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
 import { CheckIcon, ChevronLeft, ChevronRightIcon } from "lucide-react";
+import { bookingSchema } from "@/schemas";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -46,6 +47,9 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
           "phoneNumber",
           "flightNumber",
         ],{shouldFocus:true});
+
+
+        
     if (isValid) {
       setCarStep(true);
     }
@@ -250,10 +254,11 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
                   <FormLabel>Flight Number *</FormLabel>
                   <FormControl>
                     <Input
+           
                       className="rounded-none"
                       placeholder="Flight number"
                       value={field.value}
-                      onChange={(e)=>{field.onChange(e);form.clearErrors('flightNumber')}}
+                      onChange={(e)=>{field.onChange(e);form.clearErrors('flightNumber');}}
                     />
                   </FormControl>
 

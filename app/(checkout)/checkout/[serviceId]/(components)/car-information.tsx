@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
-import { bookingSchema } from "../booking-schema";
+
 import {
   FormControl,
   FormDescription,
@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
 import { CheckCheck, CheckIcon, ChevronLeft, ChevronRightIcon } from "lucide-react";
+import { bookingSchema } from "@/schemas";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;

@@ -18,13 +18,20 @@ const page = async({params,searchParams}: Props) => {
   const endDate = searchParams["endDate"] as string;
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
+  const totalPrice = searchParams["totalPrice"] as string;
 
-  if (!startDate || !endDate || !startTime || !endTime) return redirect("/");
+  const data = await axios.get(`${ALL_SERVICES}/${params.serviceId}`)
+  const service = data.data as Service
+
+
+
+
+  if (!startDate || !endDate || !startTime || !endTime || !service) return redirect("/");
 
   return (
     <div className='p-8 bg-gray-100 min-h-screen'>
     <h3>booking</h3>
-    <BookingForm arrivalDate={startDate}  departureDate={endDate} arrivalTime={startTime} departureTime={endTime} />
+    <BookingForm arrivalDate={startDate}  departureDate={endDate} arrivalTime={startTime} departureTime={endTime} totalPrice={totalPrice} title={service.title} />
     </div>
   )
 }

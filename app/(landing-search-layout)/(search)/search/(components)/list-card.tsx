@@ -18,6 +18,7 @@ const ListCard = ({ service }: Props) => {
       startTime:service.startTime,
       endTime:service.endTime,
       totalPrice:service.totalPrice,
+     
       
     }
   })
