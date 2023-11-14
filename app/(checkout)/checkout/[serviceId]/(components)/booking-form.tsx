@@ -65,7 +65,7 @@ const [payStep, setPayStep] = useState(false)
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 container">
-        <div className=" grid grid-cols-3">
+        <div className=" grid lg:grid-cols-3 grid-cols-1">
 
           <div className="space-y-5  lg:col-span-2 p-5">
             <PersonalInformation form={form} setCarStep={setCarStep} carStep={carStep} />

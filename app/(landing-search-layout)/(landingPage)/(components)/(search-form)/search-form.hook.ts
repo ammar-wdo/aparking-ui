@@ -32,7 +32,7 @@ export const useSearchForm = ({
     setOpenStart(false);
 
     if (startDate) {
-      console.log(startDate);
+    
       if (!startTime) {
         setOpenStartTime(true);
       } else if (!endTime) {
@@ -80,10 +80,13 @@ export const useSearchForm = ({
   }, [endTime]);
 
   useEffect(() => {
-    if (startDate) {
-      const newEndDate = new Date(startDate);
-      newEndDate.setDate(startDate.getDate() + 4);
-      setEndDate(newEndDate);
+    if (startDate && endDate) {
+      if(startDate.getTime() > endDate?.getTime()  ){
+        const newEndDate = new Date(startDate);
+        newEndDate.setDate(startDate.getDate() + 4);
+        setEndDate(newEndDate);
+      }
+    
     }
   }, [startDate]);
 

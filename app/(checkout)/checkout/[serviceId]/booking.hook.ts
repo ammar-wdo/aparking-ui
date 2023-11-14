@@ -46,15 +46,13 @@ export const useBooking = ({
 
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
-    console.log(values);
-    console.log("hellop");
-    console.log(form.formState.errors)
+
 
           try {
 
     const result = await axios.post(ADD_BOOKMARK,values)
     router.push(result.data.url)
-    console.log(result)
+   
     toast.success('Successfully booked')
 
           } catch (error:any) {
