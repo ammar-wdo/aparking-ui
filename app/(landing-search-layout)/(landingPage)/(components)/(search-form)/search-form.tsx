@@ -40,7 +40,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
     handleClick
   } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp});
 
-  console.log(startDate,endDate)
+  console.log("STARTDATE",startDate,"ENDDATE",endDate)
 
   return (
     <div className="text-white ">
