@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3001'
+export const BASE_URL = process.env.BACKEND_URL
 
 export const ALL_SERVICES = BASE_URL + '/api/services'
 
