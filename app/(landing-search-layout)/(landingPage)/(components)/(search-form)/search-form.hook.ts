@@ -109,7 +109,7 @@ export const useSearchForm = ({
     else if (!endTime) setOpenEndTime(true);
     else {
       const url = qs.stringifyUrl({
-        url: "http://localhost:3000/search",
+        url: `${process.env.BACKEND_URL}/search`,
         query: {
           startDate: new Date(startDate).toLocaleDateString(),
           endDate: new Date(endDate).toLocaleDateString(),
