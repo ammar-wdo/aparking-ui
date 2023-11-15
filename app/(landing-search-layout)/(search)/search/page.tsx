@@ -27,6 +27,11 @@ const page = async ({ searchParams }: Props) => {
 
   if (!startDate || !endDate || !startTime || !endTime) return redirect("/");
 
+
+
+
+
+
   return (
     <div className="bg-gray-200 pb-10 ">
       <Banner noForm={true}>
@@ -41,6 +46,7 @@ const page = async ({ searchParams }: Props) => {
 
       <div className="container">
         <SearchForm
+
           startDateProp={new Date(startDate)}
           endDateProp={new Date(endDate)}
           startTimeProp={startTime}

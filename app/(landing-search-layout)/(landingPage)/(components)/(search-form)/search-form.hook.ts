@@ -2,18 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
 
+
 type Props = {
   startDateProp?: Date;
   endDateProp?: Date;
   startTimeProp?: string;
   endTimeProp?: string;
+
+
 };
 export const useSearchForm = ({
   startDateProp,
   startTimeProp,
   endDateProp,
   endTimeProp,
+
+
 }: Props) => {
+
+
   const [startDate, setStartDate] = useState<Date | undefined>(
     startDateProp || undefined
   );
@@ -103,13 +110,15 @@ export const useSearchForm = ({
 
   const router = useRouter();
   const handleClick = () => {
+
     if (!startDate) setOpenStart(true);
     else if (!endDate) setOpenEnd(true);
     else if (!startTime) setOpenStartTime(true);
     else if (!endTime) setOpenEndTime(true);
     else {
+
       const url = qs.stringifyUrl({
-        url: `${process.env.MY_URL}/search`,
+        url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
           startDate: new Date(startDate).toLocaleDateString(),
           endDate: new Date(endDate).toLocaleDateString(),

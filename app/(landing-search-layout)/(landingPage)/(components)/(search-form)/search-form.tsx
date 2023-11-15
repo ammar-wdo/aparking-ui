@@ -5,17 +5,21 @@ import { DatePicker } from "./date-picker";
 import { useSearchForm } from "./search-form.hook";
 import TimeSelect from "./time-select";
 import { cn } from "@/lib/utils";
+import { ALL_SERVICES } from "@/links";
 
 type Props = {
   startDateProp?:Date,
   endDateProp?:Date,
   startTimeProp?:string,
   endTimeProp?:string,
-  change?:boolean
+  change?:boolean,
+
 
 };
 
-const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change}: Props) => {
+const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,}: Props) => {
+
+
   const {
     startDate,
     setStartDate,
