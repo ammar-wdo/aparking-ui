@@ -26,7 +26,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
 
    
   
-
+console.log(new Date())
 
   return (
     <Popover  open={open}  onOpenChange={setOpen}>
@@ -49,9 +49,9 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
         className=""
         disabled={(date)=>{
             if(fromDate){
-                return date < new Date() || date < fromDate
+                return date< new Date(new Date().setHours(0,0,0,0)) || date < new Date( fromDate.setHours(0,0,0,0))
             }
-            return date < new Date()
+            return date <   new Date(new Date().setHours(0,0,0,0))
         } }
           mode="single"
           selected={date}

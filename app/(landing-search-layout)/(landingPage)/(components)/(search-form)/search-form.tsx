@@ -40,6 +40,8 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
     handleClick
   } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp});
 
+  console.log(startDate,endDate)
+
   return (
     <div className="text-white ">
       {<div className={cn("fixed inset-0 opacity-0 duration-300 bg-black/60 delay-100",(openStart||openEnd||openStartTime||openEndTime) && 'opacity-100 ')}></div>}
@@ -59,6 +61,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
                 open={openStart}
                 setOpen={setOpenStart}
                 date={startDate}
+                
                 setDate={setStartDate}
               />
               <TimeSelect
