@@ -26,7 +26,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
 
    
   
-console.log(new Date())
+
 
   return (
     <Popover  open={open}  onOpenChange={setOpen}>

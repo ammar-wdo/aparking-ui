@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { Service } from "@/types";
 import { bookingSchema } from "@/schemas";
+import { handleTimezone } from "@/lib/timezone-handler";
 
 type Props = {
   arrivalDate: Date;
@@ -46,11 +47,13 @@ export const useBooking = ({
 
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
-
-
+const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
+const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString}
+console.log(values)
+console.log(refinedValues)
           try {
 
-    const result = await axios.post(ADD_BOOKMARK,values)
+    const result = await axios.post(ADD_BOOKMARK,refinedValues)
     router.push(result.data.url)
    
     toast.success('Successfully booked')
