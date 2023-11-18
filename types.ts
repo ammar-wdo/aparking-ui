@@ -20,7 +20,7 @@ export type Service = {
   longitude: string;
   parkingType: "shuttle" | "valet";
   timeToAirport?: string;
-  title: string;
+  name: string;
   zipcode: string;
   company: any;
   available: boolean;

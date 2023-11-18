@@ -24,11 +24,9 @@ const ListCard = ({ service }: Props) => {
   })
   return (
     <div className="p-5 bg-white  rounded-md flex flex-col gap-5">
-      <p>{service.title}</p>
+      <p>{service.name}</p>
 
-      <p>{service.city}</p>
-      <p>{service.description}</p>
-      <p>${service.totalPrice}</p>
+    
 
       <div className="flex items-center gap-3 mt-auto">
         <Link
