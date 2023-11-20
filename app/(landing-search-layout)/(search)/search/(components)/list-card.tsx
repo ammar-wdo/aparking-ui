@@ -22,9 +22,12 @@ const ListCard = ({ service }: Props) => {
       
     }
   })
+
+  console.log(service.totalPrice)
   return (
     <div className="p-5 bg-white  rounded-md flex flex-col gap-5">
       <p>{service.name}</p>
+      <p>${service.totalPrice}</p>
 
     
 
