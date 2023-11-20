@@ -117,6 +117,8 @@ export const useSearchForm = ({
     else if (!endTime) setOpenEndTime(true);
     else {
 console.log("env",process.env.NEXT_PUBLIC_MY_URL)
+console.log('test')
+console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTime",endTime)
       const url = qs.stringifyUrl({
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
@@ -126,7 +128,7 @@ console.log("env",process.env.NEXT_PUBLIC_MY_URL)
           endTime,
         },
       });
-
+console.log("url",url)
       router.push(url);
     }
   };
