@@ -28,7 +28,7 @@ const page = async ({ searchParams }: Props) => {
   if (!startDate || !endDate || !startTime || !endTime) return redirect("/");
 
 
-
+console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTime",endTime)
 
 
 

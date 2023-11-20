@@ -116,7 +116,7 @@ export const useSearchForm = ({
     else if (!startTime) setOpenStartTime(true);
     else if (!endTime) setOpenEndTime(true);
     else {
-
+console.log("env",process.env.NEXT_PUBLIC_MY_URL)
       const url = qs.stringifyUrl({
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
