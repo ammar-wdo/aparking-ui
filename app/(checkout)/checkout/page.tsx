@@ -6,7 +6,7 @@ type Props = {
 
 const page = ({searchParams}: Props) => {
 
-if(  searchParams['success'] === 'true') return <div>
+if(  !!searchParams['success'] ) return <div>
     Suucceded
 </div>
 
