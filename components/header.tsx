@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Logo from "./logo";
+import SigninOut from "./signin-out";
 
 type Props = {};
 
@@ -30,7 +31,7 @@ const Header = (props: Props) => {
       
       <nav className="flex md:gap-14 gap-6">
         {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center">{label} {Icon && Icon}</Link>)}
-        <button className="siteButton rounded-xl">Sign in</button>
+      <SigninOut />
         <button type="button" className="flex items-center ">EN <ChevronDown className="w-4 h-4 ml-1" /></button>
       </nav>
     </div>
