@@ -48,7 +48,7 @@ export type Booking = {
   carLicense: string;
   carModel: string;
   companyName?: string;
-  // customerId   :string,
+
   serviceId: string;
   email: String;
   firstName: String;

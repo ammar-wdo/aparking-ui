@@ -4,6 +4,8 @@ export const ALL_SERVICES = BASE_URL + '/api/services'
 
 export const ADD_BOOKMARK = BASE_URL + '/api/checkout'
 
+export const GET_BOOKING = BASE_URL + '/api/booking'
+
 
 
 
