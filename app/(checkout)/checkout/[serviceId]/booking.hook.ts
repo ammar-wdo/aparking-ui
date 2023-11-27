@@ -7,7 +7,7 @@ import axios from "axios";
 import { ADD_BOOKMARK } from "@/links";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
-import { Service } from "@/types";
+
 import { bookingSchema } from "@/schemas";
 import { handleTimezone } from "@/lib/timezone-handler";
 

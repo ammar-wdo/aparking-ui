@@ -1,5 +1,6 @@
 import { GET_BOOKING } from '@/links'
-import { Booking } from '@/types'
+import { Booking } from '@/schemas'
+
 import axios from 'axios'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -16,7 +17,7 @@ const page = async({searchParams}: Props) => {
   if(!searchParams.success) return redirect('/')
 
 const res = await axios.get(GET_BOOKING + `?bookingId=${searchParams.success}`)
-const booking = res.data.booking  as Booking
+const booking = res.data.booking  as Booking &{bookingCode:string}
 if(!booking) return redirect('/')
 console.log(res.data)
 

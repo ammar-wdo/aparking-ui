@@ -2,6 +2,8 @@ import { z } from "zod";
 
 export const bookingSchema = z
   .object({
+    id:z.string().optional(),
+    daysofparking:z.coerce.number().optional(),
     bookingOnBusinessName: z.string().optional(),
     extraServiceFee: z.coerce.number(),
 
@@ -16,7 +18,7 @@ export const bookingSchema = z
     carLicense: z.string().min(1),
     carModel: z.string().min(1),
     serviceId: z.string().min(1),
-
+total:z.coerce.number(),
     companyName: z.string().optional(),
     arrivalTime: z.string(),
     departureTime: z.string(),
@@ -52,3 +54,46 @@ export const bookingSchema = z
     path: ["zipcode"],
   }).refine((data)=>new Date(data.arrivalDate).getTime() <= new Date(data.departureDate).getTime(),{message:'departure time should be greater or equal to arrival time',path:["paymentMethod"]})
   ;
+
+
+
+  const emailSchema = z.string().email()
+  export const serviceSchema = z.object({
+    name:z.string().min(1),
+   terms:z.string().min(1),
+   bookingsEmail:z.union([z.string(), z.undefined()])
+   .refine((val) => !val || emailSchema.safeParse(val).success),
+   parkingAddress:z.string().min(1),
+   parkingZipcode:z.string().min(1),
+   parkingCountry:z.string().min(1),
+   parkingPlace:z.string().min(1),
+   spots:z.coerce.number().positive().default(1),
+   parkingType:z.enum(['shuttle','valet']).default('valet'),
+   arrivalTodos:z.string().optional(),
+   departureTodos:z.string().optional(),
+  pricings:z.array(z.coerce.number()),
+   available:z.boolean().default(false),
+   airportId:z.string().min(1),
+   entityId:z.string().min(1)
+
+  
+  
+  });
+  export type Service = z.infer<typeof serviceSchema> & {startDate?:string,endDate?:string,startTime?:string,endTime?:string,totalPrice?:string,id:string}
+
+
+  export type Booking = z.infer<typeof bookingSchema> 
+
+ export  type Rule = {
+    id: string;
+    label: string;
+    startDate: Date;
+    endDate: Date;
+    type: "FIXED" | "PERCENTAGE";
+    action: "TOTAL" |"DAY";
+    percentage: number | null;
+    value: number | null;
+    serviceId: string;
+    createdAt: Date;
+    updatedAt: Date;
+}

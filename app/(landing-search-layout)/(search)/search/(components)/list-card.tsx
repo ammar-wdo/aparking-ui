@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Service } from "@/types";
+
 import Link from "next/link";
 import React from "react";
 import qs from 'query-string'
+import { Service } from "@/schemas";
 
 type Props = {
   service: Service;

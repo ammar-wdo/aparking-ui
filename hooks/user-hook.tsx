@@ -1,8 +1,10 @@
+
+import { Booking } from '@/schemas'
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 type User = {
-  user: any
+  user: Booking  | null
   setUser: (val:any) => void
   exitUser:()=>void
 }
