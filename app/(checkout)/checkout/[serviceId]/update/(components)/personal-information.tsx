@@ -361,7 +361,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Prop
                     selected={new Date(field.value)}
                     onSelect={field.onChange}
                     disabled={(date) =>
-                      date < new Date(form.getValues('arrivalDate').setHours(0,0,0,0))
+                      date < new Date(form.getValues('arrivalDate')?.setHours(0,0,0,0))
                     }
                     initialFocus
                   />

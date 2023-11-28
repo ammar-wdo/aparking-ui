@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
-import { ADD_BOOKMARK } from "@/links";
+import { ADD_BOOKMARK, UPDATE_BOOKING } from "@/links";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 
@@ -24,6 +24,7 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
   const serviceId = service.id;
   const {user} = useUser()
+
 
   const [newDays, setNewDays] = useState(0)
 
@@ -50,14 +51,22 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
 
 let newPakingDays
-const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch('arrivalDate').toString(),form.watch('departureDate').toString())
+const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch('arrivalDate')?.toString(),form.watch('departureDate')?.toString()) 
+
+
+useEffect(()=>{
+  if(newPrice){
+    console.log("total",newPrice)
+    form.setValue('total',newPrice)
+  }
+},[newPrice])
 
 
 const [isValid, setIsValid] = useState<boolean | undefined>()
 const [validPrice, setValidPrice] = useState<boolean | undefined>()
 
 useEffect(()=>{
-console.log("hello",isValid,validPrice)
+
   if(!isValid || !validPrice){
     setBlock(true)
   }
@@ -100,26 +109,29 @@ useEffect(()=>{
   useEffect(()=>{
 
 if(form.getValues('arrivalDate') && form.getValues('departureDate')){
-  // console.log(form.getValues('arrivalDate').toLocaleDateString(),form.getValues('departureDate').toLocaleDateString())
+
   if(new Date(form.getValues('arrivalDate')).getTime()>new Date(form.getValues('departureDate')).getTime()){
     form.setValue('departureDate',new Date(form.getValues('arrivalDate')))
   }
   
   newPakingDays = calculateParkingDays(form.getValues('arrivalDate'),form.getValues('departureDate'))
 
-
+  form.setValue('daysofparking',newPakingDays)
  
-  // console.log("parking days",user?.daysofparking,"new paking days",newPakingDays)
+ 
   if(newPakingDays > user?.daysofparking!){
     setNewDays(newPakingDays - user?.daysofparking!)
   }else{
+  
     setNewDays(0)
   }
-}
 
 
  const validService = isServiceValid(service,form.getValues('arrivalDate').toString(),form.getValues('departureDate').toString(),user?.id!,newDays)
-setIsValid(validService)
+ setIsValid(validService)
+}
+
+
 
 
 
@@ -140,13 +152,13 @@ setIsValid(validService)
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
     
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
-const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString}
+const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
 console.log(values)
 console.log(refinedValues)
           try {
 
-    // const result = await axios.post(ADD_BOOKMARK,refinedValues)
-    // router.push(result.data.url)
+    const result = await axios.post(UPDATE_BOOKING,refinedValues)
+    router.push(result.data.url)
    
     toast.success('Successfully booked')
 

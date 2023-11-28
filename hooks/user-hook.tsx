@@ -4,7 +4,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 type User = {
-  user: Booking  | null
+  user: Booking &{bookingCode:string}  | null
   setUser: (val:any) => void
   exitUser:()=>void
 }
