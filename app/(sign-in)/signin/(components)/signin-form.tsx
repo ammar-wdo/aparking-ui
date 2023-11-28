@@ -15,6 +15,7 @@ import Link from "next/link";
 import { Loader2 } from "lucide-react";
 import { useUser } from "@/hooks/user-hook";
 import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 type Props = {};
 
@@ -30,7 +31,14 @@ const SigninForm = (props: Props) => {
   const isLoading = form.formState.isSubmitting;
 
 const router = useRouter()
- if(user) return router.push(`/checkout/${user.serviceId}/update`)
+
+
+ useEffect(()=>{
+
+  if(user)  {router.push(`/checkout/${user.serviceId}/update`)}
+ },[])
+
+ if(user) return null
 
   return (
     <div className="h-screen flex items-center justify-center">
