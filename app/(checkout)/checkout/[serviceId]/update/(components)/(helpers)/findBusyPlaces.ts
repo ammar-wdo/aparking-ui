@@ -7,7 +7,7 @@ export const findBusyPlaces = (
   endDate: string,
   bookingId:string
 ) => {
-  const busyPlaces = bookings.filter((booking) => {
+  const busyPlaces = bookings?.filter((booking) => {
     const arrivalDate = new Date(booking.arrivalDate);
     const departureDate = new Date(booking.departureDate);
     if(bookingId === booking.id){

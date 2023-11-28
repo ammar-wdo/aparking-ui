@@ -24,7 +24,7 @@ export const isServiceValid = (
 
 
       const isBlocked = findBlockingDates(
-        service.availability,
+        service?.availability,
         startDate,
         endDate
       );
