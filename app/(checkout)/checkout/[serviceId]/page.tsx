@@ -1,9 +1,10 @@
 import { ALL_SERVICES } from '@/links'
-import { Service } from '@/types'
+
 import axios from 'axios'
 import React from 'react'
 import BookingForm from './(components)/booking-form'
 import { redirect } from 'next/navigation'
+import { Service } from '@/schemas'
 
 type Props = {
     params:{serviceId:string},
