@@ -41,7 +41,7 @@ import { findTotalPrice } from "./(helpers)/findNewTotal";
 
 type Props = {
 
-service:Service &{rules:Rule[]}
+service:Service &{rules:Rule[],availability:any[],bookings:any[]}
 
 };
 
@@ -54,7 +54,7 @@ const EditBookingForm = ({service}: Props) => {
 const [mount,setMount] = useState(false)
 useEffect(()=>{setMount(true)},[])
   const { form, onSubmit ,timeArray,newDays,newPrice,block} = useEditBooking(service);
-  console.log("new price",newPrice)
+
 
   const isLoading = form.formState.isSubmitting;
 
@@ -66,7 +66,7 @@ const {user} = useUser()
 if(!mount) return null
 
 if(!user) return redirect('/')
-console.log(block)
+
 
 
 
@@ -91,7 +91,7 @@ console.log(block)
 
 <div>
 {!!newDays &&<p className="py-4 font-semibold">{newDays} + Additional day(s)</p> }
-{!block? <p>€{newPrice-user.total}</p> :<p className="text-sm text-rose-500">Not available for this date</p>}
+{!block  ?(!!newDays && <p>€{newPrice-user.total}</p>) :<p className="text-sm text-rose-500">Not available for this date</p>}
 
 
 </div>

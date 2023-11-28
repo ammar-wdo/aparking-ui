@@ -13,10 +13,11 @@ import { handleTimezone } from "@/lib/timezone-handler";
 import { useUser } from "@/hooks/user-hook";
 import { calculateParkingDays } from "./(helpers)/findParkingDays";
 import { findTotalPrice } from "./(components)/(helpers)/findNewTotal";
+import { isServiceValid } from "./(components)/(helpers)/isServiceValid";
 
 
 
-export const useEditBooking = (service:Service & {pricings:number[],rules:Rule[]}) => {
+export const useEditBooking = (service:Service & {pricings:number[],rules:any[],availability:any[],bookings:any[]}) => {
 
 
   const params = useParams();
@@ -52,13 +53,38 @@ let newPakingDays
 const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch('arrivalDate').toString(),form.watch('departureDate').toString())
 
 
+const [isValid, setIsValid] = useState<boolean | undefined>()
+const [validPrice, setValidPrice] = useState<boolean | undefined>()
+
+useEffect(()=>{
+console.log("hello",isValid,validPrice)
+  if(!isValid || !validPrice){
+    setBlock(true)
+  }
+
+  if(isValid && validPrice)
+  {
+    setBlock(false)
+  }
+},[validPrice,isValid])
+
+
 useEffect(()=>{
   if(newDays){
-    if(isNaN(newPrice) ){
-      setBlock(true)
+
+    if(isNaN(newPrice) || newPrice === 0 || !newPrice ){
+      setValidPrice(false)
     }else{
-      setBlock(false)
+     setValidPrice(true)
     }
+
+
+  
+  }
+
+  if(!newDays){
+    
+  setValidPrice(true)
   }
 },[newDays])
 
@@ -80,6 +106,9 @@ if(form.getValues('arrivalDate') && form.getValues('departureDate')){
   }
   
   newPakingDays = calculateParkingDays(form.getValues('arrivalDate'),form.getValues('departureDate'))
+
+
+ 
   // console.log("parking days",user?.daysofparking,"new paking days",newPakingDays)
   if(newPakingDays > user?.daysofparking!){
     setNewDays(newPakingDays - user?.daysofparking!)
@@ -89,7 +118,16 @@ if(form.getValues('arrivalDate') && form.getValues('departureDate')){
 }
 
 
+ const validService = isServiceValid(service,form.getValues('arrivalDate').toString(),form.getValues('departureDate').toString(),user?.id!,newDays)
+setIsValid(validService)
+
+
+
+
   },[form.watch('departureDate'),form.watch('arrivalDate')])
+
+
+  
 
 
 

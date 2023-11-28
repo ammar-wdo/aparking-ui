@@ -13,10 +13,9 @@ const page = async({params}: Props) => {
 
 
     const data = await axios.get(`${ALL_SERVICES}/${params.serviceId}`)
-  const service = data.data as Service & {rules:Rule[]}
+  const service = data.data as Service & {rules:Rule[],availability:any[],bookings:any[]}
   if(!service) redirect('/')
 
-console.log(service)
 if(!service) return redirect('/')
   return (
     <div className='p-8 bg-gray-100 min-h-screen'>
