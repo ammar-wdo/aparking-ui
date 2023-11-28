@@ -25,7 +25,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { DateRange } from "react-day-picker";
 import { useEffect, useState } from "react";
-import { Service } from "@/types";
+
 import PersonalInformation from "./personal-information";
 import CarInformation from "./car-information";
 import PaymentMethod from "./payment-method";
