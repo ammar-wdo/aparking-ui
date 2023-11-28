@@ -49,7 +49,7 @@ export const useBooking = ({
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString}
-console.log(values)
+
 console.log(refinedValues)
           try {
 

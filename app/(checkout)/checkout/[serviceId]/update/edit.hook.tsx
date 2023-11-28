@@ -24,7 +24,7 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
   const serviceId = service.id;
   const {user} = useUser()
-
+console.log(user)
 
   const [newDays, setNewDays] = useState(0)
 
@@ -56,7 +56,7 @@ const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch(
 
 useEffect(()=>{
   if(newPrice){
-    console.log("total",newPrice)
+   
     form.setValue('total',newPrice)
   }
 },[newPrice])
@@ -153,12 +153,15 @@ if(form.getValues('arrivalDate') && form.getValues('departureDate')){
     
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
-console.log(values)
+
 console.log(refinedValues)
           try {
 
     const result = await axios.post(UPDATE_BOOKING,refinedValues)
-    router.push(result.data.url)
+    if(result.data.url){
+      router.push(result.data.url)
+    }
+   
    
     toast.success('Successfully booked')
 

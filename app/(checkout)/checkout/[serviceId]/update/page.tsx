@@ -9,6 +9,8 @@ import { Rule, Service } from '@/schemas'
 
 type Props = {params:{serviceId:string}}
 
+export const revalidate = 0
+
 const page = async({params}: Props) => {
 
 

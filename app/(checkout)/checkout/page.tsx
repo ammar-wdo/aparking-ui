@@ -19,7 +19,7 @@ const page = async({searchParams}: Props) => {
 const res = await axios.get(GET_BOOKING + `?bookingId=${searchParams.success}`)
 const booking = res.data.booking  as Booking &{bookingCode:string}
 if(!booking) return redirect('/')
-console.log(res.data)
+
 
  return <div className='p-12 '>
 
