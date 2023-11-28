@@ -3,7 +3,7 @@ import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ALL_SERVICES } from "@/links";
-import { Service } from "@/types";
+
 import axios from "axios";
 import format from "date-fns/format";
 import Image from "next/image";

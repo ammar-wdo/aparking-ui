@@ -1,10 +1,11 @@
 import { cn } from "@/lib/utils";
 import { ALL_SERVICES } from "@/links";
-import { Service } from "@/types";
+
 import axios from "axios";
 import Link from "next/link";
 import qs from "query-string";
 import ListCard from "./list-card";
+import { Service } from "@/schemas";
 
 type Props = {
   startDate: string;
@@ -28,9 +29,10 @@ const SearchFeed = async ({
       endTime,
     },
   });
-
+ 
+  type FullService =Service &{totalPrice:number}
   const services = await axios.get(url);
-  const data = services.data as Service[];
+  const data = services.data as FullService[];
 
 
   return (
