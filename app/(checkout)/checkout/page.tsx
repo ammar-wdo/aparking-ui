@@ -4,6 +4,7 @@ import { Booking } from '@/schemas'
 import axios from 'axios'
 import { redirect } from 'next/navigation'
 import React from 'react'
+import ResetUser from './reset-user'
 
 type Props = {
     searchParams:{[key:string]:string | string[] | undefined}
@@ -39,7 +40,7 @@ if(!booking) return redirect('/')
   </div>
 
   <p className='mt-4 text-xs'>You can use your email and booking code to signin and change your information</p>
-
+<ResetUser />
     
 </div>
 
