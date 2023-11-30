@@ -82,14 +82,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Prop
           )}
         </div>
 
-        {!carStep && (
-          <p className="text-sm py-3 font-light">
-            You have an account?{" "}
-            <Link className="text-blue-600 underline" href={""}>
-              Login and go directly to payment
-            </Link>
-          </p>
-        )}
+     
       </div>
       {!carStep && (
         <>

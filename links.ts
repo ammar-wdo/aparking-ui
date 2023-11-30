@@ -8,6 +8,8 @@ export const UPDATE_BOOKING = BASE_URL + '/api/checkout/update'
 
 export const GET_BOOKING = BASE_URL + '/api/booking'
 
+export const DELETE_BOOKING = BASE_URL + '/api/booking/cancel'
+
 
 
 

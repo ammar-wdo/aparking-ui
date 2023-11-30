@@ -24,7 +24,8 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
   const serviceId = service.id;
   const {user} = useUser()
-console.log(user)
+
+
 
   const [newDays, setNewDays] = useState(0)
 
@@ -137,6 +138,9 @@ if(form.getValues('arrivalDate') && form.getValues('departureDate')){
 
 
   },[form.watch('departureDate'),form.watch('arrivalDate')])
+
+
+ 
 
 
   
