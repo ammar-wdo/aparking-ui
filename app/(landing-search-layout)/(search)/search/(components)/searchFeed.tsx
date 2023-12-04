@@ -12,6 +12,7 @@ type Props = {
   endDate: string;
   startTime: string;
   endTime: string;
+  airport:string
 };
 
 const SearchFeed = async ({
@@ -19,10 +20,12 @@ const SearchFeed = async ({
   endDate,
   startTime,
   endTime,
+  airport
 }: Props) => {
   const url = qs.stringifyUrl({
     url: ALL_SERVICES,
     query: {
+      airport,
       startDate,
       endDate,
       startTime,

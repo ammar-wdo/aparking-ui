@@ -2,7 +2,7 @@ import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)
 import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ALL_SERVICES } from "@/links";
+import { ALL_SERVICES, GET_AIRPORTS } from "@/links";
 
 import axios from "axios";
 import format from "date-fns/format";
@@ -20,17 +20,27 @@ type Props = {
 };
 
 const page = async ({ searchParams }: Props) => {
+  const res = await axios.get(GET_AIRPORTS);
+
+  const airport = searchParams["airport"] as string;
   const startDate = searchParams["startDate"] as string;
   const endDate = searchParams["endDate"] as string;
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
 
-  if (!startDate || !endDate || !startTime || !endTime) return redirect("/");
+  if (!airport || !startDate || !endDate || !startTime || !endTime)
+    return redirect("/");
 
-
-console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTime",endTime)
-
-
+  console.log(
+    "startDate",
+    startDate,
+    "endDate",
+    endDate,
+    "startTime",
+    startTime,
+    "endTime",
+    endTime
+  );
 
   return (
     <div className="bg-gray-200 pb-10 ">
@@ -46,22 +56,23 @@ console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTi
 
       <div className="container">
         <SearchForm
-
+          airports={res.data.airports}
+          airportProp={airport}
           startDateProp={new Date(startDate)}
           endDateProp={new Date(endDate)}
           startTimeProp={startTime}
           endTimeProp={endTime}
           change={true}
         />
-<Suspense fallback={<SearchFeedSkeleton />}>
-<SearchFeed
-          startDate={startDate}
-          endDate={endDate}
-          startTime={startTime}
-          endTime={endTime}
-        />
-</Suspense>
-      
+        <Suspense fallback={<SearchFeedSkeleton />}>
+          <SearchFeed
+            airport={airport}
+            startDate={startDate}
+            endDate={endDate}
+            startTime={startTime}
+            endTime={endTime}
+          />
+        </Suspense>
       </div>
     </div>
   );

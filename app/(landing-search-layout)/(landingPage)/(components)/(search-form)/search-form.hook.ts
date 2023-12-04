@@ -8,7 +8,7 @@ type Props = {
   endDateProp?: Date;
   startTimeProp?: string;
   endTimeProp?: string;
-  airportProp?:{id:string,name:string}
+  airportProp?:string
 
 
 };
@@ -22,7 +22,8 @@ export const useSearchForm = ({
 
 }: Props) => {
 
-const [airport, setAirport] = useState<typeof airportProp | undefined>(airportProp || undefined)
+const [airport, setAirport] = useState(airportProp || '')
+const [openAirport, setOpenAirport] = useState(false)
   const [startDate, setStartDate] = useState<Date | undefined>(
     startDateProp || undefined
   );
@@ -37,6 +38,31 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
   const [openEndTime, setOpenEndTime] = useState<boolean>(false);
   const [openEnd, setOpenEnd] = useState<boolean>(false);
 
+ 
+ 
+ 
+  useEffect(() => {
+    setOpenAirport(false);
+
+    if (airport) {
+      if (!startDate) {
+        setOpenStart(true);
+      }
+     else if (!startTime) {
+        setOpenStartTime(true);
+      }
+      else if (!endDate) {
+        setOpenEnd(true);
+      } else if (!endTime) {
+        setOpenEndTime(true);
+      }
+    }
+  }, [airport]);
+ 
+ 
+ 
+ 
+ 
   useEffect(() => {
     setOpenStart(false);
 
@@ -49,6 +75,9 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
         setOpenEnd(true);
       } else if (!endTime) {
         setOpenEndTime(true);
+      }
+      else if (!airport) {
+        setOpenAirport(true);
       }
     }
   }, [startDate]);
@@ -64,6 +93,9 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
       } else if (!endTime) {
         setOpenEndTime(true);
       }
+      else if (!airport) {
+        setOpenAirport(true);
+      }
     }
   }, [endDate]);
 
@@ -73,10 +105,13 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
         setOpenStart(true);
       }
       else if (!endDate) {
-        setOpenEndTime(true);
+        setOpenEnd(true);
       } else if (!endTime) {
         setOpenEndTime(true);
       } 
+      else if (!airport) {
+        setOpenAirport(true);
+      }
     }
   }, [startTime]);
 
@@ -88,6 +123,9 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
         setOpenStartTime(true);
       } else if (!endDate) {
         setOpenEnd(true);
+      }
+      else if (!airport) {
+        setOpenAirport(true);
       }
     }
   }, [endTime]);
@@ -116,8 +154,8 @@ const [airport, setAirport] = useState<typeof airportProp | undefined>(airportPr
 
   const router = useRouter();
   const handleClick = () => {
-
-    if (!startDate) setOpenStart(true);
+if(!airport) setOpenAirport(true)
+   else if (!startDate) setOpenStart(true);
     else if (!endDate) setOpenEnd(true);
     else if (!startTime) setOpenStartTime(true);
     else if (!endTime) setOpenEndTime(true);
@@ -128,6 +166,7 @@ console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTi
       const url = qs.stringifyUrl({
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
+          airport:airport,
           startDate: new Date(startDate).toLocaleDateString(),
           endDate: new Date(endDate).toLocaleDateString(),
           startTime,
@@ -142,6 +181,8 @@ console.log("url",url)
   return {
     airport,
     setAirport,
+    openAirport,
+    setOpenAirport,
     startDate,
     setStartDate,
     endDate,

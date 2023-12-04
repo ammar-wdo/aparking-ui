@@ -22,7 +22,7 @@ const Banner =async ({children,noForm}: Props) => {
           {children}
         </div>
       
-       { !noForm && <SearchForm airports={res.data} />}
+       { !noForm && <SearchForm airports={res.data.airports} />}
         </div>
       
       </div>
