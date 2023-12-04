@@ -154,6 +154,7 @@ const [openAirport, setOpenAirport] = useState(false)
 
   const router = useRouter();
   const handleClick = () => {
+    console.log(startDate,endDate)
 if(!airport) setOpenAirport(true)
    else if (!startDate) setOpenStart(true);
     else if (!endDate) setOpenEnd(true);
@@ -167,8 +168,8 @@ console.log("startDate",startDate,"endDate",endDate,"startTime",startTime,"endTi
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
           airport:airport,
-          startDate: new Date(startDate).toLocaleDateString(),
-          endDate: new Date(endDate).toLocaleDateString(),
+          startDate: startDate.toLocaleDateString(),
+          endDate: endDate.toLocaleDateString(),
           startTime,
           endTime,
         },
