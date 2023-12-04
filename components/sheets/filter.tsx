@@ -32,7 +32,7 @@ import { Button } from "../ui/button"
         <SheetHeader>
             <SheetTitle className="p-4">Filter the results</SheetTitle>
         </SheetHeader>
-        <div className=" flex flex-col  h-[95vh] pb-12">
+        <div className=" flex flex-col  h-[95vh] pb-2">
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
     <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Parking Service</AccordionTrigger>
@@ -168,7 +168,7 @@ import { Button } from "../ui/button"
     </AccordionContent>
   </AccordionItem>
 </Accordion>
-<Button variant={'site'} className="mt-auto mx-4">Filter</Button>
+<Button variant={'site'} className="mt-auto mx-4 rounded-full">Filter</Button>
 </div>
    
         </SheetContent>
