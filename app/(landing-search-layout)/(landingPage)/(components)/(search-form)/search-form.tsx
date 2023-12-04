@@ -92,7 +92,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
+        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
          {change ?  "Change":"Search"}
         </button>
         {change && <Filter />}

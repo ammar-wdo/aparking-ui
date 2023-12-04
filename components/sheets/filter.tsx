@@ -26,7 +26,7 @@ import { Button } from "../ui/button"
   const Filter = (props: Props) => {
     return (
         <Sheet >
-        <SheetTrigger className="flex items-center gap-3 border border-orange-500 text-orange-500 bg-white rounded-xl cursor-pointer p-6  justify-center"><SlidersHorizontal />  Filters</SheetTrigger>
+        <SheetTrigger className="flex items-center gap-3 border transition  border-orange-500 text-orange-500 bg-white rounded-xl cursor-pointer p-3  px-6  justify-center"><SlidersHorizontal className="w-5 h-5"/>  <span className="font-semibold">Filters</span></SheetTrigger>
       
         <SheetContent side={'left'} className="p-0">
         <SheetHeader>
@@ -35,7 +35,7 @@ import { Button } from "../ui/button"
         <div className=" flex flex-col  h-[95vh] pb-2">
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Parking Service</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4  text-sm text-neutral-500">Parking Service</AccordionTrigger>
     <AccordionContent className="px-4">
 
     <div className="flex items-center space-x-2 ">

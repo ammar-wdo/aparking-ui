@@ -35,7 +35,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start text-left font-norma text-zinc-500 font-light border-none p-3",
+            "w-full justify-start text-left font-norma text-zinc-500 font-light border-none p-1",
             !date && "text-black"
           )}
         >
