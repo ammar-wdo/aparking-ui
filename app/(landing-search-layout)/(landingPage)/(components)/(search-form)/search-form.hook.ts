@@ -167,8 +167,8 @@ console.log("env",process.env.NEXT_PUBLIC_MY_URL)
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
           airport:airport,
-          startDate: startDate.toISOString(),
-          endDate: endDate.toISOString(),
+          startDate: startDate.toString(),
+          endDate: endDate.toString(),
           startTime,
           endTime,
         },
