@@ -7,6 +7,8 @@ import TimeSelect from "./time-select";
 import { cn } from "@/lib/utils";
 import { ALL_SERVICES } from "@/links";
 import AirportSelect from "./airport-select";
+import Filter from "@/components/sheets/filter";
+
 
 type Props = {
   startDateProp?:Date,
@@ -90,9 +92,10 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3">
+        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 rounded-r-xl">
          {change ?  "Change":"Search"}
         </button>
+        {change && <Filter />}
       </section>
     </div>
   );
