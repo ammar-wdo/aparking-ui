@@ -13,14 +13,18 @@ type Props = {
   startTimeProp?:string,
   endTimeProp?:string,
   change?:boolean,
+  airports:{id:string,name:string}[]
 
 
 };
 
-const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,}: Props) => {
+const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports}: Props) => {
 
 
   const {
+    airport,
+    setAirport,
+    
     startDate,
     setStartDate,
     endDate,

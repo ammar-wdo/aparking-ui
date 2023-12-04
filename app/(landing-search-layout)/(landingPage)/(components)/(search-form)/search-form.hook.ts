@@ -8,6 +8,7 @@ type Props = {
   endDateProp?: Date;
   startTimeProp?: string;
   endTimeProp?: string;
+  airportProp?:{id:string,name:string}
 
 
 };
@@ -16,11 +17,12 @@ export const useSearchForm = ({
   startTimeProp,
   endDateProp,
   endTimeProp,
+  airportProp
 
 
 }: Props) => {
 
-
+const [airport, setAirport] = useState<typeof airportProp | undefined>(airportProp || undefined)
   const [startDate, setStartDate] = useState<Date | undefined>(
     startDateProp || undefined
   );
@@ -42,6 +44,9 @@ export const useSearchForm = ({
     
       if (!startTime) {
         setOpenStartTime(true);
+      }
+      else if (!endDate) {
+        setOpenEnd(true);
       } else if (!endTime) {
         setOpenEndTime(true);
       }
@@ -66,11 +71,12 @@ export const useSearchForm = ({
     if (startTime) {
       if (!startDate) {
         setOpenStart(true);
+      }
+      else if (!endDate) {
+        setOpenEndTime(true);
       } else if (!endTime) {
         setOpenEndTime(true);
-      } else if (!endDate) {
-        setOpenEndTime(true);
-      }
+      } 
     }
   }, [startTime]);
 
@@ -134,6 +140,8 @@ console.log("url",url)
   };
 
   return {
+    airport,
+    setAirport,
     startDate,
     setStartDate,
     endDate,

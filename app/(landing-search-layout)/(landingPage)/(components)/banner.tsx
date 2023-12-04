@@ -2,12 +2,17 @@ import React from "react";
 import Header from "../../../../components/header";
 import SearchForm from "./(search-form)/search-form";
 import { cn } from "@/lib/utils";
+import axios from "axios";
+import { GET_AIRPORTS } from "@/links";
 
 type Props = {children:React.ReactNode
 noForm?:boolean
 };
 
-const Banner = ({children,noForm}: Props) => {
+const Banner =async ({children,noForm}: Props) => {
+  const res = await axios.get(GET_AIRPORTS)
+  console.log(res.data)
+
   return (
     <div className={cn("min-h-[600px] bg-indigo-500",noForm && 'min-h-[300px]')}>
       <div className={"container"}>
@@ -17,7 +22,7 @@ const Banner = ({children,noForm}: Props) => {
           {children}
         </div>
       
-       { !noForm && <SearchForm />}
+       { !noForm && <SearchForm airports={res.data} />}
         </div>
       
       </div>
