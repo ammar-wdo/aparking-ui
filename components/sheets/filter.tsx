@@ -35,10 +35,10 @@ import { Button } from "../ui/button"
         <div className=" flex flex-col  h-[95vh] pb-2">
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4  text-sm text-neutral-500">Parking Service</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4  text-sm text-neutral-500 hover:bg-gray-100">Parking Service</AccordionTrigger>
     <AccordionContent className="px-4">
 
-    <div className="flex items-center space-x-2 ">
+    <div className="flex items-center space-x-2 mt-4">
       <Checkbox id="valet"  />
       <label
         htmlFor="valet"
@@ -62,10 +62,10 @@ import { Button } from "../ui/button"
 </Accordion>
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Location</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4 text-sm hover:bg-gray-100  text-neutral-500">Location</AccordionTrigger>
     <AccordionContent className="px-4">
 
-    <div className="flex items-center space-x-2 ">
+    <div className="flex items-center space-x-2 mt-4">
       <Checkbox id="valet"  />
       <label
         htmlFor="valet"
@@ -89,10 +89,10 @@ import { Button } from "../ui/button"
 </Accordion>
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Car keys</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Car keys</AccordionTrigger>
     <AccordionContent className="px-4">
 
-    <div className="flex items-center space-x-2 ">
+    <div className="flex items-center space-x-2 mt-4">
       <Checkbox id="valet"  />
       <label
         htmlFor="valet"
@@ -116,10 +116,10 @@ import { Button } from "../ui/button"
 </Accordion>
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Services</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Services</AccordionTrigger>
     <AccordionContent className="px-4">
 
-    <div className="flex items-center space-x-2 ">
+    <div className="flex items-center space-x-2 mt-4">
       <Checkbox id="valet"  />
       <label
         htmlFor="valet"
@@ -143,10 +143,10 @@ import { Button } from "../ui/button"
 </Accordion>
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500">Other services</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Other services</AccordionTrigger>
     <AccordionContent className="px-4">
 
-    <div className="flex items-center space-x-2 ">
+    <div className="flex items-center space-x-2 mt-4">
       <Checkbox id="valet"  />
       <label
         htmlFor="valet"
