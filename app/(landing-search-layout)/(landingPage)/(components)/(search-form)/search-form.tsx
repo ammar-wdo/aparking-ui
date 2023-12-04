@@ -58,11 +58,11 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
 
       <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative ">
         <div className="grid lg:grid-cols-3 flex-1 gap-1">
-          <div className="p-4 bg-white flex flex-col gap-1 pb-1">
+          <div className="p-2 bg-white flex flex-col gap-1 pb-1">
           <h3 className="text-black font-semibold">Airport</h3>
            <AirportSelect airport={airport!} setAirport={setAirport} airports={airports} open={openAirport} setOpen={setOpenAirport}/>
           </div>
-          <div className="p-4 bg-white flex flex-col gap-1 pb-1">
+          <div className="p-2 bg-white flex flex-col gap-1 pb-1">
             <h3 className="text-black font-semibold">From</h3>
             <div className="flex items-center gap-2">
               {" "}
@@ -77,7 +77,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
               open={openStartTime} setOpen={setOpenStartTime} time={startTime} setTime={setStartTime} times={timeArray} />
             </div>
           </div>
-          <div className="p-4 bg-white flex flex-col gap-1 pb-1">
+          <div className="p-2 bg-white flex flex-col gap-1 pb-1">
             <h3 className="text-black font-semibold">To</h3>
             <div className="flex items-center gap-2">
             <DatePicker
@@ -92,7 +92,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 rounded-r-xl">
+        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
          {change ?  "Change":"Search"}
         </button>
         {change && <Filter />}

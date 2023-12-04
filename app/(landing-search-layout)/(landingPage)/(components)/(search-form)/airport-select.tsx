@@ -23,7 +23,7 @@ const AirportSelect = ({ airports,open,setOpen,setAirport,airport }: Props) => {
   console.log(airports);
   return (
     <Select onValueChange={setAirport} defaultValue={airport} onOpenChange={setOpen} open={open}>
-      <SelectTrigger className="w-full p-0 border-0 text-zinc-500 text-xs outline-none focus-visible:ring-0 focus-visible:ring-transparent ring-0 ring-transparent focus-within:ring-0 focus-within:ring-transparent hover:bg-gray-100 transition foucs:ring-0 focus:ring-transparent pl-4">
+      <SelectTrigger className="w-full p-0 border-0 text-zinc-500 text-xs outline-none focus-visible:ring-0 focus-visible:ring-transparent ring-0 pr-2 ring-transparent focus-within:ring-0 focus-within:ring-transparent hover:bg-gray-100 transition foucs:ring-0 focus:ring-transparent pl-4">
         <SelectValue placeholder="Choose airport" />
       </SelectTrigger>
       <SelectContent>
