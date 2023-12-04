@@ -33,9 +33,9 @@ const page = async ({ searchParams }: Props) => {
 
   console.log(
     "startDate",
-    startDate,
+    new Date(startDate),
     "endDate",
-    endDate,
+    new Date(endDate),
     "startTime",
     startTime,
     "endTime",
