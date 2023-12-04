@@ -44,15 +44,15 @@ const page = async ({ searchParams }: Props) => {
 
   return (
     <div className="bg-gray-200 pb-10 ">
-      {/* <Banner noForm={true}>
+      <Banner noForm={true}>
         <p className="text-white">{`From ${format(
           new Date(startDate),
-          "MMMM d, yyyy"
+          "dd-MM-yyyy"
         )} at ${startTime} to ${format(
           new Date(endDate),
-          "MMMM d,yyyy"
+          "dd-MM-yyyy"
         )} at ${endTime}`}</p>
-      </Banner> */}
+      </Banner>
 
       <div className="container">
         <SearchForm
