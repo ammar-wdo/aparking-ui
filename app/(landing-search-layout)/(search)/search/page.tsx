@@ -43,7 +43,7 @@ const page = async ({ searchParams }: Props) => {
   );
 
   return (
-    <div className="bg-gray-200 pb-10 ">
+    <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true}>
         <p className="text-white">{`From ${format(
           new Date(startDate),
