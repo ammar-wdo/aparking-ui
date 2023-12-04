@@ -50,7 +50,7 @@ const page = async ({ searchParams }: Props) => {
           "MMMM d, yyyy"
         )} at ${startTime} to ${format(
           new Date(endDate),
-          "MMMM d,y"
+          "MMMM d,yyyy"
         )} at ${endTime}`}</p>
       </Banner>
 
