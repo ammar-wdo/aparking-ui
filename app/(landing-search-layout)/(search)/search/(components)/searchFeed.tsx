@@ -38,11 +38,11 @@ const SearchFeed = async ({
   type FullService =Service &{totalPrice:number}
   const services = await axios.get(url);
   const data = services.data ;
-  const validServices = data.valid
-  const invalidServices = data.invalid
+  const validServices = data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice > 0)
+  const invalidServices = [...data.invalid,data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice === 0)]
   const total = data.total
 
-  console.log(data)
+
 
 console.log("Feed",startDate,endDate)
   return (
@@ -55,7 +55,7 @@ console.log("Feed",startDate,endDate)
      
       
        {validServices?.map((service:Service &{totalPrice:number}) => (
-     service.totalPrice > 0 && <ListCard key={service?.id} service={service} />
+      <ListCard key={service?.id} service={service} />
       ))}
   
 
