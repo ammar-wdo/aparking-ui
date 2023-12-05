@@ -67,7 +67,7 @@ const [openAirport, setOpenAirport] = useState(false)
     setOpenStart(false);
 
     if (startDate) {
-    
+    console.log(startDate)
       if (!startTime) {
         setOpenStartTime(true);
       }
@@ -86,6 +86,7 @@ const [openAirport, setOpenAirport] = useState(false)
     setOpenEnd(false);
 
     if (endDate) {
+      console.log(endDate)
       if (!startDate) {
         setOpenStart(true);
       } else if (!startTime) {
