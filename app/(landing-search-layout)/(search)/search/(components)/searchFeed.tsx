@@ -39,7 +39,7 @@ const SearchFeed = async ({
   const services = await axios.get(url);
   const data = services.data ;
   const validServices = data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice > 0)
-  const invalidServices = [...data.invalid,data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice === 0)]
+  const invalidServices = [...data.invalid,...data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice === 0)]
   const total = data.total
 
 
