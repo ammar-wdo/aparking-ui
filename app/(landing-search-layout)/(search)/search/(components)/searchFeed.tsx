@@ -37,7 +37,7 @@ const SearchFeed = async ({
   const services = await axios.get(url);
   const data = services.data as FullService[];
 
-
+console.log(startDate,endDate)
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-20 relative z-10">
       {!data.length ? <p>no data</p>:  data?.map((service) => (
