@@ -32,17 +32,28 @@ const SearchFeed = async ({
       endTime,
     },
   });
+
+
  
   type FullService =Service &{totalPrice:number}
   const services = await axios.get(url);
-  const data = services.data as FullService[];
+  const data = services.data ;
+  const validServices = data.valid
+  const invalidServices = data.invalid
 
 console.log("Feed",startDate,endDate)
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-20 relative z-10">
-      {!data.length ? <p>no data</p>:  data?.map((service) => (
+      {!data.valid && !data.invalid && <p>no data</p>}
+      
+       {validServices?.map((service:Service &{totalPrice:number}) => (
      service.totalPrice > 0 && <ListCard key={service?.id} service={service} />
       ))}
+       {invalidServices?.map((service:Service &{totalPrice:number}) => (
+     <ListCard invalid={true} key={service?.id} service={service} />
+      ))}
+
+     
 
     
     </div>

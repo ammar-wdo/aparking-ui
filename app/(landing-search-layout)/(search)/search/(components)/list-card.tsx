@@ -7,9 +7,10 @@ import { Service } from "@/schemas";
 
 type Props = {
   service: Service;
+  invalid?:boolean
 };
 
-const ListCard = ({ service }: Props) => {
+const ListCard = ({ service,invalid }: Props) => {
 
   const url = qs.stringifyUrl({
     url:`/checkout/${service.id}`,
@@ -26,7 +27,7 @@ const ListCard = ({ service }: Props) => {
 
   console.log(service.totalPrice)
   return (
-    <div className="p-5 bg-white  rounded-md flex flex-col gap-5">
+    <div className={cn("p-5 bg-white  rounded-md flex flex-col gap-5",invalid && 'cursor-not-allowed grayscale-0')}>
       <p>{service.name}</p>
       <p>${service.totalPrice}</p>
 
