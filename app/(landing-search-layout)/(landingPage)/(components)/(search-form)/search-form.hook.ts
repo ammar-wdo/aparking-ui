@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
+import { handleTimezone } from "@/lib/timezone-handler";
 
 
 type Props = {
@@ -163,13 +164,13 @@ if(!airport) setOpenAirport(true)
     else if (!endTime) setOpenEndTime(true);
     else {
 console.log("env",process.env.NEXT_PUBLIC_MY_URL)
-
+const {startDateString,endDateString} = handleTimezone(startDate,endDate)
       const url = qs.stringifyUrl({
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
           airport:airport,
-          startDate: startDate.toString(),
-          endDate: endDate.toString(),
+          startDate: startDateString,
+          endDate: endDateString,
           startTime,
           endTime,
         },
