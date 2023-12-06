@@ -15,19 +15,12 @@ type Props = {}
 
 const SigninOut = (props: Props) => {
 
-    const [mount,setMount]= useState(false)
 
-useEffect(()=>{
-    setMount(true)
-},[])
-    const {user,exitUser} = useUser()
 
-    if(!mount) {return <Button variant={'site'}><Loader className='w-3 h-3 animate-spin' /></Button>}
 
-else{
-    if(!user) return <Button asChild variant={'site'} className=" "><Link href={'/signin'}>Sign in</Link></Button>
-    if(user) return (<Button variant={'site'} onClick={()=>{exitUser();toast.success('Logged out')}}>Signout</Button>)
-}
+   return <Button asChild variant={'site'} className=" "><Link href={'/signin'}>my booking</Link></Button>
+  
+
 
 
    

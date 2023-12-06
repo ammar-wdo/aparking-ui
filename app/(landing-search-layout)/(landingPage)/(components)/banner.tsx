@@ -14,7 +14,7 @@ const Banner =async ({children,noForm}: Props) => {
   console.log(res.data)
 
   return (
-    <div className={cn("min-h-[600px] bg-indigo-500",noForm && 'min-h-[300px]')}>
+    <div className={cn("min-h-[600px] bg-[#003580]",noForm && 'min-h-[300px]')}>
       <div className={"container"}>
       
         <div className={cn("xl:px-32 text-white pt-20",noForm && "xl:px-0")}>

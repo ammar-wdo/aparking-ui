@@ -72,7 +72,7 @@ const page = async ({ searchParams }: Props) => {
           endTimeProp={endTime}
           change={true}
         />
-        <Suspense key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime}`} fallback={<SearchFeedSkeleton />}>
+        <Suspense key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime} ${location} ${service} ${key} ${electric}`} fallback={<SearchFeedSkeleton />}>
           <SearchFeed
             airport={airport}
             startDate={startDate}

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { ALL_SERVICES } from "@/links";
 import AirportSelect from "./airport-select";
 import Filter from "@/components/sheets/filter";
+import { Button } from "@/components/ui/button";
 
 
 type Props = {
@@ -60,7 +61,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
       <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative ">
         <div className="grid lg:grid-cols-3 flex-1 gap-1">
           <div className="p-2 bg-white flex flex-col gap-1 pb-1">
-          <h3 className="text-black font-semibold">Airport</h3>
+          <h3 className="text-black font-semibold pl-2">Airport</h3>
            <AirportSelect airport={airport!} setAirport={setAirport} airports={airports} open={openAirport} setOpen={setOpenAirport}/>
           </div>
           <div className="p-2 bg-white flex flex-col gap-1 pb-1">
@@ -93,7 +94,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button onClick={handleClick} className="px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3 lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
+        <button onClick={handleClick}  className="px-8  bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
          {change ?  "Change":"Search"}
         </button>
         {change && <Filter />}

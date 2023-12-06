@@ -18,21 +18,19 @@ const Header = (props: Props) => {
       Icon:<ChevronDown className="w-4 h-4 ml-1" />
     },
     {
-      label: "about us",
+      label: "contact us",
     },
-    {
-      label: "customer services",
-    },
+  
   ];
   return (
-    <div className="bg-indigo-500 ">
+    <div className="bg-[#003580] ">
        <div className="flex justify-between py-10 text-white items-center relative z-10 container">
     <Logo />
       
       <nav className="flex md:gap-14 gap-6">
         {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center">{label} {Icon && Icon}</Link>)}
       <SigninOut />
-        <button type="button" className="flex items-center ">EN <ChevronDown className="w-4 h-4 ml-1" /></button>
+      
       </nav>
     </div>
     </div>

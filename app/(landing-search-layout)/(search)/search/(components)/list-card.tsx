@@ -38,8 +38,8 @@ const ListCard = ({ service,invalid }: Props) => {
   
     
           <Button
-          variant={'site'}
-        className="w-full"
+          variant={'siteTwo'}
+        className="w-full text-lg"
            
           >
             <Link href={url}>
