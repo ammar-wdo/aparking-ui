@@ -28,7 +28,7 @@ const ListCard = ({ service,invalid }: Props) => {
 
   console.log(service.totalPrice)
   return (
-    <div className={cn("p-5 bg-white  rounded-md flex flex-col gap-5",invalid && 'cursor-not-allowed grayscale-[10] pointer-events-none')}>
+    <div className={cn("p-5 bg-white  rounded-[2px] flex flex-col gap-5",invalid && 'cursor-not-allowed grayscale-[10] pointer-events-none')}>
       <p>{service.name}</p>
       {!invalid &&<p>${service.totalPrice}</p>}
 
@@ -39,7 +39,7 @@ const ListCard = ({ service,invalid }: Props) => {
     
           <Button
           variant={'siteTwo'}
-        className="w-full text-lg"
+        className="w-full text-lg py-3 rounded-[2px]"
            
           >
             <Link href={url}>

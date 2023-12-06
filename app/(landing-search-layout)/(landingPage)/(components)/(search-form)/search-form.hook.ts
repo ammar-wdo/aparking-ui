@@ -9,7 +9,8 @@ type Props = {
   endDateProp?: Date;
   startTimeProp?: string;
   endTimeProp?: string;
-  airportProp?:string
+  airportProp?:string,
+  change?:boolean
 
 
 };
@@ -18,7 +19,8 @@ export const useSearchForm = ({
   startTimeProp,
   endDateProp,
   endTimeProp,
-  airportProp
+  airportProp,
+  change
 
 
 }: Props) => {
@@ -38,6 +40,8 @@ const [openAirport, setOpenAirport] = useState(false)
   const [openStartTime, setOpenStartTime] = useState<boolean>(false);
   const [openEndTime, setOpenEndTime] = useState<boolean>(false);
   const [openEnd, setOpenEnd] = useState<boolean>(false);
+
+  const [isLoading, setIsLoading] = useState(false)
 
  
  
@@ -163,7 +167,12 @@ if(!airport) setOpenAirport(true)
     else if (!startTime) setOpenStartTime(true);
     else if (!endTime) setOpenEndTime(true);
     else {
-console.log("env",process.env.NEXT_PUBLIC_MY_URL)
+      if(!change){
+        setIsLoading(true)
+
+        setTimeout(()=>{setIsLoading(false)},2000)
+      }
+
 const {startDateString,endDateString} = handleTimezone(startDate,endDate)
 
 let currentQuery = {};
@@ -185,6 +194,7 @@ if (params) {
       });
 console.log("url",url)
       router.push(url);
+     
     }
   };
 
@@ -211,5 +221,6 @@ console.log("url",url)
     openEndTime,
     setOpenEndTime,
     handleClick,
+    isLoading
   };
 };

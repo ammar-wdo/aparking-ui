@@ -9,6 +9,7 @@ import { ALL_SERVICES } from "@/links";
 import AirportSelect from "./airport-select";
 import Filter from "@/components/sheets/filter";
 import { Button } from "@/components/ui/button";
+import { Loader } from "lucide-react";
 
 
 type Props = {
@@ -48,8 +49,9 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
     openEndTime,
     setOpenEndTime,
     setStartTime,setEndTime,
-    handleClick
-  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp});
+    handleClick,
+    isLoading
+  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change});
 
 
 
@@ -94,8 +96,9 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button onClick={handleClick}  className="px-8  bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
+        <button disabled={isLoading} onClick={handleClick}  className="px-8 flex items-center disabled:opacity-50 disabled:cursor-default bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
          {change ?  "Change":"Search"}
+         {isLoading && <Loader className="ml-3 h-3 w-3 text-[#003580] animate-spin" />}
         </button>
         {change && <Filter />}
       </section>
