@@ -114,60 +114,8 @@ import { Button } from "../ui/button"
     </AccordionContent>
   </AccordionItem>
 </Accordion>
-            <Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Services</AccordionTrigger>
-    <AccordionContent className="px-4">
-
-    <div className="flex items-center space-x-2 mt-4">
-      <Checkbox id="valet"  />
-      <label
-        htmlFor="valet"
-        className="text-xs font-medium leading-none  "
-      >
-       Valet-parking
-      </label>
-    </div>
-    <div className="flex items-center space-x-2 mt-2">
-      <Checkbox id="self"  />
-      <label
-        htmlFor="self"
-        className="text-xs font-medium leading-none  "
-      >
-       Self-park
-      </label>
-    </div>
- 
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
-            <Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Other services</AccordionTrigger>
-    <AccordionContent className="px-4">
-
-    <div className="flex items-center space-x-2 mt-4">
-      <Checkbox id="valet"  />
-      <label
-        htmlFor="valet"
-        className="text-xs font-medium leading-none  "
-      >
-       Valet-parking
-      </label>
-    </div>
-    <div className="flex items-center space-x-2 mt-2">
-      <Checkbox id="self"  />
-      <label
-        htmlFor="self"
-        className="text-xs font-medium leading-none  "
-      >
-       Self-park
-      </label>
-    </div>
- 
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+      
+           
 <Button variant={'site'} className="mt-auto mx-4 rounded-full">Filter</Button>
 </div>
    
