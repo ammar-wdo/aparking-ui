@@ -97,3 +97,12 @@ total:z.coerce.number(),
     createdAt: Date;
     updatedAt: Date;
 }
+
+export type Airport ={
+  id:string,
+  name:string,
+  content:string,
+  images:string[],
+  createdAt:Date,
+  updatedAt:Date,
+}
