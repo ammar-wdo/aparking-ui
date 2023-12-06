@@ -20,12 +20,17 @@ import { Checkbox } from "@/components/ui/checkbox"
 
   import React from 'react'
 import { Button } from "../ui/button"
+import { useFilter } from "./filter.hook"
   
   type Props = {}
   
   const Filter = (props: Props) => {
+
+
+const {addKey,addLocation,addService,serviceActive,keyActive,locationActive,electric,toggleElectric,pushFilter,open,setOpen} = useFilter()
+
     return (
-        <Sheet >
+        <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger className="flex items-center gap-3 border transition  border-orange-500 text-orange-500 bg-white rounded-xl cursor-pointer p-3  px-6  justify-center"><SlidersHorizontal className="w-5 h-5"/>  <span className="font-semibold">Filters</span></SheetTrigger>
       
         <SheetContent side={'left'} className="p-0">
@@ -39,7 +44,7 @@ import { Button } from "../ui/button"
     <AccordionContent className="px-4">
 
     <div className="flex items-center space-x-2 mt-4">
-      <Checkbox id="valet"  />
+      <Checkbox id="valet" name="valet" checked={!!serviceActive('valet')} onClick={()=>addService('valet')} />
       <label
         htmlFor="valet"
         className="text-xs font-medium leading-none  "
@@ -48,12 +53,12 @@ import { Button } from "../ui/button"
       </label>
     </div>
     <div className="flex items-center space-x-2 mt-2">
-      <Checkbox id="self"  />
+      <Checkbox id="shuttle" name="shuttle"   checked={!!serviceActive('shuttle')} onClick={()=>addService('shuttle')} />
       <label
-        htmlFor="self"
+        htmlFor="shuttle"
         className="text-xs font-medium leading-none  "
       >
-       Self-park
+       Shuttle-park
       </label>
     </div>
  
@@ -62,27 +67,55 @@ import { Button } from "../ui/button"
 </Accordion>
             <Accordion type="single" collapsible>
   <AccordionItem value="item-1">
-    <AccordionTrigger className="hover:no-underline p-4 text-sm hover:bg-gray-100  text-neutral-500">Location</AccordionTrigger>
+    <AccordionTrigger className="hover:no-underline p-4 text-sm hover:bg-gray-100  text-neutral-500">Parking location</AccordionTrigger>
     <AccordionContent className="px-4">
 
     <div className="flex items-center space-x-2 mt-4">
-      <Checkbox id="valet"  />
+      <Checkbox id="Indoor" name="indoor"  checked={!!locationActive('INDOOR')} onClick={()=>addLocation('INDOOR')} />
       <label
-        htmlFor="valet"
+        htmlFor="Indoor"
         className="text-xs font-medium leading-none  "
       >
-       Valet-parking
+      Indoor
       </label>
     </div>
     <div className="flex items-center space-x-2 mt-2">
-      <Checkbox id="self"  />
+      <Checkbox id="Outdoor" name="outdoor" checked={!!locationActive('OUTDOOR')} onClick={()=>addLocation('OUTDOOR')} />
       <label
-        htmlFor="self"
+        htmlFor="Outdoor"
         className="text-xs font-medium leading-none  "
       >
-       Self-park
+       Outdoor
       </label>
     </div>
+    <div className="flex items-center space-x-2 mt-2">
+      <Checkbox id="location-both"  name="both"  checked={!!locationActive('BOTH')} onClick={()=>addLocation('BOTH')}/>
+      <label
+        htmlFor="location-both"
+        className="text-xs font-medium leading-none  "
+      >
+       Both
+      </label>
+    </div>
+ 
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+            <Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger className="hover:no-underline p-4 text-sm hover:bg-gray-100  text-neutral-500">Electric charge</AccordionTrigger>
+    <AccordionContent className="px-4">
+
+    <div className="flex items-center space-x-2 mt-4">
+      <Checkbox id="charge"   checked={!!electric}  onClick={()=>toggleElectric()}/>
+      <label
+        htmlFor="charge"
+        className="text-xs font-medium leading-none  "
+      >
+       Electric charge
+      </label>
+    </div>
+ 
  
     </AccordionContent>
   </AccordionItem>
@@ -92,22 +125,32 @@ import { Button } from "../ui/button"
     <AccordionTrigger className="hover:no-underline p-4 text-sm text-neutral-500 hover:bg-gray-100">Car keys</AccordionTrigger>
     <AccordionContent className="px-4">
 
+   
     <div className="flex items-center space-x-2 mt-4">
-      <Checkbox id="valet"  />
+      <Checkbox id="Keep"  name="keep"   checked={!!keyActive('KEEP')} onClick={()=>addKey('KEEP')}/>
       <label
-        htmlFor="valet"
+        htmlFor="Keep"
         className="text-xs font-medium leading-none  "
       >
-       Valet-parking
+      Keep
       </label>
     </div>
     <div className="flex items-center space-x-2 mt-2">
-      <Checkbox id="self"  />
+      <Checkbox id="Leave"  name="leave"  checked={!!keyActive('LEAVE')} onClick={()=>addKey('LEAVE')}/>
       <label
-        htmlFor="self"
+        htmlFor="Leave"
         className="text-xs font-medium leading-none  "
       >
-       Self-park
+       Leave
+      </label>
+    </div>
+    <div className="flex items-center space-x-2 mt-2">
+      <Checkbox id="key-both" name="both"   checked={!!keyActive('BOTH')} onClick={()=>addKey('BOTH')}/>
+      <label
+        htmlFor="key-both"
+        className="text-xs font-medium leading-none  "
+      >
+       Both
       </label>
     </div>
  
@@ -116,7 +159,7 @@ import { Button } from "../ui/button"
 </Accordion>
       
            
-<Button variant={'site'} className="mt-auto mx-4 rounded-full">Filter</Button>
+<Button variant={'site'} className="mt-auto mx-4 rounded-full" onClick={pushFilter}>Filter</Button>
 </div>
    
         </SheetContent>

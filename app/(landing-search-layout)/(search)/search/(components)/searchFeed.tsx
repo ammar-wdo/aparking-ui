@@ -12,7 +12,11 @@ type Props = {
   endDate: string;
   startTime: string;
   endTime: string;
-  airport:string
+  airport:string;
+  serviceType:string[] | undefined;
+  location:string[] | undefined;
+  carsKey:string[] | undefined,
+  electric:string | undefined
 };
 
 const SearchFeed = async ({
@@ -20,7 +24,11 @@ const SearchFeed = async ({
   endDate,
   startTime,
   endTime,
-  airport
+  airport,
+  serviceType,
+  location,
+  carsKey,
+  electric
 }: Props) => {
   const url = qs.stringifyUrl({
     url: ALL_SERVICES,
@@ -30,6 +38,10 @@ const SearchFeed = async ({
       endDate,
       startTime,
       endTime,
+      serviceType,
+      location,
+      carsKey,
+      electric
     },
   });
 
@@ -44,11 +56,11 @@ const SearchFeed = async ({
 
 
 
-console.log("Feed",startDate,endDate)
+console.log(url)
   return (
     <div>
-<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {validServices.length} of {total}</p>
-{!data.valid && !data.invalid && <p>no data</p>}
+{!data.valid.length && !data.invalid.length && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
+{!!validServices.length&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {validServices.length} of {total}</p>}
 
 
  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-6 relative z-10">

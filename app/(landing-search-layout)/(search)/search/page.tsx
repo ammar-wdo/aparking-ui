@@ -22,6 +22,11 @@ type Props = {
 const page = async ({ searchParams }: Props) => {
   const res = await axios.get(GET_AIRPORTS);
 
+  const service = searchParams['service'] as string[] | undefined
+  const location = searchParams['location'] as string[] | undefined
+  const key = searchParams['key'] as string[] | undefined
+  const electric = searchParams['electric'] as string | undefined
+
   const airport = searchParams["airport"] as string;
   const startDate = searchParams["startDate"] as string;
   const endDate = searchParams["endDate"] as string;
@@ -31,16 +36,19 @@ const page = async ({ searchParams }: Props) => {
   if (!airport || !startDate || !endDate || !startTime || !endTime)
     return redirect("/");
 
-  console.log(
-    "startDate",
-    new Date(startDate),
-    "endDate",
-    new Date(endDate),
-    "startTime",
-    startTime,
-    "endTime",
-    endTime
-  );
+  // console.log(
+  //   "startDate",
+  //   new Date(startDate),
+  //   "endDate",
+  //   new Date(endDate),
+  //   "startTime",
+  //   startTime,
+  //   "endTime",
+  //   endTime
+  // );
+
+
+  // console.log(service,location,key,electric)
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
@@ -71,6 +79,13 @@ const page = async ({ searchParams }: Props) => {
             endDate={endDate}
             startTime={startTime}
             endTime={endTime}
+
+            carsKey={key}
+            serviceType={service}
+            location={location}
+            electric={electric}
+            
+            
           />
         </Suspense>
       </div>

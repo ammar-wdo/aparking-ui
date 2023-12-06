@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { handleTimezone } from "@/lib/timezone-handler";
 
@@ -153,7 +153,7 @@ const [openAirport, setOpenAirport] = useState(false)
       timeArray.push(time);
     }
   }
-
+const params = useSearchParams()
   const router = useRouter();
   const handleClick = () => {
     console.log(startDate,endDate)
@@ -165,14 +165,22 @@ if(!airport) setOpenAirport(true)
     else {
 console.log("env",process.env.NEXT_PUBLIC_MY_URL)
 const {startDateString,endDateString} = handleTimezone(startDate,endDate)
+
+let currentQuery = {};
+  
+if (params) {
+  currentQuery = qs.parse(params.toString())
+}
       const url = qs.stringifyUrl({
         url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
         query: {
+          ...currentQuery,
           airport:airport,
           startDate: startDateString,
           endDate: endDateString,
           startTime,
           endTime,
+         
         },
       });
 console.log("url",url)
