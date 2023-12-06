@@ -18,8 +18,8 @@ const Airports = async (props: Props) => {
       </h3>
       <div className="max-w-[1500px] mx-auto mt-6 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
         {res.data.airports.map((airport: Airport) => (
-          <Link href={`/${airport.name}`}>
-          <div key={airport.id} className="rounded-md overflow-hidden shadow-sm">
+          <Link key={airport.id} href={`/${airport.name}`}>
+          <div  className="rounded-md overflow-hidden shadow-sm">
             <div className="relative aspect-video  ">
               <Image
                 fill
