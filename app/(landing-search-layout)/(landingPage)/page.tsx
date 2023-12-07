@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="bg-gray-100 h-full ">
       <Banner>
-      <h2 className="lg:text-4xl font-semibold relative z-10">
+      <h2 className="lg:text-4xl font-semibold text-3xl relative z-10">
         Your hassle-free parking solution.
       </h2>
       <p className="mt-4 font-extralight text-sm relative z-10">

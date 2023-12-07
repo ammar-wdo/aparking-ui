@@ -24,7 +24,7 @@ const Header = (props: Props) => {
   ];
   return (
     <div className="bg-white ">
-       <div className="flex justify-between py-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
+       <div className="flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
     <Logo />
       
       <nav className="flex md:gap-14 gap-3  px-1">

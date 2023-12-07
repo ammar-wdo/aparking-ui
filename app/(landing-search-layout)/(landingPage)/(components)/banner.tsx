@@ -16,7 +16,7 @@ const Banner =async ({children,noForm,airportId}: Props) => {
   console.log(res.data)
 
   return (
-    <div className={cn("md:min-h-[500px] min-h-[700px] items-center flex bg-[#003580] relative ",noForm && 'min-h-[300px] ')}>
+    <div className={cn("md:min-h-[500px] min-h-[600px] items-center flex bg-[#003580] relative ",noForm && 'min-h-[300px] ')}>
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
       <div className={"container "} >
       
