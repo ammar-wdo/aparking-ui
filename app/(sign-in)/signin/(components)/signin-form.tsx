@@ -28,13 +28,9 @@ const SigninForm = (props: Props) => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (user) {
-      router.push(`/checkout/${user.serviceId}/update`);
-    }
-  }, []);
 
-  if (user) return null;
+
+  
 
   return (
     <div className="w-full p-3 max-w-[500px] mt-12 sm:mt-0">

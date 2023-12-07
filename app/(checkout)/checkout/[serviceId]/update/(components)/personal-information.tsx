@@ -26,6 +26,7 @@ import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useRouter } from "next/navigation";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -66,7 +67,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Prop
     }
   };
 
-
+const router = useRouter()
 
   return (
     <div className="space-y-5 bg-white p-6">
@@ -418,6 +419,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Prop
           </div>
           <div className="flex items-center justify-between">
             <button
+            onClick={()=>{router.back();router.refresh()}}
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
@@ -427,7 +429,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Prop
          disabled={block}
               onClick={toCarInfo}
               type="button"
-             variant={'site'}
+             variant={'siteTwo'}
             >
               Next Step{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}

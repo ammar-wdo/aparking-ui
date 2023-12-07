@@ -55,6 +55,7 @@ const EditBookingForm = ({ service }: Props) => {
     newDays,
     newPrice,
     block,
+   
   
   } = useEditBooking(service);
 
@@ -124,19 +125,19 @@ const EditBookingForm = ({ service }: Props) => {
                   {newDays} + Additional day(s)
                 </p>
               )}
-              {!block ? (
-                !!newDays && <p>€{newPrice - user.total}</p>
-              ) : (
-                <p className="text-sm text-rose-500">
+              {
+                !!newDays && newPrice &&<p>€{newPrice - user.total}</p>}
+            
+                {block && <p className="text-sm text-rose-500">
                   Not available for this date
-                </p>
-              )}
+                </p>}
+              
             </div>
 
             <Button
         onClick={()=>setOpen({bookingId:user.id,bookingCode:user.bookingCode,email:user.email})}
               variant={"destructive"}
-              className=" rounded-none w-full"
+              className=" rounded-sm w-full"
               type="button"
             >
               Cancel your booking{" "}

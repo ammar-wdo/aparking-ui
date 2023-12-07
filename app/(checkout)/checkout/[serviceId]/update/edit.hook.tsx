@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { ADD_BOOKMARK, UPDATE_BOOKING } from "@/links";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Rule, Service, bookingSchema } from "@/schemas";
 import { handleTimezone } from "@/lib/timezone-handler";
@@ -32,6 +32,8 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
   const [block, setBlock] = useState(false)
 
+
+
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
     defaultValues:
@@ -55,10 +57,13 @@ let newPakingDays
 const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch('arrivalDate')?.toString(),form.watch('departureDate')?.toString()) 
 
 
+
 useEffect(()=>{
   if(newPrice){
    
     form.setValue('total',newPrice)
+    console.log(newPrice - user?.total!)
+   
   }
 },[newPrice])
 
@@ -159,21 +164,21 @@ const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
 
 console.log(refinedValues)
-          try {
+    //       try {
 
-    const result = await axios.post(UPDATE_BOOKING,refinedValues)
-    if(result.data.url){
-      router.push(result.data.url)
-    }
+    // const result = await axios.post(UPDATE_BOOKING,refinedValues)
+    // if(result.data.url){
+    //   router.push(result.data.url)
+    // }
    
    
-    toast.success('Successfully booked')
+    // toast.success('Successfully booked')
 
-          } catch (error:any) {
-            console.log(error)
+    //       } catch (error:any) {
+    //         console.log(error)
 
-            toast.error(error?.response?.data?.customError ? error?.response?.data?.customError :'Something went wrong')
-          }
+    //         toast.error(error?.response?.data?.customError ? error?.response?.data?.customError :'Something went wrong')
+    //       }
   }
 
 

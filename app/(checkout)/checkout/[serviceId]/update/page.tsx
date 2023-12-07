@@ -21,7 +21,7 @@ const page = async({params}: Props) => {
 if(!service) return redirect('/')
   return (
     <div className='p-8 bg-gray-100 min-h-screen'>
-    <h3>booking</h3>
+   
     <EditBookingForm  service={service} />
     </div>
   )

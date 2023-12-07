@@ -123,7 +123,7 @@ const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep }: Props) =>
         <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
           {<ChevronLeft className="mr-1 h-4 w-4" />}Back
         </button>
-        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" className="flex items-center bg-orange-500 text-sm transition hover:bg-orange-500/90 text-white rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
+        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
       </div>
       </>}
     </div>
