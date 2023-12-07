@@ -5,6 +5,7 @@ import React from "react";
 import qs from 'query-string'
 import { Service } from "@/schemas";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 type Props = {
   service: Service;
@@ -28,18 +29,22 @@ const ListCard = ({ service,invalid }: Props) => {
 
   console.log(service.totalPrice)
   return (
-    <div className={cn("p-5 bg-white  rounded-[2px] flex flex-col gap-5",invalid && 'cursor-not-allowed grayscale-[10] pointer-events-none')}>
-      <p>{service.name}</p>
-      {!invalid &&<p>${service.totalPrice}</p>}
-
+    <div className={cn(" bg-white  rounded-[2px] border-b-2 border-yellow-500",invalid && 'cursor-not-allowed grayscale-[10] pointer-events-none')}>
+      <h3 className="font-bold text-lg text-center p-7">Routes Airport Parking (ORD)</h3>
+     <Separator />
+     <div>
+      {/* highlights */}
+     </div>
+     <div className="bg-gray-50 p-4 py-2">
     
+      {!invalid &&(<div className="text-center">
+        <p className="text-gray-500 text-xs">Price for </p>
+        <p className="font-bold text-3xl">€{service.totalPrice}</p>
+        </div>)}
 
-      <div className={("flex items-center gap-3 mt-auto")}>
-  
-    
-          <Button
+      <Button
           variant={'siteTwo'}
-        className="w-full text-lg py-3 rounded-[2px]"
+        className="w-full text-lg py-7 rounded-[3px] mt-2"
            
           >
             <Link href={url}>
@@ -47,8 +52,13 @@ const ListCard = ({ service,invalid }: Props) => {
             </Link>
            
           </Button>
+          <p className="text-gray-500 text-xs text-center pt-3">Cancel for free up to 24 hours in advance</p>
+     </div>
+   
+
     
-      </div>
+
+    
     </div>
   );
 };

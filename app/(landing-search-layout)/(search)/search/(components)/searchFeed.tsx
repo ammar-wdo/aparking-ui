@@ -63,7 +63,7 @@ console.log(url)
 {!!validServices.length&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {validServices.length} of {total}</p>}
 
 
- <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-6 relative z-10">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-6 relative z-10">
      
       
        {validServices?.map((service:Service &{totalPrice:number}) => (
@@ -76,8 +76,8 @@ console.log(url)
     
     </div>
 
-    {!!invalidServices.length && <p className="mt-12">Unavailable</p>}
- <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-10 mt-4 relative z-10">
+    {!!invalidServices.length && <p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Unavailable {invalidServices.length} of {total}</p>}
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-10 mt-4 relative z-10">
  {invalidServices?.map((service:Service &{totalPrice:number}) => (
      <ListCard invalid={true} key={service?.id} service={service} />
       ))}
