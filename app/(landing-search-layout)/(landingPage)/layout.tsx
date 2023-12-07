@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './(components)/footer'
 
 
 type Props = {
@@ -9,7 +10,8 @@ const layout = ({children}: Props) => {
   return (
     <div className='h-full'>
     
-        {children}</div>
+        {children}
+        </div>
   )
 }
 

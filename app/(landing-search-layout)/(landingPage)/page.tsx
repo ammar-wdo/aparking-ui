@@ -25,7 +25,7 @@ export default function Home() {
       <Airports />
       <Reviews />
   <Feed />
-  <Footer />
+ 
     </main>
   )
 }

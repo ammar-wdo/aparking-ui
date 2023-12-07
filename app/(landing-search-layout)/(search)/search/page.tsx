@@ -14,6 +14,7 @@ import qs from "query-string";
 import Banner from "@/app/(landing-search-layout)/(landingPage)/(components)/banner";
 import SearchFeed from "./(components)/searchFeed";
 import SearchFeedSkeleton from "./(components)/searchFeed-skeleton";
+import { Airport } from "@/schemas";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -50,9 +51,11 @@ const page = async ({ searchParams }: Props) => {
 
   // console.log(service,location,key,electric)
 
+  const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.id ===airport) as Airport
+
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
-      <Banner noForm={true}>
+      <Banner noForm={true} airportName={airportName.name}>
         <p className="text-white">{`From ${format(
           new Date(startDate),
           "dd-MM-yyyy"

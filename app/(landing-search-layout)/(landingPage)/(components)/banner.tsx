@@ -8,10 +8,11 @@ import Image from "next/image";
 
 type Props = {children?:React.ReactNode
 noForm?:boolean,
-airportId?:string
+airportId?:string,
+airportName?:string
 };
 
-const Banner =async ({children,noForm,airportId}: Props) => {
+const Banner =async ({children,noForm,airportId,airportName}: Props) => {
   const res = await axios.get(GET_AIRPORTS)
   console.log(res.data)
 
@@ -20,7 +21,8 @@ const Banner =async ({children,noForm,airportId}: Props) => {
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
       <div className={"container "} >
       
-        <div className={cn("xl:px-32 text-white ",noForm && "xl:px-0")}>
+        <div className={cn("xl:px-32 text-white relative ",noForm && "xl:px-0")}>
+          {airportName && <p className="text-4xl py-3 font-semibold capitalize">{airportName}</p>}
         <div>
           {children}
         </div>
