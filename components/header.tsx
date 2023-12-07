@@ -28,7 +28,7 @@ const Header = (props: Props) => {
     <Logo />
       
       <nav className="flex md:gap-14 gap-3  px-1">
-        {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center font-light text-sm sm:text-base shrink-0  sm:font-medium">{label} {Icon && Icon}</Link>)}
+        {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center  text-sm sm:text-base shrink-0  font-medium">{label} {Icon && Icon}</Link>)}
       <SigninOut />
       
       </nav>

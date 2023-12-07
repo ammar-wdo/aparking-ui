@@ -41,16 +41,16 @@ const Filter = (props: Props) => {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className="flex items-center gap-3 border transition  border-[#003580] text-[#003580]  bg-white rounded-xl cursor-pointer p-3  px-6 ml-4  justify-center">
+      <SheetTrigger className="flex items-center gap-3 border transition  border-[#003580] text-[#003580]  bg-white rounded-xl cursor-pointer p-3  px-6 lg:ml-4  justify-center  self-stretch">
         <SlidersHorizontal className="w-5 h-5" />{" "}
         <span className="font-semibold">Filter</span>
       </SheetTrigger>
 
-      <SheetContent side={"left"} className="p-0">
+      <SheetContent side={"left"} className="p-0 flex flex-col h-screen w-full">
         <SheetHeader>
           <SheetTitle className="p-4">Filter the results</SheetTitle>
         </SheetHeader>
-        <div className=" flex flex-col  h-[95vh] pb-2">
+        <div className=" flex flex-col  flex-1 pb-2">
           <div className="mt-6 ">
             <h3 className="p-1 px-4 text-sm text-neutral-500 font-semibold ">
               Parking Service

@@ -12,7 +12,7 @@ import { useSignin } from "../signin.hook";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
+import { Fingerprint, Loader2, Mail } from "lucide-react";
 import { useUser } from "@/hooks/user-hook";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -20,42 +20,47 @@ import { useEffect } from "react";
 type Props = {};
 
 const SigninForm = (props: Props) => {
-  const { form, onSubmit,isError } = useSignin();
+  const { form, onSubmit, isError } = useSignin();
 
-
-  
-  const {user} = useUser()
-
- 
+  const { user } = useUser();
 
   const isLoading = form.formState.isSubmitting;
 
-const router = useRouter()
+  const router = useRouter();
 
+  useEffect(() => {
+    if (user) {
+      router.push(`/checkout/${user.serviceId}/update`);
+    }
+  }, []);
 
- useEffect(()=>{
-
-  if(user)  {router.push(`/checkout/${user.serviceId}/update`)}
- },[])
-
- if(user) return null
+  if (user) return null;
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="w-full p-3 max-w-[500px]">
+      <h3 className="text-3xl font-bold text-[#003580]">Check my booking</h3>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 max-w-[350px] border rounded-md p-3 w-full"
+          className="space-y-8  mt-6 rounded-md w-full"
         >
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>E-mail</FormLabel>
+              <FormItem className=" ">
+                <div className=" p-4 rounded-lg flex items-center bg-gray-100 space-y-0">
+                <Mail className="w-5 h-5 text-gray-400 " />
                 <FormControl>
-                  <Input placeholder="email" {...field} />
+                  <Input
+                    placeholder="E-mail"
+                    className="border-none bg-transparent 
+                    outline-none "
+                    {...field}
+                  />
                 </FormControl>
+                </div>
+             
 
                 <FormMessage />
               </FormItem>
@@ -65,28 +70,49 @@ const router = useRouter()
             control={form.control}
             name="bookingCode"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Booking code</FormLabel>
+              <FormItem className=" ">
+                <div className="p-4 flex rounded-lg items-center bg-gray-100 space-y-0">
+                <Fingerprint className="w-5 h-5 text-gray-400 " />
                 <FormControl>
-                  <Input placeholder="booking code" {...field} />
+                  <Input
+                    placeholder="Booking Code"
+                    className="border-none bg-transparent 
+                    outline-none "
+                    {...field}
+                  />
                 </FormControl>
+                </div>
+              
 
                 <FormMessage />
               </FormItem>
             )}
           />
           <div className="flex flex-col gap-4">
-            <Button variant={"site"} type="submit" disabled={isLoading}>
-              Signin
-              {isLoading &&<Loader2 className="ml-3 h-3 w-3 animate-spin" />}
+            <Button
+              variant={"siteTwo"}
+              type="submit"
+              className="py-6"
+              disabled={isLoading}
+            >
+              Login
+              {isLoading && <Loader2 className="ml-3 h-3 w-3 animate-spin" />}
             </Button>
             <Button asChild variant={"secondary"}>
               <Link href={"/"}>Back to main page</Link>
             </Button>
           </div>
-          {isError && <p className="py-3 text-sm text-rose-500">Invalid credentials</p>}
+          {isError && (
+            <p className="py-3 text-sm text-rose-500">Invalid credentials</p>
+          )}
         </form>
       </Form>
+
+      <div className="py-4 border-gray-100 border-t mt-6 flex justify-between items-center">
+        <p>Have a problem?</p>
+        <Link href={'/'} className="text-indigo-600 underline">Contact us</Link>
+
+      </div>
     </div>
   );
 };
