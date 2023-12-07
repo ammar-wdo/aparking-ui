@@ -20,6 +20,7 @@ import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
 import { CheckCheck, CheckIcon, ChevronLeft, ChevronRightIcon } from "lucide-react";
 import { bookingSchema } from "@/schemas";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -135,14 +136,15 @@ const CarInformation = ({
             >
               {<ChevronLeft className="mr-1 h-4 w-4" />}Back
             </button>
-            <button
+            <Button
               onClick={toPayInfo}
+              variant={'siteTwo'}
               type="button"
-              className="flex items-center bg-orange-500 text-sm transition hover:bg-orange-500/90 text-white rounded-sm py-2 px-6"
+              className=" text-sm transition   rounded-sm py-2 px-6"
             >
               Final Step{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
-            </button>
+            </Button>
           </div>
         </>
       )}

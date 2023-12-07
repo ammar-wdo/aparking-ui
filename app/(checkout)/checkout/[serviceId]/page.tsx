@@ -30,8 +30,8 @@ const page = async({params,searchParams}: Props) => {
   if (!startDate || !endDate || !startTime || !endTime || !service) return redirect("/");
 
   return (
-    <div className='p-8 bg-gray-100 min-h-screen'>
-    <h3>booking</h3>
+    <div className='md:p-8  bg-gray-100 min-h-screen'>
+   
     <BookingForm arrivalDate={startDate}  departureDate={endDate} arrivalTime={startTime} departureTime={endTime} totalPrice={totalPrice} title={service.name} />
     </div>
   )

@@ -20,6 +20,8 @@ import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
 import { CheckIcon, ChevronLeft, ChevronRightIcon } from "lucide-react";
 import { bookingSchema } from "@/schemas";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -55,7 +57,7 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
     }
   };
 
-
+const router = useRouter()
 
   return (
     <div className="space-y-5 bg-white p-6">
@@ -71,14 +73,7 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
           )}
         </div>
 
-        {!carStep && (
-          <p className="text-sm py-3 font-light">
-            You have an account?{" "}
-            <Link className="text-blue-600 underline" href={""}>
-              Login and go directly to payment
-            </Link>
-          </p>
-        )}
+    
       </div>
       {!carStep && (
         <>
@@ -269,19 +264,21 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
           </div>
           <div className="flex items-center justify-between">
             <button
+            onClick={()=>{router.back();router.refresh()}}
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
               {<ChevronLeft className="mr-1 h-4 w-4" />}Back
             </button>
-            <button
+            <Button
               onClick={toCarInfo}
               type="button"
-              className="flex items-center bg-orange-500 text-sm transition hover:bg-orange-500/90 text-white rounded-sm py-2 px-6"
+              variant={'siteTwo'}
+              className=" rounded-sm py-2 px-6"
             >
               Next Step{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
-            </button>
+            </Button>
           </div>
         </>
       )}
