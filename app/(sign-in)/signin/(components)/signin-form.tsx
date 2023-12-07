@@ -52,9 +52,9 @@ const SigninForm = (props: Props) => {
                 <div className=" p-4 rounded-lg flex items-center bg-gray-100 space-y-0">
                 <Mail className="w-5 h-5 text-gray-400 " />
                 <FormControl>
-                  <Input
+                  <input
                     placeholder="E-mail"
-                    className="border-none bg-transparent 
+                    className="border-none bg-transparent p-2 w-full
                     outline-none "
                     {...field}
                   />
@@ -74,9 +74,9 @@ const SigninForm = (props: Props) => {
                 <div className="p-4 flex rounded-lg items-center bg-gray-100 space-y-0">
                 <Fingerprint className="w-5 h-5 text-gray-400 " />
                 <FormControl>
-                  <Input
+                  <input
                     placeholder="Booking Code"
-                    className="border-none bg-transparent 
+                    className="border-none bg-transparent  p-2 w-full
                     outline-none "
                     {...field}
                   />
