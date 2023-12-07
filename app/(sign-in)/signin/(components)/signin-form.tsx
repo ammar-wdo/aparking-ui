@@ -37,7 +37,7 @@ const SigninForm = (props: Props) => {
   if (user) return null;
 
   return (
-    <div className="w-full p-3 max-w-[500px]">
+    <div className="w-full p-3 max-w-[500px] mt-12 sm:mt-0">
       <h3 className="text-3xl font-bold text-[#003580]">Check my booking</h3>
       <Form {...form}>
         <form
