@@ -17,7 +17,7 @@ if(!airport) return redirect('/')
 
   return (
     <div>
-      <Banner airportId={airport.id}></Banner>
+      <Banner airportName={airport.name} airportId={airport.id}></Banner>
       <div className='container mt-4 min-h-[600px]'>
         {airport.name}
       </div>
