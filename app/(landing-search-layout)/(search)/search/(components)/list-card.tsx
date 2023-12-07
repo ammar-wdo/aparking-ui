@@ -29,26 +29,27 @@ const ListCard = ({ service,invalid }: Props) => {
 
   console.log(service.totalPrice)
   return (
-    <div className={cn(" bg-white  rounded-[2px] border-b-2 border-yellow-500",invalid && 'cursor-not-allowed grayscale-[10] pointer-events-none')}>
+    <div className={cn(" bg-white  rounded-[2px] border-b-2 border-yellow-500 ",invalid && 'cursor-not-allowed opacity-50 grayscale-[10] pointer-events-none')}>
       <h3 className="font-bold text-lg text-center p-7">Routes Airport Parking (ORD)</h3>
      <Separator />
-     <div>
+     <div className="py-24">
       {/* highlights */}
      </div>
      <div className="bg-gray-50 p-4 py-2">
     
       {!invalid &&(<div className="text-center">
         <p className="text-gray-500 text-xs">Price for {service.parkingDays} day(s)</p>
-        <p className="font-bold text-3xl">€{service.totalPrice}</p>
+        <p className="font-bold text-3xl mt-1">€{service.totalPrice}</p>
         </div>)}
 
       <Button
           variant={'siteTwo'}
-        className="w-full text-lg py-7 rounded-[3px] mt-2"
+        className={cn("w-full text-lg py-7 rounded-[3px] mt-2")}
            
           >
             <Link href={url}>
-            Book Now
+              {invalid? 'Not available' : 'Book Now'}
+            
             </Link>
            
           </Button>
