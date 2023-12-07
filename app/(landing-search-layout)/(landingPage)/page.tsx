@@ -4,6 +4,9 @@ import Link from 'next/link'
 import Banner from './(components)/banner'
 import Explain from './(components)/explain'
 import Airports from './(components)/airports'
+import Reviews from './(components)/reviews'
+import Feed from './(components)/feed'
+import Footer from './(components)/footer'
 
 export default function Home() {
 
@@ -20,7 +23,9 @@ export default function Home() {
       </Banner>
       <Explain />
       <Airports />
-  
+      <Reviews />
+  <Feed />
+  <Footer />
     </main>
   )
 }

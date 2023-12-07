@@ -18,7 +18,7 @@ const SigninOut = (props: Props) => {
 
 
 
-   return <Button asChild variant={'site'} className="rounded-[4px] py-4  text-base px-6  "><Link href={'/signin'}>my booking</Link></Button>
+   return <Button asChild variant={'site'} className="rounded-[4px] sm:py-4  sm:text-base sm:px-6 text-sm py-1 px-3 "><Link href={'/signin'}>my booking</Link></Button>
   
 
 

@@ -10,7 +10,8 @@ type Props = {
   startTimeProp?: string;
   endTimeProp?: string;
   airportProp?:string,
-  change?:boolean
+  change?:boolean,
+  airportId?:string,
 
 
 };
@@ -20,7 +21,8 @@ export const useSearchForm = ({
   endDateProp,
   endTimeProp,
   airportProp,
-  change
+  change,
+  airportId
 
 
 }: Props) => {
@@ -43,13 +45,20 @@ const [openAirport, setOpenAirport] = useState(false)
 
   const [isLoading, setIsLoading] = useState(false)
 
+
+  useEffect(()=>{
+    if(airportId){
+      setAirport(airportId)
+    }
+  },[airportId])
+
  
  
  
   useEffect(() => {
     setOpenAirport(false);
 
-    if (airport) {
+    if (airport && !airportId) {
       if (!startDate) {
         setOpenStart(true);
       }

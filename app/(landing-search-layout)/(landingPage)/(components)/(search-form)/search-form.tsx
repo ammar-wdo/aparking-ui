@@ -19,12 +19,13 @@ type Props = {
   endTimeProp?:string,
   change?:boolean,
   airports:{id:string,name:string}[]
-  airportProp?:string
+  airportProp?:string,
+  airportId?:string
 
 
 };
 
-const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports,airportProp}: Props) => {
+const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports,airportProp,airportId}: Props) => {
   console.log(startDateProp,endDateProp)
 
 
@@ -51,21 +52,21 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
     setStartTime,setEndTime,
     handleClick,
     isLoading
-  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change});
+  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change,airportId});
 
 
-
+console.log(airportId)
   return (
     <div className="text-white ">
-      {<div className={cn("fixed inset-0 opacity-0 duration-300 bg-black/60 delay-100",(openStart||openEnd||openStartTime||openEndTime||openAirport) && 'opacity-100 ')}></div>}
+      {<div className={cn("fixed inset-0 opacity-0 duration-300 bg-black/60 delay-100",(openStart||openEnd||openStartTime||openEndTime||openAirport) ? 'opacity-100 z-20':'-z-10')}></div>}
    
 
-      <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative ">
-        <div className="grid lg:grid-cols-3 flex-1 gap-1">
-          <div className="p-2 bg-white flex flex-col gap-1 pb-1">
+      <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative z-30">
+        <div className={cn("grid lg:grid-cols-3 flex-1 gap-1",airportId && 'lg:grid-cols-2')}>
+          {!airportId && <div className="p-2 bg-white flex flex-col gap-1 pb-1">
           <h3 className="text-black font-semibold pl-2">Airport</h3>
            <AirportSelect airport={airport!} setAirport={setAirport} airports={airports} open={openAirport} setOpen={setOpenAirport}/>
-          </div>
+          </div>}
           <div className="p-2 bg-white flex flex-col gap-1 pb-1">
             <h3 className="text-black font-semibold">From</h3>
             <div className="flex items-center gap-2">
@@ -96,7 +97,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
            
           </div>
         </div>
-        <button disabled={isLoading} onClick={handleClick}  className="px-8 flex items-center disabled:opacity-50 disabled:cursor-default bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
+        <button disabled={isLoading} onClick={handleClick}  className="px-8 flex items-center justify-center disabled:opacity-50 disabled:cursor-default bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl">
          {change ?  "Change":"Search"}
          {isLoading && <Loader className="ml-3 h-3 w-3 text-[#003580] animate-spin" />}
         </button>

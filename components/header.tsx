@@ -24,11 +24,11 @@ const Header = (props: Props) => {
   ];
   return (
     <div className="bg-white ">
-       <div className="flex justify-between py-5 text-[#003580] items-center relative z-10 container">
+       <div className="flex justify-between py-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
     <Logo />
       
-      <nav className="flex md:gap-14 gap-6">
-        {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center font-medium">{label} {Icon && Icon}</Link>)}
+      <nav className="flex md:gap-14 gap-3  px-1">
+        {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center font-light text-sm sm:text-base shrink-0  sm:font-medium">{label} {Icon && Icon}</Link>)}
       <SigninOut />
       
       </nav>

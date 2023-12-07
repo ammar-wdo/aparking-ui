@@ -2,13 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-type Props = {}
+type Props = {footer?:boolean}
 
-const Logo = (props: Props) => {
+const Logo = ({footer}: Props) => {
   return (
     <Link href={'/'}>
     <div className="relative w-32 aspect-video ">
-      <Image src={'/aparking-logo.svg'} fill alt="logo"/>
+      <Image src={!footer ?'/aparking-logo.svg' :'/aparking-logo-white.svg' } fill alt="logo"/>
 
     </div></Link>
   )
