@@ -128,7 +128,7 @@ const EditBookingForm = ({ service }: Props) => {
               {
                 !!newDays && newPrice &&<p>€{newPrice - user.total}</p>}
             
-                {block && <p className="text-sm text-rose-500">
+                {block && <p className="text-sm text-rose-500 pb-3 text-center font-bold">
                   Not available for this date
                 </p>}
               

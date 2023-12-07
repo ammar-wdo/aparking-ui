@@ -62,7 +62,7 @@ useEffect(()=>{
   if(newPrice){
    
     form.setValue('total',newPrice)
-    console.log(newPrice - user?.total!)
+    
    
   }
 },[newPrice])
@@ -73,7 +73,7 @@ const [validPrice, setValidPrice] = useState<boolean | undefined>()
 
 useEffect(()=>{
 
-  if(!isValid || !validPrice){
+  if((!isValid || !validPrice) && newDays ) {
     setBlock(true)
   }
 
@@ -82,7 +82,7 @@ useEffect(()=>{
     setBlock(false)
   }
 },[validPrice,isValid])
-
+console.log("valid",validPrice,isValid,block)
 
 useEffect(()=>{
   if(newDays){
