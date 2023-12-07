@@ -164,21 +164,21 @@ const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
 
 console.log(refinedValues)
-    //       try {
+          try {
 
-    // const result = await axios.post(UPDATE_BOOKING,refinedValues)
-    // if(result.data.url){
-    //   router.push(result.data.url)
-    // }
+    const result = await axios.post(UPDATE_BOOKING,refinedValues)
+    if(result.data.url){
+      router.push(result.data.url)
+    }
    
    
-    // toast.success('Successfully booked')
+    toast.success('Successfully booked')
 
-    //       } catch (error:any) {
-    //         console.log(error)
+          } catch (error:any) {
+            console.log(error)
 
-    //         toast.error(error?.response?.data?.customError ? error?.response?.data?.customError :'Something went wrong')
-    //       }
+            toast.error(error?.response?.data?.customError ? error?.response?.data?.customError :'Something went wrong')
+          }
   }
 
 
