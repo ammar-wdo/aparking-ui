@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 type Props = {
-  service: Service;
+  service:Service &{totalPrice:number,parkingDays:number};
   invalid?:boolean
 };
 
@@ -38,7 +38,7 @@ const ListCard = ({ service,invalid }: Props) => {
      <div className="bg-gray-50 p-4 py-2">
     
       {!invalid &&(<div className="text-center">
-        <p className="text-gray-500 text-xs">Price for </p>
+        <p className="text-gray-500 text-xs">Price for {service.parkingDays} day(s)</p>
         <p className="font-bold text-3xl">€{service.totalPrice}</p>
         </div>)}
 

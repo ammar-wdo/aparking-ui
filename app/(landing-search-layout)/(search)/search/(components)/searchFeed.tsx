@@ -47,11 +47,11 @@ const SearchFeed = async ({
 
 
  
-  type FullService =Service &{totalPrice:number}
+  type FullService =Service &{totalPrice:number,parkingDays:number}
   const services = await axios.get(url);
   const data = services.data ;
-  const validServices = data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice > 0)
-  const invalidServices = [...data.invalid,...data.valid.filter((service:Service &{totalPrice:number})=>service.totalPrice === 0)]
+  const validServices = data.valid.filter((service:FullService)=>service.totalPrice > 0)
+  const invalidServices = [...data.invalid,...data.valid.filter((service:FullService)=>service.totalPrice === 0)]
   const total = data.total
 
 
@@ -66,7 +66,7 @@ console.log(url)
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-6 relative z-10">
      
       
-       {validServices?.map((service:Service &{totalPrice:number}) => (
+       {validServices?.map((service:FullService) => (
       <ListCard key={service?.id} service={service} />
       ))}
   
@@ -78,7 +78,7 @@ console.log(url)
 
     {!!invalidServices.length && <p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Unavailable {invalidServices.length} of {total}</p>}
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-10 mt-4 relative z-10">
- {invalidServices?.map((service:Service &{totalPrice:number}) => (
+ {invalidServices?.map((service:FullService) => (
      <ListCard invalid={true} key={service?.id} service={service} />
       ))}
 
