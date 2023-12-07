@@ -56,7 +56,7 @@ const Footer = (props: Props) => {
 <h3 className='font-bold'>Contact us </h3>
 <div className='mt-6 flex flex-col gap-2'>
   <p className='flex gap-3 items-center font-light text-sm'> <Mail className='w-4 h-4'/> email@company.com</p>
-  <p className='flex gap-3 items-center font-light text-sm'><Phone className='w-4 h-4'/>  123-123-1234</p>
+  <p className='flex gap-3 items-center font-light text-sm'><Phone className='w-4 h-4'/>   (123)123-1234</p>
   <p className='flex gap-3 items-center font-light text-sm'> <MapPin className='w-4 h-4'/>   794 Mcallister St
 San Francisco, 94102</p>
 

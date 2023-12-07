@@ -12,13 +12,13 @@ const Feed = (props: Props) => {
             Airport Parking Comparison: Stress-Free Options
           </h3>
           <p className="mt-4 text-sm font-light max-w-[800px] text-justify">
-            Planning a trip? Parking shouldn't be a hassle! Compare top parking
+            Planning a trip? Parking shouldn&rsquo;t be a hassle! Compare top parking
             providers at airports worldwide effortlessly. Our platform helps you
             compare rates, services like valet or self-parking, indoor or
-            outdoor options, and more. We prioritize your car's safety,
+            outdoor options, and more. We prioritize your car&rsquo;s safety,
             detailing security levels and terminal distances. Genuine customer
             reviews assist your decision. Stress-free parking, best rates—your
-            car's holiday starts here, globally!
+            car&rsquo;s holiday starts here, globally!
           </p>
         </div>
         <div className="md:w-[400px] w-full aspect-video relative rounded-xl overflow-hidden">
