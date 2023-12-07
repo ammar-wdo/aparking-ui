@@ -51,12 +51,12 @@ const SearchFeed = async ({
   const services = await axios.get(url);
   const data = services.data ;
   const validServices = data.valid.filter((service:FullService)=>service.totalPrice > 0)
-  const invalidServices = [...data.invalid,...data.valid.filter((service:FullService)=>service.totalPrice === 0)]
+  const invalidServices = [...data.invalid,...data.valid.filter((service:FullService)=>(service.totalPrice ===0 || service.totalPrice ===null))]
   const total = data.total
 
 
 
-console.log(url)
+console.log("data",data)
   return (
     <div>
 {!data.valid.length && !data.invalid.length && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}

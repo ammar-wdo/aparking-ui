@@ -34,7 +34,7 @@ const page = async ({ searchParams }: Props) => {
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
 
-  if (!airport || !startDate || !endDate || !startTime || !endTime)
+  if (!airport || !startDate || !endDate || !startTime || !endTime || new Date(startDate).getTime() > new Date(endDate).getTime())
     return redirect("/");
 
   // console.log(

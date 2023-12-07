@@ -56,10 +56,23 @@ total:z.coerce.number(),
   ;
 
 
-
   const emailSchema = z.string().email()
   export const serviceSchema = z.object({
-    name:z.string().min(1),
+      timeToAirport: z.string().min(2),
+      distanceToAirport:z.string().min(1),
+      generalInformation:z.string().optional(),
+      importantInfo:z.string().optional(),
+      logo:z.string().min(1),
+      images:z.array(z.string()).optional(),
+      facilities:z.array(z.string()).optional(),
+      highlights: z.array(
+        z.object({
+          label: z.string(),
+          icon: z.string()
+        })
+      ).optional(),
+      isActive:z.boolean().optional(),
+      name:z.string().min(1),
    terms:z.string().min(1),
    bookingsEmail:z.union([z.string(), z.undefined()])
    .refine((val) => !val || emailSchema.safeParse(val).success),
@@ -71,14 +84,14 @@ total:z.coerce.number(),
    parkingType:z.enum(['shuttle','valet']).default('valet'),
    arrivalTodos:z.string().optional(),
    departureTodos:z.string().optional(),
-  pricings:z.array(z.coerce.number()),
+   electricCharging:z.boolean().default(false),
+   keyStatus:z.enum(['BOTH',"LEAVE","KEEP"]).default('BOTH'),
+   parkingLocation:z.enum(['INDOOR',"OUTDOOR","BOTH"]).default('BOTH'),
    available:z.boolean().default(false),
    airportId:z.string().min(1),
    entityId:z.string().min(1)
-
   
-  
-  });
+  })
   export type Service = z.infer<typeof serviceSchema> & {startDate?:string,endDate?:string,startTime?:string,endTime?:string,totalPrice?:string,id:string}
 
 
