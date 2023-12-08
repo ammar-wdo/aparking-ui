@@ -28,11 +28,11 @@ export const AirportMenue = ({data}:Props) => {
       <DropdownMenuTrigger onMouseOver={()=>setOpen(true)}  className="flex items-center gap-1  md:text-base text-sm font-medium">Airports <ChevronDown className="w-4 h-4 ml-1" /></DropdownMenuTrigger>
       <DropdownMenuContent onMouseLeave={()=>setOpen(false)}  className="mt-5">
         {data.map((airport: Airport) => (
-          <DropdownMenuLabel onClick={()=>setOpen(false)}>
+          <DropdownMenuLabel        key={airport.id} onClick={()=>setOpen(false)}>
             {" "}
             <Link
               href={`/${airport.name}`}
-              key={airport.id}
+       
               className="shrink-0 block p-3 rounded-lg text-[#003580] hover:bg-gray-100 transition font-medium"
             >
               {airport.name}
