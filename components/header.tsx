@@ -41,9 +41,9 @@ const Header = async (props: Props) => {
 
         <nav className="flex md:gap-14 gap-3 items-center px-1">
           {links.map(({ label, Icon, airports }) => (
-            <div className={cn("relative group")}>
+            <div   key={label} className={cn("relative group")}>
            {!airports && <Link
-              key={label}
+            
               href={"/"}
               className={cn(
                 "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium"
