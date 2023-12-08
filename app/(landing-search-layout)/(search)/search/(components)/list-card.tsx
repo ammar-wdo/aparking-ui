@@ -48,7 +48,7 @@ const ListCard = ({ service,invalid }: Props) => {
       <h3 className="font-bold text-lg text-center p-7">Routes Airport Parking (ORD)</h3>
      <Separator className="bg-neutral-300" />
      <div className="py-4 px-6 space-y-3">
-     {service.highlights?.map((hightlight)=><div className="flex gap-3 items-center">
+     {service.highlights?.map((hightlight)=><div key={hightlight.label} className="flex gap-3 items-center">
       <span>{theIcons[hightlight.icon]}</span>
       <p className="text-sm">{hightlight.label}</p>
      </div>)}
