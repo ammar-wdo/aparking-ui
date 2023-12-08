@@ -5,6 +5,7 @@ import { GET_AIRPORTS } from '@/links'
 import { Airport } from '@/schemas'
 import { redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
+import EntitiesFeed from './(components)/entities-feed'
 
 const Editor = dynamic(() => import("../../../../components/editor"), { ssr: false })
 
@@ -23,7 +24,9 @@ if(!airport) return redirect('/')
       <Banner airportName={airport.name} airportId={airport.id}></Banner>
       <div className='container mt-4 min-h-[600px]'>
       <Editor initialContent={airport.content}  />
+   
       </div>
+      <EntitiesFeed airportId={airport.id} />
     </div>
   )
 }

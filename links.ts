@@ -15,4 +15,7 @@ export const GET_AIRPORTS = BASE_URL + '/api/airport'
 export const CONTACT_US = BASE_URL + '/api/contact-us'
 
 
+export const GET_ENTITIES = BASE_URL + '/api/entities'
+
+
 
