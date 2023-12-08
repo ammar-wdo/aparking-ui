@@ -5,6 +5,9 @@ import axios from 'axios'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import ResetUser from './reset-user'
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 type Props = {
     searchParams:{[key:string]:string | string[] | undefined}
@@ -22,25 +25,26 @@ const booking = res.data.booking  as Booking &{bookingCode:string}
 if(!booking) return redirect('/')
 
 
- return <div className='p-12 '>
-
-  <p className='font-semibold'>Thank you for your payment </p>
-
-  <div className='mt-4 flex items-center gap-5'>
-    <p className='font-semibold'> Email address</p>
-    <p>{booking.email}</p>
-  </div>
-  <div className='mt-3 flex items-center gap-5'>
-    <p className='font-semibold'> Booking code</p>
-    <p>{booking.bookingCode}</p>
-  </div>
-  <div className='mt-3 flex items-center gap-5'>
-    <p className='font-semibold'> Total</p>
-    <p>${booking.total}</p>
+ return <div className='p-12 h-screen flex items-center justify-center text-center bg-[#F3F3F3]'>
+  <div className=''>
+  <p className=''>Thank you for your booking </p>
+  <div className='relative w-40 aspect-square mx-auto'>
+    <Image src={'/success.gif'} alt='success' fill className='object-cover'  />
   </div>
 
-  <p className='mt-4 text-xs'>You can use your email and booking code to signin and change your information</p>
-<ResetUser />
+
+<div className='mt-2 flex items-center gap-5 justify-center'>
+  <p className='font-semibold text-3xl'>Booking  <span className=' text-[#003580]'>{booking.bookingCode}</span> Confirmed</p>
+ 
+</div>
+<p className='text-sm py-4 text-neutral-500'>You will receive an email with all the informations you need</p>
+<Button variant={'siteTwo'}><Link replace href={'/'}>Home page</Link></Button>
+
+
+
+  </div>
+
+ 
     
 </div>
 
