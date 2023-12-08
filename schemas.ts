@@ -92,7 +92,7 @@ total:z.coerce.number(),
    entityId:z.string().min(1)
   
   })
-  export type Service = z.infer<typeof serviceSchema> & {startDate?:string,endDate?:string,startTime?:string,endTime?:string,totalPrice?:string,id:string}
+  export type Service = z.infer<typeof serviceSchema> & {startDate?:string,endDate?:string,startTime?:string,endTime?:string,totalPrice?:string,id:string,pricings:number[]}
 
 
   export type Booking = z.infer<typeof bookingSchema> 
