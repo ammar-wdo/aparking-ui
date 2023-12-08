@@ -36,7 +36,7 @@ const {form ,onSubmit} = useContact()
   
 
   return (
-    <div className="w-full  flex gap-20 lg:flex-row flex-col justify-center  mt-24">
+    <div className="w-full  flex gap-20 lg:flex-row flex-col justify-center items-center lg:items-stretch  mt-24">
         <div className="relative  lg:w-1/2 aspect-video w-full  rounded-xl overflow-hidden">
             <Image fill alt="contact-img" src={'/parking-signin.jpeg'} className="object-cover" />
 
@@ -45,7 +45,7 @@ const {form ,onSubmit} = useContact()
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4  mt-6 rounded-md w-full lg:w-1/2 "
+          className="space-y-4  mt-6 rounded-md w-full lg:w-1/2 max-w-[600px]  "
         >
             <h3 className="text-site text-3xl font-semibold">Contact us</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
