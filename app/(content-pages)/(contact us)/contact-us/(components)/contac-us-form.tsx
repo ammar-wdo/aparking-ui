@@ -37,7 +37,7 @@ const {form ,onSubmit} = useContact()
 
   return (
     <div className="w-full  flex gap-20 lg:flex-row flex-col justify-center items-center lg:items-stretch  mt-24">
-        <div className="relative  lg:w-1/2 aspect-video w-full  rounded-xl overflow-hidden">
+        <div className="relative  lg:w-1/2 aspect-video w-full  rounded-xl overflow-hidden hidden lg:block">
             <Image fill alt="contact-img" src={'/parking-signin.jpeg'} className="object-cover" />
 
         </div>
