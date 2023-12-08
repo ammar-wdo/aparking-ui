@@ -106,7 +106,7 @@ const SigninForm = (props: Props) => {
 
       <div className="py-4 border-gray-100 border-t mt-6 flex justify-between items-center">
         <p>Have a problem?</p>
-        <Link href={'/'} className="text-indigo-600 underline">Contact us</Link>
+        <Link href={'/contact-us'} className="text-indigo-600 underline">Contact us</Link>
 
       </div>
     </div>

@@ -15,6 +15,9 @@ const contactSchema = z.object({
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import axios from "axios"
+import { CONTACT_US } from "@/links"
 
 
 
@@ -36,9 +39,16 @@ export const useContact = ()=>{
       })
 
 
-      function onSubmit(values: z.infer<typeof contactSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
+     async function onSubmit(values: z.infer<typeof contactSchema>) {
+        try {
+          const res = await axios.post(CONTACT_US,values)
+toast.success("message successfully sent ")
+
+        } catch (error) {
+            console.log(error)
+            toast.error('someting went wrong')
+        }
+
         console.log(values)
       }
     return {form, onSubmit}
