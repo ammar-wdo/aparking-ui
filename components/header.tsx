@@ -12,39 +12,44 @@ import { cn } from "@/lib/utils";
 import { AirportMenue } from "./airports-dropdown";
 
 
-type Props = {};
+type Props = {
+  contentPages?:boolean
+};
 
 
 
 
-const Header = async (props: Props) => {
+const Header = async ({contentPages}: Props) => {
   const links = [
     {
       label: "home",
+      link:'/'
     },
     {
       label: "airports",
       Icon: <ChevronDown className="w-4 h-4 ml-1" />,
       airports: true,
+      link:''
     },
     {
       label: "contact us",
+      link:'/contact-us'
     },
   ];
 
   const res = await axios(GET_AIRPORTS);
   console.log(res.data.airports);
   return (
-    <div className="bg-white ">
-      <div className="flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
-        <Logo />
+    <div className={cn("bg-white ",contentPages&& 'bg-[#003580]')}>
+      <div className={cn("flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col",contentPages&&'text-white')}>
+        <Logo footer={contentPages} />
 
         <nav className="flex md:gap-14 gap-3 items-center px-1">
-          {links.map(({ label, Icon, airports }) => (
+          {links.map(({ label, Icon, airports ,link}) => (
             <div   key={label} className={cn("relative group")}>
            {!airports && <Link
             
-              href={"/"}
+              href={link}
               className={cn(
                 "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium"
               )}

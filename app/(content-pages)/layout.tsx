@@ -1,6 +1,6 @@
 import Header from '@/components/header'
 import React from 'react'
-import Footer from './(landingPage)/(components)/footer'
+import Footer from '../(landing-search-layout)/(landingPage)/(components)/footer'
 
 type Props = {
     children:React.ReactNode
@@ -8,10 +8,11 @@ type Props = {
 
 const layout = ({children}: Props) => {
   return (
-    <div className='h-full'>
-         <Header contentPages={false}/>
+    <div>
+        <Header contentPages={true} />
         {children}
         <Footer />
+        
         </div>
   )
 }
