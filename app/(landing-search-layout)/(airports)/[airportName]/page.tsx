@@ -4,6 +4,9 @@ import axios from 'axios'
 import { GET_AIRPORTS } from '@/links'
 import { Airport } from '@/schemas'
 import { redirect } from 'next/navigation'
+import dynamic from "next/dynamic";
+
+const Editor = dynamic(() => import("../../../../components/editor"), { ssr: false })
 
 type Props = {params:{airportName:string}}
 
@@ -19,7 +22,7 @@ if(!airport) return redirect('/')
     <div>
       <Banner airportName={airport.name} airportId={airport.id}></Banner>
       <div className='container mt-4 min-h-[600px]'>
-        {airport.name}
+      <Editor initialContent={airport.content}  />
       </div>
     </div>
   )
