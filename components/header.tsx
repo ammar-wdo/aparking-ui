@@ -5,36 +5,62 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./logo";
 import SigninOut from "./signin-out";
+import axios from "axios";
+import { GET_AIRPORTS } from "@/links";
+import { Airport } from "@/schemas";
+import { cn } from "@/lib/utils";
+import { AirportMenue } from "./airports-dropdown";
+
 
 type Props = {};
 
-const Header = (props: Props) => {
+
+
+
+const Header = async (props: Props) => {
   const links = [
     {
       label: "home",
     },
     {
       label: "airports",
-      Icon:<ChevronDown className="w-4 h-4 ml-1" />
+      Icon: <ChevronDown className="w-4 h-4 ml-1" />,
+      airports: true,
     },
     {
       label: "contact us",
     },
-  
   ];
+
+  const res = await axios(GET_AIRPORTS);
+  console.log(res.data.airports);
   return (
     <div className="bg-white ">
-       <div className="flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
-    <Logo />
-      
-      <nav className="flex md:gap-14 gap-3  px-1">
-        {links.map(({label,Icon})=><Link key={label} href={'/'} className="capitalize flex items-center  text-sm sm:text-base shrink-0  font-medium">{label} {Icon && Icon}</Link>)}
-      <SigninOut />
-      
-      </nav>
+      <div className="flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col">
+        <Logo />
+
+        <nav className="flex md:gap-14 gap-3 items-center px-1">
+          {links.map(({ label, Icon, airports }) => (
+            <div className={cn("relative group")}>
+           {!airports && <Link
+              key={label}
+              href={"/"}
+              className={cn(
+                "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium"
+              )}
+            >
+              {label} {Icon && Icon}{" "}
+             
+            </Link>}
+            {airports && (
+               <AirportMenue data={res.data.airports} />
+              )}
+            </div>
+          ))}
+          <SigninOut />
+        </nav>
+      </div>
     </div>
-    </div>
-   
   );
 };
 
