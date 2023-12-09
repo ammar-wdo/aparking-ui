@@ -43,6 +43,7 @@ export const useContact = ()=>{
         try {
           const res = await axios.post(CONTACT_US,values)
 toast.success("message successfully sent ")
+form.reset()
 
         } catch (error) {
             console.log(error)
