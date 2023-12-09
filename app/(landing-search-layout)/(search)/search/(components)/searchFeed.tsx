@@ -47,7 +47,7 @@ const SearchFeed = async ({
 
 
  
-  type FullService =Service &{totalPrice:number,parkingDays:number}
+  type FullService =Service &{totalPrice:number,parkingDays:number, entity: { entityName: string; airport: { name: string } }}
   const services = await axios.get(url);
   const data = services.data ;
   const validServices = data.valid.filter((service:FullService)=>service.totalPrice > 0)
