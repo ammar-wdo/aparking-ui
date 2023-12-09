@@ -37,9 +37,12 @@ const {form ,onSubmit} = usePartner()
   
 
   return (
-    <div className="w-full  flex gap-20 lg:flex-row flex-col  justify-between items-center lg:items-stretch  mt-24">
+    <div className="lg:p-12 p-6  bg-white ">
+
+   
+    <div className="w-full  flex gap-20 lg:flex-row flex-col  justify-between items-center lg:items-stretch   container">
         <div className="relative  lg:w-1/2 aspect-video w-full  rounded-xl overflow-hidden hidden lg:block">
-            <Image fill alt="contact-img" src={'/parking-signin.jpeg'} className="object-cover" />
+            <Image fill alt="contact-img" src={'/partner.png'} className="object-cover" />
 
         </div>
   
@@ -182,6 +185,7 @@ const {form ,onSubmit} = usePartner()
       </Form>
 
     
+    </div>
     </div>
   );
 };

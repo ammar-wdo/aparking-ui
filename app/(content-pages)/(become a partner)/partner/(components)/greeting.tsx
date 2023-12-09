@@ -6,7 +6,7 @@ const PartnerGreeting = (props: Props) => {
   return (
     <div>
       <h3 className="text-site text-3xl font-bold">Become a partner</h3>
-      <p className="text-sm text-neutral-500 max-w-[500px] mt-4">
+      <p className="text-sm text-neutral-500 max-w-[650px] mt-4">
         Partner with Aparking to expand your parking services. Showcase your
         facility to travelers seeking hassle-free parking. Increase your reach,
         attract more clients, and grow with a trusted name in parking.

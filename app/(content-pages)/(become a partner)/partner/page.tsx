@@ -10,9 +10,9 @@ const page = (props: Props) => {
     <div className=''>
       <div className='container py-12 '>
 <PartnerGreeting />
+      </div>
 <InfoFeed />
 <PartnerForm />
-      </div>
     </div>
   )
 }
