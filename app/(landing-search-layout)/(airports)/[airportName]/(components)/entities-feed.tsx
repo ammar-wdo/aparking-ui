@@ -9,7 +9,7 @@ type Props = {
 
 const EntitiesFeed = async ({ airportId }: Props) => {
   const res = await axios.get(GET_ENTITIES + `?airportId=${airportId}`);
-  const entities = res.data.entities as {
+  const entities = res.data?.entities as {
     entityName: string;
     images: string[];
     id: string;
