@@ -38,6 +38,9 @@ const page = async ({ params }: Props) => {
           &gt;{" "}
           <span className="capitalize text-black">{service?.name}</span>{" "}
         </p>
+        <div className="mt-12">
+
+        </div>
       </div>
     </div>
   );

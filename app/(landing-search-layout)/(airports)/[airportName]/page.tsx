@@ -24,9 +24,10 @@ if(!airport) return redirect('/')
     <div>
       <Banner airportName={airport.name} airportId={airport.id}></Banner>
       
-      <div className='container mt-4 min-h-[600px]'>
-      <p className='text-neutral-500 flex items-center gap-4 py-12'> <Link href={'/'}>Home</Link>   &gt; <span className='capitalize text-black'>{airport.name}</span> </p>
-      <Editor initialContent={airport.content}  />
+      <div className='container mt-10 min-h-[600px]'>
+      <p className='text-neutral-500 flex items-center gap-4 '> <Link href={'/'}>Home</Link>   &gt; <span className='capitalize text-black'>{airport.name}</span> </p>
+      <div className='mt-12'>   <Editor initialContent={airport.content}  /></div>
+   
    
       </div>
       <EntitiesFeed airportName={airport.name} airportId={airport.id} />
