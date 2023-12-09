@@ -25,7 +25,7 @@ const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
         <h3 className="text-site font-bold text-2xl py-10 ">Parking providers at Hollywood Burbank Airport</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
           {entities.map((entity) => (
-            <Link href={`/${airportName}/${entity.entityName}`}><div key={entity.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+            <Link key={entity.id} href={`/${airportName}/${entity.entityName}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
                 <div className="w-full aspect-video relative">
                     <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-cover"/>
                 </div>
