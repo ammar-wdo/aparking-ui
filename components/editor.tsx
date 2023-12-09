@@ -2,7 +2,7 @@
 
 import { BlockNoteEditor } from "@blocknote/core";
 import "@blocknote/core/style.css";
-import { BlockNoteView, useBlockNote } from "@blocknote/react";
+import { BlockNoteView, useBlockNote ,Theme,darkDefaultTheme,lightDefaultTheme} from "@blocknote/react";
 
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,21 @@ type Props ={
 }
 export default function Editor({initialContent}:Props) {
 
+    const theme = {
+   ...lightDefaultTheme,
+        componentStyles: (theme) => ({
+          // Adds basic styling to the editor.
+          Editor: {
+         
+            paddingInline:0,
+          
+          },
+          
 
+       
+        }),
+     } satisfies Theme;
+      
 
 
 
@@ -33,6 +47,7 @@ export default function Editor({initialContent}:Props) {
     editable:false,
     initialContent: initialContent ? JSON.parse(initialContent) : undefined,
    
+   
 
 
   });
@@ -40,5 +55,7 @@ export default function Editor({initialContent}:Props) {
 
 
 
-  return <div><BlockNoteView   editor={editor} /></div>;
+
+
+  return <div><BlockNoteView  theme={theme}  editor={editor} /></div>;
 }

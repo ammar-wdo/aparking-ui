@@ -1,13 +1,15 @@
 import { GET_ENTITIES } from "@/links";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Props = {
   airportId: string;
+  airportName:string
 };
 
-const EntitiesFeed = async ({ airportId }: Props) => {
+const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
   const res = await axios.get(GET_ENTITIES + `?airportId=${airportId}`);
   const entities = res.data?.entities as {
     entityName: string;
@@ -23,12 +25,12 @@ const EntitiesFeed = async ({ airportId }: Props) => {
         <h3 className="text-site font-bold text-2xl py-10 ">Parking providers at Hollywood Burbank Airport</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
           {entities.map((entity) => (
-            <div key={entity.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+            <Link href={`/${airportName}/${entity.entityName}`}><div key={entity.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
                 <div className="w-full aspect-video relative">
                     <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-cover"/>
                 </div>
                 <h3 className="text-center py-12  font-semibold text-site">{entity.entityName}</h3>
-            </div>
+            </div></Link>
           ))}
         </div>
       </div>

@@ -65,6 +65,7 @@ const ListCard = ({ service,invalid }: Props) => {
         </div>)}
 
       <Button
+      asChild
           variant={'siteTwo'}
         className={cn("w-full text-lg py-7 rounded-[3px] mt-2")}
            

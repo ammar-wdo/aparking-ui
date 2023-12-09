@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
 import EntitiesFeed from './(components)/entities-feed'
 
-const Editor = dynamic(() => import("../../../../components/editor"), { ssr: false })
+const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
 
 type Props = {params:{airportName:string}}
 
@@ -26,7 +26,7 @@ if(!airport) return redirect('/')
       <Editor initialContent={airport.content}  />
    
       </div>
-      <EntitiesFeed airportId={airport.id} />
+      <EntitiesFeed airportName={airport.name} airportId={airport.id} />
     </div>
   )
 }
