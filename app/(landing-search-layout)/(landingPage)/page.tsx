@@ -8,6 +8,7 @@ import Reviews from './(components)/reviews'
 import Feed from './(components)/feed'
 import Footer from './(components)/footer'
 
+export const revalidate = 0
 export default function Home() {
 
   return (
