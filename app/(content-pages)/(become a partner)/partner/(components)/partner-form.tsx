@@ -51,7 +51,7 @@ const {form ,onSubmit} = usePartner()
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4  mt-6 rounded-md w-full lg:w-1/2 max-w-[600px]  "
         >
-            <h3 className="text-site text-3xl font-semibold">Contact us</h3>
+            <h3 className="text-site text-3xl font-semibold">Ready to become a partner ?</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <FormField
             control={form.control}
