@@ -11,11 +11,11 @@ import React from 'react'
 import ServciesFeed from './(components)/services-feed'
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
-type Props = {params:{entityName:string}}
+type Props = {params:{entityName:string,airportName:string}}
 
 const page = async({params}: Props) => {
 
-const res = await axios(GET_ENTITIES + `/${params.entityName}`)
+const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${params.airportName}`)
 
 const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string}}
 
