@@ -18,5 +18,8 @@ export const CONTACT_US = BASE_URL + '/api/contact-us'
 export const GET_ENTITIES = BASE_URL + '/api/entities'
 
 
+export const GET_SERVICES = BASE_URL + '/api/services/entity'
+
+
 
 

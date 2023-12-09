@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
 
 import React from 'react'
+import ServciesFeed from './(components)/services-feed'
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {params:{entityName:string}}
@@ -16,7 +17,7 @@ const page = async({params}: Props) => {
 
 const res = await axios(GET_ENTITIES + `/${params.entityName}`)
 
-const entity = res.data?.entity  as Entity &{airport :{name:string}}
+const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string}}
 
 if(!entity) return redirect('/')
 
@@ -47,10 +48,11 @@ if(!entity) return redirect('/')
                 </article>
 
             </section>
-            <h3 className='text-site text-3xl font font-semibold my-10'>Availability {entity?.entityName}</h3>
+            <h3 className='text-site text-3xl font font-semibold mt-20 mb-10'>Availability {entity?.entityName}</h3>
+       
             
         </div>
-   
+        <ServciesFeed entityId={entity.id} />
     </div>
   )
 }
