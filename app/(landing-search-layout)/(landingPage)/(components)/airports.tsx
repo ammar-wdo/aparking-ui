@@ -11,7 +11,8 @@ type Props = {};
 export const revalidate = 0
 const Airports = async (props: Props) => {
   const res = await axios(GET_AIRPORTS);
-
+  
+console.log(res.data.airports.length)
 
   return (
     <div className=" py-8 ">
