@@ -170,7 +170,7 @@ const {form ,onSubmit} = usePartner()
             <Button
               variant={"siteTwo"}
               type="submit"
-              className="py-8 w-full rounded-lg"
+              className="py-8 w-full rounded-lg text-xl"
               disabled={isLoading}
             >
               Send message
