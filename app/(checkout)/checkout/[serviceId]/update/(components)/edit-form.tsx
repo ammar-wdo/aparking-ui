@@ -116,7 +116,7 @@ const EditBookingForm = ({ service }: Props) => {
               departureDate={user.departureDate}
               departureTime={user.departureTime}
             />
-            <p className="p-6">Price including VAT </p>
+            <p className="p-6">Price including VAT  {!!newDays && newPrice &&<span className="font-bold">€{newPrice}</span>}  </p>
             <Separator />
 
             <div className="px-6">

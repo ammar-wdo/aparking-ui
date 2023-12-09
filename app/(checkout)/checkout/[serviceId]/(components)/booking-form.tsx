@@ -77,7 +77,7 @@ const [payStep, setPayStep] = useState(false)
 <h3 className='text-2xl font-bold p-6  '>Order overview</h3>
 <ResultPersonal  name={`${form.watch('firstName')} ${form.watch('lastName')}`} email={form.watch('email')} phone={form.watch('phoneNumber')} />
 <ResultProducts title={title} total={totalPrice} arrivalDate={new Date(arrivalDate)} arrivalTime={arrivalTime} departureDate={new Date(departureDate)} departureTime={departureTime} />
-<p className='p-6'>Price including VAT </p>
+<p className='p-6'>Price including VAT   <span className="font-semibold">€{totalPrice}</span></p>
     </div>
 
         </div>

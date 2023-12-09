@@ -16,7 +16,7 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
           <h3 className='text-xl font-light'>Products</h3>
           <div className='mt-5 flex items-center justify-between font-bold text-lg capitalize'>
 <p>{title}</p>
-<p>$ {total}</p>
+<p>€ {total}</p>
           </div>
           <InfoComponent title='Entry date' value={`${arrivalDate.toLocaleDateString()} at ${arrivalTime}`} />
           <InfoComponent title='Exit date' value={`${departureDate.toLocaleDateString()} at ${departureTime}`} />
