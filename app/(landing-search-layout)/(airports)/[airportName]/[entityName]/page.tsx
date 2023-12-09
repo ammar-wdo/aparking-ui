@@ -16,7 +16,7 @@ const page = async({params}: Props) => {
 
 const res = await axios(GET_ENTITIES + `/${params.entityName}`)
 
-const entity = res.data.entity  as Entity &{airport :{name:string}}
+const entity = res.data?.entity  as Entity &{airport :{name:string}}
 
 if(!entity) return redirect('/')
 
