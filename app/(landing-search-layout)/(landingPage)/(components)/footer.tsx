@@ -36,7 +36,7 @@ const Footer = (props: Props) => {
 <h3 className='font-bold'>Company</h3>
 <div className='mt-6 flex flex-col gap-2'>
     <Link href={'/'} className=' font-light text-sm hover:underline '>About</Link>
-    <Link href={'/'} className=' font-light text-sm hover:underline'>Contact us</Link>
+    <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Contact us</Link>
     <Link href={'/partner'} className=' font-light text-sm hover:underline'>Become a partner</Link>
     <Link href={'/'} className=' font-light text-sm hover:underline'>Blog</Link>
 
