@@ -55,7 +55,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
   } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change,airportId});
 
 
-console.log(airportId)
+
   return (
     <div className="text-white ">
       {<div className={cn("fixed inset-0 opacity-0 duration-300 bg-black/60 delay-100",(openStart||openEnd||openStartTime||openEndTime||openAirport) ? 'opacity-100 z-20':'-z-10')}></div>}

@@ -10,7 +10,7 @@ type Props = {};
 const Airports = async (props: Props) => {
   const res = await axios(GET_AIRPORTS);
 
-  console.log(res.data);
+
   return (
     <div className=" py-8 ">
       <h3 className="text-center text-4xl font-semibold text-[#003580] ">

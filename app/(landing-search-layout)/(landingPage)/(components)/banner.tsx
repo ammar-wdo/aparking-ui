@@ -14,7 +14,7 @@ airportName?:string
 
 const Banner =async ({children,noForm,airportId,airportName}: Props) => {
   const res = await axios.get(GET_AIRPORTS)
-  console.log(res.data)
+ 
 
   return (
     <div className={cn("md:min-h-[500px] min-h-[600px] items-center flex bg-[#003580] relative ",noForm && 'min-h-[300px] ')}>

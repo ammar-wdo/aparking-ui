@@ -25,7 +25,7 @@ const AirportSelect = ({
   setAirport,
   airport,
 }: Props) => {
-  console.log(airports);
+
   return (
     <Select
       onValueChange={setAirport}

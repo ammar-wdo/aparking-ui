@@ -16,7 +16,7 @@ const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
     images: string[];
     id: string;
   }[];
-  console.log(res.data);
+
   return (
     <div className="bg-gray-100 p-12">
       <div className="container">
