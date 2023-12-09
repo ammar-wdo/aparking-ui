@@ -6,10 +6,10 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-type Props = { params: { serviceName: string ,entityName:string} };
+type Props = { params: { serviceName: string ,entityName:string,airportName:string} };
 
 const page = async ({ params }: Props) => {
-  const res = await axios(ALL_SERVICES + `/serviceInfo/${params.serviceName}?entityName=${params.entityName}`);
+  const res = await axios(ALL_SERVICES + `/serviceInfo/${params.serviceName}?entityName=${params.entityName}&airportName=${params.airportName}`);
 
   console.log(params.serviceName);
 
