@@ -92,7 +92,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
           </div>
         )}
       </div>
-      <div className="bg-gray-50 p-4 py-2 flex flex-col  ">
+      <div className="bg-gray-50 p-4 py-3 flex flex-col  border-t">
         {!invalid && !show && (
           <div className="text-center">
             <p className="text-gray-500 text-xs">

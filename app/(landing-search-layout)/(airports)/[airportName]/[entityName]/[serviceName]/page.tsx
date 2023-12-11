@@ -10,12 +10,13 @@ import dynamic from "next/dynamic";
 import { Separator } from "@/components/ui/separator";
 import AccordionInfo from "./(components)/accordion-info";
 import ServiceCheckForm from "./(components)/(service-check-form)/service-check-form";
+import AvailableService from "./(components)/available-service";
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
 
 
-type Props = { params: { serviceName: string ,entityName:string,airportName:string} };
+type Props = { params: { serviceName: string ,entityName:string,airportName:string},   searchParams:{[key:string]:string | string[] | undefined} };
 
-const page = async ({ params }: Props) => {
+const page = async ({ params ,searchParams}: Props) => {
   const res = await axios(ALL_SERVICES + `/serviceInfo/${params.serviceName}?entityName=${params.entityName}&airportName=${params.airportName}`);
 
   console.log(params.serviceName);
@@ -34,7 +35,7 @@ const page = async ({ params }: Props) => {
         <ServiceCheckForm serviceId={service.id} />
       </Banner>
 
-      <div className="container mt-10">
+      <div className="container mt-10 py-4">
         <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap ">
           {" "}
           <Link href={"/"}>Home</Link> &gt;{" "}
@@ -62,6 +63,9 @@ const page = async ({ params }: Props) => {
     <AccordionInfo  label="Location"  location={{address:service.parkingAddress,zipcode:service.parkingZipcode,country:service.parkingCountry}}/>
 </div>
         </div>
+        <AvailableService serviceId={service.id} searchParams={searchParams} />
+
+
       </div>
     </div>
   );

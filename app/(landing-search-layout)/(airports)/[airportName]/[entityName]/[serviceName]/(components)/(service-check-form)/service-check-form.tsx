@@ -102,7 +102,7 @@ const ServiceCheckForm = ({ change,serviceId }: Props) => {
             disabled:cursor-default bg-[#FEBA02]
              hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl"
         >
-          {change ? "Change" : "Book "}
+          {change ? "Change" : "Check "}
           {isLoading && (
             <Loader className="ml-3 h-3 w-3 text-[#003580] animate-spin" />
           )}

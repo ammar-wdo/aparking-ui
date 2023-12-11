@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { handleTimezone } from "@/lib/timezone-handler";
 import { toast } from "sonner";
@@ -137,6 +137,8 @@ export const useCheckForm = ({
     }
   }
 const params = useSearchParams()
+const pathname = usePathname()
+
   const router = useRouter();
   const handleClick = async() => {
    
@@ -157,33 +159,26 @@ const {startDateString,endDateString} = handleTimezone(startDate,endDate)
 
 
 try {
-    const url = qs.stringifyUrl({
-        url:ALL_SERVICES + `/check/${serviceId}`,
-        query:{
-            startDate:startDateString,
-            endDate:endDateString,
-            startTime,
-            endTime
-        }
-    })
-   const res =  await axios(url)
-   if(res.data.url){
- const redirectUrl = qs.stringifyUrl({
-    url:window.origin + res.data.url,
+
+  
+ const url = qs.stringifyUrl({
+    url:pathname,
     query:{
         startDate:startDateString,
         endDate:endDateString,
-        startTime,
-        endTime
+        startTime:startTime,
+        endTime:endTime,
+   
     }
  })
   
-    router.push(redirectUrl)
-   }
+    router.push(url)
+   
 
 } catch (error) {
     console.log(error)
     toast.error('Service is not available')
+    router.push(pathname)
 }
 
      
