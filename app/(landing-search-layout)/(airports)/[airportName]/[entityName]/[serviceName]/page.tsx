@@ -43,9 +43,10 @@ const page = async ({ params }: Props) => {
           <span className="capitalize text-black">{service?.name}</span>{" "}
         </p>
         <div className="mt-12">
-<section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <h3 className="text-site text-3xl font-semibold py-8">{service.name} service</h3>
+<section className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1  gap-8 mb-8">
     <GallarySwiper gallary={service.images || []} />
-    <div className="aspect-video w-full overflow-y-scroll"><Editor initialContent={service.importantInfo}/></div>
+    <div className="lg:aspect-video w-full overflow-y-scroll  row-span-1 lg:col-span-2 max-h-[600px]"><Editor initialContent={service.generalInformation}/></div>
     
 
 </section>
