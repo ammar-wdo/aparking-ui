@@ -85,5 +85,9 @@
   @apply px-8  bg-orange-600 hover:bg-orange-600/90 transition  text-white capitalize py-3
 }
 
+.bn-editor {
+  padding-inline: 6px !important;
+}
+
 
 

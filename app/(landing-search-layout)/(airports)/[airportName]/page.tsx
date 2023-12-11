@@ -25,7 +25,7 @@ if(!airport) return redirect('/')
       <Banner airportName={airport.name} airportId={airport.id}></Banner>
       
       <div className='container mt-10 min-h-[600px]'>
-      <p className='text-neutral-500 flex items-center gap-4 '> <Link href={'/'}>Home</Link>   &gt; <span className='capitalize text-black'>{airport.name}</span> </p>
+      <p className='text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap '> <Link href={'/'}>Home</Link>   &gt; <span className='capitalize text-black'>{airport.name}</span> </p>
       <div className='mt-12'>   <Editor initialContent={airport.content}  /></div>
    
    

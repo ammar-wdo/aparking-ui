@@ -5,6 +5,10 @@ import axios from "axios";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
+import GallarySwiper from "./(components)/gallary-swiper";
+import dynamic from "next/dynamic";
+const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
+
 
 type Props = { params: { serviceName: string ,entityName:string,airportName:string} };
 
@@ -27,7 +31,7 @@ const page = async ({ params }: Props) => {
       </Banner>
 
       <div className="container mt-10">
-        <p className="text-neutral-500 flex items-center gap-4">
+        <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap ">
           {" "}
           <Link href={"/"}>Home</Link> &gt;{" "}
           <Link href={`/${service?.entity?.airport.name}`}>
@@ -39,7 +43,12 @@ const page = async ({ params }: Props) => {
           <span className="capitalize text-black">{service?.name}</span>{" "}
         </p>
         <div className="mt-12">
+<section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <GallarySwiper gallary={service.images || []} />
+    <div className="aspect-video w-full overflow-y-scroll"><Editor initialContent={service.importantInfo}/></div>
+    
 
+</section>
         </div>
       </div>
     </div>

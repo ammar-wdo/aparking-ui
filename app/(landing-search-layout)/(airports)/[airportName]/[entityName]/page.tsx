@@ -29,7 +29,7 @@ if(!entity) return redirect('/')
         </Banner>
 
         <div className='container mt-10'>
-            <p className='text-neutral-500 flex items-center gap-4'> <Link href={'/'}>Home</Link>  &gt; <Link href={`/${entity?.airport?.name}`}>{entity?.airport?.name}</Link> &gt; <span className='capitalize text-black'>{entity?.entityName}</span> </p>
+            <p className='text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap '> <Link href={'/'}>Home</Link>  &gt; <Link href={`/${entity?.airport?.name}`}>{entity?.airport?.name}</Link> &gt; <span className='capitalize text-black'>{entity?.entityName}</span> </p>
 
 
             <section className='mt-12' >
