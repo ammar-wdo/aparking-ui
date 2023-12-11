@@ -74,7 +74,7 @@ const router = useRouter()
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400")}>
-            1. Personal information
+            2. Personal information
           </h3>
           {carStep && (
             <span className="p-2 bg-green-500/20 rounded-full ml-auto">
@@ -252,147 +252,9 @@ const router = useRouter()
             />
 
           
-<div className="flex flex-col gap-1">
-<FormField
-          control={form.control}
-          name="arrivalDate"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>New Arrival date</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(new Date(field.value), "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date< new Date(new Date().setHours(0,0,0,0)) || date < new Date("1900-01-01")
-                    }
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-           
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-         <FormField
-          control={form.control}
-          name="arrivalTime"
-          render={({ field }) => (
-            <FormItem className="space-y-0 w-fit">
-              <FormLabel>New Arrival Time</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-              
-                <SelectContent>
-                <ScrollArea className="h-[200px] w-fit rounded-md  p-4">
-                  {timeArray.map((el)=> <SelectItem key={el} value={el}>{el}</SelectItem>)}
-                 </ScrollArea>
-               
-                </SelectContent>
-              
-              </Select>
-             
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-</div>
 
-        <div className="flex flex-col  gap-1">
-        <FormField
-          control={form.control}
-          name="departureDate"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>New Departure Date</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(new Date(field.value), "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={new Date(field.value)}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date < new Date(form.getValues('arrivalDate')?.setHours(0,0,0,0))
-                    }
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-           
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-          <FormField
-          control={form.control}
-          name="departureTime"
-          render={({ field }) => (
-            <FormItem className="space-y-0 p-0 w-fit">
-              <FormLabel className="p-0 ">New Departure Time</FormLabel>
-              <Select  onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl className="">
-                  <SelectTrigger className="">
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-              
-                <SelectContent className="">
-                <ScrollArea className="h-[200px] w-fit rounded-md  p-4">
-                  {timeArray.map((el)=> <SelectItem key={el} value={el}>{el}</SelectItem>)}
-                 </ScrollArea>
-               
-                </SelectContent>
-         
-              </Select>
-         
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        </div>
+
+      
 
         
        

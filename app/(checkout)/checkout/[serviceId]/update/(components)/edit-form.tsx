@@ -38,6 +38,7 @@ import { Separator } from "@/components/ui/separator";
 import { findTotalPrice } from "./(helpers)/findNewTotal";
 import ActionToolTip from "@/components/tool-tip";
 import { useCancel } from "@/hooks/modal-hook";
+import DateInformation from "./date-information";
 
 type Props = {
   service: Service & { rules: Rule[]; availability: any[]; bookings: any[] };
@@ -55,12 +56,14 @@ const EditBookingForm = ({ service }: Props) => {
     newDays,
     newPrice,
     block,
+    differentDate
    
   
   } = useEditBooking(service);
 
   const isLoading = form.formState.isSubmitting;
   const {setOpen} = useCancel()
+  const [personalStep, setPersonalStep] = useState(false)
   const [carStep, setCarStep] = useState(false);
   const [payStep, setPayStep] = useState(false);
   const { user } = useUser();
@@ -79,6 +82,12 @@ const EditBookingForm = ({ service }: Props) => {
       >
         <div className=" grid lg:grid-cols-3 grid-cols-1">
           <div className="space-y-5  lg:col-span-2 p-5">
+            <DateInformation form={form} timeArray={timeArray}
+            personalStep={personalStep}
+            setPersonalStep={setPersonalStep}
+            differentDate ={differentDate}
+            />
+
             <PersonalInformation
               block={block}
               timeArray={timeArray}

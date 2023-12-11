@@ -61,7 +61,7 @@ const CarInformation = ({
               (!carStep || payStep) && "text-gray-400"
             )}
           >
-            2. Car information
+            3. Car information
           </h3>
           {payStep && (
             <span className="p-2 bg-green-500/20 rounded-full ml-auto">

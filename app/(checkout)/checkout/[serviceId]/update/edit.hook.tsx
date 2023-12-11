@@ -24,16 +24,6 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
   const serviceId = service.id;
   const {user} = useUser()
-
-
-
-  const [newDays, setNewDays] = useState(0)
-
-
-  const [block, setBlock] = useState(false)
-
-
-
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
     defaultValues:
@@ -51,6 +41,48 @@ export const useEditBooking = (service:Service & {pricings:number[],rules:any[],
 
     
   });
+
+  const [differentDate, setDifferentDate] = useState(false)
+
+
+
+  useEffect(()=>{
+
+if(user && form.watch('arrivalDate') && form.watch('departureDate') ){
+
+  const {startDateString,endDateString} = handleTimezone(new Date(user.arrivalDate),new Date(user.departureDate))
+  const userArrival = new Date(startDateString)
+  const userDeparture =new Date(endDateString)
+
+  const {startDateString:formArrivalString,endDateString:formDepartureString} = handleTimezone(form.watch('arrivalDate'),form.watch('departureDate'))
+
+  const formArrival = new Date(formArrivalString)
+  const formDeparture = new Date(formDepartureString)
+
+  if(userArrival.getTime() !== formArrival.getTime() || userDeparture.getTime() !== formDeparture.getTime()){
+
+
+    setDifferentDate(true)
+  }else{
+
+    setDifferentDate(false)
+  }
+
+
+}
+
+  },[user,form.watch('arrivalDate'),form.watch('departureDate')])
+
+
+
+  const [newDays, setNewDays] = useState(0)
+
+
+  const [block, setBlock] = useState(false)
+
+
+
+  
 
 
 let newPakingDays
@@ -82,7 +114,7 @@ useEffect(()=>{
     setBlock(false)
   }
 },[validPrice,isValid])
-console.log("valid",validPrice,isValid,block)
+
 
 useEffect(()=>{
   if(newDays){
@@ -163,7 +195,7 @@ if(form.getValues('arrivalDate') && form.getValues('departureDate')){
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
 
-console.log(refinedValues)
+
           try {
 
     const result = await axios.post(UPDATE_BOOKING,refinedValues)
@@ -195,5 +227,5 @@ console.log(refinedValues)
 
 
 
-  return { form, onSubmit ,timeArray,newDays,newPrice,block};
+  return { form, onSubmit ,timeArray,newDays,newPrice,block,differentDate};
 };

@@ -41,7 +41,7 @@ const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep }: Props) =>
     <div className="space-y-5  bg-white p-6">
       <div>
         <div className="flex items-center ">
-        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>3. Payment method</h3>
+        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>4. Payment method</h3>
             </div>
         
     
