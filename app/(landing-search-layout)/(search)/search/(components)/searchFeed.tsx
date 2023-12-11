@@ -6,6 +6,7 @@ import Link from "next/link";
 import qs from "query-string";
 import ListCard from "./list-card";
 import { Service } from "@/schemas";
+import SearchScroller from "./scroller";
 
 type Props = {
   startDate: string;
@@ -59,6 +60,7 @@ const SearchFeed = async ({
 console.log("data",data)
   return (
     <div>
+       <SearchScroller />
 {!data.valid.length && !data.invalid.length && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
 {!!validServices.length&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {validServices.length} of {total}</p>}
 
@@ -86,6 +88,7 @@ console.log("data",data)
 
     
     </div>
+   
     </div>
    
   );
