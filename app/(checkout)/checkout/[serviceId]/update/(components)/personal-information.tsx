@@ -33,11 +33,13 @@ type Props = {
   setCarStep: Dispatch<SetStateAction<boolean>>;
   carStep: boolean;
   timeArray:string[],
-  block:boolean
+
+  setPersonalStep: Dispatch<SetStateAction<boolean>>;
+  personalStep: boolean;
 
 };
 
-const PersonalInformation = ({ form, setCarStep, carStep,timeArray,block }: Props) => {
+const PersonalInformation = ({ form, setCarStep, carStep,timeArray ,personalStep,setPersonalStep}: Props) => {
   const toCarInfo = async () => {
     const isValid = form.getValues("isCompany")
       ? await form.trigger([
@@ -73,7 +75,7 @@ const router = useRouter()
     <div className="space-y-5 bg-white p-6">
       <div>
         <div className="flex items-center ">
-          <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400")}>
+          <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400",!personalStep && 'text-gray-400')}>
             2. Personal information
           </h3>
           {carStep && (
@@ -85,7 +87,7 @@ const router = useRouter()
 
      
       </div>
-      {!carStep && (
+      {!carStep && personalStep &&(
         <>
           <div className=" flex items-center   w-fit  overflow-hidden gap-7">
             <label htmlFor="for-work" className="">
@@ -281,14 +283,14 @@ const router = useRouter()
           </div>
           <div className="flex items-center justify-between">
             <button
-            onClick={()=>{router.back();router.refresh()}}
+            onClick={()=>{setPersonalStep(false)}}
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
               {<ChevronLeft className="mr-1 h-4 w-4" />}Back
             </button>
             <Button
-         disabled={block}
+      
               onClick={toCarInfo}
               type="button"
              variant={'siteTwo'}

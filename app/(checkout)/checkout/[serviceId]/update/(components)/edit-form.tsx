@@ -18,7 +18,7 @@ import {
 } from "@radix-ui/react-popover";
 import { cn } from "@/lib/utils";
 import { addDays, format } from "date-fns";
-import { CalendarIcon, HelpCircle, Loader } from "lucide-react";
+import { CalendarIcon, ChevronLeft, HelpCircle, Loader } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
@@ -53,10 +53,14 @@ const EditBookingForm = ({ service }: Props) => {
     form,
     onSubmit,
     timeArray,
-    newDays,
-    newPrice,
-    block,
-    differentDate
+ 
+    differentDate,
+    available,
+    setAvailable,
+    additionalPrice,
+    setAdditionalPrice,
+    additionaldays,
+    setAdditionalDays
    
   
   } = useEditBooking(service);
@@ -86,12 +90,20 @@ const EditBookingForm = ({ service }: Props) => {
             personalStep={personalStep}
             setPersonalStep={setPersonalStep}
             differentDate ={differentDate}
+        
+            setAvailable ={(value:'' | 'true' | 'false')=>setAvailable(value)}
+       
+            setAdditionalDays={(value:number|undefined)=>setAdditionalDays(value)}
+     
+            setAdditionalPrice={(value:number|undefined)=>setAdditionalPrice(value)}
             />
 
             <PersonalInformation
-              block={block}
+            
               timeArray={timeArray}
               form={form}
+              personalStep={personalStep}
+              setPersonalStep={setPersonalStep}
               setCarStep={setCarStep}
               carStep={carStep}
             />
@@ -101,14 +113,25 @@ const EditBookingForm = ({ service }: Props) => {
               carStep={carStep}
               payStep={payStep}
               setPayStep={setPayStep}
+              differentDate={differentDate}
             />
-            <PaymentMethod
+           <div className="flex justify-between items-center">
+           <PaymentMethod
               form={form}
               setCarStep={setCarStep}
               carStep={carStep}
               payStep={payStep}
               setPayStep={setPayStep}
+              differentDate={differentDate}
             />
+            {!differentDate && payStep && <button
+            onClick={()=>{setPayStep(false)}}
+              type="button"
+              className="font-light text-blue-600 flex text-sm items-center justify-center "
+            >
+              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+            </button>}
+            </div>
           </div>
           <div className="p-5">
             <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
@@ -125,19 +148,23 @@ const EditBookingForm = ({ service }: Props) => {
               departureDate={user.departureDate}
               departureTime={user.departureTime}
             />
-            <p className="p-6">Price including VAT  {!!newDays && newPrice &&<span className="font-bold">€{newPrice}</span>}  </p>
+            <p className="p-6">Price including VAT  {<span className="font-bold">€{additionalPrice ? user.total + additionalPrice : user.total}</span>}  </p>
             <Separator />
 
             <div className="px-6">
-              {!!newDays && (
-                <p className="py-4 font-semibold">
-                  {newDays} + Additional day(s)
+              {available === 'true' && (
+                <div>
+                     <p className="py-4 font-semibold">
+                  {additionaldays || 0}+ Additional day(s)
                 </p>
+                <p className="font-semibold py-3">Additional price  €{additionalPrice}</p>
+                  </div>
+             
               )}
-              {
-                !!newDays && newPrice &&<p>€{newPrice - user.total}</p>}
+              
+              
             
-                {block && <p className="text-sm text-rose-500 pb-3 text-center font-bold">
+                {available ==='false' && <p className="text-sm text-rose-500 pb-3 text-center font-bold py-3">
                   Not available for this date
                 </p>}
               

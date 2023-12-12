@@ -30,15 +30,17 @@ type Props = {
   carStep:boolean,
   setPayStep:Dispatch<SetStateAction<boolean>>,
   payStep:boolean,
+  differentDate:boolean
  
 };
 
-const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep }: Props) => {
+const PaymentMethod = ({ form,payStep,setPayStep,differentDate }: Props) => {
 
 
 
   return (
-    <div className="space-y-5  bg-white p-6">
+    <div className="w-full">
+      {differentDate ? (  <div className="space-y-5  bg-white p-6">
       <div>
         <div className="flex items-center ">
         <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>4. Payment method</h3>
@@ -126,7 +128,10 @@ const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep }: Props) =>
         <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
       </div>
       </>}
+    </div>) : (<Button variant={'siteTwo'}>Save changes</Button>)}
+
     </div>
+  
   );
 };
 

@@ -15,204 +15,101 @@ import { calculateParkingDays } from "./(helpers)/findParkingDays";
 import { findTotalPrice } from "./(components)/(helpers)/findNewTotal";
 import { isServiceValid } from "./(components)/(helpers)/isServiceValid";
 
-
-
-export const useEditBooking = (service:Service & {pricings:number[],rules:any[],availability:any[],bookings:any[]}) => {
-
-
+export const useEditBooking = (
+  service: Service & {
+    pricings: number[];
+    rules: any[];
+    availability: any[];
+    bookings: any[];
+  }
+) => {
   const params = useParams();
 
   const serviceId = service.id;
-  const {user} = useUser()
+  const { user } = useUser();
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
-    defaultValues:
-    { ...user,
-      arrivalDate:new Date(user?.arrivalDate!),
-      departureDate:new Date(user?.departureDate!),
+    defaultValues: {
+      ...user,
+      arrivalDate: new Date(user?.arrivalDate!),
+      departureDate: new Date(user?.departureDate!),
       serviceId: serviceId as string,
-     
-
-
-
-    
-    
-    }
-
-    
+    },
   });
 
-  const [differentDate, setDifferentDate] = useState(false)
+  const [differentDate, setDifferentDate] = useState(false);
+  const [available, setAvailable] = useState<"true" | "false" | "">("");
+  const [additionalPrice, setAdditionalPrice] = useState<number | undefined>(
+    undefined
+  );
+  const [additionaldays, setAdditionalDays] = useState<number | undefined>(
+    undefined
+  );
 
+  useEffect(() => {
+    if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
+      const { startDateString, endDateString } = handleTimezone(
+        new Date(user.arrivalDate),
+        new Date(user.departureDate)
+      );
+      const userArrival = new Date(startDateString);
+      const userDeparture = new Date(endDateString);
 
+      const {
+        startDateString: formArrivalString,
+        endDateString: formDepartureString,
+      } = handleTimezone(
+        form.watch("arrivalDate"),
+        form.watch("departureDate")
+      );
 
-  useEffect(()=>{
+      const formArrival = new Date(formArrivalString);
+      const formDeparture = new Date(formDepartureString);
 
-if(user && form.watch('arrivalDate') && form.watch('departureDate') ){
-
-  const {startDateString,endDateString} = handleTimezone(new Date(user.arrivalDate),new Date(user.departureDate))
-  const userArrival = new Date(startDateString)
-  const userDeparture =new Date(endDateString)
-
-  const {startDateString:formArrivalString,endDateString:formDepartureString} = handleTimezone(form.watch('arrivalDate'),form.watch('departureDate'))
-
-  const formArrival = new Date(formArrivalString)
-  const formDeparture = new Date(formDepartureString)
-
-  if(userArrival.getTime() !== formArrival.getTime() || userDeparture.getTime() !== formDeparture.getTime()){
-
-
-    setDifferentDate(true)
-  }else{
-
-    setDifferentDate(false)
-  }
-
-
-}
-
-  },[user,form.watch('arrivalDate'),form.watch('departureDate')])
-
-
-
-  const [newDays, setNewDays] = useState(0)
-
-
-  const [block, setBlock] = useState(false)
-
-
-
-  
-
-
-let newPakingDays
-const newPrice = findTotalPrice(service,newDays+user?.daysofparking!,form.watch('arrivalDate')?.toString(),form.watch('departureDate')?.toString()) 
-
-
-
-useEffect(()=>{
-  if(newPrice){
-   
-    form.setValue('total',newPrice)
-    
-   
-  }
-},[newPrice])
-
-
-const [isValid, setIsValid] = useState<boolean | undefined>()
-const [validPrice, setValidPrice] = useState<boolean | undefined>()
-
-useEffect(()=>{
-
-  if((!isValid || !validPrice) && newDays ) {
-    setBlock(true)
-  }
-
-  if(isValid && validPrice)
-  {
-    setBlock(false)
-  }
-},[validPrice,isValid])
-
-
-useEffect(()=>{
-  if(newDays){
-
-    if(isNaN(newPrice) || newPrice === 0 || !newPrice ){
-      setValidPrice(false)
-    }else{
-     setValidPrice(true)
+      if (
+        userArrival.getTime() !== formArrival.getTime() ||
+        userDeparture.getTime() !== formDeparture.getTime()
+      ) {
+        setDifferentDate(true);
+      } else {
+        setDifferentDate(false);
+        setAvailable('')
+        setAdditionalDays(undefined)
+        setAdditionalPrice(undefined)
+      }
     }
-
-
-  
-  }
-
-  if(!newDays){
-    
-  setValidPrice(true)
-  }
-},[newDays])
-
-
-
-
-
-
-
-
-
-
-  useEffect(()=>{
-
-if(form.getValues('arrivalDate') && form.getValues('departureDate')){
-
-  if(new Date(form.getValues('arrivalDate')).getTime()>new Date(form.getValues('departureDate')).getTime()){
-    form.setValue('departureDate',new Date(form.getValues('arrivalDate')))
-  }
-  
-  newPakingDays = calculateParkingDays(form.getValues('arrivalDate'),form.getValues('departureDate'))
-
-  form.setValue('daysofparking',newPakingDays)
- 
- 
-  if(newPakingDays > user?.daysofparking!){
-    setNewDays(newPakingDays - user?.daysofparking!)
-  }else{
-  
-    setNewDays(0)
-  }
-
-
- const validService = isServiceValid(service,form.getValues('arrivalDate').toString(),form.getValues('departureDate').toString(),user?.id!,newDays)
- setIsValid(validService)
-}
-
-
-
-
-
-
-  },[form.watch('departureDate'),form.watch('arrivalDate')])
-
-
- 
-
-
-  
-
-
-
-
-
-
-
+  }, [user, form.watch("arrivalDate"), form.watch("departureDate")]);
 
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
-    
-const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
-const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,bookingCode:user?.bookingCode}
+    const { startDateString, endDateString } = handleTimezone(
+      values.arrivalDate,
+      values.departureDate
+    );
+    const refinedValues = {
+      ...values,
+      arrivalDate: startDateString,
+      departureDate: endDateString,
+      bookingCode: user?.bookingCode,
+    };
 
+    try {
+      const result = await axios.post(UPDATE_BOOKING, refinedValues);
+      if (result.data.url) {
+        router.push(result.data.url);
+      }
 
-          try {
+      toast.success("Successfully booked");
+    } catch (error: any) {
+      console.log(error);
 
-    const result = await axios.post(UPDATE_BOOKING,refinedValues)
-    if(result.data.url){
-      router.push(result.data.url)
+      toast.error(
+        error?.response?.data?.customError
+          ? error?.response?.data?.customError
+          : "Something went wrong"
+      );
     }
-   
-   
-    toast.success('Successfully booked')
-
-          } catch (error:any) {
-            console.log(error)
-
-            toast.error(error?.response?.data?.customError ? error?.response?.data?.customError :'Something went wrong')
-          }
   }
-
 
   const timeArray = [];
 
@@ -225,7 +122,16 @@ const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDa
     }
   }
 
-
-
-  return { form, onSubmit ,timeArray,newDays,newPrice,block,differentDate};
+  return {
+    form,
+    onSubmit,
+    timeArray,
+    differentDate,
+    available,
+    setAvailable,
+    additionalPrice,
+    setAdditionalPrice,
+    additionaldays,
+    setAdditionalDays,
+  };
 };
