@@ -28,7 +28,7 @@ type Props = {
   carStep: boolean;
   setPayStep: Dispatch<SetStateAction<boolean>>;
   payStep: boolean;
-  differentDate:boolean
+  additionalPrice:number | undefined
 };
 
 const CarInformation = ({
@@ -37,7 +37,7 @@ const CarInformation = ({
   carStep,
   payStep,
   setPayStep,
-  differentDate
+  additionalPrice
 }: Props) => {
   const toPayInfo =async () => {
 
@@ -48,6 +48,8 @@ const CarInformation = ({
       ],{shouldFocus:true})
 
       if(isValid){
+
+
         setPayStep(true);
       }
  
@@ -141,10 +143,10 @@ const CarInformation = ({
           <Button
             variant={'siteTwo'}
               onClick={toPayInfo}
-              type="button"
+              type={ additionalPrice ? "button" : 'submit'}
               className="rounded-sm py-2 px-6"
             >
-              {!differentDate ? 'Confirm' :'Final Step' }{" "}
+              {!additionalPrice ? 'Confirm' :'Final Step' }{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
             </Button>
           </div>

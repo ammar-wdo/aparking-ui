@@ -99,7 +99,7 @@ export const useEditBooking = (
         router.push(result.data.url);
       }
 
-      toast.success("Successfully booked");
+    
     } catch (error: any) {
       console.log(error);
 

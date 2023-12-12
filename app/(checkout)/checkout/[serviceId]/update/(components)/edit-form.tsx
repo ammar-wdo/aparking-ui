@@ -78,6 +78,8 @@ const EditBookingForm = ({ service }: Props) => {
 
 
 
+
+
   return (
     <Form {...form}>
       <form
@@ -113,25 +115,23 @@ const EditBookingForm = ({ service }: Props) => {
               carStep={carStep}
               payStep={payStep}
               setPayStep={setPayStep}
-              differentDate={differentDate}
+              additionalPrice={additionalPrice}
             />
-           <div className="flex justify-between items-center">
+          
            <PaymentMethod
               form={form}
               setCarStep={setCarStep}
               carStep={carStep}
               payStep={payStep}
               setPayStep={setPayStep}
-              differentDate={differentDate}
+              additionalPrice={additionalPrice}
             />
-            {!differentDate && payStep && <button
-            onClick={()=>{setPayStep(false)}}
-              type="button"
-              className="font-light text-blue-600 flex text-sm items-center justify-center "
-            >
-              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
-            </button>}
-            </div>
+
+            {!additionalPrice && payStep && <div className="flex flex-col gap-3"><Button  disabled={isLoading} type="submit" variant={'siteTwo'} className="w-full mt-4">Save changes {isLoading && <Loader className="ml-3 w-4 h-4 animate-spin" />}</Button>
+            <Button type="button" variant={'ghost'} className="w-full" onClick={()=>setPayStep(false)}>Back</Button>
+            </div>}
+            
+        
           </div>
           <div className="p-5">
             <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
