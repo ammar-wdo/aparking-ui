@@ -20,6 +20,8 @@ export const GET_ENTITIES = BASE_URL + '/api/entities'
 
 export const GET_SERVICES = BASE_URL + '/api/services/entity'
 
+export const ADD_REVIEW = BASE_URL + '/api/review'
+
 
 
 

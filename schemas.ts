@@ -159,3 +159,16 @@ export type Airport ={
   createdAt:Date,
   updatedAt:Date,
 }
+
+
+export const reviewSchema = z.object({
+bookingId:z.string().min(1),
+entityId:z.string().min(1),
+serviceId:z.string().min(1),
+reviewContent:z.string().optional(),
+rate:z.coerce.number().min(0.5).max(5),
+status:z.enum(["PENDING","ACTIVE"]).default('PENDING'),
+visibility:z.enum(["FIRSTNAME","FULLNAME","ANOUNYMOS"]).default('FULLNAME'),
+
+
+})
