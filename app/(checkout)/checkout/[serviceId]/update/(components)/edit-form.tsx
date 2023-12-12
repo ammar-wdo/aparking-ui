@@ -134,6 +134,22 @@ const EditBookingForm = ({ service }: Props) => {
         
           </div>
           <div className="p-5">
+          <Button
+        onClick={()=>setOpen({bookingId:user.id,bookingCode:user.bookingCode,email:user.email})}
+              variant={"destructive"}
+              className=" rounded-sm w-full"
+              type="button"
+            >
+              Cancel your booking{" "}
+             
+                <ActionToolTip
+                  side="right"
+                  title="If you cancel your booking before 24 hours ,then you will be refunded"
+                >
+                  <HelpCircle className="w-4 h-4 ml-3" />
+                </ActionToolTip>
+            
+            </Button>
             <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
             <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
@@ -170,22 +186,7 @@ const EditBookingForm = ({ service }: Props) => {
               
             </div>
 
-            <Button
-        onClick={()=>setOpen({bookingId:user.id,bookingCode:user.bookingCode,email:user.email})}
-              variant={"destructive"}
-              className=" rounded-sm w-full"
-              type="button"
-            >
-              Cancel your booking{" "}
-             
-                <ActionToolTip
-                  side="right"
-                  title="If you cancel your booking before 24 hours ,then you will be refunded"
-                >
-                  <HelpCircle className="w-4 h-4 ml-3" />
-                </ActionToolTip>
-            
-            </Button>
+          
           </div>
         </div>
       </form>

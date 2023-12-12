@@ -38,7 +38,7 @@ if(!booking) return redirect('/')
  
 </div>
 <p className='text-sm py-4 text-neutral-500'>You will receive an email with all the informations you need</p>
-<Button variant={'siteTwo'}><Link replace href={'/'}>Home page</Link></Button>
+<Button asChild variant={'siteTwo'}><Link replace href={'/'}>Home page</Link></Button>
 
 
 
