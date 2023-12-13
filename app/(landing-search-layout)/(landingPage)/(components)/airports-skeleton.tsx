@@ -10,9 +10,9 @@ const AirportSkeleton = (props: Props) => {
       Airports
     </h3>
     <div className="max-w-[1500px] mx-auto mt-6 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 p-4">
-      {Array(10).fill('').map((_el) => (
+      {Array(10).fill('').map((_el,i) => (
   
-        <Skeleton  className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition">
+        <Skeleton key={i}  className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition">
           <div className="relative aspect-video  ">
            
           </div>

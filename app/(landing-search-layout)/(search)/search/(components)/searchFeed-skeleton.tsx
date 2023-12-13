@@ -9,7 +9,7 @@ const SearchFeedSkeleton = (props: Props) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-20 relative z-10">
 
         {Array(8).fill('').map((el,i)=><div key={i}>
-        <div className="w-full min-h-[400px]  rounded-md border border-b-2 border-b-yellow-500 bg-white" >
+        <div key={i} className="w-full min-h-[400px]  rounded-md border border-b-2 border-b-yellow-500 bg-white" >
         <div className=" text-center p-7   ">
           <Skeleton className=' p-4' />
         </div>
