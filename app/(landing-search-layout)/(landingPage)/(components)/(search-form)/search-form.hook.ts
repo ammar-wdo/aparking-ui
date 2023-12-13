@@ -81,7 +81,7 @@ const [openAirport, setOpenAirport] = useState(false)
     setOpenStart(false);
 
     if (startDate) {
-    console.log(startDate)
+  
       if (!startTime) {
         setOpenStartTime(true);
       }
@@ -100,7 +100,7 @@ const [openAirport, setOpenAirport] = useState(false)
     setOpenEnd(false);
 
     if (endDate) {
-      console.log(endDate)
+    
       if (!startDate) {
         setOpenStart(true);
       } else if (!startTime) {
@@ -169,7 +169,7 @@ const [openAirport, setOpenAirport] = useState(false)
 const params = useSearchParams()
   const router = useRouter();
   const handleClick = () => {
-    console.log(startDate,endDate)
+   
 if(!airport) setOpenAirport(true)
    else if (!startDate) setOpenStart(true);
     else if (!endDate) setOpenEnd(true);
@@ -201,7 +201,7 @@ if (params) {
          
         },
       });
-console.log("url",url)
+
       router.push(url);
      
     }

@@ -58,7 +58,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
     },
   });
 
-  console.log(service.totalPrice);
+
   return (
     <div
       className={cn(

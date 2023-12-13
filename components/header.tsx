@@ -38,7 +38,7 @@ const Header = async ({contentPages}: Props) => {
   ];
 
   const res = await axios(GET_AIRPORTS);
-  console.log(res.data.airports);
+
   return (
     <div className={cn("bg-white ",contentPages&& 'bg-[#003580]')}>
       <div className={cn("flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col",contentPages&&'text-white')}>

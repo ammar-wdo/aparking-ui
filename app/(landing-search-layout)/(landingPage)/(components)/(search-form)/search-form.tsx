@@ -26,7 +26,7 @@ type Props = {
 };
 
 const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports,airportProp,airportId}: Props) => {
-  console.log(startDateProp,endDateProp)
+ 
 
 
   const {

@@ -50,7 +50,6 @@ export const useBooking = ({
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString}
 
-console.log(refinedValues)
           try {
 
     const result = await axios.post(ADD_BOOKMARK,refinedValues)

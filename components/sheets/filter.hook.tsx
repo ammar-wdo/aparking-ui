@@ -31,7 +31,7 @@ return !!key.includes(name)
 
 
 const addService = (value:string)=>{
-    console.log(service)
+   
     if(service.includes(value)){
         setService(prev=>prev.filter(val=>val!==value))
     }else{
@@ -40,7 +40,7 @@ const addService = (value:string)=>{
 }
 
 const addLocation = (value:string)=>{
-    console.log(location)
+    
     if(location.includes(value)){
         setLocation(prev=>prev.filter(val=>val!==value))
     }else{
@@ -57,7 +57,7 @@ const addKey = (value:string)=>{
 }
 
 const toggleElectric = ()=>{
-console.log(electric)
+
     setElectric(prev=>!prev)
 }
 

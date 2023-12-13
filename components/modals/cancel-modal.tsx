@@ -32,7 +32,7 @@ const onCancel = async()=>{
       const res =  await axios.post(DELETE_BOOKING,data)
       setClose()
       router.push(`${res.data.redirect_url}`)
-      console.log(res.data)
+   
 
       toast.success('Successfully canceled')
     } catch (error:any) {

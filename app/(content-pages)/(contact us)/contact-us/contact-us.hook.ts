@@ -50,7 +50,7 @@ form.reset()
             toast.error('someting went wrong')
         }
 
-        console.log(values)
+       
       }
     return {form, onSubmit}
 }

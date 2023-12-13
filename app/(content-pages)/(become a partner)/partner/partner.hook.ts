@@ -41,7 +41,7 @@ export const usePartner = ()=>{
 
      async function onSubmit(values: z.infer<typeof partnerSchema>) {
         try {
-            console.log(values)
+         
         //   const res = await axios.post(CONTACT_US,values)
 toast.success("message successfully sent ")
 form.reset()
@@ -51,7 +51,7 @@ form.reset()
             toast.error('someting went wrong')
         }
 
-        console.log(values)
+    
       }
     return {form, onSubmit}
 }

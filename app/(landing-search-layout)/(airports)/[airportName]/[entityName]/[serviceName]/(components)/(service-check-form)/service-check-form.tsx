@@ -14,10 +14,14 @@ import { useCheckForm } from "./service-check-hook";
 
 type Props = {
   change?: boolean;
-  serviceId:string
+  serviceId:string,
+  startDateProp:string | undefined,
+  endDateProp:string | undefined,
+  startTimeProp:string | undefined,
+  endTimeProp:string | undefined
 };
 
-const ServiceCheckForm = ({ change,serviceId }: Props) => {
+const ServiceCheckForm = ({ change,serviceId,startDateProp,endDateProp,startTimeProp,endTimeProp }: Props) => {
   const {
     startDate,
     setStartDate,
@@ -38,7 +42,7 @@ const ServiceCheckForm = ({ change,serviceId }: Props) => {
     setEndTime,
     handleClick,
     isLoading,
-  } = useCheckForm({ change,serviceId });
+  } = useCheckForm({ change,serviceId ,startDateProp,endDateProp,startTimeProp,endTimeProp});
 
   return (
     <div className="text-white ">

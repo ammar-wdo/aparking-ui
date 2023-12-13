@@ -12,13 +12,17 @@ type Props = {
 
   change?:boolean,
   serviceId:string
+  startDateProp:string | undefined,
+  endDateProp:string | undefined,
+  startTimeProp:string | undefined,
+  endTimeProp:string | undefined
 
 
 
 };
 export const useCheckForm = ({
 
-
+startDateProp,endDateProp,startTimeProp,endTimeProp,
   change,serviceId
  
 
@@ -28,13 +32,13 @@ export const useCheckForm = ({
 
 
   const [startDate, setStartDate] = useState<Date | undefined>(
-    undefined
+    startDateProp ? new Date(startDateProp) : undefined
   );
   const [endDate, setEndDate] = useState<Date | undefined>(
-     undefined
+    endDateProp ? new Date(endDateProp) : undefined
   );
-  const [startTime, setStartTime] = useState( "");
-  const [endTime, setEndTime] = useState( "");
+  const [startTime, setStartTime] = useState( startTimeProp || '');
+  const [endTime, setEndTime] = useState( endTimeProp || '');
 
   const [openStart, setOpenStart] = useState<boolean>(false);
   const [openStartTime, setOpenStartTime] = useState<boolean>(false);
