@@ -5,7 +5,9 @@ import Image from 'next/image'
 
 type Props = {}
 
-const page = (props: Props) => {
+const page = async(props: Props) => {
+
+
   return (
     <div className='h-screen flex flex-col'>
       <CheckoutHeader />
