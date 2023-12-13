@@ -58,6 +58,9 @@ const SearchFeed = async ({
 
 
 console.log("data",data)
+
+
+
   return (
     <div>
        <SearchScroller />

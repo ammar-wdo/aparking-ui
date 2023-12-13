@@ -12,12 +12,16 @@ const loading = (props: Props) => {
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
       <div className='container h-full w-full gap-3  flex flex-col'>
     <Skeleton className='p-4 w-[300px]' />
-    <Skeleton className='p-12 w-full' />
+  
 </div>
 
     </div>
+  
+
+  
     <div className='container mt-12'>
     <Skeleton className=' p-1 w-[300px] my-10' />
+
     <Skeleton className=' p-4 w-[300px] ' />
     <Skeleton className='mt-4 w-full h-[300px] ' />
         </div>
