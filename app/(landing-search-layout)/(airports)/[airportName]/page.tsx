@@ -19,7 +19,9 @@ const res = await axios(GET_AIRPORTS + `/${params.airportName}`)
 const airport = res.data.airport as Airport
 
 if(!airport) return redirect('/')
+  
 
+await new Promise(res=>setTimeout(res,3000))
   return (
     <div>
       <Banner airportName={airport.name} airportId={airport.id}></Banner>
