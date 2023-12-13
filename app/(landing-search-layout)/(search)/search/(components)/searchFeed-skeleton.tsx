@@ -19,15 +19,16 @@ const SearchFeedSkeleton = (props: Props) => {
           {Array(4).fill('').map((_el,i)=>(
           <div key={i} className='flex gap-4 '>
 <Skeleton  className='w-8 h-8 rounded'/>
-<Skeleton className='flex-1 p-3 ' />
+<Skeleton className='flex-1 p-3 max-w-[100px]' />
           </div>))}
           </div>
           <Separator />
 
           <div className=' bg-gray-50 p-4 py-3 flex flex-col  gap-1 items-center border-t'>
-            <Skeleton className='p-1 w-[100px]' />
-            <Skeleton className='p-2 w-[75px] ' />
+            <Skeleton className='p-2 w-[100px]' />
+            <Skeleton className='p-3 w-[75px] ' />
             <Skeleton className='p-7 w-full mt-4' />
+            <Skeleton className='p-2 w-full mt-4' />
 
             </div>
           </div>
