@@ -12,8 +12,9 @@ import AirportSkeleton from './(components)/airports-skeleton'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export const revalidate = 0
-export default function Home() {
+export default  async function Home() {
 
+  await new Promise(res=>setTimeout(res,6000))
   return (
     <main className="bg-gray-100 h-full ">
       <Banner>

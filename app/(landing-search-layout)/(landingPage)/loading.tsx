@@ -17,7 +17,8 @@ const loading = (props: Props) => {
 </div>
 
     </div>
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20 container'> 
+    <h3 className='text-center text-4xl font-semibold text-[#003580] mt-12'>How does it work?</h3>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6 container'> 
         <Skeleton className='h-[300px]' />
         <Skeleton className='h-[300px]' />
         <Skeleton className='h-[300px]' />
