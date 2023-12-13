@@ -35,13 +35,15 @@ const ReviewsSlide = ({ reviews }: Props) => {
           slidesPerView: 1,
           spaceBetween: 5,
         },
-        640: {
-          slidesPerView: 2,
+        600:{  slidesPerView: 2,
+            spaceBetween: 20,},
+        940: {
+          slidesPerView: 3,
           spaceBetween: 20,
         },
         1100: {
-          slidesPerView: 3,
-          spaceBetween: 40,
+          slidesPerView: 4,
+          spaceBetween: 20,
         },
       }}
     >
@@ -49,8 +51,10 @@ const ReviewsSlide = ({ reviews }: Props) => {
         const showCase: { [key: string]: string } = {
           FULLNAME: `${review.booking.firstName} ${review.booking.lastName}`,
           FIRSTNAME: `${review.booking.firstName}`,
-          ANOUNYMOS: "ANOUNYMOS",
+          ANOUNYMOS: "Anonymous",
         };
+
+        if(review.reviewContent==='') return null
 
         return (
           <SwiperSlide className="" key={review.id}>
@@ -59,7 +63,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                 {review.entity.entityName}
               </h3>
               {review.reviewContent && (
-                <p className="text-xs text-neutral-400 mt-4 line-clamp-5">
+                <p className="text-sm text-neutral-400 mt-4 line-clamp-5 leading-relaxed">
                   {review.reviewContent}
                 </p>
               )}
