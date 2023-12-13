@@ -16,8 +16,8 @@ const SearchFeedSkeleton = (props: Props) => {
         <Separator className="bg-neutral-300" />
 
         <div className='p-7 flex flex-col gap-3'>
-          {Array(4).fill('').map(_el=>(
-          <div className='flex gap-4 '>
+          {Array(4).fill('').map((_el,i)=>(
+          <div key={i} className='flex gap-4 '>
 <Skeleton  className='w-8 h-8 rounded'/>
 <Skeleton className='flex-1 p-3 ' />
           </div>))}
