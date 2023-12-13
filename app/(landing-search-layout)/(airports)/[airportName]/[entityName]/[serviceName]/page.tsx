@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import AccordionInfo from "./(components)/accordion-info";
 import ServiceCheckForm from "./(components)/(service-check-form)/service-check-form";
 import AvailableService from "./(components)/available-service";
+import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/reviews";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -97,8 +98,13 @@ const page = async ({ params, searchParams }: Props) => {
             />
           </div>
         </div>
+       
+      
         <AvailableService serviceId={service.id} searchParams={searchParams} />
       </div>
+      <div className="py-12 bg-gray-100">
+        <Reviews serviceId={service.id} />
+        </div>
     </div>
   );
 };

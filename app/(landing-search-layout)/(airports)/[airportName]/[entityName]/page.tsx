@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 
 import React from 'react'
 import ServciesFeed from './(components)/services-feed'
+import Reviews from '@/app/(landing-search-layout)/(landingPage)/(components)/reviews'
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {params:{entityName:string,airportName:string}}
@@ -53,6 +54,10 @@ if(!entity) return redirect('/')
             
         </div>
         <ServciesFeed entityId={entity.id} />
+<div className='py-12 bg-gray-100'>
+<Reviews entityId={entity.id} />
+</div>
+      
     </div>
   )
 }
