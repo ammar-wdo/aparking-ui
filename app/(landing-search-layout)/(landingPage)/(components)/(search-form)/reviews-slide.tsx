@@ -72,7 +72,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                   value={review.rate}
                   edit={false}
                   size={14}
-                  color2="#003580"
+                  color2="#FEBA02"
                 />
                 <p className="font-semibold text-neutral-600 text-sm">
                   {showCase[review.visibility]}

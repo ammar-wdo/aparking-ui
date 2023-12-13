@@ -13,10 +13,10 @@ type Props = {gallary:string[]}
 
 const GallarySwiper = ({gallary}: Props) => {
   return (
-    <div className='w-full lg:h-full aspect-video '>
+    <div className='w-full h-full '>
           <Swiper
        modules={[Navigation]}
-      className=' h-full'
+      className=''
         spaceBetween={12}
         slidesPerView={1}
         navigation
@@ -24,7 +24,7 @@ const GallarySwiper = ({gallary}: Props) => {
      
       >
         {gallary.map(image=>
-              <SwiperSlide className='w-full  h-full rounded-lg overflow-hidden' key={image}>
+              <SwiperSlide className='w-full  min-h-[400px] rounded-lg overflow-hidden' key={image}>
               <div className='w-full h-full relative'>
                 <Image
                 fill
