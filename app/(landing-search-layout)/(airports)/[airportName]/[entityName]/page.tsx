@@ -14,6 +14,9 @@ const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {params:{entityName:string,airportName:string}}
 
+
+export const revalidate = 0
+
 const page = async({params}: Props) => {
 
 const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${params.airportName}`)
@@ -21,6 +24,8 @@ const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${para
 const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string}}
 
 if(!entity) return redirect('/')
+
+
 
 
   return (

@@ -19,6 +19,9 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+
+export const revalidate = 0
+
 const page = async ({ params, searchParams }: Props) => {
   const res = await axios(
     ALL_SERVICES +
