@@ -14,6 +14,8 @@ const Airports = async (props: Props) => {
 
 console.log(res.data.airports.length)
 
+
+
   return (
     <div className=" py-8 ">
       <h3 className="text-center text-4xl font-semibold text-[#003580] ">
