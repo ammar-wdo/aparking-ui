@@ -21,7 +21,7 @@ const Banner =async ({children,noForm,airportId,airportName}: Props) => {
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
       <div className={"container "} >
       
-        <div className={cn("xl:px-32 text-white relative ",noForm && "xl:px-0")}>
+        <div className={cn(" text-white relative ",noForm && "xl:px-0")}>
           {airportName && <p className="text-4xl py-3 font-semibold capitalize">{airportName}</p>}
         <div>
           {children}
