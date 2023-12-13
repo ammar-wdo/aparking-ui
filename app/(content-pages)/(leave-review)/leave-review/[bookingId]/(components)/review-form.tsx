@@ -31,9 +31,11 @@ const isLoading = form.formState.isSubmitting
         onChange={(value)=>form.setValue('rate',value)}
         className='mx-auto'
         value={form.watch('rate')}
+        
         count={5} 
         size={24} 
         color2={'#FEBA02'} /> 
+      
 
 <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

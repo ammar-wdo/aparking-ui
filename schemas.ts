@@ -172,3 +172,5 @@ visibility:z.enum(["FIRSTNAME","FULLNAME","ANOUNYMOS"]).default('FULLNAME'),
 
 
 })
+
+export type Review = z.infer<typeof reviewSchema> 

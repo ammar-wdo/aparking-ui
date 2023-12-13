@@ -89,5 +89,15 @@
   padding-inline: 0px !important;
 }
 
+.swiper-wrapper{
+  padding-bottom: 50px !important;
+}
+.swiper-pagination{
+  bottom:0 !important
+}
+.swiper-slide {
+  height: 250px !important;
+}
+
 
 
