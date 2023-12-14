@@ -7,9 +7,9 @@ type Props = {
 
 const InfoComponent = ({title,value}: Props) => {
   return (
-    <div className='my-3'>
+    <div className='my-3 '>
         <p className='font-bold capitalize'>{title}</p>
-        <p className='font-light'>{value}</p>
+        <p className='font-light text-xs md:text-sm text-neutral-500'>{value}</p>
     </div>
   )
 }

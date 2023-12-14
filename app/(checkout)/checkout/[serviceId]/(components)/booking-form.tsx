@@ -34,63 +34,87 @@ import ResultPersonal from "./result-personal";
 import ResultProducts from "./result-products";
 
 type Props = {
-arrivalDate:string,
-departureDate:string,
-arrivalTime:string,
-departureTime:string,
-totalPrice:string,
-title:string
-
+  arrivalDate: string;
+  departureDate: string;
+  arrivalTime: string;
+  departureTime: string;
+  totalPrice: string;
+  title: string;
 };
 
-
-const BookingForm = ({arrivalDate,departureDate,arrivalTime,departureTime,totalPrice,title}: Props) => {
+const BookingForm = ({
+  arrivalDate,
+  departureDate,
+  arrivalTime,
+  departureTime,
+  totalPrice,
+  title,
+}: Props) => {
   const { form, onSubmit } = useBooking({
     arrivalDate: new Date(arrivalDate),
     departureDate: new Date(departureDate),
     arrivalTime,
     departureTime,
     totalPrice,
-  
   });
 
   const isLoading = form.formState.isSubmitting;
 
-const [carStep, setCarStep] = useState(false)
-const [payStep, setPayStep] = useState(false)
-
-
-
+  const [carStep, setCarStep] = useState(false);
+  const [payStep, setPayStep] = useState(false);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 container">
-        <div className=" grid lg:grid-cols-3 grid-cols-1">
-
-          <div className="space-y-5  lg:col-span-2 py-2">
-            <PersonalInformation form={form} setCarStep={setCarStep} carStep={carStep} />
-            <CarInformation form={form} setCarStep={setCarStep} carStep={carStep} payStep={payStep} setPayStep={setPayStep} />
-            <PaymentMethod  form={form} setCarStep={setCarStep} carStep={carStep} payStep={payStep} setPayStep={setPayStep} />
-
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 container py-12"
+      >
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-10">
+          <div className="space-y-5  lg:col-span-2 ">
+            <PersonalInformation
+              form={form}
+              setCarStep={setCarStep}
+              carStep={carStep}
+            />
+            <CarInformation
+              form={form}
+              setCarStep={setCarStep}
+              carStep={carStep}
+              payStep={payStep}
+              setPayStep={setPayStep}
+            />
+            <PaymentMethod
+              form={form}
+              setCarStep={setCarStep}
+              carStep={carStep}
+              payStep={payStep}
+              setPayStep={setPayStep}
+            />
           </div>
-          <div className='py-2 sm:px-5'>
-<h3 className='text-2xl font-bold p-6  '>Order overview</h3>
-<ResultPersonal  name={`${form.watch('firstName')} ${form.watch('lastName')}`} email={form.watch('email')} phone={form.watch('phoneNumber')} />
-<ResultProducts title={title} total={totalPrice} arrivalDate={new Date(arrivalDate)} arrivalTime={arrivalTime} departureDate={new Date(departureDate)} departureTime={departureTime} />
-<p className='p-6'>Price including VAT   <span className="font-semibold">€{totalPrice}</span></p>
-    </div>
-
+          <div className=" sm:px-5 bg-white self-start">
+            <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
+            {/* <ResultPersonal
+              name={`${form.watch("firstName")} ${form.watch("lastName")}`}
+              email={form.watch("email")}
+              phone={form.watch("phoneNumber")}
+            /> */}
+            <ResultProducts
+              title={title}
+              total={totalPrice}
+              arrivalDate={new Date(arrivalDate)}
+              arrivalTime={arrivalTime}
+              departureDate={new Date(departureDate)}
+              departureTime={departureTime}
+            />
+            <p className="p-6">
+              Price including VAT{" "}
+              <span className="font-semibold">€{totalPrice}</span>
+            </p>
+          </div>
         </div>
-      
-
       </form>
     </Form>
   );
 };
 
 export default BookingForm;
-
-
-
-
-

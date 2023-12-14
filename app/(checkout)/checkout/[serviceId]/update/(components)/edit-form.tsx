@@ -53,21 +53,19 @@ const EditBookingForm = ({ service }: Props) => {
     form,
     onSubmit,
     timeArray,
- 
+
     differentDate,
     available,
     setAvailable,
     additionalPrice,
     setAdditionalPrice,
     additionaldays,
-    setAdditionalDays
-   
-  
+    setAdditionalDays,
   } = useEditBooking(service);
 
   const isLoading = form.formState.isSubmitting;
-  const {setOpen} = useCancel()
-  const [personalStep, setPersonalStep] = useState(false)
+  const { setOpen } = useCancel();
+  const [personalStep, setPersonalStep] = useState(false);
   const [carStep, setCarStep] = useState(false);
   const [payStep, setPayStep] = useState(false);
   const { user } = useUser();
@@ -76,32 +74,32 @@ const EditBookingForm = ({ service }: Props) => {
 
   if (!user) return redirect("/");
 
-
-
-
-
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 container"
       >
-        <div className=" grid lg:grid-cols-3 grid-cols-1">
-          <div className="space-y-5  lg:col-span-2 p-5">
-            <DateInformation form={form} timeArray={timeArray}
-            personalStep={personalStep}
-            setPersonalStep={setPersonalStep}
-            differentDate ={differentDate}
-        
-            setAvailable ={(value:'' | 'true' | 'false')=>setAvailable(value)}
-       
-            setAdditionalDays={(value:number|undefined)=>setAdditionalDays(value)}
-     
-            setAdditionalPrice={(value:number|undefined)=>setAdditionalPrice(value)}
+        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-10">
+          <div className="space-y-5  lg:col-span-2 ">
+            <DateInformation
+              form={form}
+              timeArray={timeArray}
+              personalStep={personalStep}
+              setPersonalStep={setPersonalStep}
+              differentDate={differentDate}
+              setAvailable={(value: "" | "true" | "false") =>
+                setAvailable(value)
+              }
+              setAdditionalDays={(value: number | undefined) =>
+                setAdditionalDays(value)
+              }
+              setAdditionalPrice={(value: number | undefined) =>
+                setAdditionalPrice(value)
+              }
             />
 
             <PersonalInformation
-            
               timeArray={timeArray}
               form={form}
               personalStep={personalStep}
@@ -117,8 +115,8 @@ const EditBookingForm = ({ service }: Props) => {
               setPayStep={setPayStep}
               additionalPrice={additionalPrice}
             />
-          
-           <PaymentMethod
+
+            <PaymentMethod
               form={form}
               setCarStep={setCarStep}
               carStep={carStep}
@@ -127,35 +125,38 @@ const EditBookingForm = ({ service }: Props) => {
               additionalPrice={additionalPrice}
             />
 
-            {!additionalPrice && payStep && <div className="flex flex-col gap-3"><Button  disabled={isLoading} type="submit" variant={'siteTwo'} className="w-full mt-4">Save changes {isLoading && <Loader className="ml-3 w-4 h-4 animate-spin" />}</Button>
-            <Button type="button" variant={'ghost'} className="w-full" onClick={()=>setPayStep(false)}>Back</Button>
-            </div>}
-            
-        
-          </div>
-          <div className="p-5">
-          <Button
-        onClick={()=>setOpen({bookingId:user.id,bookingCode:user.bookingCode,email:user.email})}
-              variant={"destructive"}
-              className=" rounded-sm w-full"
-              type="button"
-            >
-              Cancel your booking{" "}
-             
-                <ActionToolTip
-                  side="right"
-                  title="If you cancel your booking before 24 hours ,then you will be refunded"
+            {!additionalPrice && payStep && (
+              <div className="flex flex-col gap-3">
+                <Button
+                  disabled={isLoading}
+                  type="submit"
+                  variant={"siteTwo"}
+                  className="w-full mt-4"
                 >
-                  <HelpCircle className="w-4 h-4 ml-3" />
-                </ActionToolTip>
-            
-            </Button>
-            <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
-            <ResultPersonal
+                  Save changes{" "}
+                  {isLoading && (
+                    <Loader className="ml-3 w-4 h-4 animate-spin" />
+                  )}
+                </Button>
+                <Button
+                  type="button"
+                  variant={"ghost"}
+                  className="w-full"
+                  onClick={() => setPayStep(false)}
+                >
+                  Back
+                </Button>
+              </div>
+            )}
+          </div>
+          <div>
+          <div className="p-8 bg-white">
+            <h3 className="text-2xl font-bold ">Order overview</h3>
+            {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
               email={form.watch("email")}
               phone={form.watch("phoneNumber")}
-            />
+            /> */}
             <ResultProducts
               title={service.name}
               total={user?.total as number}
@@ -163,31 +164,68 @@ const EditBookingForm = ({ service }: Props) => {
               arrivalTime={user.arrivalTime}
               departureDate={user.departureDate}
               departureTime={user.departureTime}
+              newArrivalDate={form.watch("arrivalDate")}
+              newDepartureDate={form.watch("departureDate")}
+              newArrivalTime={form.watch("arrivalTime")}
+              newDepartureTime={form.watch("departureTime")}
             />
-            <p className="p-6">Price including VAT  {<span className="font-bold">€{additionalPrice ? user.total + additionalPrice : user.total}</span>}  </p>
+
             <Separator />
 
-            <div className="px-6">
-              {available === 'true' && (
-                <div>
-                     <p className="py-4 font-semibold">
-                  {additionaldays || 0}+ Additional day(s)
-                </p>
-                <p className="font-semibold py-3">Additional price  €{additionalPrice}</p>
-                  </div>
-             
+            <div className="mt-8 flex flex-col gap-2">
+              {available === "true" && (
+                <div className="flex items-center justify-between w-full">
+                  <p className="">
+                    Additional days({additionaldays ? `+${additionaldays}`: 0})
+                  </p>
+                  <p className="font-bold text-xl ">
+                   €{additionalPrice}
+                  </p>
+                </div>
               )}
-              
-              
-            
-                {available ==='false' && <p className="text-sm text-rose-500 pb-3 text-center font-bold py-3">
+
+              <div className=" flex items-center justify-between w-full">
+                <p>Price including VAT</p>
+                {
+                  <span className="font-bold text-xl">
+                    €
+                    {additionalPrice
+                      ? user.total + additionalPrice
+                      : user.total}
+                  </span>
+                }{" "}
+              </div>
+
+              {available === "false" && (
+                <p className="text-sm text-rose-500 pb-3 text-center font-bold py-3">
                   Not available for this date
-                </p>}
-              
+                </p>
+              )}
             </div>
 
-          
+            
           </div>
+          <Button
+              onClick={() =>
+                setOpen({
+                  bookingId: user.id,
+                  bookingCode: user.bookingCode,
+                  email: user.email,
+                })
+              }
+              variant={"destructive"}
+              className=" rounded-sm w-full mt-4"
+              type="button"
+            >
+              Cancel your booking{" "}
+              <ActionToolTip
+                side="right"
+                title="If you cancel your booking before 24 hours ,then you will be refunded"
+              >
+                <HelpCircle className="w-4 h-4 ml-3" />
+              </ActionToolTip>
+            </Button>
+            </div>
         </div>
       </form>
     </Form>
