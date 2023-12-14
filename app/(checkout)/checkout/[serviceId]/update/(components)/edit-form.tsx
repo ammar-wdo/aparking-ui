@@ -141,7 +141,7 @@ const EditBookingForm = ({ service }: Props) => {
                 <Button
                   type="button"
                   variant={"ghost"}
-                  className="w-full"
+                  className="w-full "
                   onClick={() => setPayStep(false)}
                 >
                   Back
@@ -149,8 +149,28 @@ const EditBookingForm = ({ service }: Props) => {
               </div>
             )}
           </div>
-          <div>
-          <div className="p-8 bg-white">
+          <div className=" flex-col ">
+          <Button
+              onClick={() =>
+                setOpen({
+                  bookingId: user.id,
+                  bookingCode: user.bookingCode,
+                  email: user.email,
+                })
+              }
+              variant={"destructive"}
+              className=" rounded-sm w-full mb-4 lg:flex hidden"
+              type="button"
+            >
+              Cancel your booking{" "}
+              <ActionToolTip
+                side="right"
+                title="If you cancel your booking before 24 hours ,then you will be refunded"
+              >
+                <HelpCircle className="w-4 h-4 ml-3" />
+              </ActionToolTip>
+            </Button>
+          <div className="p-8 bg-white ">
             <h3 className="text-2xl font-bold ">Order overview</h3>
             {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
@@ -176,7 +196,7 @@ const EditBookingForm = ({ service }: Props) => {
               {available === "true" && (
                 <div className="flex items-center justify-between w-full">
                   <p className="">
-                    Additional days({additionaldays ? `+${additionaldays}`: 0})
+                    Additional days <span className="font-bold">({additionaldays ? `+${additionaldays}`: 0})</span>
                   </p>
                   <p className="font-bold text-xl ">
                    €{additionalPrice}
@@ -214,7 +234,7 @@ const EditBookingForm = ({ service }: Props) => {
                 })
               }
               variant={"destructive"}
-              className=" rounded-sm w-full mt-4"
+              className=" rounded-sm w-full mt-4 lg:hidden flex"
               type="button"
             >
               Cancel your booking{" "}
@@ -225,6 +245,7 @@ const EditBookingForm = ({ service }: Props) => {
                 <HelpCircle className="w-4 h-4 ml-3" />
               </ActionToolTip>
             </Button>
+     
             </div>
         </div>
       </form>
