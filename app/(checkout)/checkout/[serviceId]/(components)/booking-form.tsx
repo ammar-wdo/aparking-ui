@@ -91,8 +91,8 @@ const BookingForm = ({
               setPayStep={setPayStep}
             />
           </div>
-          <div className=" sm:px-5 bg-white self-start">
-            <h3 className="text-2xl font-bold p-6  ">Order overview</h3>
+          <div className=" p-6 bg-white self-start">
+            <h3 className="text-2xl font-bold  ">Order overview</h3>
             {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
               email={form.watch("email")}
@@ -106,10 +106,10 @@ const BookingForm = ({
               departureDate={new Date(departureDate)}
               departureTime={departureTime}
             />
-            <p className="p-6">
-              Price including VAT{" "}
-              <span className="font-semibold">€{totalPrice}</span>
-            </p>
+            <div className="flex items-center justify-between w-full mt-6">
+              <p>Price including VAT{" "}</p>
+              <span className="font-bold text-xl">€{totalPrice}</span>
+            </div>
           </div>
         </div>
       </form>
