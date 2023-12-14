@@ -38,7 +38,7 @@ const Footer = (props: Props) => {
     <Link href={'/'} className=' font-light text-sm hover:underline '>About</Link>
     <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Contact us</Link>
     <Link href={'/partner'} className=' font-light text-sm hover:underline'>Become a partner</Link>
-    <Link href={'/'} className=' font-light text-sm hover:underline'>Blog</Link>
+    <Link href={'/blog'} className=' font-light text-sm hover:underline'>Blog</Link>
 
 </div>
             </section>

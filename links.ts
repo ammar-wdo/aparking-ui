@@ -22,6 +22,9 @@ export const GET_SERVICES = BASE_URL + '/api/services/entity'
 
 export const ADD_REVIEW = BASE_URL + '/api/review'
 
+export const GET_CATEGORIES = BASE_URL + '/api/category'
+export const GET_BLOGS = BASE_URL + '/api/blog'
+
 
 
 
