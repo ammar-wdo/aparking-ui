@@ -63,7 +63,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                 {review.entity.entityName}
               </h3>
               {review.reviewContent && (
-                <p className="text-sm text-neutral-400 mt-4 line-clamp-5 leading-relaxed">
+                <p className="text-sm text-neutral-400 mt-4 max-h-[125px] overflow-y-scroll leading-relaxed">
                   {review.reviewContent}
                 </p>
               )}
