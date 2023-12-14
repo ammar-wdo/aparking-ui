@@ -2,6 +2,7 @@
 
 import React from 'react'
 import InfoComponent from './info-component'
+import { format } from 'date-fns'
 
 
 type Props = {
@@ -20,10 +21,11 @@ type Props = {
 
 const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,departureTime,newArrivalDate,newArrivalTime,newDepartureDate,newDepartureTime}: Props) => {
 
-  const arrival =new Date (arrivalDate).toLocaleDateString()
-  const departure =new Date (departureDate).toLocaleDateString()
-  const newArrival =new Date (newArrivalDate).toLocaleDateString()
-  const newDeparture =new Date (newDepartureDate).toLocaleDateString()
+  const arrival =format(new Date(arrivalDate),'dd/MM/yyyy')
+  const departure =format(new Date(departureDate),'dd/MM/yyyy')
+  const newArrival =format(new Date(newArrivalDate),'dd/MM/yyyy')
+  const newDeparture =format(new Date(newDepartureDate),'dd/MM/yyyy')
+ 
 
   
   return (
