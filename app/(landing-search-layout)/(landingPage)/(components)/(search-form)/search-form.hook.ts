@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { handleTimezone } from "@/lib/timezone-handler";
 
@@ -12,6 +12,7 @@ type Props = {
   airportProp?:string,
   change?:boolean,
   airportId?:string,
+  serviceId?:string
 
 
 };
@@ -22,7 +23,8 @@ export const useSearchForm = ({
   endTimeProp,
   airportProp,
   change,
-  airportId
+  airportId,
+  serviceId
 
 
 }: Props) => {
@@ -58,7 +60,7 @@ const [openAirport, setOpenAirport] = useState(false)
   useEffect(() => {
     setOpenAirport(false);
 
-    if (airport && !airportId) {
+    if (airport && !airportId ) {
       if (!startDate) {
         setOpenStart(true);
       }
@@ -90,7 +92,7 @@ const [openAirport, setOpenAirport] = useState(false)
       } else if (!endTime) {
         setOpenEndTime(true);
       }
-      else if (!airport) {
+      else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
     }
@@ -108,7 +110,7 @@ const [openAirport, setOpenAirport] = useState(false)
       } else if (!endTime) {
         setOpenEndTime(true);
       }
-      else if (!airport) {
+      else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
     }
@@ -124,7 +126,7 @@ const [openAirport, setOpenAirport] = useState(false)
       } else if (!endTime) {
         setOpenEndTime(true);
       } 
-      else if (!airport) {
+      else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
     }
@@ -139,7 +141,7 @@ const [openAirport, setOpenAirport] = useState(false)
       } else if (!endDate) {
         setOpenEnd(true);
       }
-      else if (!airport) {
+      else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
     }
@@ -168,9 +170,13 @@ const [openAirport, setOpenAirport] = useState(false)
   }
 const params = useSearchParams()
   const router = useRouter();
+  const pathname = usePathname()
+
+
+
   const handleClick = () => {
    
-if(!airport) setOpenAirport(true)
+if(!airport && !serviceId) setOpenAirport(true)
    else if (!startDate) setOpenStart(true);
     else if (!endDate) setOpenEnd(true);
     else if (!startTime) setOpenStartTime(true);
@@ -189,18 +195,39 @@ let currentQuery = {};
 if (params) {
   currentQuery = qs.parse(params.toString())
 }
-      const url = qs.stringifyUrl({
-        url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
-        query: {
-          ...currentQuery,
-          airport:airport,
-          startDate: startDateString,
-          endDate: endDateString,
-          startTime,
-          endTime,
+
+
+      let url
+
+      if(serviceId){
+        url = qs.stringifyUrl({
+          url:pathname,
+          query:{
+              startDate:startDateString,
+              endDate:endDateString,
+              startTime:startTime,
+              endTime:endTime,
          
-        },
-      });
+          }
+       })
+      }else{
+
+        url = qs.stringifyUrl({
+          url: `${process.env.NEXT_PUBLIC_MY_URL}/search`,
+          query: {
+            ...currentQuery,
+            airport:airport,
+            startDate: startDateString,
+            endDate: endDateString,
+            startTime,
+            endTime,
+           
+          },
+        });
+      }
+      
+      
+   
 
       router.push(url);
      

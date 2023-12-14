@@ -18,14 +18,15 @@ type Props = {
   startTimeProp?:string,
   endTimeProp?:string,
   change?:boolean,
-  airports:{id:string,name:string}[]
+  airports?:{id:string,name:string}[]
   airportProp?:string,
   airportId?:string
+  serviceId?:string
 
 
 };
 
-const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports,airportProp,airportId}: Props) => {
+const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,airports,airportProp,airportId,serviceId}: Props) => {
  
 
 
@@ -52,7 +53,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
     setStartTime,setEndTime,
     handleClick,
     isLoading
-  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change,airportId});
+  } = useSearchForm({startDateProp,endDateProp,startTimeProp,endTimeProp,airportProp,change,airportId,serviceId});
 
 
 
@@ -62,8 +63,8 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
    
 
       <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative z-30">
-        <div className={cn("grid lg:grid-cols-3 flex-1 gap-1",airportId && 'lg:grid-cols-2')}>
-          {!airportId && <div className="p-2 bg-white flex flex-col gap-1 pb-1">
+        <div className={cn("grid lg:grid-cols-3 flex-1 gap-1",(airportId || serviceId )&& 'lg:grid-cols-2')}>
+          {!airportId && !serviceId&& !!airports && !!airports.length&&<div className="p-2 bg-white flex flex-col gap-1 pb-1">
           <h3 className="text-black font-semibold pl-2">Airport</h3>
            <AirportSelect airport={airport!} setAirport={setAirport} airports={airports} open={openAirport} setOpen={setOpenAirport}/>
           </div>}

@@ -12,6 +12,7 @@ import AccordionInfo from "./(components)/accordion-info";
 import ServiceCheckForm from "./(components)/(service-check-form)/service-check-form";
 import AvailableService from "./(components)/available-service";
 import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/reviews";
+import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)/(search-form)/search-form";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -46,10 +47,10 @@ const page = async ({ params, searchParams }: Props) => {
         <h3 className="text-white text-3xl font-bold capitalize">
           {service.name}
         </h3>
-        <ServiceCheckForm
+        <SearchForm 
           serviceId={service.id}
-          startDateProp={startDate as string | undefined}
-          endDateProp={endDate as string | undefined}
+          startDateProp={ new Date(startDate as string) as Date | undefined}
+          endDateProp={new Date(endDate as string) as Date | undefined}
           startTimeProp={startTime as string | undefined}
           endTimeProp={endTime as string | undefined}
         />
