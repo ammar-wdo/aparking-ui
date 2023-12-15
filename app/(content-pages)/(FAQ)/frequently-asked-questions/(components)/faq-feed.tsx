@@ -5,6 +5,8 @@ import FaqComponent from './faq-component'
 
 type Props = {}
 
+
+
 const FaqFeed = async(props: Props) => {
 
     const res = await axios(GET_FAQ)

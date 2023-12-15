@@ -8,7 +8,7 @@ import queryString from "query-string";
 type FullReview = Review & {
   id: string;
   booking: { firstName: string; lastName: string };
-  entity: { entityName: string };
+  entity: { entityName: string ,airport:{name:string}};
 };
 
 const Reviews = async ({

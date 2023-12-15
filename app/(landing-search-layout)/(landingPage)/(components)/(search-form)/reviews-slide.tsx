@@ -9,11 +9,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 type FullReview = Review & {
   id: string;
   booking: { firstName: string; lastName: string };
-  entity: { entityName: string };
+  entity: { entityName: string,airport:{name:string}};
 };
 type Props = { reviews: FullReview[] };
 
@@ -59,9 +60,10 @@ const ReviewsSlide = ({ reviews }: Props) => {
         return (
           <SwiperSlide className="" key={review.id}>
             <div className=" rounded-lg p-6 bg-white flex flex-col h-full">
+              <Link href={`/${review.entity.airport.name}/${review.entity.entityName}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
-              </h3>
+              </h3></Link>
               {review.reviewContent && (
                 <p className="text-sm text-neutral-400 mt-4 max-h-[125px] overflow-y-scroll leading-relaxed">
                   {review.reviewContent}
