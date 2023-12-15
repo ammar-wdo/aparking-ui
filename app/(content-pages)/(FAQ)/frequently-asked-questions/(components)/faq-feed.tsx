@@ -17,7 +17,7 @@ const FaqFeed = async(props: Props) => {
     <div className='mt-12'>
         {!faqs.length && <p className='text-4xl text-neutral-500 font-bold text-center'>No FAQs</p>}
 
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col '>
 
 {faqs?.map((faq)=><FaqComponent key={faq.id} faq={faq} />)}
         </div>
