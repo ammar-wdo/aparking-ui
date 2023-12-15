@@ -15,7 +15,7 @@ const res = await axios(GET_ABOUT)
 
 const about = res.data.about
 
-await new Promise(res=>setTimeout(res,5000))
+
 
   return (
     <div className="min-h-[700px]">
