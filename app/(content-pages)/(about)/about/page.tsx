@@ -26,7 +26,7 @@ const about = res.data.about
           <span className="capitalize text-black">About us</span>{" "}
         </p>
 
-        <h3 className="text-site text-xl font-bold">About us</h3>
+        <h3 className="text-site text-3xl font-bold">About us</h3>
 
         {!about && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

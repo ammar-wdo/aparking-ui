@@ -8,7 +8,7 @@ const loading = (props: Props) => {
     <div className='min-h-[700px] '>
     <div className='container'>
     <Skeleton className="w-[300px] p-3  my-8" />
-        <Skeleton className='w-full aspect-[4/1] relative'/>
+        <Skeleton className='w-full aspect-video md:aspect-[4/1] relative'/>
            
 
        

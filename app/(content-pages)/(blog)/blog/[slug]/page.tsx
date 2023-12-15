@@ -33,7 +33,7 @@ const page =async({params}: Props) => {
           <Link href={'/blog'}>Blog</Link>&gt;{" "}
           <span className='text-black first-letter:capitalize'>{blog.title}</span>
         </p>
-            <div className='w-full aspect-[4/1] relative'>
+            <div className='w-full aspect-video md:aspect-[4/1] relative'>
                 <Image alt='featured' src={blog.featuredImage} fill className='object-cover' />
 
             </div>
