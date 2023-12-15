@@ -1,4 +1,4 @@
-import { GET_ABOUT, GET_TERMS } from "@/links";
+import { GET_ABOUT, GET_PRIVACY, GET_TERMS } from "@/links";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -11,9 +11,9 @@ export const revalidate = 0
 
 const page = async(props: Props) => {
 
-const res = await axios(GET_ABOUT)
+const res = await axios(GET_PRIVACY)
 
-const about = res.data.terms
+const privacy = res.data.privacy
 
 
 
@@ -23,16 +23,16 @@ const about = res.data.terms
         <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap my-8">
           {" "}
           <Link href={"/"}>Home</Link> &gt;{" "}
-          <span className="capitalize text-black">About</span>{" "}
+          <span className="capitalize text-black">Privacy and policy</span>{" "}
         </p>
 
-        <h3 className="text-site text-3xl font-bold">About us </h3>
+        <h3 className="text-site text-3xl font-bold">Privacy and policy</h3>
 
-        {!about && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
+        {!privacy && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 
         <div className="mt-12">
 
-        <Editor  initialContent={about.content} />
+        <Editor  initialContent={privacy.content} />
 
         </div>
       </div>

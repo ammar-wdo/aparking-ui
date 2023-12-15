@@ -71,7 +71,7 @@ San Francisco, 94102</p>
             Copyright © 2023 APARKING.
             </p>
             <p className='text-center'>
-            All Rights Reserved | <Link href={'/'}  className='underline'>Terms and Conditions </Link>| <Link href={'/'} className='underline'>Privacy Policy </Link>
+            All Rights Reserved | <Link href={'/terms'}  className='underline'>Terms and Conditions </Link>| <Link href={'/privacy'} className='underline'>Privacy Policy </Link>
             </p>
 
 

@@ -26,6 +26,8 @@ export const GET_CATEGORIES = BASE_URL + '/api/category'
 export const GET_BLOGS = BASE_URL + '/api/blog'
 export const GET_ABOUT = BASE_URL + '/api/about'
 export const GET_FAQ = BASE_URL + '/api/faq'
+export const GET_TERMS = BASE_URL + '/api/terms'
+export const GET_PRIVACY = BASE_URL + '/api/privacy'
 
 
 
