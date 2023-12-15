@@ -24,6 +24,7 @@ export const ADD_REVIEW = BASE_URL + '/api/review'
 
 export const GET_CATEGORIES = BASE_URL + '/api/category'
 export const GET_BLOGS = BASE_URL + '/api/blog'
+export const GET_ABOUT = BASE_URL + '/api/about'
 
 
 
