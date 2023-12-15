@@ -38,7 +38,7 @@ const page =async({params}: Props) => {
 
             </div>
            
-        <section className='mt-8 px-12'>
+        <section className='mt-8 px-4 md:px-12'>
             <h3 className='text-4xl font-bold first-letter:capitalize'>{blog.title}</h3>
             <div className='flex gap-12 mt-3 items-center'>
                 <p className='first-letter:capitalize text-base font-bold text-gray-600'>written by <span className='capitalize'>{blog.author}</span></p>
