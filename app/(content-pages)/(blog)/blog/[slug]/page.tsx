@@ -27,20 +27,21 @@ const page =async({params}: Props) => {
   return (
     <div className='min-h-[700px] '>
         <div className='container'>
-            <div className='w-full aspect-[4/1] relative'>
-                <Image alt='featured' src={blog.featuredImage} fill className='object-cover' />
-
-            </div>
-            <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap mt-8">
+        <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap my-8">
           {" "}
           <Link href={"/"}>Home</Link> &gt;{" "}
           <Link href={'/blog'}>Blog</Link>&gt;{" "}
           <span className='text-black first-letter:capitalize'>{blog.title}</span>
         </p>
+            <div className='w-full aspect-[4/1] relative'>
+                <Image alt='featured' src={blog.featuredImage} fill className='object-cover' />
+
+            </div>
+           
         <section className='mt-8 px-12'>
             <h3 className='text-4xl font-bold first-letter:capitalize'>{blog.title}</h3>
             <div className='flex gap-12 mt-3 items-center'>
-                <p className='first-letter:capitalize text-xl font-bold text-gray-600'>written by <span className='capitalize'>{blog.author}</span></p>
+                <p className='first-letter:capitalize text-base font-bold text-gray-600'>written by <span className='capitalize'>{blog.author}</span></p>
                 <span className='text-gray-500 text-sm'>{format(new Date(blog.createdAt),'MMMM do yyyy')}</span>
 
             </div>
