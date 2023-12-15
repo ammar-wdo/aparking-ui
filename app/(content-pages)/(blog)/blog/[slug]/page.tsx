@@ -22,7 +22,7 @@ const page =async({params}: Props) => {
 
     if(!blog) return redirect('/')
 
-await new Promise(res=>setTimeout(res,7000))
+
 
   return (
     <div className='min-h-[700px] '>
