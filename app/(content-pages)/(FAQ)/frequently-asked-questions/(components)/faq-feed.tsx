@@ -10,7 +10,7 @@ const FaqFeed = async(props: Props) => {
     const res = await axios(GET_FAQ)
     const faqs = res.data.faqs as {id:string,question:string,answer:string}[]
 
-    console.log(res)
+ 
 
 
   return (
