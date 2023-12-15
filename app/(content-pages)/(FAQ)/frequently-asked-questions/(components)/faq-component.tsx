@@ -14,8 +14,8 @@ const FaqComponent = ({faq}: Props) => {
   return (
     <Accordion type="single" collapsible>
     <AccordionItem value="item-1">
-      <AccordionTrigger className={cn("hover:no-underline py-8 font-bold px-4 hover:bg-gray-100 transition")}>{faq.question}?</AccordionTrigger>
-      <AccordionContent className="p-8">
+      <AccordionTrigger className={cn("hover:no-underline py-8 font-bold px-4 hover:bg-gray-100 transition text-start")}>{faq.question}?</AccordionTrigger>
+      <AccordionContent className="p-8 text-start">
        {faq.answer}
       </AccordionContent>
     </AccordionItem>

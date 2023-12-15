@@ -6,9 +6,11 @@ type Props = {}
 
 
 export const revalidate = 0
+
+
 const page = async(props: Props) => {
 
- 
+
   return (
     <div className="min-h-[700px]">
            <div className="container">
