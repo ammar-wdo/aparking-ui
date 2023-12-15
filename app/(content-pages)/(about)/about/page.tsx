@@ -13,7 +13,7 @@ const page = async(props: Props) => {
 
 const res = await axios(GET_ABOUT)
 
-const about = res.data.terms
+const about = res.data.about
 
 
 
