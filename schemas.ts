@@ -174,3 +174,16 @@ visibility:z.enum(["FIRSTNAME","FULLNAME","ANOUNYMOS"]).default('FULLNAME'),
 })
 
 export type Review = z.infer<typeof reviewSchema> 
+
+export const blogSchema = z.object({
+  title:z.string().min(2),
+  content:z.string().min(3),
+  slug:z.string().min(3),
+  author:z.string().min(1),
+  shortDescription:z.string().min(4),
+  tags:z.array(z.string()),
+  featuredImage:z.string().min(1),
+  categoryId:z.string().min(1)
+ })
+
+ export type Blog = z.infer<typeof blogSchema> 

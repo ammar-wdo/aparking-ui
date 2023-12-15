@@ -21,6 +21,14 @@ import {
   Star,
   Warehouse,
 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 type Props = {
   service: Service & {
@@ -60,18 +68,23 @@ const ListCard = ({ service, invalid, show }: Props) => {
 
 
   return (
-    <div
+    <Card
       className={cn(
         " bg-white  rounded-[2px] border-b-2 border-t border-l border-r flex flex-col border-neutral-300 border-b-yellow-500 ",
         invalid &&
           "cursor-not-allowed opacity-50 grayscale-[10] pointer-events-none"
       )}
     >
-      <h3 className="font-bold text-lg text-center p-7">
+      <CardHeader>
+        <CardTitle className="text-center text-lg font-bold">
+       
         Routes Airport Parking (ORD)
-      </h3>
+      
+        </CardTitle>
+      </CardHeader>
+      
       <Separator className="bg-neutral-300" />
-      <div className="py-4 px-6 space-y-3 flex-1">
+      <CardContent className="py-4 px-6 space-y-3 flex-1">
         {service.highlights?.map((hightlight) => (
           <div key={hightlight.label} className="flex gap-3 items-center">
             <span>{theIcons[hightlight.icon]}</span>
@@ -91,8 +104,8 @@ const ListCard = ({ service, invalid, show }: Props) => {
             </Link>
           </div>
         )}
-      </div>
-      <div className="bg-gray-50 p-4 py-3 flex flex-col  border-t">
+      </CardContent>
+      <CardFooter className="bg-gray-50 p-4 py-3 flex flex-col  border-t">
         {!invalid && !show && (
           <div className="text-center">
             <p className="text-gray-500 text-xs">
@@ -126,8 +139,8 @@ const ListCard = ({ service, invalid, show }: Props) => {
         <p className="text-gray-500 text-xs text-center pt-3 mt-auto ">
           Cancel for free up to 24 hours in advance
         </p>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 
