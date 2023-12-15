@@ -45,7 +45,7 @@ const Footer = (props: Props) => {
             <section className='mt-4 shrink-0'>
 <h3 className='font-bold'>Support</h3>
 <div className='mt-6 flex flex-col gap-2'>
-    <Link href={'/'} className=' font-light text-sm hover:underline '>FAQ</Link>
+    <Link href={'/frequently-asked-questions'} className=' font-light text-sm hover:underline '>FAQ</Link>
     <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Help center</Link>
     <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Report a bug</Link>
     <Link href={'/'} className=' font-light text-sm hover:underline'>Chat support </Link>

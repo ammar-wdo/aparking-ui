@@ -20,7 +20,7 @@ const page = async ({searchParams}: Props) => {
           <span className="capitalize text-black">Blog</span>{" "}
         </p>
         <div className="mt-8">
-        <CategoryFeed />
+        <CategoryFeed searchParams={searchParams}/>
         <BlogFeed searchParams={searchParams} />
         </div>
        
