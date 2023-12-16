@@ -52,9 +52,11 @@ const SearchFeed = async ({
   type FullService =Service &{totalPrice:number,parkingDays:number, entity: { entityName: string; airport: { name: string } }}
   const services = await axios.get(url);
   const data = services.data ;
-  const validServices = data.valid.filter((service:FullService)=>service.totalPrice > 0)
-  const invalidServices = [...data.invalid,...data.valid.filter((service:FullService)=>(service.totalPrice ===0 || service.totalPrice ===null))]
+  const validServices = data.valid
+  const invalidServices = data.invalid
   const total = data.total
+  const totalValid = data.totalValid
+  const totalInvalid = data.totalInvalid
 
 
 
@@ -66,8 +68,8 @@ const SearchFeed = async ({
     <div className="">
      
        <SearchScroller />
-{!data.valid.length && !data.invalid.length && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
-{!!validServices.length&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {validServices.length} of {total}</p>}
+{!totalValid && !totalInvalid && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
+{!!totalValid&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {totalValid} of {total}</p>}
 
 
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-6 relative z-10">
@@ -83,7 +85,7 @@ const SearchFeed = async ({
     
     </div>
 
-    {!!invalidServices.length && <p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Unavailable {invalidServices.length} of {total}</p>}
+    {!!totalInvalid&& <p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Unavailable {totalInvalid} of {total}</p>}
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4   gap-10 mt-4 relative z-10">
  {invalidServices?.map((service:FullService) => (
      <ListCard invalid={true} key={service?.id} service={service} />
