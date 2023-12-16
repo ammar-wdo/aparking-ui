@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import {
   Popover,
   PopoverContent,
@@ -58,7 +52,7 @@ const AirportSelect = ({
          hover:bg-slate-100 transition foucs:ring-0 focus:ring-transparent 
          pl-4"
       >
-        <Button variant={'ghost'}  className="w-full px-2 flex items-center justify-between">{airport && airports.find((airportE)=>airportE.id === airport)?.name || 'Choose an airport'} <ChevronDown className="w-4 h-4 text-neutral-400"/></Button>
+        <Button variant={'ghost'}  className="w-full px-2 flex items-center text-xs text-neutral-500 font-medium justify-between">{airport && airports.find((airportE)=>airportE.id === airport)?.name || 'Choose an airport'} <ChevronDown className="w-4 h-4 text-neutral-400"/></Button>
         
       </PopoverTrigger>
       <PopoverContent className="flex flex-col ">
