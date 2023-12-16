@@ -54,7 +54,7 @@ const page = async ({ searchParams }: Props) => {
 
   const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.id ===airport) as Airport
 
-  await new Promise(res=>setTimeout(res,4000))
+
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
