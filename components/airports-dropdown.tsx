@@ -19,19 +19,21 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 type Props ={
-    data: Airport[]
+    data: Airport[],
+    hidden?:boolean
 }
 
 
-export const AirportMenue = ({data}:Props) => {
+export const AirportMenue = ({data,hidden}:Props) => {
 
 
     const [open, setOpen] = useState(false)
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger   className="flex items-center gap-1  md:text-base text-sm font-medium">Airports <ChevronDown className="w-4 h-4 ml-1" /></PopoverTrigger>
+      <PopoverTrigger   className={cn("flex items-center gap-1  md:text-base text-sm font-medium",hidden && 'md:flex hidden' )}>Airports <ChevronDown className="w-4 h-4 ml-1" /></PopoverTrigger>
       <PopoverContent  className="mt-5 flex flex-col items-center">
         {data.map((airport: Airport) => (
           <Button variant={'ghost'}  className="w-full justify-start"      key={airport.id} onClick={()=>setOpen(false)}>

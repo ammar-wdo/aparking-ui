@@ -10,6 +10,8 @@ import { GET_AIRPORTS } from "@/links";
 import { Airport } from "@/schemas";
 import { cn } from "@/lib/utils";
 import { AirportMenue } from "./airports-dropdown";
+import { MeneuDropdown } from "./menue-dropdown";
+import NavLinks from "./nav-links";
 
 
 type Props = {
@@ -20,50 +22,28 @@ type Props = {
 
 
 const Header = async ({contentPages}: Props) => {
-  const links = [
-    {
-      label: "home",
-      link:'/'
-    },
-    {
-      label: "airports",
-      Icon: <ChevronDown className="w-4 h-4 ml-1" />,
-      airports: true,
-      link:''
-    },
-    {
-      label: "contact us",
-      link:'/contact-us'
-    },
-  ];
+
 
   const res = await axios(GET_AIRPORTS);
 
   return (
     <div className={cn("bg-white ",contentPages&& 'bg-[#003580]')}>
-      <div className={cn("flex justify-between sm:py-5 py-1 pb-5 text-[#003580] items-center relative z-10 container sm:flex-row flex-col",contentPages&&'text-white')}>
+      <div className={cn("flex  sm:py-5 py-1  text-[#003580] items-center relative z-10 container ",contentPages&&'text-white')}>
         <Logo footer={contentPages} />
+        <div className="ml-auto flex items-center gap-6">
+        <div className="flex items-center gap-2 md:hidden">
+          
+          <AirportMenue data={res.data.airports} />
+          <MeneuDropdown />
+          </div>
 
-        <nav className="flex md:gap-14 gap-3 items-center px-1">
-          {links.map(({ label, Icon, airports ,link}) => (
-            <div   key={label} className={cn("relative group")}>
-           {!airports && <Link
-            
-              href={link}
-              className={cn(
-                "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium"
-              )}
-            >
-              {label} {Icon && Icon}{" "}
-             
-            </Link>}
-            {airports && (
-               <AirportMenue data={res.data.airports} />
-              )}
-            </div>
-          ))}
-          <SigninOut />
-        </nav>
+  <NavLinks />
+          
+              <AirportMenue hidden data={res.data.airports} />
+            <SigninOut hidden />
+        </div>
+
+      
       </div>
     </div>
   );
