@@ -18,7 +18,7 @@ const AvailableServiceCard = ({response,service}: Props) => {
 
     useEffect(()=>{
 
-        cardRef.current?.scrollIntoView({behavior:'smooth'})
+        cardRef.current?.scrollIntoView({behavior:'smooth',block:'center'})
     },[response,service])
 
 

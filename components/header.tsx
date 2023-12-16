@@ -38,7 +38,7 @@ const Header = async ({contentPages}: Props) => {
           <MeneuDropdown  contentPages ={contentPages}/>
           </div>
 
-  <NavLinks />
+  <NavLinks  />
   <AirportMenue hidden data={res.data.airports} />
           
          

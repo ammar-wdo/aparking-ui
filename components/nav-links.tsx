@@ -4,13 +4,15 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import React from 'react'
 import SigninOut from './signin-out';
+import { Airport } from '@/schemas';
 
 type Props = {
     col?:boolean,
     close?:(val:boolean)=>void
+    airports?:Airport[]
 }
 
-const NavLinks = ({col,close}: Props) => {
+const NavLinks = ({col,close,airports}: Props) => {
 
 
     const links = [
@@ -26,8 +28,9 @@ const NavLinks = ({col,close}: Props) => {
       ];
   return (
     <nav className={cn(" gap-6 items-center px-1 md:flex hidden",col && 'flex flex-col w-full')}>
-    {links.map(({ label  ,link}) => (
-      <div   key={label} className={cn("relative group")}>
+    {links.map(({ label  ,link},i) => 
+      
+    { return  <div   key={label} className={cn("relative group")}>
      {<Link
      onClick={()=>close && close(false)}
       
@@ -42,8 +45,8 @@ const NavLinks = ({col,close}: Props) => {
      
   
         
-      </div>
-    ))}
+      </div>}
+    )}
         <SigninOut col={col}  close={close}  />
   </nav>
   )
