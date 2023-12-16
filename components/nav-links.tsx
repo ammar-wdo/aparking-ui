@@ -1,12 +1,15 @@
+'use client'
+
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import React from 'react'
 
 type Props = {
-    col?:boolean
+    col?:boolean,
+    close?:(val:boolean)=>void
 }
 
-const NavLinks = ({col}: Props) => {
+const NavLinks = ({col,close}: Props) => {
 
 
     const links = [
@@ -25,6 +28,7 @@ const NavLinks = ({col}: Props) => {
     {links.map(({ label  ,link}) => (
       <div   key={label} className={cn("relative group")}>
      {<Link
+     onClick={()=>close && close(false)}
       
         href={link}
         className={cn(
