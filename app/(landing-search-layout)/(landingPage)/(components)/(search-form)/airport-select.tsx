@@ -51,10 +51,11 @@ const AirportSelect = ({
        focus-visible:ring-transparent 
        ring-0 pr-2 ring-transparent
         focus-within:ring-0 focus-within:ring-transparent
+        h-12
         font-semibold
-        h-full
+       
         rounded-md
-         hover:bg-gray-100 transition foucs:ring-0 focus:ring-transparent 
+         hover:bg-slate-100 transition foucs:ring-0 focus:ring-transparent 
          pl-4"
       >
         <span  className="w-full  flex items-center justify-between">{airport && airports.find((airportE)=>airportE.id === airport)?.name || 'Choose an airport'} <ChevronDown className="w-4 h-4 text-neutral-400"/></span>
@@ -65,7 +66,7 @@ const AirportSelect = ({
           <Button
           variant={'ghost'}
             key={airport.id}
-            onClick={()=>setAirport(airport.id)}
+            onClick={()=>{setAirport(airport.id);setOpen(false)}}
             className="cursor-pointer justify-start"
           >
             {airport.name}

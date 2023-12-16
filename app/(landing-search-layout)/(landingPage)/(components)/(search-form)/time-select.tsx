@@ -31,7 +31,7 @@ const TimeSelect = ({ times, time, setTime, open, setOpen }: Props) => {
       <PopoverTrigger  className="w-[180px] p-0 border-0 h-full rounded-md px-1
        text-zinc-500 text-xs outline-none focus-visible:ring-0 
        focus-visible:ring-transparent ring-0 ring-transparent focus-within:ring-0
-        focus-within:ring-transparent hover:bg-gray-100 transition foucs:ring-0 
+        focus-within:ring-transparent hover:bg-slate-100 transition foucs:ring-0 
         focus:ring-transparent pl-4">
        <span className="w-full  flex items-center justify-between">{time || "Select time"} <ChevronDown className="w-4 h-4 text-neutral-400"/></span>
       </PopoverTrigger>
@@ -42,7 +42,7 @@ const TimeSelect = ({ times, time, setTime, open, setOpen }: Props) => {
             <Button
             variant={'ghost'}
             key={time}
-            onClick={()=>setTime(time)}
+            onClick={()=>{setTime(time);setOpen(false)}}
             className="cursor-pointer justify-start block"
           >
           
