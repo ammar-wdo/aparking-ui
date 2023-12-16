@@ -42,23 +42,23 @@ const AirportSelect = ({
       open={open}
     >
       <PopoverTrigger
-    
+    asChild
         className="w-full p-0 border-0 text-zinc-500
-        flex
+      
         items-center
       text-xs outline-none
        focus-visible:ring-0 
        focus-visible:ring-transparent 
        ring-0 pr-2 ring-transparent
         focus-within:ring-0 focus-within:ring-transparent
-        h-12
+       
         font-semibold
        
         rounded-md
          hover:bg-slate-100 transition foucs:ring-0 focus:ring-transparent 
          pl-4"
       >
-        <span  className="w-full  flex items-center justify-between">{airport && airports.find((airportE)=>airportE.id === airport)?.name || 'Choose an airport'} <ChevronDown className="w-4 h-4 text-neutral-400"/></span>
+        <Button variant={'ghost'}  className="w-full px-2 flex items-center justify-between">{airport && airports.find((airportE)=>airportE.id === airport)?.name || 'Choose an airport'} <ChevronDown className="w-4 h-4 text-neutral-400"/></Button>
         
       </PopoverTrigger>
       <PopoverContent className="flex flex-col ">
