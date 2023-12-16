@@ -35,7 +35,10 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+    --swiper-navigation-size :20px !important
   }
+
+
  
   .dark {
     --background: 222.2 84% 4.9%;
@@ -65,6 +68,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    --swiper-navigation-size :20px !important
   }
 }
  
@@ -98,6 +102,35 @@
 .swiper-slide {
   height:250px  !important;
 }
+
+
+.swiper-button-next{
+  @apply   flex items-center justify-center p-4 bg-white rounded-full shadow-md shadow-neutral-500
+
+
+
+}
+
+
+
+.swiper-button-next::after {
+
+  color: #003580;
+}
+.swiper-button-prev::after {
+
+  color: #003580;
+}
+.swiper-button-prev{
+  @apply  flex items-center justify-center p-4 bg-white rounded-full shadow-md shadow-neutral-500
+
+
+
+}
+
+
+
+
 
 
 
