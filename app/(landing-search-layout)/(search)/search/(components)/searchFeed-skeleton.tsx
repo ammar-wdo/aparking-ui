@@ -1,3 +1,4 @@
+import ProgressBar from '@/components/progress-bar'
 import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
@@ -6,7 +7,8 @@ type Props = {}
 
 const SearchFeedSkeleton = (props: Props) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-20 relative z-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-20 relative z-10 ">
+   
 
         {Array(8).fill('').map((el,i)=><div key={i}>
         <div key={i} className="w-full min-h-[400px]  rounded-md border border-b-2 border-b-yellow-500 bg-white" >

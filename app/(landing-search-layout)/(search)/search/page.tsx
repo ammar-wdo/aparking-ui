@@ -15,6 +15,7 @@ import Banner from "@/app/(landing-search-layout)/(landingPage)/(components)/ban
 import SearchFeed from "./(components)/searchFeed";
 import SearchFeedSkeleton from "./(components)/searchFeed-skeleton";
 import { Airport } from "@/schemas";
+import ProgressBar from "@/components/progress-bar";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -53,6 +54,8 @@ const page = async ({ searchParams }: Props) => {
 
   const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.id ===airport) as Airport
 
+  await new Promise(res=>setTimeout(res,4000))
+
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true} airportName={airportName.name}>
@@ -75,7 +78,7 @@ const page = async ({ searchParams }: Props) => {
           endTimeProp={endTime}
           change={true}
         />
-        <Suspense key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime} ${location} ${service} ${key} ${electric}`} fallback={<SearchFeedSkeleton />}>
+        <Suspense key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime} ${location} ${service} ${key} ${electric}`} fallback={<ProgressBar><SearchFeedSkeleton /></ProgressBar>}>
           <SearchFeed
             airport={airport}
             startDate={startDate}
