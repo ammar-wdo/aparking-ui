@@ -28,9 +28,10 @@ const Header = async ({contentPages}: Props) => {
 
   return (
     <div className={cn("bg-white ",contentPages&& 'bg-[#003580]')}>
-      <div className={cn("flex  sm:py-5 py-1  text-[#003580] items-center relative z-10 container ",contentPages&&'text-white')}>
+      <div className={cn("flex  sm:py-5 py-1  text-[#003580] items-center relative z-10 container justify-between",contentPages&&'text-white')}>
         <Logo footer={contentPages} />
-        <div className="ml-auto flex items-center gap-6">
+        <AirportMenue hidden data={res.data.airports} />
+        <div className=" flex items-center gap-6">
         <div className="flex items-center gap-2 md:hidden">
           
           <AirportMenue data={res.data.airports} />
@@ -39,8 +40,8 @@ const Header = async ({contentPages}: Props) => {
 
   <NavLinks />
           
-              <AirportMenue hidden data={res.data.airports} />
-            <SigninOut hidden />
+         
+         
         </div>
 
       

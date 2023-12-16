@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import React from 'react'
+import SigninOut from './signin-out';
 
 type Props = {
     col?:boolean,
@@ -24,7 +25,7 @@ const NavLinks = ({col,close}: Props) => {
         },
       ];
   return (
-    <nav className={cn(" gap-6 items-center px-1 md:flex hidden",col && 'flex flex-col')}>
+    <nav className={cn(" gap-6 items-center px-1 md:flex hidden",col && 'flex flex-col w-full')}>
     {links.map(({ label  ,link}) => (
       <div   key={label} className={cn("relative group")}>
      {<Link
@@ -39,10 +40,11 @@ const NavLinks = ({col,close}: Props) => {
        
       </Link>}
      
-       
+  
         
       </div>
     ))}
+        <SigninOut col={col}  close={close}  />
   </nav>
   )
 }

@@ -47,7 +47,7 @@ useEffect(()=>{setMount(true)},[])
       <PopoverContent  className="mt-5 flex flex-col items-center gap-6">
         
           <NavLinks close={closePop} col />
-          <SigninOut close={closePop}  />
+          
   
       </PopoverContent>
     </Popover>
