@@ -34,12 +34,12 @@ const Reviews = async ({
       <h3 className="text-center text-4xl font-semibold text-[#003580] ">
         Reviews
       </h3>
-      <p className="text-sm text-gray-500 text-center">
+      <p className="text-sm text-gray-600 text-center">
         What do people say about our parking partners?
       </p>
 
       {!reviews.length ? (
-        <h3 className="py-10 text-xl text-neutral-500 text-center font-bold">
+        <h3 className="py-10 text-xl text-gray-600 text-center font-bold">
           No reviews
         </h3>
       ) : (

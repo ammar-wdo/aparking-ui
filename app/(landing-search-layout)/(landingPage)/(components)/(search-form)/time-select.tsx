@@ -29,11 +29,11 @@ const TimeSelect = ({ times, time, setTime, open, setOpen }: Props) => {
       onOpenChange={setOpen}
     >
       <PopoverTrigger asChild  className="w-[180px] p-0 border-0 h-full rounded-md px-1
-       text-zinc-500 text-xs outline-none focus-visible:ring-0 
+       text-gray-600 text-xs outline-none focus-visible:ring-0 
        focus-visible:ring-transparent ring-0 ring-transparent focus-within:ring-0
         focus-within:ring-transparent hover:bg-slate-100 transition foucs:ring-0 
         focus:ring-transparent pl-4">
-       <Button variant={'ghost'} className="w-full  flex items-center justify-between">{time || "Select time"} <ChevronDown className="w-4 h-4 text-neutral-400"/></Button>
+       <Button variant={'ghost'} className="w-full  flex items-center justify-between">{time || "Select time"} <ChevronDown className="w-4 h-4 text-gray-600"/></Button>
       </PopoverTrigger>
 
       <PopoverContent className="w-fit">

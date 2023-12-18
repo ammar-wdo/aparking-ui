@@ -35,13 +35,13 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start text-left font-norma text-zinc-500 font-light border-none p-1",
+            "w-full justify-start text-left font-norma text-gray-600 font-light border-none p-1",
             !date && "text-black"
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4 text-xs text-neutral-500 " />
-          {date ? <span className="text-xs text-neutral-500 font-medium ">{format(new Date(date), "dd-MM-yyyy")}</span>: <span className="
-          font-medium  text-xs text-neutral-500 ">Pick a date</span>}
+          <CalendarIcon className="mr-2 h-4 w-4 text-xs text-gray-600 " />
+          {date ? <span className="text-xs text-gray-600 font-medium ">{format(new Date(date), "dd-MM-yyyy")}</span>: <span className="
+          font-medium  text-xs text-gray-600 ">Pick a date</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">

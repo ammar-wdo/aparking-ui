@@ -62,7 +62,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                 {review.entity.entityName}
               </h3></Link>
               {review.reviewContent && (
-                <p className="text-sm text-neutral-400 mt-4 max-h-[125px] h-full overflow-y-auto leading-relaxed">
+                <p className="text-sm text-gray-600 mt-4 max-h-[125px] h-full overflow-y-auto leading-relaxed">
                   {review.reviewContent}
                 </p>
               )}
@@ -73,7 +73,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                   size={14}
                   color2="#FEBA02"
                 />
-                <p className="font-semibold text-neutral-600 text-sm">
+                <p className="font-semibold text-gray-600 text-sm">
                   {showCase[review.visibility]}
                 </p>
               </div>

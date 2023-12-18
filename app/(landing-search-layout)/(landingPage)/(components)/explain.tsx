@@ -30,7 +30,7 @@ const explainInfo = [
             {explainInfo.map((card)=><div key={card.title} className='p-8 bg-white text-center flex flex-col gap-3 rounded-md items-center'>
                 <span className='p-2 rounded-full bg-[#003580] '>{card.icon}</span>
                 <h4 className='text-2xl text-[#003580] w-[200px] font-semibold'>{card.title}</h4>
-                <p className='text-sm font-light text-gray-500 w-[200px]'>{card.description}</p>
+                <p className='text-sm font-light text-gray-600 w-[200px]'>{card.description}</p>
             </div>)}
 
         </div>

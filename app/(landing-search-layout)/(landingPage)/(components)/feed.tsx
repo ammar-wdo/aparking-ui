@@ -11,7 +11,7 @@ const Feed = (props: Props) => {
           <h3 className="text-3xl font-semibold text-[#003580]">
             Airport Parking Comparison: Stress-Free Options
           </h3>
-          <p className="mt-4 text-sm font-light max-w-[800px] text-justify">
+          <p className="mt-4 text-sm font-light max-w-[800px] text-justify text-gray-600">
             Planning a trip? Parking shouldn&rsquo;t be a hassle! Compare top parking
             providers at airports worldwide effortlessly. Our platform helps you
             compare rates, services like valet or self-parking, indoor or
