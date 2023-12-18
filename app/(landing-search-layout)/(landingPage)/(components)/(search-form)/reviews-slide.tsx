@@ -28,7 +28,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
     <Swiper
       className=" mt-12 h-[300px] "
       spaceBetween={12}
-      slidesPerView={3}
+      
       pagination={{ clickable: true }}
       modules={[Pagination]}
       breakpoints={{
@@ -36,16 +36,13 @@ const ReviewsSlide = ({ reviews }: Props) => {
           slidesPerView: 1,
           spaceBetween: 5,
         },
-        600:{  slidesPerView: 2,
+        600:{  slidesPerView: 1,
             spaceBetween: 20,},
         940: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 20,
         },
-        1100: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
+      
       }}
     >
       {reviews.map((review) => {
