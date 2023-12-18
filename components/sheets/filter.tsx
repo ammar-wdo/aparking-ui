@@ -48,10 +48,10 @@ const Filter = (props: Props) => {
 
       <SheetContent side={"left"} className="p-0 flex flex-col h-screen w-full">
         <SheetHeader>
-          <SheetTitle className="p-4">Filter the results</SheetTitle>
+          <SheetTitle className="p-4 sm:pb-4 pb-0">Filter the results</SheetTitle>
         </SheetHeader>
         <div className=" flex flex-col  flex-1 pb-2">
-          <div className="mt-6 ">
+          <div className="">
             <h3 className="p-1 px-4 text-sm text-neutral-500 font-semibold ">
               Parking Service
             </h3>
@@ -213,7 +213,7 @@ const Filter = (props: Props) => {
 
           <Button
             variant={"siteTwo"}
-            className="mt-auto mx-4 rounded-full"
+            className="sm:mt-auto mt-4 mx-4 rounded-full"
             onClick={pushFilter}
           >
             Filter
