@@ -31,8 +31,9 @@ const about = res.data.about
         {!about && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 
         <div className="mt-12">
+     
 
-        <Editor  initialContent={about.content} />
+        <Editor  initialContent={about?.content} />
 
         </div>
       </div>

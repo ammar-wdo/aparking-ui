@@ -32,7 +32,7 @@ const privacy = res.data.privacy
 
         <div className="mt-12">
 
-        <Editor  initialContent={privacy.content} />
+        <Editor  initialContent={privacy?.content} />
 
         </div>
       </div>

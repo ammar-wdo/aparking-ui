@@ -32,7 +32,7 @@ const terms = res.data.terms
 
         <div className="mt-12">
 
-        <Editor  initialContent={terms.content} />
+        <Editor  initialContent={terms?.content} />
 
         </div>
       </div>
