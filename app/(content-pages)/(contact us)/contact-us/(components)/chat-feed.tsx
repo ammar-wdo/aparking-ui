@@ -1,16 +1,20 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
+import { useCrisp } from "@/hooks/crisp-hook";
 import React from "react";
 
 type Props = {};
 
+
+
 const Chatfeed = (props: Props) => {
+  const {setOpen} = useCrisp()
   const options = [
     {
       label: "Live chat",
       description: "Live chat support",
-      onClick: () => {},
+      onClick: () => {setOpen()},
     },
     {
       label: "Contact center",
