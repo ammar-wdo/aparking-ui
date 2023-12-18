@@ -3,7 +3,7 @@
 import { Review } from "@/schemas";
 import ReactStars from "react-stars";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination ,Navigation} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -26,11 +26,12 @@ const ReviewsSlide = ({ reviews }: Props) => {
     if(!mount) return <Skeleton className=" mt-12 h-[300px]" />
   return (
     <Swiper
-      className=" mt-12 h-[300px] "
+      className=" mt-12  "
       spaceBetween={12}
+      navigation
       
       pagination={{ clickable: true }}
-      modules={[Pagination]}
+      modules={[Pagination, Navigation]}
       breakpoints={{
         100: {
           slidesPerView: 1,
@@ -57,7 +58,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
         return (
           <SwiperSlide className="" key={review.id}>
             <div className=" rounded-lg p-6 bg-white flex flex-col h-full">
-              <Link href={`/${review.entity.airport.name}/${review.entity.entityName}`}>
+              <Link className="" href={`/${review.entity.airport.name}/${review.entity.entityName}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
               </h3></Link>
@@ -81,6 +82,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
           </SwiperSlide>
         );
       })}
+      
     </Swiper>
   );
 };
