@@ -36,7 +36,8 @@
  
     --radius: 0.5rem;
     --swiper-navigation-size :20px !important;
-    --swiper-navigation-sides-offset : 3px !important
+    --swiper-navigation-sides-offset : 3px !important;
+    --swiper-navigation-top-offset : calc(50% - 20px)
   }
 
 
@@ -99,7 +100,7 @@
   padding-bottom: 50px !important;
 } */
 .swiper-pagination{
-  bottom:0 !important
+  bottom:-12 !important
 }
 .swiper-slide {
   height:250px  !important;
@@ -118,7 +119,9 @@
 padding-inline: 35px !important;
 }
 
-
+.swiper-wrapper {
+  padding-bottom: 30px !important;
+}
 
 
 .swiper-button-next::after {
