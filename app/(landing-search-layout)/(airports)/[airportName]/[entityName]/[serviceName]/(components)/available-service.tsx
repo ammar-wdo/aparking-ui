@@ -39,7 +39,7 @@ const AvailableService =async ({searchParams,serviceId}: Props) => {
   return (
     <div className='p-4 '>
         <h3 className='text-3xl  pb-4 font-bold text-neutral-600'>Availability</h3>
- <AvailableServiceCard response={res.data.response} service={res.data.service}/>
+ <AvailableServiceCard  key={`${startDate} - ${endDate} - ${startTime} - ${endTime}`} response={res.data.response} service={res.data.service}/>
     </div>
    
   )
