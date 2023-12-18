@@ -25,7 +25,8 @@ const Chatfeed = (props: Props) => {
     {
       label: "Whats app",
       description: "Customer support",
-      onClick: () => {},
+      onClick: () => { const url = `https://wa.me/+1111111111`;
+      window.open(url, '_blank');},
     },
   ];
   return (
