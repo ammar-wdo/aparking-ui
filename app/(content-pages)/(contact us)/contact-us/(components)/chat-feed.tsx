@@ -1,20 +1,21 @@
-'use client'
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { useCrisp } from "@/hooks/crisp-hook";
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
 
-
-
 const Chatfeed = (props: Props) => {
-  const {setOpen} = useCrisp()
+  const { setOpen } = useCrisp();
   const options = [
     {
       label: "Live chat",
       description: "Live chat support",
-      onClick: () => {setOpen()},
+      onClick: () => {
+        setOpen();
+      },
     },
     {
       label: "Contact center",
@@ -35,13 +36,23 @@ const Chatfeed = (props: Props) => {
             <h3 className="text-site font-bold text-2xl">{option.label}</h3>
             <p className="text-neutral-500 text-sm">{option.description}</p>
           </div>
-          <Button
-            onClick={() => (option.onClick ? option.onClick() : () => {})}
-            variant={"siteTwo"}
-            className="w-full justify-start rounded-none text-xl py-8 "
-          >
-            {option.number ? option.number : "Start chat"}
-          </Button>
+          {option.number ? (
+            <Button
+              variant={"siteTwo"}
+              className="w-full justify-start rounded-none text-xl py-8 "
+              asChild
+            >
+              <Link href={`tel:${option.number}`}>+{option.number}</Link>
+            </Button>
+          ) : (
+            <Button
+              onClick={() => (option.onClick ? option.onClick() : () => {})}
+              variant={"siteTwo"}
+              className="w-full justify-start rounded-none text-xl py-8 "
+            >
+              Start chat
+            </Button>
+          )}
         </div>
       ))}
     </div>
