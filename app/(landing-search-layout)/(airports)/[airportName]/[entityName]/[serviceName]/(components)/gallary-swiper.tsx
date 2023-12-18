@@ -17,7 +17,7 @@ const GallarySwiper = ({gallary}: Props) => {
           <Swiper
        modules={[Navigation]}
       className=''
-        spaceBetween={12}
+      spaceBetween={40}
         slidesPerView={1}
         navigation
       

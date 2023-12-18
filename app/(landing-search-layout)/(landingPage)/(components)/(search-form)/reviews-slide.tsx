@@ -27,21 +27,21 @@ const ReviewsSlide = ({ reviews }: Props) => {
   return (
     <Swiper
       className=" mt-12  "
-      spaceBetween={12}
+     
       navigation
-      
+      spaceBetween={40}
       pagination={{ clickable: true }}
       modules={[Pagination, Navigation]}
       breakpoints={{
         100: {
           slidesPerView: 1,
-          spaceBetween: 5,
+         
         },
         600:{  slidesPerView: 1,
-            spaceBetween: 20,},
+           },
         940: {
           slidesPerView: 2,
-          spaceBetween: 20,
+         
         },
       
       }}
