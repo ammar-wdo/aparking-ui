@@ -213,7 +213,7 @@ const Filter = (props: Props) => {
 
           <Button
             variant={"siteTwo"}
-            className="sm:mt-auto mt-4 mx-4 rounded-full"
+            className="mt-auto sm:mb-0 mb-10 mx-4 rounded-full"
             onClick={pushFilter}
           >
             Filter
