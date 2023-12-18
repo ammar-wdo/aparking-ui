@@ -46,6 +46,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
         <Calendar
+
         className=""
         disabled={(date)=>{
             if(fromDate){
@@ -53,10 +54,11 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
             }
             return date <   new Date(new Date().setHours(0,0,0,0))
         } }
+        
           mode="single"
           selected={date}
           onSelect={(e)=>{setDate(e);}}
-          initialFocus
+          defaultMonth={date}
         />
       </PopoverContent>
     </Popover>

@@ -73,6 +73,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
             <div className="flex items-center gap-2">
               {" "}
               <DatePicker
+              
                 open={openStart}
                 setOpen={setOpenStart}
                 date={startDate}
@@ -92,6 +93,7 @@ const SearchForm = ({startDateProp,endDateProp,startTimeProp,endTimeProp,change,
               fromDate={startDate}
               date={endDate}
               setDate={setEndDate}
+              
             />
             <TimeSelect open={openEndTime} setOpen={setOpenEndTime} time={endTime} setTime={setEndTime} times={timeArray} />
             </div>
