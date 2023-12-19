@@ -42,7 +42,7 @@ if(!entity) return redirect('/')
                 <h3 className='font-bold text-3xl text-site capitalize'>{entity?.entityName}</h3>
                 <article className='grid grid-cols-1 lg:grid-cols-3 mt-4 gap-3 '>
                     <div className='w-full aspect-video lg:h-full relative'>
-                        <Image alt='entity image' fill src={entity?.images[0] || ''} className='object-cover'/>
+                        <Image alt='entity image' fill src={entity?.images[0] || ''} className='object-contain'/>
 
                     </div>
                     <div className='lg:col-span-2'>

@@ -27,7 +27,7 @@ const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
           {entities.map((entity) => (
             <Link key={entity.id} href={`/${airportName}/${entity.entityName}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
                 <div className="w-full aspect-video relative">
-                    <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-cover"/>
+                    <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-contain"/>
                 </div>
                 <h3 className="text-center py-12  font-semibold text-site">{entity.entityName}</h3>
             </div></Link>

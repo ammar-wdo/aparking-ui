@@ -30,7 +30,7 @@ const Airports = async (props: Props) => {
                 fill
                 src={airport.images[0]}
                 alt="airport-image"
-                className="object-cover "
+                className="object-cover   "
               />
             </div>
             <div className="bg-white p-4 flex-1">
@@ -50,7 +50,7 @@ const Airports = async (props: Props) => {
                 fill
                 src={airport.images[0]}
                 alt="airport-image"
-                className="object-cover "
+                className="object-cover  "
               />
             </div>
             <div className="bg-white p-4 flex-1">
