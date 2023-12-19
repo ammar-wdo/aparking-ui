@@ -85,8 +85,8 @@ total:z.coerce.number(),
    arrivalTodos:z.string().optional(),
    departureTodos:z.string().optional(),
    electricCharging:z.boolean().default(false),
-   keyStatus:z.enum(['BOTH',"LEAVE","KEEP"]).default('BOTH'),
-   parkingLocation:z.enum(['INDOOR',"OUTDOOR","BOTH"]).default('BOTH'),
+   keyStatus:z.enum(["LEAVE","KEEP"]).default('LEAVE'),
+   parkingLocation:z.enum(['INDOOR',"OUTDOOR"]).default('INDOOR'),
    available:z.boolean().default(false),
  
    entityId:z.string().min(1)
