@@ -121,20 +121,7 @@ const Filter = (props: Props) => {
                   Outdoor
                 </label>
               </div>
-              <div className="flex items-center space-x-2 mt-2">
-                <Checkbox
-                  id="location-both"
-                  name="both"
-                  checked={!!locationActive("BOTH")}
-                  onClick={() => addLocation("BOTH")}
-                />
-                <label
-                  htmlFor="location-both"
-                  className="text-xs font-medium leading-none  "
-                >
-                  Both
-                </label>
-              </div>
+           
             </div>
           </div>
           <Separator className="mt-6" />
@@ -194,20 +181,7 @@ const Filter = (props: Props) => {
                   Leave
                 </label>
               </div>
-              <div className="flex items-center space-x-2 mt-2">
-                <Checkbox
-                  id="key-both"
-                  name="both"
-                  checked={!!keyActive("BOTH")}
-                  onClick={() => addKey("BOTH")}
-                />
-                <label
-                  htmlFor="key-both"
-                  className="text-xs font-medium leading-none  "
-                >
-                  Both
-                </label>
-              </div>
+           
             </div>
           </div>
 
