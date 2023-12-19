@@ -58,38 +58,39 @@ total:z.coerce.number(),
 
   const emailSchema = z.string().email()
   export const serviceSchema = z.object({
-      timeToAirport: z.string().min(2),
-      distanceToAirport:z.string().min(1),
-      generalInformation:z.string().optional(),
-      importantInfo:z.string().optional(),
-      logo:z.string().min(1),
-      images:z.array(z.string()).optional(),
-      facilities:z.array(z.string()).optional(),
-      highlights: z.array(
-        z.object({
-          label: z.string(),
-          icon: z.string()
-        })
-      ).optional(),
-      isActive:z.boolean().optional(),
-      name:z.string().min(1),
-   terms:z.string().min(1),
-   bookingsEmail:z.union([z.string(), z.undefined()])
-   .refine((val) => !val || emailSchema.safeParse(val).success),
-   parkingAddress:z.string().min(1),
-   parkingZipcode:z.string().min(1),
-   parkingCountry:z.string().min(1),
-   parkingPlace:z.string().min(1),
-   spots:z.coerce.number().positive().default(1),
-   parkingType:z.enum(['shuttle','valet']).default('valet'),
-   arrivalTodos:z.string().optional(),
-   departureTodos:z.string().optional(),
-   electricCharging:z.boolean().default(false),
-   keyStatus:z.enum(["LEAVE","KEEP"]).default('LEAVE'),
-   parkingLocation:z.enum(['INDOOR',"OUTDOOR"]).default('INDOOR'),
-   available:z.boolean().default(false),
- 
-   entityId:z.string().min(1)
+    timeToAirport: z.coerce.number().min(1),
+    distanceToAirport: z.coerce.number().min(1),
+    generalInformation:z.string().optional(),
+    importantInfo:z.string().optional(),
+    logo:z.string().min(1),
+    images:z.array(z.string()).optional(),
+    facilities:z.array(z.string()).optional(),
+    highlights: z.array(
+      z.object({
+        label: z.string(),
+        icon: z.string()
+      })
+    ).optional(),
+    isActive:z.boolean().optional(),
+    name:z.string().min(1),
+ terms:z.string().min(1),
+ bookingsEmail:z.union([z.string(), z.undefined()])
+ .refine((val) => !val || emailSchema.safeParse(val).success),
+ parkingAddress:z.string().min(1),
+ parkingZipcode:z.string().min(1),
+ parkingCountry:z.string().min(1),
+ parkingPlace:z.string().min(1),
+ spots:z.coerce.number().positive().default(1),
+ parkingType:z.enum(['shuttle','valet']).default('valet'),
+ arrivalTodos:z.string().optional(),
+ departureTodos:z.string().optional(),
+ electricCharging:z.boolean().default(false),
+ keyStatus:z.enum(["LEAVE","KEEP"]).default('LEAVE'),
+ parkingLocation:z.enum(['INDOOR',"OUTDOOR"]).default('INDOOR'),
+ available:z.boolean().default(false),
+
+ entityId:z.string().min(1)
+
   
   })
 
