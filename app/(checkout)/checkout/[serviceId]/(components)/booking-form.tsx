@@ -26,12 +26,20 @@ import Image from "next/image";
 import { DateRange } from "react-day-picker";
 import { useEffect, useState } from "react";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import PersonalInformation from "./personal-information";
 import CarInformation from "./car-information";
 import PaymentMethod from "./payment-method";
 
 import ResultPersonal from "./result-personal";
 import ResultProducts from "./result-products";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   arrivalDate: string;
@@ -40,6 +48,13 @@ type Props = {
   departureTime: string;
   totalPrice: string;
   title: string;
+  extraOptions: {
+    id: string;
+    price: number;
+    image: string;
+    description: string;
+    label: string;
+  }[];
 };
 
 const BookingForm = ({
@@ -49,14 +64,17 @@ const BookingForm = ({
   departureTime,
   totalPrice,
   title,
+  extraOptions,
 }: Props) => {
-  const { form, onSubmit } = useBooking({
-    arrivalDate: new Date(arrivalDate),
-    departureDate: new Date(departureDate),
-    arrivalTime,
-    departureTime,
-    totalPrice,
-  });
+  const { form, onSubmit, options, optionsTotal, handleAddDelete } = useBooking(
+    {
+      arrivalDate: new Date(arrivalDate),
+      departureDate: new Date(departureDate),
+      arrivalTime,
+      departureTime,
+      totalPrice,
+    }
+  );
 
   const isLoading = form.formState.isSubmitting;
 
@@ -83,7 +101,53 @@ const BookingForm = ({
               payStep={payStep}
               setPayStep={setPayStep}
             />
+            {!!extraOptions.length && (
+              <Accordion type="single" collapsible>
+                <AccordionItem className="border-none" value="item-1">
+                  <AccordionTrigger className="bg-white p-6 hover:no-underline">
+                    <h3 className="text-2xl font-bold no-underline ">
+                      3. Extra options
+                    </h3>
+                  </AccordionTrigger>
+                  <AccordionContent className="p-6 bg-white space-y-3">
+                    {extraOptions.map((option) => (
+                      <article
+                        key={option.id}
+                        className="py-4 grid grid-cols-5 items-center w-full px-1 "
+                      >
+                        <Checkbox
+                          checked={!!options.find((el) => el.id === option.id)}
+                          onClick={() => {
+                            handleAddDelete(option);
+                          }}
+                        />
+                        <p className="font-semibold text-lg first-letter:capitalize">
+                          {option.label}
+                        </p>
+                        <p className="  first-letter:capitalize text-xs ">
+                          {option.description}
+                        </p>
+                        <p className=" text-sm font-bold ">€ {option.price}</p>
+                        {option.image ? (
+                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden">
+                            <Image
+                              alt="option image"
+                              fill
+                              src={option.image}
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden"></div>
+                        )}
+                      </article>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            )}
             <PaymentMethod
+              extraOptions={!!extraOptions.length}
               form={form}
               setCarStep={setCarStep}
               carStep={carStep}
@@ -106,9 +170,16 @@ const BookingForm = ({
               departureDate={new Date(departureDate)}
               departureTime={departureTime}
             />
+            {!!options.length && <div className="py-3 ">
+              <p className="font-bold ">Additional options added</p>
+              <div className="flex flex-col gap-2 mt-2">
+                {options.map(el=><div className="py-1 text-xs flex justify-between w-full items-center font-bold " key={el.id}><span className="first-letter:capitalize">{el.label} </span> <span className="">€{el.price}</span></div>)}
+                </div>
+              </div>}
+
             <div className="flex items-center justify-between w-full mt-6">
-              <p>Price including VAT{" "}</p>
-              <span className="font-bold text-xl">€{totalPrice}</span>
+              <p>Price including VAT </p>
+              <span className="font-bold text-xl">€{totalPrice + optionsTotal}</span>
             </div>
           </div>
         </div>

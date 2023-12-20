@@ -33,7 +33,7 @@ const page = async({params,searchParams}: Props) => {
 
 
   const data = await axios.get(url)
-  const service = data.data.service as Service &{totalPrice:string}
+  const service = data.data.service as Service &{totalPrice:string ,extraOptions:{id:string,price:number,image:string,description:string,label:string}[]}
 
   console.log("myService",data)
 
@@ -45,7 +45,7 @@ const page = async({params,searchParams}: Props) => {
   return (
     <div className='md:p-8  bg-gray-100 min-h-screen'>
    
-    <BookingForm arrivalDate={startDate}  departureDate={endDate} arrivalTime={startTime} departureTime={endTime} totalPrice={service.totalPrice} title={service.name} />
+    <BookingForm extraOptions={service.extraOptions} arrivalDate={startDate}  departureDate={endDate} arrivalTime={startTime} departureTime={endTime} totalPrice={service.totalPrice} title={service.name} />
     </div>
   )
 }

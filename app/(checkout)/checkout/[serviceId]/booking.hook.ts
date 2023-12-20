@@ -32,6 +32,44 @@ export const useBooking = ({
 
   const params = useParams();
 
+  type Option= {id:string,price:number,label:string}
+
+  const [options, setOptions]= useState<Option[] | []>([])
+  const [optionsTotal, setOptionsTotal] = useState(0)
+
+  const handleAddDelete = (option:Option)=>{
+const exist = !!options.find((el)=>el.id===option.id)
+console.log(exist)
+if(exist){
+  let newOptions = options
+  
+  newOptions = newOptions.filter(el=>el.id !==option.id)
+  setOptions(newOptions)
+}else{
+
+  let newOptions = options
+  newOptions = [...newOptions,option]
+  setOptions(newOptions)
+}
+
+
+  }
+
+  useEffect(()=>{
+    console.log(options.length)
+    if(options.length){
+      let newT
+      const newTotal = options.reduce((total,val)=>total + val.price,0) 
+    
+
+      setOptionsTotal(()=>newTotal)
+    }else{
+      setOptionsTotal(0)
+    }
+  },[options])
+
+
+
   const serviceId = params.serviceId;
 
   const form = useForm<z.infer<typeof bookingSchema>>({
@@ -64,5 +102,5 @@ const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDa
           }
   }
 
-  return { form, onSubmit };
+  return { form, onSubmit,options,optionsTotal ,handleAddDelete};
 };
