@@ -116,8 +116,10 @@ const BookingForm = ({
                     {extraOptions.map((option) => (
                       <article
                         key={option.id}
-                        className="bg-gray-50 rounded-md grid grid-cols-4 gap-3  items-center text-center w-full p-4 "
+                        className="bg-gray-50 rounded-md flex justify-between gap-3  items-center text-center w-full p-4 "
                       >
+                        <div className="flex items-center gap-2">
+
                         <Checkbox
                         className=""
                           checked={!!options.find((el) => el.id === option.id)}
@@ -125,20 +127,24 @@ const BookingForm = ({
                             handleAddDelete(option);
                           }}
                         />
-                        <div className="gap-2  flex items-center">
-                        <ToolTip side="top" title={option.description}>
-                          <HelpCircle className="text-blue-500 w-4 h-4 " />
-                        </ToolTip>
-                          <p className="first-letter:capitalize sm:text-sm text-xs">
-                          {option.label}
-                          </p>
-                         
-                        
+                        <div className="gap-4  flex items-center">
+                       
+                       <p className="first-letter:capitalize test-sm font-semibold">
+                       {option.label}
+                       </p>
+                       <ToolTip side="top" title={option.description}>
+                       <HelpCircle className="text-blue-500 w-4 h-4 " />
+                     </ToolTip>
+                      
+                     
+                     </div>
                         </div>
                      
-                        <p className=" text-sm font-bold ">€ {option.price}</p>
+                      
+                     
+                        <p className=" text-sm font-bold ml-auto  sm:mr-20">€ {option.price}</p>
                         {option.image ? (
-                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden ">
+                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden hidden sm:block">
                             <Image
                               alt="option image"
                               fill
