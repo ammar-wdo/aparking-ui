@@ -27,8 +27,8 @@ type Props = {
   label: string;
   editorContent?: string;
   facilities?: string[];
-  timeToAirport?: string;
-  distanceToAirport?: string;
+  timeToAirport?: number;
+  distanceToAirport?: number;
   first?: boolean;
   highlights?: {
     label: string;
