@@ -19,7 +19,7 @@ import {
 } from "@radix-ui/react-popover";
 import { cn } from "@/lib/utils";
 import { addDays, format } from "date-fns";
-import { CalendarIcon, Loader } from "lucide-react";
+import { CalendarIcon, HelpCircle, Loader } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
@@ -40,6 +40,9 @@ import PaymentMethod from "./payment-method";
 import ResultPersonal from "./result-personal";
 import ResultProducts from "./result-products";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tooltip } from "@/components/ui/tooltip";
+import ToolTip from "@/components/tooltip";
+
 
 type Props = {
   arrivalDate: string;
@@ -113,23 +116,29 @@ const BookingForm = ({
                     {extraOptions.map((option) => (
                       <article
                         key={option.id}
-                        className="py-4 grid grid-cols-5 items-center w-full px-1 "
+                        className="bg-gray-50 rounded-md grid grid-cols-4 gap-3  items-center text-center w-full p-4 "
                       >
                         <Checkbox
+                        className=""
                           checked={!!options.find((el) => el.id === option.id)}
                           onClick={() => {
                             handleAddDelete(option);
                           }}
                         />
-                        <p className="font-semibold text-lg first-letter:capitalize">
+                        <div className="gap-2  flex items-center">
+                        <ToolTip side="top" title={option.description}>
+                          <HelpCircle className="text-blue-500 w-4 h-4 " />
+                        </ToolTip>
+                          <p className="first-letter:capitalize sm:text-sm text-xs">
                           {option.label}
-                        </p>
-                        <p className="  first-letter:capitalize text-xs ">
-                          {option.description}
-                        </p>
+                          </p>
+                         
+                        
+                        </div>
+                     
                         <p className=" text-sm font-bold ">€ {option.price}</p>
                         {option.image ? (
-                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden">
+                          <div className="relative w-[60px] aspect-square rounded-full overflow-hidden ">
                             <Image
                               alt="option image"
                               fill
