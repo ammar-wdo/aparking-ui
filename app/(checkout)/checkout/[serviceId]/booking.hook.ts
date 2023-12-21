@@ -86,7 +86,10 @@ if(exist){
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
-const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString}
+
+const ids = options.map(el=>el.id)
+console.log(ids)
+const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,ids}
 
           try {
 
