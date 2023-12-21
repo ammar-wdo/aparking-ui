@@ -42,6 +42,7 @@ import ResultProducts from "./result-products";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tooltip } from "@/components/ui/tooltip";
 import ToolTip from "@/components/tooltip";
+import DetailsPopover from "./details-popover";
 
 
 type Props = {
@@ -132,9 +133,7 @@ const BookingForm = ({
                        <p className="first-letter:capitalize test-sm font-semibold">
                        {option.label}
                        </p>
-                       <ToolTip side="top" title={option.description}>
-                       <HelpCircle className="text-blue-500 w-4 h-4 " />
-                     </ToolTip>
+                     <DetailsPopover details={option.description} />
                       
                      
                      </div>
