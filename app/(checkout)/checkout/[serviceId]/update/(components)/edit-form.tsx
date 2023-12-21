@@ -193,7 +193,20 @@ const EditBookingForm = ({ service }: Props) => {
             <Separator />
 
             <div className="mt-8 flex flex-col gap-2">
-              {available === "true" && (
+             
+
+              {(!!user.extraOptions && !!user.extraOptions.length)&&<div className="border-b mb-4 pb-2">
+                <h3 className="font-bold first-letter:capitalize text-lg">Extra options</h3>
+                <div className="flex flex-col gap-1">
+                  {user.extraOptions.map(option=><div key={option.id} className="flex justify-between items-center mt-2 font-semibold">
+                    <span className="first-letter:capitalize">{option.label}</span>
+                    <span>€{option.price}</span>
+                  </div>)}
+
+                </div>
+                
+                </div>}
+                {available === "true" && (
                 <div className="flex items-center justify-between w-full">
                   <p className="">
                     Additional days <span className="font-bold">({additionaldays ? `+${additionaldays}`: 0})</span>
