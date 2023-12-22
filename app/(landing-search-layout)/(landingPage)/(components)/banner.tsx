@@ -8,11 +8,11 @@ import Image from "next/image";
 
 type Props = {children?:React.ReactNode
 noForm?:boolean,
-airportId?:string,
+airportSlug?:string,
 airportName?:string
 };
 
-const Banner =async ({children,noForm,airportId,airportName}: Props) => {
+const Banner =async ({children,noForm,airportSlug,airportName}: Props) => {
   const res = await axios.get(GET_AIRPORTS)
  
 
@@ -27,7 +27,7 @@ const Banner =async ({children,noForm,airportId,airportName}: Props) => {
           {children}
         </div>
       
-       { !noForm && <SearchForm airports={res.data.airports} airportId={airportId} />}
+       { !noForm && <SearchForm airports={res.data.airports} airportSlug={airportSlug} />}
         </div>
       
       </div>

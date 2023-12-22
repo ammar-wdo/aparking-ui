@@ -21,7 +21,7 @@ const page = async({params}: Props) => {
 
 const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${params.airportName}`)
 
-const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string}}
+const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string,slug:string}}
 
 if(!entity) return notFound()
 
@@ -35,7 +35,7 @@ if(!entity) return notFound()
         </Banner>
 
         <div className='container mt-10'>
-            <p className='text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap '> <Link href={'/'}>Home</Link>  &gt; <Link href={`/${entity?.airport?.name}`}>{entity?.airport?.name}</Link> &gt; <span className='capitalize text-black'>{entity?.entityName}</span> </p>
+            <p className='text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap '> <Link href={'/'}>Home</Link>  &gt; <Link href={`/${entity?.airport?.slug}`}>{entity?.airport?.name}</Link> &gt; <span className='capitalize text-black'>{entity?.entityName}</span> </p>
 
 
             <section className='mt-12' >

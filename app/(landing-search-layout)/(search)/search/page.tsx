@@ -52,7 +52,7 @@ const page = async ({ searchParams }: Props) => {
 
   // console.log(service,location,key,electric)
 
-  const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.id ===airport) as Airport
+  const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.slug ===airport) as Airport
 
 
 

@@ -30,7 +30,7 @@ const page = async ({ params, searchParams }: Props) => {
   );
 
   const service = res.data.service as Service & {
-    entity: { entityName: string; airport: { name: string } };
+    entity: { entityName: string,slug:string, airport: { name: string ,slug:string} };
   };
 
   const startDate = searchParams.startDate;
@@ -60,12 +60,12 @@ const page = async ({ params, searchParams }: Props) => {
         <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap ">
           {" "}
           <Link href={"/"}>Home</Link> &gt;{" "}
-          <Link href={`/${service?.entity?.airport.name}`}>
+          <Link href={`/${service?.entity?.airport.slug}`}>
             {service?.entity?.airport.name}
           </Link>{" "}
           &gt;{" "}
           <Link
-            href={`/${service?.entity?.airport.name}/${service?.entity.entityName}`}
+            href={`/${service?.entity?.airport.slug}/${service?.entity.slug}`}
           >
             {service?.entity.entityName}
           </Link>{" "}

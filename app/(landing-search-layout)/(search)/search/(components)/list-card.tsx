@@ -34,7 +34,7 @@ type Props = {
   service: Service & {
     totalPrice?: number;
     parkingDays?: number;
-    entity: { entityName: string; airport: { name: string } };
+    entity: { entityName: string,slug:string; airport: { name: string,slug:string } };
   };
   invalid?: boolean;
   show?: boolean;
@@ -78,7 +78,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
       <CardHeader>
         <CardTitle className="text-center text-lg font-bold">
        
-        Routes Airport Parking (ORD)
+       {service.name}
       
         </CardTitle>
       </CardHeader>
@@ -98,7 +98,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             </span>
             <Link
               className="text-blue-500 font-light text-sm"
-              href={`/${service.entity.airport.name}/${service.entity.entityName}/${service.name}`}
+              href={`/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}`}
             >
               Details
             </Link>
@@ -130,7 +130,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             className={cn("w-full text-lg py-7 rounded-[3px] mt-2")}
           >
             <Link
-              href={`/${service.entity.airport.name}/${service.entity.entityName}/${service.name}`}
+              href={`/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}`}
             >
               More details
             </Link>

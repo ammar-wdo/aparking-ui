@@ -6,13 +6,15 @@ import React from "react";
 
 type Props = {
   airportId: string;
-  airportName:string
+  airportName:string,
+  airportSlug:string
 };
 
-const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
-  const res = await axios.get(GET_ENTITIES + `?airportId=${airportId}`);
+const EntitiesFeed = async ({ airportId ,airportName,airportSlug}: Props) => {
+  const res = await axios.get(GET_ENTITIES + `?airportName=${airportSlug}`);
   const entities = res.data?.entities as {
     entityName: string;
+    slug:string,
     images: string[];
     id: string;
   }[];
@@ -25,7 +27,7 @@ const EntitiesFeed = async ({ airportId ,airportName}: Props) => {
         {!entities.length && <h3 className="py-12 text-center text-neutral-500 text-3xl font-bold">No companies</h3>}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
           {entities.map((entity) => (
-            <Link key={entity.id} href={`/${airportName}/${entity.entityName}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+            <Link key={entity.id} href={`/${airportSlug}/${entity.slug}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
                 <div className="w-full aspect-video relative">
                     <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-contain"/>
                 </div>
