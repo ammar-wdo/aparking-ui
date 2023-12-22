@@ -14,6 +14,7 @@ import AvailableService from "./(components)/available-service";
 import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/reviews";
 import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)/(search-form)/search-form";
 import { Metadata } from "next";
+import { getService } from "@/lib/getters";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -21,17 +22,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export const getService = cache(async(serviceName:string,entityName:string,airportName:string)=>{
-  const res = await axios(
-    ALL_SERVICES +
-      `/serviceInfo/${serviceName}?entityName=${entityName}&airportName=${airportName}`
-  );
 
-  const service = res.data.service as Service & {
-    entity: { entityName: string,slug:string, airport: { name: string ,slug:string} };
-  };
-return service
-})
 
 
 export async function generateMetadata(

@@ -8,18 +8,12 @@ import dynamic from "next/dynamic";
 import EntitiesFeed from './(components)/entities-feed'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { getAirport } from '@/lib/getters'
 
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
 
 type Props = {params:{airportName:string}}
 
-export const getAirport=cache(async(name:string)=>{
-  const res = await axios(GET_AIRPORTS + `/${name}`)
-
-
-  const airport = res.data.airport as Airport
-  return airport
-})
 
 export async function generateMetadata(
   { params,  }: Props,
