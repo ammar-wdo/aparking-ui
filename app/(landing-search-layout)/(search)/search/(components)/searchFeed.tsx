@@ -49,7 +49,7 @@ const SearchFeed = async ({
 
 
  
-  type FullService =Service &{totalPrice:number,parkingDays:number, entity: { entityName: string; airport: { name: string } }}
+  type FullService =Service &{totalPrice:number,parkingDays:number, entity: { entityName: string,slug:string, airport: { name: string,slug:string} }}
   const services = await axios.get(url);
   const data = services.data ;
   const validServices = data.valid
