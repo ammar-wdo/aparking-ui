@@ -3,7 +3,7 @@ import Banner from '../../(landingPage)/(components)/banner'
 import axios from 'axios'
 import { GET_AIRPORTS } from '@/links'
 import { Airport } from '@/schemas'
-import { redirect } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
 import EntitiesFeed from './(components)/entities-feed'
 import Link from 'next/link'
@@ -18,7 +18,7 @@ const res = await axios(GET_AIRPORTS + `/${params.airportName}`)
 
 const airport = res.data.airport as Airport
 
-if(!airport) return redirect('/')
+if(!airport) return   notFound()
   
 
 

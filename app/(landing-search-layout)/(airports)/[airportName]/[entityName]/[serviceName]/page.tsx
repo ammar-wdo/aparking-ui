@@ -3,7 +3,7 @@ import { ALL_SERVICES } from "@/links";
 import { Service } from "@/schemas";
 import axios from "axios";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import React from "react";
 import GallarySwiper from "./(components)/gallary-swiper";
 import dynamic from "next/dynamic";
@@ -40,7 +40,7 @@ const page = async ({ params, searchParams }: Props) => {
 
   console.log(startDate, endDate, startTime, endTime);
 
-  if (!service) return redirect("/");
+  if (!service) return notFound()
   return (
     <div>
       <Banner noForm>

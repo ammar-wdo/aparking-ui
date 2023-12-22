@@ -4,7 +4,7 @@ import { Entity } from '@/schemas'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
 
 import React from 'react'
@@ -23,7 +23,7 @@ const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${para
 
 const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string}}
 
-if(!entity) return redirect('/')
+if(!entity) return notFound()
 
 
 
