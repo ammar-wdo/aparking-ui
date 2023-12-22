@@ -4,7 +4,7 @@ import { Service } from "@/schemas";
 import axios from "axios";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import React from "react";
+import React, { cache } from "react";
 import GallarySwiper from "./(components)/gallary-swiper";
 import dynamic from "next/dynamic";
 import { Separator } from "@/components/ui/separator";
@@ -13,6 +13,7 @@ import ServiceCheckForm from "./(components)/(service-check-form)/service-check-
 import AvailableService from "./(components)/available-service";
 import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/reviews";
 import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)/(search-form)/search-form";
+import { Metadata } from "next";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -20,18 +21,43 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-
-export const revalidate = 0
-
-const page = async ({ params, searchParams }: Props) => {
+export const getService = cache(async(serviceName:string,entityName:string,airportName:string)=>{
   const res = await axios(
     ALL_SERVICES +
-      `/serviceInfo/${params.serviceName}?entityName=${params.entityName}&airportName=${params.airportName}`
+      `/serviceInfo/${serviceName}?entityName=${entityName}&airportName=${airportName}`
   );
 
   const service = res.data.service as Service & {
     entity: { entityName: string,slug:string, airport: { name: string ,slug:string} };
   };
+return service
+})
+
+
+export async function generateMetadata(
+  { params,  }: Props,
+
+): Promise<Metadata> {
+
+
+const service = await getService(params.serviceName,params.entityName,params.airportName)
+
+
+
+ 
+  return {
+    title: service.name,
+    
+    openGraph: {
+      images: [...(service.images||[])],
+    },
+  }
+}
+
+
+export const revalidate = 0
+
+const page = async ({ params, searchParams }: Props) => {
 
   const startDate = searchParams.startDate;
   const endDate = searchParams.endDate;
@@ -39,6 +65,7 @@ const page = async ({ params, searchParams }: Props) => {
   const endTime = searchParams.endTime;
 
   console.log(startDate, endDate, startTime, endTime);
+  const service = await getService(params.serviceName,params.entityName,params.airportName)
 
   if (!service) return notFound()
   return (

@@ -7,21 +7,48 @@ import Link from 'next/link'
 import { notFound, redirect } from 'next/navigation'
 import dynamic from "next/dynamic";
 
-import React from 'react'
+import React, { cache } from 'react'
 import ServciesFeed from './(components)/services-feed'
 import Reviews from '@/app/(landing-search-layout)/(landingPage)/(components)/reviews'
+import { Metadata } from 'next'
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {params:{entityName:string,airportName:string}}
+
+export const getEntity = cache(async(entitySlug:string,airport:string)=>{
+    const res = await axios(GET_ENTITIES + `/${entitySlug}?airportName=${airport}`)
+
+    const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string,slug:string}}
+
+    return entity
+})
+
+export async function generateMetadata(
+    { params,  }: Props,
+  
+  ): Promise<Metadata> {
+  
+  
+  const entity = await getEntity(params.entityName,params.airportName)
+  
+  
+  
+   
+    return {
+      title: entity.entityName,
+      
+      openGraph: {
+        images: [...entity.images],
+      },
+    }
+  }
 
 
 export const revalidate = 0
 
 const page = async({params}: Props) => {
 
-const res = await axios(GET_ENTITIES + `/${params.entityName}?airportName=${params.airportName}`)
-
-const entity = res.data?.entity  as Entity &{ id:string,airport :{name:string,slug:string}}
+    const entity = await getEntity(params.entityName,params.airportName)
 
 if(!entity) return notFound()
 
