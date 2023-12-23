@@ -16,6 +16,7 @@ import SearchFeed from "./(components)/searchFeed";
 import SearchFeedSkeleton from "./(components)/searchFeed-skeleton";
 import { Airport } from "@/schemas";
 import ProgressBar from "@/components/progress-bar";
+import { getClientDates } from "@/app/(checkout)/checkout/[serviceId]/update/(helpers)/getClientDates";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -35,8 +36,18 @@ const page = async ({ searchParams }: Props) => {
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
 
-  if (!airport || !startDate || !endDate || !startTime || !endTime || new Date(startDate).getTime() > new Date(endDate).getTime())
-    return redirect("/");
+
+
+
+
+  if (!airport || !startDate || !endDate || !startTime || !endTime )
+return redirect("/");
+
+const {clientArrivalDate,clientDepartureDate} = getClientDates(startDate,endDate,startTime,endTime)
+
+if(clientArrivalDate.getTime()>= clientDepartureDate.getTime()) return redirect('/')
+
+
 
   // console.log(
   //   "startDate",

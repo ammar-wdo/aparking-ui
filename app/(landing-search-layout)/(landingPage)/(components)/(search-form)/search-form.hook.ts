@@ -96,15 +96,6 @@ const [openAirport, setOpenAirport] = useState(false)
         setOpenAirport(true);
       }
 
-if(startTime){
-   
-      const [hours, minutes] = startTime.split(':');
-      startDate.setHours(Number(hours));
-      startDate.setMinutes(Number(minutes));
-
-     
-}
-console.log(startDate.getHours(), startDate.getMinutes())
 
     }
   }, [startDate]);
@@ -125,11 +116,7 @@ console.log(startDate.getHours(), startDate.getMinutes())
         setOpenAirport(true);
       }
 
-      if(endTime){
-        const [hours, minutes] = endTime.split(':');
-        endDate.setHours(Number(hours));
-        endDate.setMinutes(Number(minutes));
-       }
+  
 
     
     }
@@ -150,13 +137,7 @@ console.log(startDate.getHours(), startDate.getMinutes())
       }
 
 
-     if(startDate){
-      const [hours, minutes] = startTime.split(':');
-      startDate.setHours(Number(hours));
-      startDate.setMinutes(Number(minutes));
-     }
-   
-     console.log(startDate?.getHours(), startDate?.getMinutes())
+
      
     }
 
@@ -179,12 +160,7 @@ console.log(startDate.getHours(), startDate.getMinutes())
       }
 
 
-      if(endDate){
-        const [hours, minutes] = endTime.split(':');
-        endDate.setHours(Number(hours));
-        endDate.setMinutes(Number(minutes));
-       }
-       console.log(endDate?.getHours(), endDate?.getMinutes())
+    
     }
   }, [endTime]);
 
@@ -216,6 +192,8 @@ const params = useSearchParams()
 
 
   const handleClick = () => {
+
+
    
 if(!airport && !serviceId) setOpenAirport(true)
    else if (!startDate) setOpenStart(true);
@@ -223,6 +201,22 @@ if(!airport && !serviceId) setOpenAirport(true)
     else if (!startTime) setOpenStartTime(true);
     else if (!endTime) setOpenEndTime(true);
     else {
+
+      const [startHours, startMinutes] = startTime.split(':');
+      startDate.setHours(Number(startHours));
+      startDate.setMinutes(Number(startMinutes));
+
+      const [hours, minutes] = endTime.split(':');
+      endDate.setHours(Number(hours));
+      endDate.setMinutes(Number(minutes));
+
+if(startDate.getTime()>=endDate.getTime()){
+
+  console.log(startDate.getTime(),endDate.getTime())
+  return
+} 
+
+console.log(startDate.getTime(),endDate.getTime())
       if(!change){
         setIsLoading(true)
 
