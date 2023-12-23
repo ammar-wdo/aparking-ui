@@ -9,7 +9,7 @@ import GallarySwiper from "./(components)/gallary-swiper";
 import dynamic from "next/dynamic";
 import { Separator } from "@/components/ui/separator";
 import AccordionInfo from "./(components)/accordion-info";
-import ServiceCheckForm from "./(components)/(service-check-form)/service-check-form";
+
 import AvailableService from "./(components)/available-service";
 import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/reviews";
 import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)/(search-form)/search-form";
