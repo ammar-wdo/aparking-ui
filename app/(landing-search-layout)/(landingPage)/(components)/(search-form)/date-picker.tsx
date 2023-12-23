@@ -54,7 +54,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
             }
             return date <   new Date(new Date().setHours(0,0,0,0))
         } }
-        
+   
           mode="single"
           selected={date}
           onSelect={(e)=>{setDate(e);}}
