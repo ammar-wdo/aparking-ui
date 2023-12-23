@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Aparking',
   description: 'Best parking comparison site',
+  
 }
 
 export default function RootLayout({

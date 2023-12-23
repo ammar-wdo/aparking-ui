@@ -109,7 +109,7 @@
 
 
 .swiper-button-next{
-  @apply   flex items-center justify-center p-4 bg-white rounded-full shadow-md shadow-neutral-500
+  @apply   flex items-center justify-center p-4 bg-white rounded-full shadow-sm shadow-neutral-400
 
 
 
@@ -133,7 +133,7 @@ padding-inline: 35px !important;
   color: #003580;
 }
 .swiper-button-prev{
-  @apply  flex items-center justify-center p-4 bg-white rounded-full shadow-md shadow-neutral-500 
+  @apply  flex items-center justify-center p-4 bg-white rounded-full shadow-sm shadow-neutral-400 
 
 
 

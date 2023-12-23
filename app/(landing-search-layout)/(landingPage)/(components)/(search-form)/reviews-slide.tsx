@@ -14,7 +14,7 @@ import Link from "next/link";
 type FullReview = Review & {
   id: string;
   booking: { firstName: string; lastName: string };
-  entity: { entityName: string,airport:{name:string}};
+  entity: { entityName: string,slug:string,airport:{name:string,slug:string}};
 };
 type Props = { reviews: FullReview[] };
 
@@ -58,7 +58,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
         return (
           <SwiperSlide className="" key={review.id}>
             <div className=" rounded-lg p-6 bg-white flex flex-col h-full">
-              <Link className="" href={`/${review.entity.airport.name}/${review.entity.entityName}`}>
+              <Link className="" href={`/${review.entity.airport.slug}/${review.entity.slug}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
               </h3></Link>
