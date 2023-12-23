@@ -14,6 +14,7 @@ import { useUser } from "@/hooks/user-hook";
 import { calculateParkingDays } from "./(helpers)/findParkingDays";
 import { findTotalPrice } from "./(components)/(helpers)/findNewTotal";
 import { isServiceValid } from "./(components)/(helpers)/isServiceValid";
+import { getClientDates } from "./(helpers)/getClientDates";
 
 export const useEditBooking = (
   service: Service & {
@@ -48,6 +49,7 @@ export const useEditBooking = (
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
+      console.log('change 2')
       const { startDateString, endDateString } = handleTimezone(
         new Date(user.arrivalDate),
         new Date(user.departureDate)
@@ -73,12 +75,28 @@ export const useEditBooking = (
         setDifferentDate(true);
       } else {
         setDifferentDate(false);
-        setAvailable('')
-        setAdditionalDays(undefined)
-        setAdditionalPrice(undefined)
+        setAvailable("");
+        setAdditionalDays(undefined);
+        setAdditionalPrice(undefined);
       }
     }
   }, [user, form.watch("arrivalDate"), form.watch("departureDate")]);
+
+  useEffect(() => {
+    if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
+     
+     if(form.watch('arrivalTime') !==user.arrivalTime || form.watch('departureTime') !==user.departureTime) {
+        setDifferentDate(true);
+      } else {
+        setDifferentDate(false);
+        setAvailable("");
+        setAdditionalDays(undefined);
+        setAdditionalPrice(undefined);
+      }
+
+    }
+    
+  }, [user,form.watch("arrivalTime"), form.watch("departureTime")]);
 
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
@@ -98,8 +116,6 @@ export const useEditBooking = (
       if (result.data.url) {
         router.push(result.data.url);
       }
-
-    
     } catch (error: any) {
       console.log(error);
 

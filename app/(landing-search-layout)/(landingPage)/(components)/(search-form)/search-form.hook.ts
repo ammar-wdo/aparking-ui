@@ -95,6 +95,17 @@ const [openAirport, setOpenAirport] = useState(false)
       else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
+
+if(startTime){
+   
+      const [hours, minutes] = startTime.split(':');
+      startDate.setHours(Number(hours));
+      startDate.setMinutes(Number(minutes));
+
+     
+}
+console.log(startDate.getHours(), startDate.getMinutes())
+
     }
   }, [startDate]);
 
@@ -113,6 +124,14 @@ const [openAirport, setOpenAirport] = useState(false)
       else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
+
+      if(endTime){
+        const [hours, minutes] = endTime.split(':');
+        endDate.setHours(Number(hours));
+        endDate.setMinutes(Number(minutes));
+       }
+
+    
     }
   }, [endDate]);
 
@@ -129,7 +148,21 @@ const [openAirport, setOpenAirport] = useState(false)
       else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
+
+
+     if(startDate){
+      const [hours, minutes] = startTime.split(':');
+      startDate.setHours(Number(hours));
+      startDate.setMinutes(Number(minutes));
+     }
+   
+     console.log(startDate?.getHours(), startDate?.getMinutes())
+     
     }
+
+
+    
+  
   }, [startTime]);
 
   useEffect(() => {
@@ -144,6 +177,14 @@ const [openAirport, setOpenAirport] = useState(false)
       else if (!airport && !serviceId) {
         setOpenAirport(true);
       }
+
+
+      if(endDate){
+        const [hours, minutes] = endTime.split(':');
+        endDate.setHours(Number(hours));
+        endDate.setMinutes(Number(minutes));
+       }
+       console.log(endDate?.getHours(), endDate?.getMinutes())
     }
   }, [endTime]);
 
