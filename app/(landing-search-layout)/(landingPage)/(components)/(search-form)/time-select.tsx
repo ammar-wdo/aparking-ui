@@ -92,6 +92,15 @@ const TimeSelect = ({
               {time}
             </Button>
             }
+           else if(startDate  && showAll){
+            const [hours,minutes] = time.split(':')
+            startDate.setHours(+hours)
+            startDate.setMinutes(+minutes)
+
+            if(new Date() > startDate) return null
+ 
+              
+            }
         
               return (
                 <Button
