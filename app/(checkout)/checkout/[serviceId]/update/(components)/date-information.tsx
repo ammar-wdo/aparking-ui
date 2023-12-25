@@ -189,6 +189,7 @@ const DateInformation = ({
                             date < new Date("1900-01-01")
                           }
                           initialFocus
+                          defaultMonth={form.watch('arrivalDate')}
                         />
                       </PopoverContent>
                     </Popover>
@@ -215,11 +216,20 @@ const DateInformation = ({
 
                       <SelectContent>
                         <ScrollArea className="h-[200px] w-full rounded-md  p-4">
-                          {timeArray.map((el) => (
-                            <SelectItem key={el} value={el}>
+                          {timeArray.map((el) => 
+                          {
+                            
+                            const [hours,minutes] = el.split(':')
+                            const arrive = form.watch('arrivalDate')
+                            arrive.setHours(+hours)
+                            arrive.setMinutes(+minutes)
+
+                            if(arrive.getTime()<= new Date().getTime()) return null
+                            
+                            return <SelectItem key={el} value={el}>
                               {el}
-                            </SelectItem>
-                          ))}
+                            </SelectItem>}
+                          )}
                         </ScrollArea>
                       </SelectContent>
                     </Select>
@@ -270,6 +280,7 @@ const DateInformation = ({
                             )
                           }
                           initialFocus
+                          defaultMonth={form.watch('departureDate')}
                         />
                       </PopoverContent>
                     </Popover>
@@ -296,11 +307,24 @@ const DateInformation = ({
 
                       <SelectContent className="">
                         <ScrollArea className="h-[200px]  w-full rounded-md  p-4">
-                          {timeArray.map((el) => (
-                            <SelectItem key={el} value={el}>
+                        {timeArray.map((el) => 
+                          {
+                            
+                            const [hours,minutes] = form.watch('arrivalTime').split(':')
+                            const arrive = form.watch('arrivalDate')
+                            arrive.setHours(+hours)
+                            arrive.setMinutes(+minutes)
+                            const [endHours,endMinutes] = el.split(':')
+                            const departure = form.watch('departureDate')
+                            departure.setHours(+endHours)
+                            departure.setMinutes(+endMinutes)
+
+                            if(departure.getTime() <= arrive.getTime()) return null
+                            
+                            return <SelectItem key={el} value={el}>
                               {el}
-                            </SelectItem>
-                          ))}
+                            </SelectItem>}
+                          )}
                         </ScrollArea>
                       </SelectContent>
                     </Select>

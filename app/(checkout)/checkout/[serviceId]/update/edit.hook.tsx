@@ -52,7 +52,7 @@ export const useEditBooking = (
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
-      console.log('change 2')
+    
       const { startDateString, endDateString } = handleTimezone(
         new Date(user.arrivalDate),
         new Date(user.departureDate)
@@ -84,6 +84,24 @@ export const useEditBooking = (
       }
     }
   }, [user, form.watch("arrivalDate"), form.watch("departureDate")]);
+
+
+  useEffect(()=>{
+
+
+    if (user && form.watch("arrivalDate") && form.watch("departureDate")){
+    
+        if(form.watch('arrivalDate').getTime() > form.watch('departureDate').getTime()  ){
+          const newEndDate = new Date(form.watch('arrivalDate'));
+          newEndDate.setDate(form.watch('arrivalDate').getDate() + 4);
+          form.setValue('departureDate',newEndDate);
+        }
+      
+      
+
+    }
+
+  },[user, form.watch("arrivalDate")])
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
