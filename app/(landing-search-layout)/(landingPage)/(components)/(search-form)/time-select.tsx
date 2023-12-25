@@ -15,7 +15,7 @@ import { getClientDates } from "@/app/(checkout)/checkout/[serviceId]/update/(he
 type Props = {
   times: string[];
   time: string;
-  setTime: Dispatch<SetStateAction<string>>;
+  setTime: Dispatch<SetStateAction<string>> 
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   startDate: Date | undefined;

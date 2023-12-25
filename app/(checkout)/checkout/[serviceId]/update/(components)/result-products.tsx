@@ -21,10 +21,10 @@ type Props = {
 
 const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,departureTime,newArrivalDate,newArrivalTime,newDepartureDate,newDepartureTime}: Props) => {
 
-  const arrival =format(new Date(arrivalDate),'dd/MM/yyyy')
-  const departure =format(new Date(departureDate),'dd/MM/yyyy')
-  const newArrival =format(new Date(newArrivalDate),'dd/MM/yyyy')
-  const newDeparture =format(new Date(newDepartureDate),'dd/MM/yyyy')
+  const arrival = arrivalDate? format(new Date(arrivalDate),'dd/MM/yyyy') : ''
+  const departure = departureDate ? format(new Date(departureDate),'dd/MM/yyyy') : ''
+  const newArrival = newArrivalDate ? format(new Date(newArrivalDate),'dd/MM/yyyy') : ''
+  const newDeparture = newDepartureDate ? format(new Date(newDepartureDate),'dd/MM/yyyy') : ''
  
 
   

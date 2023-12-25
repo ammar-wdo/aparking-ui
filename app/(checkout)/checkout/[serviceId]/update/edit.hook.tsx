@@ -47,6 +47,9 @@ export const useEditBooking = (
     undefined
   );
 
+
+  
+
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
       console.log('change 2')
@@ -99,6 +102,11 @@ export const useEditBooking = (
   }, [user,form.watch("arrivalTime"), form.watch("departureTime")]);
 
   const router = useRouter();
+
+
+
+
+
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
     const { startDateString, endDateString } = handleTimezone(
       values.arrivalDate,
@@ -110,7 +118,7 @@ export const useEditBooking = (
       departureDate: endDateString,
       bookingCode: user?.bookingCode,
     };
-
+console.log(startDateString,endDateString)
     try {
       const result = await axios.post(UPDATE_BOOKING, refinedValues);
       if (result.data.url) {
