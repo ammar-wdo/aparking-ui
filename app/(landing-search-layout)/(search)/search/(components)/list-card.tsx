@@ -111,7 +111,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             <p className="text-gray-500 text-xs">
               Price for {service.parkingDays} day(s)
             </p>
-            <p className="font-bold text-3xl mt-1">€{service.totalPrice}</p>
+            <p className="font-bold text-3xl mt-1">€{(service?.totalPrice! as number)?.toFixed(2).replace('.',',')}</p>
           </div>
         )}
 

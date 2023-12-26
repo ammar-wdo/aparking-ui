@@ -74,6 +74,11 @@ const EditBookingForm = ({ service }: Props) => {
 
   if (!user) return redirect("/");
 
+
+  const vat = additionalPrice
+  ? user.total + additionalPrice
+  : user.total
+
   return (
     <Form {...form}>
       <form
@@ -200,7 +205,7 @@ const EditBookingForm = ({ service }: Props) => {
                 <div className="flex flex-col gap-1">
                   {user.extraOptions.map(option=><div key={option.id} className="flex justify-between items-center mt-2 font-semibold">
                     <span className="first-letter:capitalize">{option.label}</span>
-                    <span>€{option.price}</span>
+                    <span>€{option.price.toFixed(2).replace('.',',')}</span>
                   </div>)}
 
                 </div>
@@ -212,7 +217,7 @@ const EditBookingForm = ({ service }: Props) => {
                     Additional days <span className="font-bold">({additionaldays ? `+${additionaldays}`: 0})</span>
                   </p>
                   <p className="font-bold text-xl ">
-                   €{additionalPrice}
+                   €{additionalPrice?.toFixed(2).replace('.',',')}
                   </p>
                 </div>
               )}
@@ -222,9 +227,7 @@ const EditBookingForm = ({ service }: Props) => {
                 {
                   <span className="font-bold text-xl">
                     €
-                    {additionalPrice
-                      ? user.total + additionalPrice
-                      : user.total}
+                    {vat.toFixed(2).replace('.',',')}
                   </span>
                 }{" "}
               </div>

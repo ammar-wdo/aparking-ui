@@ -16,7 +16,7 @@ type Props = {
   departureDate: Date;
   arrivalTime: string;
   departureTime: string;
-  totalPrice: string;
+  totalPrice: number;
 
 };
 

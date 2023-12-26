@@ -50,7 +50,7 @@ type Props = {
   departureDate: string;
   arrivalTime: string;
   departureTime: string;
-  totalPrice: string;
+  totalPrice: number;
   title: string;
   extraOptions: {
     id: string;
@@ -141,7 +141,7 @@ const BookingForm = ({
                      
                       
                      
-                        <p className=" text-sm font-bold ml-auto  sm:mr-20">€ {option.price}</p>
+                        <p className=" text-sm font-bold ml-auto  sm:mr-20">€ {option.price.toFixed(2).replace('.',',')}</p>
                         {option.image ? (
                           <div className="relative w-[60px] aspect-square rounded-full overflow-hidden hidden sm:block">
                             <Image
@@ -187,13 +187,13 @@ const BookingForm = ({
             {!!options.length && <div className="py-3 ">
               <p className="font-bold  text-2xl">Additional options added</p>
               <div className="flex flex-col gap-2 mt-2">
-                {options.map(el=><div className="py-1  flex justify-between w-full items-center font-bold " key={el.id}><span className="first-letter:capitalize">{el.label} </span> <span className="">€{el.price}</span></div>)}
+                {options.map(el=><div className="py-1  flex justify-between w-full items-center font-bold " key={el.id}><span className="first-letter:capitalize">{el.label} </span> <span className="">€{el.price.toFixed(2).replace('.',',')}</span></div>)}
                 </div>
               </div>}
 
             <div className={cn("flex items-center justify-between w-full mt-6 ",!!options.length && "border-t pt-4")}>
               <p>Price including VAT </p>
-              <span className="font-bold text-xl ">€{totalPrice + optionsTotal}</span>
+              <span className="font-bold text-xl ">€{(totalPrice + optionsTotal).toFixed(2).replace('.',',')}</span>
             </div>
           </div>
         </div>

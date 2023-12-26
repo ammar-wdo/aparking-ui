@@ -33,7 +33,7 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
     
           <div className='mt-5 flex items-center justify-between font-bold text-xl capitalize'>
 <p>{title}</p>
-<p>€ {total}</p>
+<p>€ {total.toFixed(2).replace('.',',')}</p>
           </div>
           <div className='space-y-4'>
             <div className='flex w-full items-center justify-between gap-4'>
