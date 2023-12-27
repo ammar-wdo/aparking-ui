@@ -111,7 +111,8 @@ const TimeSelect = ({
            const stringutc = new Date().toUTCString()
       
 
-           console.log('UTC date',stringutc)
+           console.log('UTC string',stringutc)
+           console.log('UTC Date object',utcDate)
 
         
 
