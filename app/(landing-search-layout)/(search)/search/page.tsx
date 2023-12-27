@@ -104,7 +104,7 @@ tryDate.setHours(+startTime.split(':')[0])
         <p>local date string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleDateString())}</p>
     
         <p> date object {'  '} {JSON.stringify(clientArrivalDate)}</p>
-        <p> date object from handled string {'  '} {JSON.stringify(startDateString)}</p>
+        <p> date object from handled string {'  '} {JSON.stringify(new Date(startDateString))}</p>
         <p> date object from handled string after adding time {'  '} {JSON.stringify(tryDate)}</p>
         <p> handled date object from handled string after removing timezone offset {'  '} {JSON.stringify(new Date(handledTryDate))}</p>
         
