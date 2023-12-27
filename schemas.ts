@@ -11,12 +11,12 @@ export const bookingSchema = z
 
     arrivalDate: z.date(),
 
-    firstName: z.string().min(1),
-    lastName: z.string().min(1),
-    email: z.string().email(),
-    carColor: z.string().min(1),
-    carLicense: z.string().min(1),
-    carModel: z.string().min(1),
+    firstName: z.string().min(1,{message:'First name is required'}),
+    lastName: z.string().min(1,{message:'Last name is required'}),
+    email: z.string().email({message:"E-mail is required"}),
+    carColor: z.string().min(1,{message:'Car color is required'}),
+    carLicense: z.string().min(1,{message:'Car license is required'}),
+    carModel: z.string().min(1,{message:'Car model'}),
     serviceId: z.string().min(1),
 total:z.coerce.number(),
     companyName: z.string().optional(),
@@ -25,7 +25,7 @@ total:z.coerce.number(),
   
     departureDate: z.date(),
     discount: z.coerce.number(),
-    flightNumber: z.string().min(3,{message:'this field is mandatory'}),
+    flightNumber: z.string().min(3,{message:'Flight number is requried'}),
     isCompany: z.boolean(),
     phoneNumber: z.string().refine((value) => {
       const phoneRegex = /^(?:[0-9]){1,3}(?:[ -]*[0-9]){6,14}$/;
@@ -174,7 +174,7 @@ bookingId:z.string().min(1),
 entityId:z.string().min(1),
 serviceId:z.string().min(1),
 reviewContent:z.string().optional(),
-rate:z.coerce.number().min(0.5).max(5),
+rate:z.coerce.number().min(0.5,{message:'Rate is required'}).max(5),
 status:z.enum(["PENDING","ACTIVE"]).default('PENDING'),
 visibility:z.enum(["FIRSTNAME","FULLNAME","ANOUNYMOS"]).default('FULLNAME'),
 
