@@ -7,6 +7,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+
+
 import React, { Dispatch, SetStateAction } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,7 +41,8 @@ const TimeSelect = ({
 }: Props) => {
 
 
-  console.log("new date on server",new Date())
+
+
   return (
     <Popover
       // onValueChange={setTime}
@@ -99,9 +102,20 @@ const TimeSelect = ({
             const [hours,minutes] = time.split(':')
             startDate.setHours(+hours)
             startDate.setMinutes(+minutes)
-            console.log("Start date server",startDate)
-            
-            if(new Date() > startDate)  return null
+
+           const utcDate = new Date()
+           utcDate.setHours(new Date().getUTCHours())
+           utcDate.setMinutes(new Date().getUTCMinutes())
+
+
+           const stringutc = new Date().toUTCString()
+      
+
+           console.log('UTC date',stringutc)
+
+        
+
+            if(utcDate > startDate)  return null //compare with utc instead of new Date()
  
               
             }
