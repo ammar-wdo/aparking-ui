@@ -16,7 +16,7 @@ export const bookingSchema = z
     email: z.string().email({message:"E-mail is required"}),
     carColor: z.string().min(1,{message:'Car color is required'}),
     carLicense: z.string().min(1,{message:'Car license is required'}),
-    carModel: z.string().min(1,{message:'Car model'}),
+    carModel: z.string().min(1,{message:'Car model is required'}),
     serviceId: z.string().min(1),
 total:z.coerce.number(),
     companyName: z.string().optional(),
