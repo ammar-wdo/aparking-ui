@@ -99,8 +99,9 @@ const TimeSelect = ({
             const [hours,minutes] = time.split(':')
             startDate.setHours(+hours)
             startDate.setMinutes(+minutes)
-
-            if(new Date() > startDate) return null
+            console.log("Start date server",startDate)
+            
+            if(new Date() > startDate)  return null
  
               
             }
