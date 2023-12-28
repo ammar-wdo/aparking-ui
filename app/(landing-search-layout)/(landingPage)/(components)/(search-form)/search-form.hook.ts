@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { handleTimezone } from "@/lib/timezone-handler";
+import { toast } from "sonner";
 
 
 type Props = {
@@ -217,7 +218,7 @@ if(!airport && !serviceId) setOpenAirport(true)
       endDateConst.setMinutes(Number(minutes));
 
 if(startDateConst.getTime()>=endDateConst.getTime()){
-
+toast.error("Invalid date range ! ")
 
   return
 } 
