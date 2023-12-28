@@ -44,9 +44,7 @@ const page = async ({ searchParams }: Props) => {
   if (!airport || !startDate || !endDate || !startTime || !endTime )
 return redirect("/");
 
-const {clientArrivalDate,clientDepartureDate} = getClientDates(startDate,endDate,startTime,endTime)
 
-if(clientArrivalDate.getTime()>= clientDepartureDate.getTime()) return redirect('/')
 
 
 
@@ -72,9 +70,7 @@ const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 
 
-const {adjustedStartDate} = handleTimezone(clientArrivalDate,clientDepartureDate)
 
-console.log(adjustedStartDate,clientArrivalDate)
 
 
   return (
@@ -88,8 +84,9 @@ console.log(adjustedStartDate,clientArrivalDate)
           "dd-MM-yyyy"
         )} at ${endTime}`}</p>
 
-<p>{JSON.stringify(adjustedStartDate)}</p>
-<p>{JSON.stringify(clientArrivalDate)}</p>
+     
+
+
         
       </Banner>
 

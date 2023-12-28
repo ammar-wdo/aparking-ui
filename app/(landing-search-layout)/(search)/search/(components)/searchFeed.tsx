@@ -8,6 +8,7 @@ import ListCard from "./list-card";
 import { Service } from "@/schemas";
 import SearchScroller from "./scroller";
 import ProgressBar from "@/components/progress-bar";
+import { AlarmCheck, AlertTriangle } from "lucide-react";
 
 type Props = {
   startDate: string;
@@ -57,6 +58,7 @@ const SearchFeed = async ({
   const total = data.total
   const totalValid = data.totalValid
   const totalInvalid = data.totalInvalid
+  const message = data.message
 
 
 
@@ -66,10 +68,13 @@ const SearchFeed = async ({
 
   return (
     <div className="">
+
+
      
        <SearchScroller />
 {!totalValid && !totalInvalid && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
 {!!totalValid&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {totalValid} of {total}</p>}
+{!!message && <p className="p-4 flex justify-between text-rose-500 bg-rose-500/20 border border-rose-500 my-4">Wrong date range <AlertTriangle /></p>}
 
 
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-6 relative z-10">
