@@ -40,7 +40,7 @@ const page = async({params,searchParams}: Props) => {
   const data = await axios.get(url)
   const service = data.data.service as Service &{totalPrice:number ,extraOptions:{id:string,price:number,image:string,description:string,label:string}[]}
 
-  console.log("myService",data)
+
 
 
 

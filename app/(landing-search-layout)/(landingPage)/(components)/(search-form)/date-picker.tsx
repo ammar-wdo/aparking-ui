@@ -27,7 +27,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
    
   
 React.useEffect(()=>{
-  console.log("date",date)
+
 },[date])
 
   return (

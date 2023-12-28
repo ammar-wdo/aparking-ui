@@ -39,7 +39,7 @@ export const useBooking = ({
 
   const handleAddDelete = (option:Option)=>{
 const exist = !!options.find((el)=>el.id===option.id)
-console.log(exist)
+
 if(exist){
   let newOptions = options
   
@@ -56,7 +56,7 @@ if(exist){
   }
 
   useEffect(()=>{
-    console.log(options.length)
+   
     if(options.length){
       let newT
       const newTotal = options.reduce((total,val)=>total + val.price,0) 
@@ -88,7 +88,7 @@ if(exist){
 const {startDateString,endDateString} = handleTimezone(values.arrivalDate,values.departureDate)
 
 const ids = options.map(el=>el.id)
-console.log(ids)
+
 const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDateString,ids}
 
           try {
