@@ -73,16 +73,17 @@ const TimeSelect = ({
 
             if(endDate && startDate && !showAll){
               const {clientArrivalDate,clientDepartureDate} = getClientDates(
-                startDate?.toString() || new Date().toString(),
-                endDate?.toString() || new Date().toString(),
+                new Date(startDate)?.toString() || new Date().toString(),
+              new Date(endDate)?.toString() || new Date().toString(),
                 startTime,
                 endTime
               );
   const [hours,minutes] = time.split(":")
-              endDate?.setHours(+hours)
-              endDate?.setMinutes(+minutes)
+  const endDateConst = new Date(endDate)
+  endDateConst?.setHours(+hours)
+  endDateConst?.setMinutes(+minutes)
   
-              if (clientArrivalDate.getTime()  >= endDate?.getTime() ) {
+              if (clientArrivalDate.getTime()  >= endDateConst?.getTime() ) {
                 return null
               }
 
@@ -100,8 +101,9 @@ const TimeSelect = ({
             }
            else if(startDate  && showAll){
             const [hours,minutes] = time.split(':')
-            startDate.setHours(+hours)
-            startDate.setMinutes(+minutes)
+            const startDateConst = new Date(startDate)
+            startDateConst.setHours(+hours)
+            startDateConst.setMinutes(+minutes)
 
            const utcDate = new Date()
            utcDate.setHours(new Date().getUTCHours())
@@ -111,12 +113,12 @@ const TimeSelect = ({
            const stringutc = new Date().toUTCString()
       
 
-           console.log('UTC string',stringutc)
-           console.log('UTC Date object',utcDate)
+          //  console.log('UTC string',stringutc)
+          //  console.log('UTC Date object',utcDate)
 
         
 
-            if(utcDate > startDate)  return null //compare with utc instead of new Date()
+            if(utcDate > startDateConst)  return null //compare with utc instead of new Date()
  
               
             }

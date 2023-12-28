@@ -112,7 +112,7 @@ const SearchForm = ({
                 setDate={setStartDate}
               />
               <TimeSelect
-              showAll
+                showAll
                 startDate={startDate}
                 endDate={endDate}
                 startTime={startTime}

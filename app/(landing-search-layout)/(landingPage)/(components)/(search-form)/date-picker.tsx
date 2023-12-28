@@ -26,7 +26,9 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
 
    
   
-
+React.useEffect(()=>{
+  console.log("date",date)
+},[date])
 
   return (
     <Popover  open={open}  onOpenChange={setOpen}>
@@ -57,7 +59,7 @@ export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
    
           mode="single"
           selected={date}
-          onSelect={(e)=>{setDate(e);}}
+          onSelect={(e)=>{setDate(e)}}
           defaultMonth={date}
         />
       </PopoverContent>

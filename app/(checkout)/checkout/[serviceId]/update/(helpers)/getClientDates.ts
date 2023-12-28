@@ -2,7 +2,7 @@ export const getClientDates = (startDate:string,endDate:string,startTime:string,
 
     const [startHours, startMinutes] = startTime.split(':');
   const [endHours, endMinutes] = endTime.split(':');
-  const clientArrivalDate = new Date(startDate)
+  const clientArrivalDate = new Date(new Date(startDate))
   clientArrivalDate.setHours(+startHours)
   clientArrivalDate.setMinutes(+startMinutes)
   const clientDepartureDate = new Date(endDate)

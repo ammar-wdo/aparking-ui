@@ -52,9 +52,9 @@ if(clientArrivalDate.getTime()>= clientDepartureDate.getTime()) return redirect(
 
   // console.log(
   //   "startDate",
-  //   new Date(startDate),
+  //   clientArrivalDate.toISOString(),
   //   "endDate",
-  //   new Date(endDate),
+  //   clientDepartureDate.toISOString(),
   //   "startTime",
   //   startTime,
   //   "endTime",
@@ -72,12 +72,11 @@ const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 
 
-const {startDateString,endDateString} = handleTimezone(clientArrivalDate,clientDepartureDate)
+const {adjustedStartDate} = handleTimezone(clientArrivalDate,clientDepartureDate)
 
-const tryDate = new Date(startDateString)
+console.log(adjustedStartDate,clientArrivalDate)
 
-const handledTryDate = tryDate.getTime() - tryDate.getTimezoneOffset()
-tryDate.setHours(+startTime.split(':')[0])
+
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true} airportName={airportName.name}>
@@ -89,30 +88,9 @@ tryDate.setHours(+startTime.split(':')[0])
           "dd-MM-yyyy"
         )} at ${endTime}`}</p>
 
-
-        <h3 className="my-4 capitalize">test date difference</h3>
-        <p className="mt-8">Local dates</p>
-
-        <p>local string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleString())}</p>
-        <p>local date string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleDateString())}</p>
-        <p>local time string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleTimeString())}</p>
-        <p>local time string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleString("en-US", { timeZone: userTimeZone, timeZoneName: "short" }))}</p>
-
-
-        <h3 className="mt-6">Handle time zone</h3>
-        <p>start date  handled string {'  '} {startDateString}</p>
-        <p>local date string {'  '} {JSON.stringify(new Date(clientArrivalDate).toLocaleDateString())}</p>
-    
-        <p> date object {'  '} {JSON.stringify(clientArrivalDate)}</p>
-        <p> date object from handled string {'  '} {JSON.stringify(new Date(startDateString))}</p>
-        <p> date object from handled string after adding time {'  '} {JSON.stringify(tryDate)}</p>
-        <p> handled date object from handled string after removing timezone offset {'  '} {JSON.stringify(new Date(handledTryDate))}</p>
+<p>{JSON.stringify(adjustedStartDate)}</p>
+<p>{JSON.stringify(clientArrivalDate)}</p>
         
-
-        <p className="mt-8">UTC dates</p>
-        <p>UTC string {'  '} {JSON.stringify(new Date(clientArrivalDate).toUTCString())}</p>
-        <p>ISO string  {JSON.stringify(new Date(clientArrivalDate).toISOString())}</p>
-        <p>Date object  {JSON.stringify(new Date(clientArrivalDate))}</p>
       </Banner>
 
       <div className="container">

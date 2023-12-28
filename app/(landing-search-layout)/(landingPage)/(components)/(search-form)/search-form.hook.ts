@@ -29,6 +29,8 @@ export const useSearchForm = ({
 
 }: Props) => {
 
+ 
+
 const [airport, setAirport] = useState(airportProp || '')
 const [openAirport, setOpenAirport] = useState(false)
   const [startDate, setStartDate] = useState<Date | undefined>(
@@ -173,6 +175,8 @@ const [openAirport, setOpenAirport] = useState(false)
       }
     
     }
+
+   
   }, [startDate]);
 
   const timeArray = [];
@@ -203,27 +207,29 @@ if(!airport && !serviceId) setOpenAirport(true)
     else {
 
       const [startHours, startMinutes] = startTime.split(':');
-      startDate.setHours(Number(startHours));
-      startDate.setMinutes(Number(startMinutes));
+      const startDateConst = startDate
+      startDateConst.setHours(Number(startHours));
+      startDateConst.setMinutes(Number(startMinutes));
 
+      const endDateConst = endDate
       const [hours, minutes] = endTime.split(':');
-      endDate.setHours(Number(hours));
-      endDate.setMinutes(Number(minutes));
+      endDateConst.setHours(Number(hours));
+      endDateConst.setMinutes(Number(minutes));
 
-if(startDate.getTime()>=endDate.getTime()){
+if(startDateConst.getTime()>=endDateConst.getTime()){
 
-  console.log(startDate.getTime(),endDate.getTime())
+
   return
 } 
 
-console.log(startDate.getTime(),endDate.getTime())
+
       if(!change){
         setIsLoading(true)
 
         setTimeout(()=>{setIsLoading(false)},2000)
       }
 
-const {startDateString,endDateString} = handleTimezone(startDate,endDate)
+
 
 let currentQuery = {};
   
@@ -238,8 +244,8 @@ if (params) {
         url = qs.stringifyUrl({
           url:pathname,
           query:{
-              startDate:startDateString,
-              endDate:endDateString,
+              startDate:startDate.toLocaleDateString(),
+              endDate:endDate.toLocaleDateString(),
               startTime:startTime,
               endTime:endTime,
          
@@ -252,8 +258,8 @@ if (params) {
           query: {
             ...currentQuery,
             airport:airport,
-            startDate: startDateString,
-            endDate: endDateString,
+            startDate: startDate.toLocaleDateString(),
+            endDate: endDate.toLocaleDateString(),
             startTime,
             endTime,
            
