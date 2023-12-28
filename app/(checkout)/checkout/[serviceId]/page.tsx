@@ -6,6 +6,7 @@ import BookingForm from './(components)/booking-form'
 import { redirect } from 'next/navigation'
 import { Service } from '@/schemas'
 import queryString from 'query-string'
+import { getFinalDates } from '@/lib/getTotalDate'
 
 type Props = {
     params:{serviceId:string},
@@ -21,7 +22,11 @@ const page = async({params,searchParams}: Props) => {
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
  
+  if (!startDate || !endDate || !startTime || !endTime ) return redirect("/");
 
+  const {adjustedStartDate,adjustedEndDate} = getFinalDates(startDate,endDate,startTime,endTime)
+
+  if(adjustedStartDate.getTime()> adjustedEndDate.getTime())  return redirect("/");
 
 
   const url = queryString.stringifyUrl({
@@ -40,7 +45,7 @@ const page = async({params,searchParams}: Props) => {
 
 
 
-  if (!startDate || !endDate || !startTime || !endTime || !service || new Date(startDate).getTime() > new Date(endDate).getTime()) return redirect("/");
+
 
   return (
     <div className='md:p-8  bg-gray-100 min-h-screen'>
