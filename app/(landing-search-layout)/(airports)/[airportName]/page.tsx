@@ -23,6 +23,11 @@ export async function generateMetadata(
 
 const airport = await getAirport(params.airportName)
 
+if(!airport) return {
+  title:'Not found',
+  description:'This slug does not exist'
+}
+
 
 
  

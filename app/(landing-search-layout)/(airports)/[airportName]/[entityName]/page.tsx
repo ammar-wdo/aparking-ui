@@ -24,6 +24,11 @@ export async function generateMetadata(
   
   
   const entity = await getEntity(params.entityName,params.airportName)
+
+  if(!entity) return {
+    title:'Not found',
+    description:'This slug does not exist'
+  }
   
   
   

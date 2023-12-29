@@ -33,7 +33,10 @@ export async function generateMetadata(
 
 const service = await getService(params.serviceName,params.entityName,params.airportName)
 
-
+if(!airport) return {
+  title:'Not found',
+  description:'This slug does not exist'
+}
 
  
   return {
