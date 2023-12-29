@@ -20,7 +20,7 @@ const CategoryFeed = async ({searchParams}: Props) => {
       <div className="mt-2 flex items-center gap-4 flex-wrap">
         <Button variant={"secondary"} asChild>
           <Link
-            className={cn("first-letter:capitalize text-slate-600",!categoryParam && 'bg-site text-white' )}
+            className={cn("first-letter:capitalize text-slate-600",!categoryParam && 'bg-site text-white hover:bg-site' )}
             href={`/blog`}
           >
             All

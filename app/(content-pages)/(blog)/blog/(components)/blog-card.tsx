@@ -9,6 +9,7 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
+import { NLtimezone } from "@/lib/nl-timezone";
 import { Blog } from "@/schemas";
   import { format } from "date-fns";
 import Image from "next/image";
@@ -57,7 +58,7 @@ const BlogCard = ({blog}: Props) => {
     </CardContent>
     <CardFooter className="flex items-center justify-between mt-auto">
       <span className="text-xs text-slate-500">
-        {format(new Date(blog.createdAt), "MMMM do yyyy")}
+        {NLtimezone(blog.createdAt,'Europe/Amsterdam')}
       </span>
       <Link
         className="font-semibold text-slate-500 text-sm "
