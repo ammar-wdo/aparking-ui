@@ -43,7 +43,7 @@ const page =async({params}: Props) => {
             <h3 className='text-4xl font-bold first-letter:capitalize'>{blog.title}</h3>
             <div className='flex gap-12 mt-3 items-center'>
                 <p className='first-letter:capitalize text-base font-bold text-gray-600'>written by <span className='capitalize'>{blog.author}</span></p>
-                <span className='text-gray-500 text-sm'>{NLtimezone(blog.createdAt,'Europe/Amsterdam')}</span>
+                <span className='text-gray-500 text-sm'>{NLtimezone(new Date(blog.createdAt),'Europe/Amsterdam')}</span>
 
             </div>
             <Separator className='my-8' />

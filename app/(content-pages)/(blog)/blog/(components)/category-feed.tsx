@@ -29,7 +29,7 @@ const CategoryFeed = async ({searchParams}: Props) => {
         {categories.map((category: { id: string; label: string }) => (
           <Button asChild variant={"secondary"} key={category.id}>
             <Link
-              className={cn("first-letter:capitalize text-slate-600",categoryParam ===category.label && 'bg-site text-white hover:bg-site')}
+              className={cn("first-letter:capitalize text-slate-600 ",categoryParam ===category.label && 'bg-site text-white hover:bg-site')}
               href={`/blog?category=${category.label}`}
             >
               {category.label}

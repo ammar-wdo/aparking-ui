@@ -58,7 +58,7 @@ const BlogCard = ({blog}: Props) => {
     </CardContent>
     <CardFooter className="flex items-center justify-between mt-auto">
       <span className="text-xs text-slate-500">
-        {NLtimezone(blog.createdAt,'Europe/Amsterdam')}
+        {NLtimezone(new Date(blog.createdAt),'Europe/Amsterdam')}
       </span>
       <Link
         className="font-semibold text-slate-500 text-sm "
