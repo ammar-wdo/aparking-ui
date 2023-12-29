@@ -58,7 +58,7 @@ const SearchFeed = async ({
   const total = data.total
   const totalValid = data.totalValid
   const totalInvalid = data.totalInvalid
-  const message = data.message
+  const message = data.response
 
 
 
