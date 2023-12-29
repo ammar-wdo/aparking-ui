@@ -224,7 +224,20 @@ const DateInformation = ({
                             arrive.setHours(+hours)
                             arrive.setMinutes(+minutes)
 
-                            if(arrive.getTime()<= new Date().getTime()) return null
+
+                            const amesterdam = new Date()
+                            amesterdam.setHours(new Date().getUTCHours()+1)
+                            amesterdam.setMinutes(new Date().getUTCMinutes())
+                 
+                 
+                         
+                       
+                 
+                 
+                         
+                 
+                             if(amesterdam > arrive)  return null
+
                             
                             return <SelectItem key={el} value={el}>
                               {el}
