@@ -152,7 +152,13 @@ const SearchForm = ({
         <button
           disabled={isLoading}
           onClick={handleClick}
-          className="px-8 flex items-center justify-center disabled:opacity-50 disabled:cursor-default bg-[#FEBA02] hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none rounded-tr-none lg:rounded-tr-xl"
+          className="px-8 flex 
+          items-center
+           justify-center 
+           disabled:opacity-50 disabled:cursor-default bg-[#FEBA02]
+            hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  
+            capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none
+             rounded-tr-none lg:rounded-tr-xl"
         >
           {change ? "Change" : "Search"}
           {isLoading && (

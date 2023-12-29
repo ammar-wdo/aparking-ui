@@ -105,20 +105,18 @@ const TimeSelect = ({
             startDateConst.setHours(+hours)
             startDateConst.setMinutes(+minutes)
 
-           const utcDate = new Date()
-           utcDate.setHours(new Date().getUTCHours())
-           utcDate.setMinutes(new Date().getUTCMinutes())
+           const amesterdam = new Date()
+           amesterdam.setHours(new Date().getUTCHours()+1)
+           amesterdam.setMinutes(new Date().getUTCMinutes())
 
 
-           const stringutc = new Date().toUTCString()
+        
       
 
-          //  console.log('UTC string',stringutc)
-          //  console.log('UTC Date object',utcDate)
 
         
 
-            if(utcDate > startDateConst)  return null //compare with utc instead of new Date()
+            if(amesterdam > startDateConst)  return null //compare with utc instead of new Date()
  
               
             }
