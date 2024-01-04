@@ -8,16 +8,19 @@ import { cn } from '@/lib/utils'
 type Props = {
     categoryParam:string | string[] | undefined,
     label:string
+    link:string
+    all?:boolean
 }
 
-const ClientButton = ({categoryParam,label}: Props) => {
+const ClientButton = ({categoryParam,label,link,all}: Props) => {
 
     const router = useRouter()
   return (
     <Button
-    className={cn("first-letter:capitalize text-slate-600 ",categoryParam ===label && 'bg-site text-white hover:bg-site')}
+    variant={'secondary'}
+    className={cn("first-letter:capitalize text-slate-600 ",(categoryParam ===label || (all && !categoryParam)) && 'bg-site text-white hover:bg-site')}
     
-    onClick={()=>router.push(`/${label}`)}>
+    onClick={()=>router.push(`/${link}`)}>
         {label}
     </Button>
   )
