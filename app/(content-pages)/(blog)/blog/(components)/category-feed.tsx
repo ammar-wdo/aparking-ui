@@ -18,10 +18,10 @@ const CategoryFeed = async ({searchParams}: Props) => {
     <div>
       <h3 className="text-xl font-semibold text-site">Categories</h3>
       <div className="mt-2 flex items-center gap-4 flex-wrap">
-        <Button variant={"secondary"} asChild>
+        <Button variant={"secondary"} asChild >
           <Link
             className={cn("first-letter:capitalize text-slate-600",!categoryParam && 'bg-site text-white hover:bg-site' )}
-            href={`/blog`}
+            href={`${process.env.NEXT_PUBLIC_MY_URL}/blog`}
           >
             All
           </Link>
@@ -30,7 +30,7 @@ const CategoryFeed = async ({searchParams}: Props) => {
           <Button asChild variant={"secondary"} key={category.id}>
             <Link
               className={cn("first-letter:capitalize text-slate-600 ",categoryParam ===category.label && 'bg-site text-white hover:bg-site')}
-              href={`/blog?category=${category.label}`}
+              href={`${process.env.NEXT_PUBLIC_MY_URL}/blog?category=${category.label}`}
             >
               {category.label}
             </Link>
