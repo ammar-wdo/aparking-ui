@@ -46,9 +46,22 @@ export const useEditBooking = (
   const [additionaldays, setAdditionalDays] = useState<number | undefined>(
     undefined
   );
+  const [startOpen, setStartOpen] = useState(false)
+  const [endOpen, setEndOpen] = useState(false)
 
 
-  
+  useEffect(()=>{
+    if(form.watch('arrivalDate')){
+      setStartOpen(false)
+    }
+        },[form.watch('arrivalDate')])
+    
+    
+        useEffect(()=>{
+          if(form.watch('departureDate')){
+            setEndOpen(false)
+          }
+        },[form.watch('departureDate')])
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
@@ -175,5 +188,6 @@ console.log(startDateString,endDateString)
     setAdditionalPrice,
     additionaldays,
     setAdditionalDays,
+    startOpen,endOpen,setStartOpen,setEndOpen
   };
 };

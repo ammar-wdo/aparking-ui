@@ -37,6 +37,7 @@ type Props = {
   setPersonalStep: Dispatch<SetStateAction<boolean>>;
   personalStep: boolean;
 
+
 };
 
 const PersonalInformation = ({ form, setCarStep, carStep,timeArray ,personalStep,setPersonalStep}: Props) => {

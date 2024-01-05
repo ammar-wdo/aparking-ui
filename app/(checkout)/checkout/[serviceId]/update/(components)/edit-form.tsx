@@ -61,6 +61,7 @@ const EditBookingForm = ({ service }: Props) => {
     setAdditionalPrice,
     additionaldays,
     setAdditionalDays,
+    startOpen,endOpen,setStartOpen,setEndOpen
   } = useEditBooking(service);
 
   const isLoading = form.formState.isSubmitting;
@@ -102,6 +103,10 @@ const EditBookingForm = ({ service }: Props) => {
               setAdditionalPrice={(value: number | undefined) =>
                 setAdditionalPrice(value)
               }
+              startOpen={startOpen}
+              endOpen={endOpen}
+              setStart={(val)=>setStartOpen(val)}
+              setEnd={(val)=>setEndOpen(val)}
             />
 
             <PersonalInformation
@@ -111,6 +116,7 @@ const EditBookingForm = ({ service }: Props) => {
               setPersonalStep={setPersonalStep}
               setCarStep={setCarStep}
               carStep={carStep}
+            
             />
             <CarInformation
               form={form}

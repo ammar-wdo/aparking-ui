@@ -56,6 +56,10 @@ type Props = {
   setAdditionalDays: (value: number | undefined) => void;
 
   setAdditionalPrice: (value: number | undefined) => void;
+  startOpen:boolean,
+  endOpen:boolean,
+  setStart:(val:boolean)=>void,
+  setEnd:(val:boolean)=>void
 };
 
 const DateInformation = ({
@@ -67,6 +71,8 @@ const DateInformation = ({
   setAvailable,
   setAdditionalDays,
   setAdditionalPrice,
+  startOpen,endOpen,setStart,setEnd
+  
 }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
@@ -159,7 +165,7 @@ const DateInformation = ({
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
                     <FormLabel>New Arrival date</FormLabel>
-                    <Popover>
+                    <Popover open={startOpen} onOpenChange={setStart}>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -260,7 +266,7 @@ const DateInformation = ({
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
                     <FormLabel>New Departure Date</FormLabel>
-                    <Popover>
+                    <Popover open={endOpen} onOpenChange={setEnd}>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
