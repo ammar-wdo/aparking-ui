@@ -96,7 +96,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
         {service.totalReviews > 0 && (
           <div className="my-2 flex items-center gap-3">
             <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
-            <span className="font-bold">{service.totalReviews}</span>
+            <span className="font-bold">{service.totalReviews.toFixed(1)}</span>
           </div>
         )}
         {!show && (
