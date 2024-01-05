@@ -19,6 +19,7 @@ import {
   Loader,
   ParkingCircle,
   Star,
+  StarIcon,
   Warehouse,
 } from "lucide-react";
 import {
@@ -39,6 +40,7 @@ type Props = {
       slug: string;
       airport: { name: string; slug: string };
     };
+    totalReviews:number,
   };
   invalid?: boolean;
   show?: boolean;
@@ -85,12 +87,16 @@ const ListCard = ({ service, invalid, show }: Props) => {
 
       <Separator className="bg-neutral-300" />
       <CardContent className="py-4 px-6 space-y-3 flex-1">
+     
         {service.highlights?.map((hightlight) => (
           <div key={hightlight.label} className="flex gap-3 items-center">
             <span>{theIcons[hightlight.icon]}</span>
             <p className="text-sm">{hightlight.label}</p>
           </div>
         ))}
+    {   service.totalReviews > 0 && <div className="my-2 flex items-center gap-3">
+          <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " /> <span className="font-bold">{service.totalReviews}</span>
+        </div>}
         {!show && (
           <div className="flex gap-3 items-center">
             <span className="p-1 rounded-full flex items-center justify-center bg-[#003580] w-5 h-5 text-white text-sm">
@@ -104,6 +110,8 @@ const ListCard = ({ service, invalid, show }: Props) => {
             </Link>
           </div>
         )}
+
+
       </CardContent>
       <CardFooter className="bg-gray-50 p-4 py-3 flex flex-col  border-t">
         {!invalid && !show && (
