@@ -28,13 +28,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 type Props = {
   service: Service & {
     totalPrice?: number;
     parkingDays?: number;
-    entity: { entityName: string,slug:string; airport: { name: string,slug:string } };
+    entity: {
+      entityName: string;
+      slug: string;
+      airport: { name: string; slug: string };
+    };
   };
   invalid?: boolean;
   show?: boolean;
@@ -62,10 +66,8 @@ const ListCard = ({ service, invalid, show }: Props) => {
       endDate: service.endDate,
       startTime: service.startTime,
       endTime: service.endTime,
-      
     },
   });
-
 
   return (
     <Card
@@ -77,12 +79,10 @@ const ListCard = ({ service, invalid, show }: Props) => {
     >
       <CardHeader>
         <CardTitle className="text-center text-lg font-bold">
-       
-       {service.name}
-      
+          {service.name}
         </CardTitle>
       </CardHeader>
-      
+
       <Separator className="bg-neutral-300" />
       <CardContent className="py-4 px-6 space-y-3 flex-1">
         {service.highlights?.map((hightlight) => (
@@ -98,7 +98,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             </span>
             <Link
               className="text-blue-500 font-light text-sm"
-              href={`/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}`}
+              href={`/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}?startDate=${service.startDate}&endDate=${service.endDate}&startTime=${service.startTime}&endTime=${service.endTime}`}
             >
               Details
             </Link>
@@ -111,7 +111,9 @@ const ListCard = ({ service, invalid, show }: Props) => {
             <p className="text-gray-500 text-xs">
               Price for {service.parkingDays} day(s)
             </p>
-            <p className="font-bold text-3xl mt-1">€{(service?.totalPrice! as number)?.toFixed(2).replace('.',',')}</p>
+            <p className="font-bold text-3xl mt-1">
+              €{(service?.totalPrice! as number)?.toFixed(2).replace(".", ",")}
+            </p>
           </div>
         )}
 
