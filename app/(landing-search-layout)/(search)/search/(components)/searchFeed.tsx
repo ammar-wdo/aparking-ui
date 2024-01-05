@@ -63,7 +63,7 @@ const SearchFeed = async ({
 
 
 
-
+console.log(message)
 
 
   return (
@@ -74,7 +74,7 @@ const SearchFeed = async ({
        <SearchScroller />
 {!totalValid && !totalInvalid && <p className="p-5 text-center text-xl capitalize font-semibold text-gray-400">no data</p>}
 {!!totalValid&&<p className="py-4 text-lg font-semibold text-neutral-500 mt-12">Available {totalValid} of {total}</p>}
-{!!message && <p className="p-4 flex justify-between text-rose-500 bg-rose-500/20 border border-rose-500 my-4">{message.response}<AlertTriangle /></p>}
+{!!message && <p className="p-4 flex justify-between text-rose-500 bg-rose-500/20 border border-rose-500 my-4">{message}<AlertTriangle /></p>}
 
 
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-10 mt-6 relative z-10">
