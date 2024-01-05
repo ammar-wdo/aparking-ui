@@ -18,7 +18,7 @@ const privacy = res.data.privacy
 
 
   return (
-    <div className="min-h-[700px]">
+    <div className="min-h-[900px]">
       <div className="container">
         <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap my-8">
           {" "}
