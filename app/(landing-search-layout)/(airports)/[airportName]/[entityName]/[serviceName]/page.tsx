@@ -15,6 +15,7 @@ import Reviews from "@/app/(landing-search-layout)/(landingPage)/(components)/re
 import SearchForm from "@/app/(landing-search-layout)/(landingPage)/(components)/(search-form)/search-form";
 import { Metadata } from "next";
 import { getService } from "@/lib/getters";
+import { StarIcon } from "lucide-react";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -93,9 +94,16 @@ const page = async ({ params, searchParams }: Props) => {
           &gt; <span className="capitalize text-black">{service?.name}</span>{" "}
         </p>
         <div className="mt-12">
-          <h3 className="text-site text-3xl font-semibold py-8 capitalize">
-            {service.name} service
+          <div className="flex items-center gap-12 py-8">
+          <h3 className="text-site text-3xl font-semibold  capitalize">
+            {service.name} 
           </h3>
+          {service.totalReviews>0 &&   <div className="my-2 flex items-center gap-3">
+            <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
+            <span className="font-bold">{service.totalReviews.toFixed(1)}</span>
+          </div>}
+          </div>
+         
           <section className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1  gap-8 mb-8">
             <GallarySwiper gallary={service.images || []} />
             <div className="lg:aspect-video w-full overflow-y-scroll  row-span-1 lg:col-span-2 max-h-[600px]">

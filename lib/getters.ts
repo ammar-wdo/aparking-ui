@@ -10,7 +10,7 @@ export const getService = cache(async(serviceName:string,entityName:string,airpo
     );
   
     const service = res.data.service as Service & {
-      entity: { entityName: string,slug:string, airport: { name: string ,slug:string} };
+      entity: { entityName: string,slug:string, airport: { name: string ,slug:string} },totalReviews:number;
     };
   return service
   })
