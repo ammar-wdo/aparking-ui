@@ -99,7 +99,7 @@ const SigninForm = (props: Props) => {
             </Button>
           </div>
           {isError && (
-            <p className="py-3 text-sm text-rose-500">Invalid credentials</p>
+            <p className="p-3 text-xs text-rose-500 bg-rose-500/20 border border-rose-500">{isError}</p>
           )}
         </form>
       </Form>

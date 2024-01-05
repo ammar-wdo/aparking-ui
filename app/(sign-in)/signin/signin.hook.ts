@@ -13,12 +13,12 @@ import { useRouter } from "next/navigation"
  
 const formSchema = z.object({
   email: z.string().email(),
-  bookingCode:z.string().min(1)
+  bookingCode:z.string().min(1,{message:"Booking code is required"})
 })
 
 export const useSignin = ()=>{
 
-    const [isError,setIsError] = useState(false)
+    const [isError,setIsError] = useState('')
     const {setUser} = useUser()
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -33,15 +33,19 @@ export const useSignin = ()=>{
       const router = useRouter()
       async function onSubmit(values: z.infer<typeof formSchema>) {
      try {
-        setIsError(false)
+        setIsError('')
         const res = await axios.post(GET_BOOKING,values)
-       toast.success('Logged in')
-       router.push(`/checkout/${res.data.booking.serviceId}/update`)
+       if(res.data.message){
+setIsError(res.data.message)
+       }else{
+        router.push(`/checkout/${res.data.booking.serviceId}/update`)
+       }
+      
 
         setUser(res.data.booking)
      } catch (error) {
         console.log(error)
-        setIsError(true)
+        setIsError('Something went wrong')
      }
 
       }
