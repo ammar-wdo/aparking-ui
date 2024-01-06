@@ -26,10 +26,10 @@ type Props = {
 const page = async ({ searchParams }: Props) => {
   const res = await axios.get(GET_AIRPORTS);
 
-  const service = searchParams['service'] as string[] | undefined
-  const location = searchParams['location'] as string[] | undefined
-  const key = searchParams['key'] as string[] | undefined
-  const electric = searchParams['electric'] as string | undefined
+  const service = searchParams["service"] as string[] | undefined;
+  const location = searchParams["location"] as string[] | undefined;
+  const key = searchParams["key"] as string[] | undefined;
+  const electric = searchParams["electric"] as string | undefined;
 
   const airport = searchParams["airport"] as string;
   const startDate = searchParams["startDate"] as string;
@@ -37,16 +37,8 @@ const page = async ({ searchParams }: Props) => {
   const startTime = searchParams["startTime"] as string;
   const endTime = searchParams["endTime"] as string;
 
-
-
-
-
-  if (!airport || !startDate || !endDate || !startTime || !endTime )
-return redirect("/");
-
-
-
-
+  if (!airport || !startDate || !endDate || !startTime || !endTime)
+    return redirect("/");
 
   // console.log(
   //   "startDate",
@@ -59,35 +51,25 @@ return redirect("/");
   //   endTime
   // );
 
-
   // console.log(service,location,key,electric)
 
-  const airportName = res.data.airports.find((airportElement:Airport) =>airportElement.slug ===airport) as Airport
+  const airportName = res.data.airports.find(
+    (airportElement: Airport) => airportElement.slug === airport
+  ) as Airport;
 
+  const start = new Date(startDate);
+  const end = new Date(endDate);
 
-
-
-
-
-
-const time = `From ${format(
-  new Date(startDate),
-  "dd-MM-yyyy"
-)} at ${startTime} to ${format(
-  new Date(endDate),
-  "dd-MM-yyyy"
-)} at ${endTime}`
-
+  const time = `From ${start.getDate()}-${
+    start.getMonth() + 1
+  }-${start.getFullYear()} at ${startTime} to ${end.getDate()}-${
+    end.getMonth() + 1
+  }-${end.getFullYear()} at ${endTime}`;
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true} airportName={airportName?.name}>
         <p className="text-white">{time}</p>
-
-     
-
-
-        
       </Banner>
 
       <div className="container">
@@ -100,20 +82,24 @@ const time = `From ${format(
           endTimeProp={endTime}
           change={true}
         />
-        <Suspense key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime} ${location} ${service} ${key} ${electric}`} fallback={<ProgressBar><SearchFeedSkeleton /></ProgressBar>}>
+        <Suspense
+          key={`${airport} ${startDate} ${endDate} ${startTime} ${endTime} ${location} ${service} ${key} ${electric}`}
+          fallback={
+            <ProgressBar>
+              <SearchFeedSkeleton />
+            </ProgressBar>
+          }
+        >
           <SearchFeed
             airport={airport}
             startDate={startDate}
             endDate={endDate}
             startTime={startTime}
             endTime={endTime}
-
             carsKey={key}
             serviceType={service}
             location={location}
             electric={electric}
-            
-            
           />
         </Suspense>
       </div>
