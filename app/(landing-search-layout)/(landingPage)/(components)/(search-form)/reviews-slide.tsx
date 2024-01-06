@@ -63,14 +63,14 @@ const ReviewsSlide = ({ reviews }: Props) => {
         return (
           <SwiperSlide className="h-full" key={review.id}>
             <div className=" rounded-lg p-3 bg-white flex flex-col h-fit">
-              <Link className="" href={`/${review.entity.airport.slug}/${review.entity.slug}`}>
+              <Link className="pb-2 border-b" href={`/${review.entity.airport.slug}/${review.entity.slug}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
               </h3></Link>
               {review.reviewContent && (
                <Slicer content={review.reviewContent} />
               )}
-              <div className=" mt-auto ">
+              <div className=" mt-4 border-t pt-3 ">
               <div className="flex items-center gap-3 ">
                 <ReactStars
                   value={review.rate}
