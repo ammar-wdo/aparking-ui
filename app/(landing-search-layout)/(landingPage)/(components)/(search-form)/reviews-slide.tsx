@@ -10,11 +10,13 @@ import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
+import { NLtimezone } from "@/lib/nl-timezone";
 
 type FullReview = Review & {
   id: string;
   booking: { firstName: string; lastName: string };
   entity: { entityName: string,slug:string,airport:{name:string,slug:string}};
+  createdAt:Date
 };
 type Props = { reviews: FullReview[] };
 
@@ -57,17 +59,18 @@ const ReviewsSlide = ({ reviews }: Props) => {
 
         return (
           <SwiperSlide className="" key={review.id}>
-            <div className=" rounded-lg p-6 bg-white flex flex-col h-full">
+            <div className=" rounded-lg p-3 bg-white flex flex-col h-full">
               <Link className="" href={`/${review.entity.airport.slug}/${review.entity.slug}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
               </h3></Link>
               {review.reviewContent && (
-                <p className="text-sm text-gray-600 mt-4 max-h-[125px] h-full overflow-y-auto leading-relaxed">
+                <p className="text-sm text-gray-600 mt-4 max-h-[140px] h-full overflow-y-auto leading-relaxed">
                   {review.reviewContent}
                 </p>
               )}
-              <div className="flex items-center gap-3 mt-auto">
+              <div className="flex items-center justify-between mt-auto">
+              <div className="flex items-center gap-3 ">
                 <ReactStars
                   value={review.rate}
                   edit={false}
@@ -78,6 +81,9 @@ const ReviewsSlide = ({ reviews }: Props) => {
                   {showCase[review.visibility]}
                 </p>
               </div>
+              <p className="text-sm text-neutral-500">{NLtimezone(new Date(review.createdAt),'Europe/Amsterdam')}</p>
+              </div>
+            
             </div>
           </SwiperSlide>
         );

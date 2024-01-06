@@ -104,9 +104,9 @@ const page = async ({ params, searchParams }: Props) => {
           </div>}
           </div>
          
-          <section className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1  gap-8 mb-8">
+          <section className="mb-8 ">
             <GallarySwiper gallary={service.images || []} />
-            <div className="lg:aspect-video w-full overflow-y-scroll  row-span-1 lg:col-span-2 max-h-[600px]">
+            <div className=" mt-8">
               <Editor initialContent={service.generalInformation} />
             </div>
           </section>

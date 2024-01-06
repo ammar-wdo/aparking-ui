@@ -12,6 +12,7 @@ import ServciesFeed from './(components)/services-feed'
 import Reviews from '@/app/(landing-search-layout)/(landingPage)/(components)/reviews'
 import { Metadata } from 'next'
 import { getEntity } from '@/lib/getters'
+import GallarySwiper from './[serviceName]/(components)/gallary-swiper'
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {params:{entityName:string,airportName:string}}
@@ -66,12 +67,9 @@ if(!entity) return notFound()
 
             <section className='mt-12' >
                 <h3 className='font-bold text-3xl text-site capitalize'>{entity?.entityName}</h3>
-                <article className='grid grid-cols-1 lg:grid-cols-3 mt-4 gap-3 '>
-                    <div className='w-full aspect-video lg:h-full relative'>
-                        <Image alt='entity image' fill src={entity?.images[0] || ''} className='object-contain'/>
-
-                    </div>
-                    <div className='lg:col-span-2'>
+                <article className='lg:p-12 p-4 py-8'>
+                    <GallarySwiper gallary={entity.images} />
+                    <div className='lg:col-span-2 mt-12' >
                     <Editor  initialContent={entity?.content} />
                     </div>
                     
