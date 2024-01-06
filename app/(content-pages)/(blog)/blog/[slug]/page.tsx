@@ -50,8 +50,8 @@ const page =async({params}: Props) => {
 
             <Editor  initialContent={blog.content} />
 
-            <div className='my-8 flex items-center gap-4'>
-                {blog.tags.map(tag=><Badge className='bg-gray-100 text-gray-400 capitalize hover:bg-gray-100 text-base cursor-default' key={tag}>{tag}</Badge>)}
+            <div className='my-8 flex items-center gap-2 flex-wrap'>
+                {blog.tags.map(tag=><Badge className='bg-gray-100 text-gray-400 capitalize hover:bg-gray-100 text-xs sm:text-base cursor-default' key={tag}>{tag}</Badge>)}
             </div>
         </section>
 
