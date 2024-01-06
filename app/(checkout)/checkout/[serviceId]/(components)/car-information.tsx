@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
@@ -37,6 +37,8 @@ const CarInformation = ({
   payStep,
   setPayStep,
 }: Props) => {
+
+  const carRef = useRef<HTMLDivElement>(null)
   const toPayInfo =async () => {
 
     const isValid = await form.trigger([
@@ -47,12 +49,13 @@ const CarInformation = ({
 
       if(isValid){
         setPayStep(true);
+        carRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
  
   };
 
   return (
-    <div className="space-y-5  bg-white p-6">
+    <div ref={carRef} className="space-y-5  bg-white p-6">
       <div>
         <div className="flex items-center ">
           <h3
