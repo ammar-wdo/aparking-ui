@@ -2,15 +2,23 @@ import { GET_FAQ } from '@/links'
 import axios from 'axios'
 import React from 'react'
 import FaqComponent from './faq-component'
+import { FAQ } from '@/schemas'
+import queryString from 'query-string'
 
-type Props = {}
+type Props = {searchParams:{[ket:string]:string | string [] | undefined}}
+
+type fullFaq = FAQ & {id:string}
+
+const FaqFeed = async({searchParams}: Props) => {
 
 
+  const url = queryString.stringifyUrl({
+    url: GET_FAQ,
+    query: { category: searchParams.category },
+  });
 
-const FaqFeed = async(props: Props) => {
-
-    const res = await axios(GET_FAQ)
-    const faqs = res.data.faqs as {id:string,question:string,answer:string}[]
+    const res = await axios(url)
+    const faqs = res.data.faqs as fullFaq[]
 
  
 

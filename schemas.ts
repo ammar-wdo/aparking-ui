@@ -195,3 +195,13 @@ export const blogSchema = z.object({
  })
 
  export type Blog = z.infer<typeof blogSchema> 
+
+
+ export const faqSchema = z.object({
+  question: z.string().min(1,{message:'Question field is required'}),
+  answer: z.string().min(1,{message:'Answer field is required'}),
+  categoryFaqId:z.string().min(1,{message:'Category is required'})
+});
+
+
+export type FAQ = z.infer<typeof faqSchema> 

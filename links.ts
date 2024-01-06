@@ -28,6 +28,7 @@ export const GET_ABOUT = BASE_URL + '/api/about'
 export const GET_FAQ = BASE_URL + '/api/faq'
 export const GET_TERMS = BASE_URL + '/api/terms'
 export const GET_PRIVACY = BASE_URL + '/api/privacy'
+export const GET_FAQ_CAT = BASE_URL + '/api/faq-cat'
 
 
 
