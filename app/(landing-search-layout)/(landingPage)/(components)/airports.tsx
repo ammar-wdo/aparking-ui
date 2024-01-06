@@ -43,7 +43,7 @@ const Airports = async (props: Props) => {
       </div>
       <div className="md:hidden flex items-stretch gap-4 overflow-x-auto w-full relative z-50 p-8">
       {res.data.airports.map((airport: Airport) => (
-          <Link key={airport.id} href={`/${airport.name}`} className="flex-shrink-0 max-w-[270px] w-full  ">
+          <Link key={airport.id} href={`/${airport.slug}`} className="flex-shrink-0 max-w-[270px] w-full  ">
           <div  className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-full">
             <div className="relative aspect-video  ">
               <Image

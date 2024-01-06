@@ -65,11 +65,11 @@ const ReviewsSlide = ({ reviews }: Props) => {
                 {review.entity.entityName}
               </h3></Link>
               {review.reviewContent && (
-                <p className="text-sm text-gray-600 mt-4 max-h-[140px] h-full overflow-y-auto leading-relaxed">
+                <p className="text-sm text-gray-600 mt-4 max-h-[160px] h-full overflow-y-auto leading-relaxed">
                   {review.reviewContent}
                 </p>
               )}
-              <div className="flex items-center justify-between mt-auto">
+              <div className=" mt-auto ">
               <div className="flex items-center gap-3 ">
                 <ReactStars
                   value={review.rate}
@@ -81,7 +81,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                   {showCase[review.visibility]}
                 </p>
               </div>
-              <p className="text-sm text-neutral-500">{NLtimezone(new Date(review.createdAt),'Europe/Amsterdam')}</p>
+              <p className="text-xs mt-1 text-neutral-500">{NLtimezone(new Date(review.createdAt),'Europe/Amsterdam')}</p>
               </div>
             
             </div>
