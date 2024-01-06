@@ -75,7 +75,7 @@ return redirect("/");
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
-      <Banner noForm={true} airportName={airportName.name}>
+      <Banner noForm={true} airportName={airportName?.name}>
         <p className="text-white">{`From ${format(
           new Date(startDate),
           "dd-MM-yyyy"

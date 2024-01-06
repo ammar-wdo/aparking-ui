@@ -63,7 +63,7 @@ const SearchFeed = async ({
 
 
 
-console.log(message)
+console.log('data',data)
 
 
   return (
