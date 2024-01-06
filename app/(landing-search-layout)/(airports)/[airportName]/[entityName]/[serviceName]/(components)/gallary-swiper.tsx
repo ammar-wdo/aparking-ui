@@ -16,7 +16,7 @@ const GallarySwiper = ({gallary}: Props) => {
     <div className='w-full h-full '>
           <Swiper
        modules={[Navigation]}
-      className=''
+      className='md:h-[600px] h-[300px] '
       spaceBetween={40}
         slidesPerView={1}
         navigation
@@ -31,7 +31,7 @@ const GallarySwiper = ({gallary}: Props) => {
      
       >
         {gallary.map(image=>
-              <SwiperSlide className='w-full  md:min-h-[600px] min-h-[300px] rounded-lg overflow-hidden' key={image}>
+              <SwiperSlide className='w-full    rounded-lg overflow-hidden' key={image}>
               <div className='w-full h-full relative'>
                 <Image
                 fill
