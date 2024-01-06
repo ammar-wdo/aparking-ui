@@ -46,26 +46,23 @@ export const useEditBooking = (
   const [additionaldays, setAdditionalDays] = useState<number | undefined>(
     undefined
   );
-  const [startOpen, setStartOpen] = useState(false)
-  const [endOpen, setEndOpen] = useState(false)
+  const [startOpen, setStartOpen] = useState(false);
+  const [endOpen, setEndOpen] = useState(false);
 
-
-  useEffect(()=>{
-    if(form.watch('arrivalDate')){
-      setStartOpen(false)
+  useEffect(() => {
+    if (form.watch("arrivalDate")) {
+      setStartOpen(false);
     }
-        },[form.watch('arrivalDate')])
-    
-    
-        useEffect(()=>{
-          if(form.watch('departureDate')){
-            setEndOpen(false)
-          }
-        },[form.watch('departureDate')])
+  }, [form.watch("arrivalDate")]);
+
+  useEffect(() => {
+    if (form.watch("departureDate")) {
+      setEndOpen(false);
+    }
+  }, [form.watch("departureDate")]);
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
-    
       const { startDateString, endDateString } = handleTimezone(
         new Date(user.arrivalDate),
         new Date(user.departureDate)
@@ -98,28 +95,44 @@ export const useEditBooking = (
     }
   }, [user, form.watch("arrivalDate"), form.watch("departureDate")]);
 
-
-  useEffect(()=>{
-
-
-    if (user && form.watch("arrivalDate") && form.watch("departureDate")){
-    
-        if(form.watch('arrivalDate').getTime() > form.watch('departureDate').getTime()  ){
-          const newEndDate = new Date(form.watch('arrivalDate'));
-          newEndDate.setDate(form.watch('arrivalDate').getDate() + 4);
-          form.setValue('departureDate',newEndDate);
-        }
-      
-      
-
+  useEffect(() => {
+    if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
+      if (
+        form.watch("arrivalDate").getTime() >
+        form.watch("departureDate").getTime()
+      ) {
+        const newEndDate = new Date(form.watch("arrivalDate"));
+        newEndDate.setDate(form.watch("arrivalDate").getDate() + 4);
+        form.setValue("departureDate", newEndDate);
+      }
     }
-
-  },[user, form.watch("arrivalDate")])
+  }, [user, form.watch("arrivalDate")]);
 
   useEffect(() => {
     if (user && form.watch("arrivalDate") && form.watch("departureDate")) {
-     
-     if(form.watch('arrivalTime') !==user.arrivalTime || form.watch('departureTime') !==user.departureTime) {
+const startFullDate = new Date(form.watch('arrivalDate'))
+const endFullDate = new Date(form.watch('departureDate'))
+const [startHours, startMinutes] = form.watch('arrivalTime').split(':')
+const [endHours, endMinutes] = form.watch('departureTime').split(':')
+startFullDate.setHours(+startHours,+startMinutes,0,0)
+endFullDate.setHours(+endHours,+endMinutes,0,0)
+
+const userStartFullTime = new Date(user.arrivalDate)
+const [userStartHours, userStartMinutes] = user.arrivalTime.split(':')
+const userEndFullTime = new Date(user.departureDate)
+const [userEndHours, userEndMinutes] = user.departureTime.split(':')
+userStartFullTime.setHours(+userStartHours,+userStartMinutes,0,0)
+userEndFullTime.setHours(+userEndHours,+userEndMinutes,0,0)
+
+
+
+      if (
+
+        startFullDate.getTime() !== userStartFullTime.getTime() ||
+         endFullDate.getTime() !== userEndFullTime.getTime()
+        // form.watch("arrivalTime") !== user.arrivalTime ||
+        // form.watch("departureTime") !== user.departureTime
+      ) {
         setDifferentDate(true);
       } else {
         setDifferentDate(false);
@@ -127,16 +140,10 @@ export const useEditBooking = (
         setAdditionalDays(undefined);
         setAdditionalPrice(undefined);
       }
-
     }
-    
-  }, [user,form.watch("arrivalTime"), form.watch("departureTime")]);
+  }, [user, form.watch("arrivalTime"), form.watch("departureTime")]);
 
   const router = useRouter();
-
-
-
-
 
   async function onSubmit(values: z.infer<typeof bookingSchema>) {
     const { startDateString, endDateString } = handleTimezone(
@@ -149,7 +156,7 @@ export const useEditBooking = (
       departureDate: endDateString,
       bookingCode: user?.bookingCode,
     };
-console.log(startDateString,endDateString)
+    console.log(startDateString, endDateString);
     try {
       const result = await axios.post(UPDATE_BOOKING, refinedValues);
       if (result.data.url) {
@@ -188,6 +195,9 @@ console.log(startDateString,endDateString)
     setAdditionalPrice,
     additionaldays,
     setAdditionalDays,
-    startOpen,endOpen,setStartOpen,setEndOpen
+    startOpen,
+    endOpen,
+    setStartOpen,
+    setEndOpen,
   };
 };
