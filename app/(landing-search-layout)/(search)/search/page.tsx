@@ -70,19 +70,19 @@ return redirect("/");
 
 
 
-
+const time = `From ${format(
+  new Date(startDate),
+  "dd-MM-yyyy"
+)} at ${startTime} to ${format(
+  new Date(endDate),
+  "dd-MM-yyyy"
+)} at ${endTime}`
 
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true} airportName={airportName?.name}>
-        <p className="text-white">{`From ${format(
-          new Date(startDate),
-          "dd-MM-yyyy"
-        )} at ${startTime} to ${format(
-          new Date(endDate),
-          "dd-MM-yyyy"
-        )} at ${endTime}`}</p>
+        <p className="text-white">{time}</p>
 
      
 
