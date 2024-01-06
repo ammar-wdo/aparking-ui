@@ -3,6 +3,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { handleTimezone } from "@/lib/timezone-handler";
 import { toast } from "sonner";
+import { format } from "date-fns";
 
 
 type Props = {
@@ -208,11 +209,11 @@ if(!airport && !serviceId) setOpenAirport(true)
     else {
 
       const [startHours, startMinutes] = startTime.split(':');
-      const startDateConst = startDate
+      const startDateConst = new Date(startDate)
       startDateConst.setHours(Number(startHours));
       startDateConst.setMinutes(Number(startMinutes));
 
-      const endDateConst = endDate
+      const endDateConst =new Date(endDate)
       const [hours, minutes] = endTime.split(':');
       endDateConst.setHours(Number(hours));
       endDateConst.setMinutes(Number(minutes));
@@ -239,14 +240,17 @@ if (params) {
 }
 
 
+const encodedStartDate = format(startDate,'yyyy-MM-dd');
+
+const encodedEndDate = format(endDate,'yyyy-MM-dd');
       let url
 
       if(serviceId){
         url = qs.stringifyUrl({
           url:pathname,
           query:{
-              startDate:startDate.toLocaleDateString(),
-              endDate:endDate.toLocaleDateString(),
+              startDate:encodedStartDate,
+              endDate:encodedEndDate,
               startTime:startTime,
               endTime:endTime,
          
@@ -259,8 +263,8 @@ if (params) {
           query: {
             ...currentQuery,
             airport:airport,
-            startDate: startDate.toLocaleDateString(),
-            endDate: endDate.toLocaleDateString(),
+            startDate: encodedStartDate,
+            endDate: encodedEndDate,
             startTime,
             endTime,
            

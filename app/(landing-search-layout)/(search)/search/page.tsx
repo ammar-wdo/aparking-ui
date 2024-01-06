@@ -57,14 +57,9 @@ const page = async ({ searchParams }: Props) => {
     (airportElement: Airport) => airportElement.slug === airport
   ) as Airport;
 
-  const start = new Date(startDate);
-  const end = new Date(endDate);
 
-  const time = `From ${start.getDate()}-${
-    start.getMonth() + 1
-  }-${start.getFullYear()} at ${startTime} to ${end.getDate()}-${
-    end.getMonth() + 1
-  }-${end.getFullYear()} at ${endTime}`;
+
+  const time = `From ${startDate} at ${startTime} to ${endDate} at ${endTime}`;
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
