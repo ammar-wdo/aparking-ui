@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
@@ -30,6 +30,7 @@ type Props = {
 };
 
 const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
+  const personalRef = useRef<HTMLDivElement>(null)
   const toCarInfo = async () => {
     const isValid = form.getValues("isCompany")
       ? await form.trigger([
@@ -54,13 +55,14 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
         
     if (isValid) {
       setCarStep(true);
+      personalRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   };
 
 const router = useRouter()
 
   return (
-    <div className="space-y-5 bg-white p-6">
+    <div ref={personalRef} className="space-y-5 bg-white p-6">
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400")}>
