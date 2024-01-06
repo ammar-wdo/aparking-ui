@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 import { NLtimezone } from "@/lib/nl-timezone";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Slicer from "./slicer";
 
 type FullReview = Review & {
@@ -67,6 +67,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
         );
       })}
       </CarouselContent>
+   
       </Carousel>
   );
 };
