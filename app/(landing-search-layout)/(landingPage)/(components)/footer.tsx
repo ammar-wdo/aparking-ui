@@ -24,40 +24,40 @@ const Footer = (props: Props) => {
             </section>
             <section className='mt-4'>
 <h3 className='font-bold'>Airports</h3>
-<div className='mt-6 flex flex-col gap-2'>
-    <Link href={'/Schiphol Airport'} className='capitalize font-light text-sm hover:underline '>Schiphol Airport</Link>
-    <Link href={'/Damascus airport'} className='capitalize font-light text-sm hover:underline'>Damascus airport</Link>
-    <Link href={'/Vnokova Moscow airport'} className='capitalize font-light text-sm hover:underline'>Vnokova Moscow airport</Link>
-    <Link href={'/Houari Boumedien Algeria airport'} className='capitalize font-light text-sm hover:underline'>Houari Boumedien Algeria airport</Link>
+<div className='mt-6 flex flex-col gap-4'>
+    <Link href={'/Schiphol Airport'} className='capitalize font-light text-base hover:underline '>Schiphol Airport</Link>
+    <Link href={'/Damascus airport'} className='capitalize font-light text-base hover:underline'>Damascus airport</Link>
+    <Link href={'/Vnokova Moscow airport'} className='capitalize font-light text-base hover:underline'>Vnokova Moscow airport</Link>
+    <Link href={'/Houari Boumedien Algeria airport'} className='capitalize font-light text-base hover:underline'>Houari Boumedien Algeria airport</Link>
 
 </div>
             </section>
             <section className='mt-4'>
 <h3 className='font-bold'>Company</h3>
-<div className='mt-6 flex flex-col gap-2'>
-    <Link href={'/about'} className=' font-light text-sm hover:underline '>About</Link>
-    <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Contact us</Link>
-    <Link href={'/partner'} className=' font-light text-sm hover:underline'>Become a partner</Link>
-    <Link href={'/blog'} className=' font-light text-sm hover:underline'>Blog</Link>
+<div className='mt-6 flex flex-col gap-4'>
+    <Link href={'/about'} className=' font-light text-base hover:underline '>About</Link>
+    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Contact us</Link>
+    <Link href={'/partner'} className=' font-light text-base hover:underline'>Become a partner</Link>
+    <Link href={'/blog'} className=' font-light text-base hover:underline'>Blog</Link>
 
 </div>
             </section>
             <section className='mt-4 shrink-0'>
 <h3 className='font-bold'>Support</h3>
-<div className='mt-6 flex flex-col gap-2'>
-    <Link href={'/frequently-asked-questions'} className=' font-light text-sm hover:underline '>FAQ</Link>
-    <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Help center</Link>
-    <Link href={'/contact-us'} className=' font-light text-sm hover:underline'>Report a bug</Link>
-    <Link href={'/'} className=' font-light text-sm hover:underline'>Chat support </Link>
+<div className='mt-6 flex flex-col gap-4'>
+    <Link href={'/frequently-asked-questions'} className=' font-light text-base hover:underline '>FAQ</Link>
+    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Help center</Link>
+    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Report a bug</Link>
+    <Link href={'/'} className=' font-light text-base hover:underline'>Chat support </Link>
 
 </div>
             </section>
             <section className='mt-4'>
 <h3 className='font-bold'>Contact us </h3>
-<div className='mt-6 flex flex-col gap-2'>
-  <p className='flex gap-3 items-center font-light text-sm'> <Mail className='w-4 h-4'/> email@company.com</p>
-  <p className='flex gap-3 items-center font-light text-sm'><Phone className='w-4 h-4'/>   (123)123-1234</p>
-  <p className='flex gap-3 items-center font-light text-sm'> <MapPin className='w-4 h-4'/>   794 Mcallister St
+<div className='mt-6 flex flex-col gap-4'>
+  <p className='flex gap-3 items-center font-light text-base'> <Mail className='w-4 h-4'/> email@company.com</p>
+  <p className='flex gap-3 items-center font-light text-base'><Phone className='w-4 h-4'/>   (123)123-1234</p>
+  <p className='flex gap-3 items-center font-light text-base'> <MapPin className='w-4 h-4'/>   794 Mcallister St
 San Francisco, 94102</p>
 
 </div>

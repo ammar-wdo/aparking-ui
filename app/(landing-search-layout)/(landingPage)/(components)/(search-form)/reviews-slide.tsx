@@ -62,7 +62,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
 
         return (
           <SwiperSlide className="h-full" key={review.id}>
-            <div className=" rounded-lg p-3 bg-white flex flex-col shadow-sm hover:shadow-md transition">
+            <div className=" rounded-lg p-3 bg-white flex flex-col shadow-sm hover:shadow-md transition min-h-[300px]">
               <Link className="pb-2 border-b" href={`/${review.entity.airport.slug}/${review.entity.slug}`}>
               <h3 className="text-lg font-semibold text-site">
                 {review.entity.entityName}
@@ -70,7 +70,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
               {review.reviewContent && (
                <Slicer content={review.reviewContent} />
               )}
-              <div className=" mt-4 border-t pt-3 ">
+              <div className=" mt-auto border-t pt-3 ">
               <div className="flex items-center gap-3 ">
                 <ReactStars
                   value={review.rate}
