@@ -32,9 +32,12 @@ if(!airport) return {
 
  
   return {
-    title: airport.name,
+    title:`Compare Airport Parking Options - ${airport.name} | Aparking"` ,
+    description:`Find and compare the best airport parking options at ${airport.name}. Save time and money by booking secure and affordable parking with Aparking. Reserve your spot now!`,
     
     openGraph: {
+      title:`Compare Airport Parking Options - ${airport.name} | Aparking"` ,
+    description:`Find and compare the best airport parking options at ${airport.name}. Save time and money by booking secure and affordable parking with Aparking. Reserve your spot now!`,
       images: [...airport.images],
     },
   }

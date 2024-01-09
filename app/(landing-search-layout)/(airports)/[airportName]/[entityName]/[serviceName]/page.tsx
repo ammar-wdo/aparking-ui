@@ -41,9 +41,12 @@ if(!service) return {
 
  
   return {
-    title: service.name,
+    title:`${service.name} - Compare Parking Services | Aparking"` ,
+    description:`${service.name} located just [${service.distanceToAirport} km away from ${service.entity.entityName}. Save time and book your parking spot now with Aparking. `,
     
     openGraph: {
+      title:`${service.name} - Compare Parking Services | Aparking"` ,
+      description:`${service.name} located just [${service.distanceToAirport} km away from ${service.entity.entityName}. Save time and book your parking spot now with Aparking. `,
       images: [...(service.images||[])],
     },
   }

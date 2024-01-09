@@ -10,8 +10,13 @@ import CrispProvider from '@/components/providers/crisp-provier'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Aparking',
-  description: 'Best parking comparison site',
+  title: 'Compare Airport Parking Services - Book Secure Parking | Aparking',
+  description: 'Compare and book the best airport parking services at Aparking. Find secure and affordable parking options at various airports. Save time and money by reserving your parking spot in advance.',
+  openGraph:{
+    title:'Compare Airport Parking Services - Book Secure Parking | Aparking',
+    description:'Compare and book the best airport parking services at Aparking. Find secure and affordable parking options at various airports. Save time and money by reserving your parking spot in advance.',
+  
+  }
   
 }
 

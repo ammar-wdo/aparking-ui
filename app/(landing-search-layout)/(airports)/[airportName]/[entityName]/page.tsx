@@ -35,9 +35,11 @@ export async function generateMetadata(
   
    
     return {
-      title: entity.entityName,
-      
+      title:`${entity.entityName} - Compare Parking Services | Aparking` ,
+      description:`Discover the best parking services offered by ${entity.entityName}. Compare prices, locations, and amenities to find the ideal parking solution for your needs. Book with confidence through Aparking.`,
       openGraph: {
+        title:`${entity.entityName} - Compare Parking Services | Aparking` ,
+        description:`Discover the best parking services offered by ${entity.entityName}. Compare prices, locations, and amenities to find the ideal parking solution for your needs. Book with confidence through Aparking.`,
         images: [...entity.images],
       },
     }
