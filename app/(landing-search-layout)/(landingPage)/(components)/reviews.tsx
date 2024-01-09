@@ -4,6 +4,7 @@ import axios from "axios";
 import React from "react";
 import ReviewsSlide from "./(search-form)/reviews-slide";
 import queryString from "query-string";
+import { unstable_noStore as noStore } from 'next/cache';
 
 type FullReview = Review & {
   id: string;
@@ -26,7 +27,7 @@ const Reviews = async ({
       entityId,
     },
   });
-
+  noStore();
   const res = await axios.get(url);
   const reviews = res.data.reviews as FullReview[];
   console.log(reviews);
