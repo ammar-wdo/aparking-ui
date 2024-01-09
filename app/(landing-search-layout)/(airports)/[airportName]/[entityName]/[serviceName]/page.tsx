@@ -42,7 +42,7 @@ if(!service) return {
  
   return {
     title:`${service.name} reviews & prices - Compare Parking Services | Aparking"` ,
-    description:`${service.name} a ${service.parkingType} parking service, located just [${service.distanceToAirport} km away from ${service.entity.airport.name}. Save time and book your parking spot now with Aparking. `,
+    description:`${service.name} a ${service.parkingType} parking service, located just ${service.distanceToAirport} km away from ${service.entity.airport.name}. Save time and book your parking spot now with Aparking. `,
     
     openGraph: {
       title:`${service.name} reviews & prices - Compare Parking Services | Aparking"` ,

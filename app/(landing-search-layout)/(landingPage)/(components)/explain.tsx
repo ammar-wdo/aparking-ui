@@ -29,7 +29,7 @@ const explainInfo = [
         <div className='mt-8 grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 lg:gap-20 gap-8 md:gap-14 mx-auto  '>
             {explainInfo.map((card)=><div key={card.title} className='p-8 bg-white text-center flex flex-col gap-3 rounded-md items-center'>
                 <span className='p-2 rounded-full bg-[#003580] '>{card.icon}</span>
-                <h4 className='text-2xl text-[#003580] w-[200px] font-semibold'>{card.title}</h4>
+                <h3 className='text-2xl text-[#003580] w-[200px] font-semibold'>{card.title}</h3>
                 <p className='text-sm font-light text-gray-600 w-[200px]'>{card.description}</p>
             </div>)}
 
