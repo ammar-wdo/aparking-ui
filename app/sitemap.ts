@@ -37,7 +37,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...airportsSlugs,
     ...entitiesSlugs,
     ...servicesSlugs,
-    ...blogsSlugs
+    ...blogsSlugs,
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/blog`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/about`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/partner`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/contact-us`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/frequently-asked-questions`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/privacy`},
+    {url:`${process.env.NEXT_PUBLIC_MY_URL}/terms`},
 
    
   ]

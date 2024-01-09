@@ -2,9 +2,23 @@ import Link from 'next/link'
 import React from 'react'
 import FaqFeed from './(components)/faq-feed'
 import FaqCatFeed from './(components)/faq-cat-feet'
+import { Metadata } from 'next'
 
 type Props = {searchParams:{[ket:string]:string | string [] | undefined}}
 
+
+
+
+export const metadata: Metadata = {
+  title: 'Frequently Asked Questions - Aparking Airport Parking Services',
+  description: `Find answers to commonly asked questions about Aparking's airport parking services. Get information about booking, payment, cancellations, and more to make your parking experience hassle-free.`,
+  openGraph:{
+    title:'Frequently Asked Questions - Aparking Airport Parking Services',
+    description:`Find answers to commonly asked questions about Aparking's airport parking services. Get information about booking, payment, cancellations, and more to make your parking experience hassle-free.`,
+  
+  }
+  
+}
 
 export const revalidate = 0
 

@@ -1,11 +1,24 @@
 import { GET_ABOUT, GET_PRIVACY, GET_TERMS } from "@/links";
 import axios from "axios";
+import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 const Editor = dynamic (()=>import('@/components/editor'), { ssr: false })
 
 type Props = {};
+
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Your Privacy Matters to Aparking',
+  description: `Aparking is committed to protecting your privacy. Read our comprehensive privacy policy to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+  openGraph:{
+    title:'Privacy Policy - Your Privacy Matters to Aparking',
+    description:`Aparking is committed to protecting your privacy. Read our comprehensive privacy policy to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+  
+  }
+  
+}
 
 export const revalidate = 0
 

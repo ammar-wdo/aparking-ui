@@ -5,6 +5,7 @@ import { GET_BLOGS } from '@/links'
 import { Blog } from '@/schemas'
 import axios from 'axios'
 import { format } from 'date-fns'
+import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,6 +16,30 @@ type Props = {
     params:{slug:string}
 }
 export const revalidate = 0
+
+
+
+export async function generateMetadata(
+    { params,  }: Props,
+  
+  ): Promise<Metadata> {
+
+    const res = await axios(GET_BLOGS + `/${params.slug}`)
+
+    const blog = res.data.blog as Blog 
+
+    return {
+        title:blog.title,
+        description:blog.shortDescription,
+        openGraph:{
+            images:[blog.featuredImage],
+            title:blog.title,
+            description:blog.shortDescription
+        }
+    }
+  }
+
+
 const page =async({params}: Props) => {
 
     const res = await axios(GET_BLOGS + `/${params.slug}`)
