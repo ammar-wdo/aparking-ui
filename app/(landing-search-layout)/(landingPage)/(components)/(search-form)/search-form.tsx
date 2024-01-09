@@ -10,6 +10,7 @@ import AirportSelect from "./airport-select";
 import Filter from "@/components/sheets/filter";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
+import { unstable_noStore as noStore } from 'next/cache';
 
 type Props = {
   startDateProp?: Date;
@@ -68,6 +69,8 @@ const SearchForm = ({
     airportSlug,
     serviceId,
   });
+
+  noStore()
 
   return (
     <div className="text-white ">
