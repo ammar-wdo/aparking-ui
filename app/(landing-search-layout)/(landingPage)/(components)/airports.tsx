@@ -4,12 +4,15 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { unstable_noStore as noStore } from 'next/cache';
 
 type Props = {};
 
 
 
+
 const Airports = async (props: Props) => {
+  noStore();
   const res = await axios(GET_AIRPORTS);
 
 
