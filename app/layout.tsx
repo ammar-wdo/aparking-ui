@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph:{
     title:'Compare Airport Parking Services - Book Secure Parking | Aparking',
     description:'Compare and book the best airport parking services at Aparking. Find secure and affordable parking options at various airports. Save time and money by reserving your parking spot in advance.',
-    images:['/opengraph-image.jpg']
+    images:['/opengraph-site.jpg']
   
   }
   
