@@ -43,7 +43,7 @@ useEffect(()=>{setMount(true)},[])
 
   return (
     <Popover open={openPop} onOpenChange={setOpenPop}  >
-      <PopoverTrigger asChild className="flex items-center gap-1  md:text-base text-sm font-medium"><Button name="menu-button"  className="bg-transparent hover:bg-transparent"><Menu className={cn("",contentPages ? 'text-white' : "text-site")}/></Button></PopoverTrigger>
+      <PopoverTrigger asChild className="flex items-center gap-1  md:text-base text-sm font-medium"><Button name="menu-button" type="button" aria-label='Menu'  className="bg-transparent hover:bg-transparent"><Menu name="Menu" className={cn("",contentPages ? 'text-white' : "text-site")}/></Button></PopoverTrigger>
       <PopoverContent  className="mt-5 flex flex-col items-center gap-6">
         
           <NavLinks close={closePop} col />
