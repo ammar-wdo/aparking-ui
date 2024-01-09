@@ -16,6 +16,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const servicesSlugs:MetadataRoute.Sitemap = (resServices.data.services as FullService[]).map(service=>({url:`${process.env.NEXT_PUBLIC_MY_URL}/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}`}))
 
 
+    console.log('services site map ',servicesSlugs)
+
+
 
 
 
