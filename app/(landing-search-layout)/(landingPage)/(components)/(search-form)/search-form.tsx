@@ -70,7 +70,7 @@ const SearchForm = ({
     serviceId,
   });
 
-  noStore()
+  // noStore()
 
   return (
     <div className="text-white ">
