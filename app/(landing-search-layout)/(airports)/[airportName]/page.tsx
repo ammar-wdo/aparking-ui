@@ -54,7 +54,6 @@ console.log(airport)
 if(!airport) return   notFound()
   
 
-
   return (
     <div>
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
