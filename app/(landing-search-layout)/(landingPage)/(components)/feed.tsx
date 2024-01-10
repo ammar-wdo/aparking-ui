@@ -8,9 +8,9 @@ const Feed = (props: Props) => {
     <div className="py-12  bg-white">
       <div className="container flex gap-12 flex-col md:flex-row justify-center">
         <div className="w-fit">
-          <h3 className="text-3xl font-semibold text-[#003580]">
+          <h2 className="text-3xl font-semibold text-[#003580]">
             Airport Parking Comparison: Stress-Free Options
-          </h3>
+          </h2>
           <p className="mt-4 text-sm font-light max-w-[800px] text-justify text-gray-600">
             Planning a trip? Parking shouldn&rsquo;t be a hassle! Compare top parking
             providers at airports worldwide effortlessly. Our platform helps you

@@ -18,9 +18,9 @@ export default  async function Home() {
   return (
     <main className="bg-gray-100 h-full ">
       <Banner>
-      <h3 className="lg:text-4xl font-semibold text-3xl relative z-10">
+      <h1 className="lg:text-4xl font-semibold text-3xl relative z-10">
         Your hassle-free parking solution.
-      </h3>
+      </h1>
       <p className="mt-4 font-extralight text-sm relative z-10">
         Compare parking spaces and prices at all major airports in the
         Netherlands, Germany & Belgium Airport
