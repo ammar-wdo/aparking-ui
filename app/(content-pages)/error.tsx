@@ -18,7 +18,7 @@ export default function Error({
   }, [error])
  console.log(error.message)
   return (
-    <div className='h-screen flex items-center justify-center'>
+    <div className='min-h-[800px] flex items-center justify-center'>
         <div className='space-y-4 text-center'>
         <h2 className='py-4  text-4xl font-bold '>Something went wrong!</h2>
         <div className="w-[200px] h-[200px] relative mx-auto">
