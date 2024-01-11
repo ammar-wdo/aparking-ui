@@ -5,7 +5,7 @@ type Props = {}
 
 const CheckoutHeader = (props: Props) => {
   return (
-    <div className='px-20 bg-[#003580] flex justify-center sm:justify-start '>
+    <div className='px-20 bg-[#003580] py-8 flex justify-center sm:justify-start '>
         <Logo footer />
 
     </div>

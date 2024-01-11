@@ -23,6 +23,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { bookingSchema } from "@/schemas";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -35,6 +36,9 @@ type Props = {
 };
 
 const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep,extraOptions}: Props) => {
+
+  const [terms, setTerms] = useState(false)
+  const [errorTerms, setErrorTerms] = useState(false)
 
 
 
@@ -120,11 +124,25 @@ const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep,extraOptions
 
        
       </div>
+      <div>
+      <div className="pt-4 items-center flex gap-3">
+      <Checkbox
+                            className=""
+                           checked={terms}
+                            onClick={() => {
+                          setTerms(terms=>!terms);setErrorTerms(false)
+                            }}
+                          />
+                          <p>I accept the <Link target="_blank" className="underline text-blue-500" href={'/terms'}>Terms and conditions</Link></p>
+      </div>
+      {errorTerms && <p className="text-xs text-rose-500 mt-2">You should accept terms and conditions</p>}
+      </div>
+     
       <div className="flex items-center justify-between">
         <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
           {<ChevronLeft className="mr-1 h-4 w-4" />}Back
         </button>
-        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
+        <Button disabled={form.formState.isSubmitting }  onClick={(e)=>{!terms && e.preventDefault();setErrorTerms(true)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
       </div>
       </>}
     </div>
