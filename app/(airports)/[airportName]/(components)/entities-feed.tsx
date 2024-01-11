@@ -27,11 +27,11 @@ const EntitiesFeed = async ({ airportId ,airportName,airportSlug}: Props) => {
         {!entities.length && <h3 className="py-12 text-center text-neutral-500 text-3xl font-bold">No companies</h3>}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
           {entities.map((entity) => (
-            <Link key={entity.id} href={`/${airportSlug}/${entity.slug}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+            <Link key={entity.id} href={`/${airportSlug}/${entity.slug}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer px-8 pt-8">
                 <div className="w-full aspect-video relative">
                     <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-contain"/>
                 </div>
-                <h3 className="text-center py-12  font-semibold text-site">{entity.entityName}</h3>
+                <h3 className="text-center pt-12  pb-6 font-semibold text-site">{entity.entityName}</h3>
             </div></Link>
           ))}
         </div>

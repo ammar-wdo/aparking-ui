@@ -84,10 +84,21 @@ const page = async ({ params, searchParams }: Props) => {
           service={{ name: service.name, href: service.slug }}
         />
         </div>
-
-        <h3 className="text-site text-3xl font-semibold  capitalize mt-10">
+        <div className="mt-10 flex gap-8">
+        <h3 className="text-site text-3xl font-semibold  capitalize ">
                 {service.name}
               </h3>
+        {service.totalReviews > 0 && (
+                <div className="my-2 flex items-center gap-3">
+                  <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
+                  <span className="font-bold">
+                    {service.totalReviews.toFixed(1)}
+                  </span>
+                </div>
+              )}
+        </div>
+
+     
 
         <div className="grid grid-cols-1   lg:grid-cols-9   py-4 gap-x-20 mt-8 gap-y-12">
           <div className="p-5 pb-6 rounded-lg bg-site h-fit lg:col-span-3 order-1 lg:order-2">
@@ -106,14 +117,7 @@ const page = async ({ params, searchParams }: Props) => {
           <div className="lg:col-span-6 order-2 lg:order-1">
             <div className="flex items-center gap-12 ">
             
-              {service.totalReviews > 0 && (
-                <div className="my-2 flex items-center gap-3">
-                  <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
-                  <span className="font-bold">
-                    {service.totalReviews.toFixed(1)}
-                  </span>
-                </div>
-              )}
+         
             </div>
 
             <section className="mb-8 ">
