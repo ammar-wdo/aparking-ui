@@ -22,12 +22,12 @@ const CheckoutTimeline = ({ valet }: Props) => {
     {
       id: "1",
       title: "Shortly, you will get a confirmation email.",
-      icon: <Mail className="w-8 h-8" />,
+      icon: <Mail className="w-8 h-8 text-site" />,
     },
     {
       id: "2",
       title: "Change your booking up to 24 hours before you leave.",
-      icon: <TimerReset className="w-8 h-8" />,
+      icon: <TimerReset className="w-8 h-8 text-site" />,
     },
     {
       id: "3",
@@ -35,15 +35,15 @@ const CheckoutTimeline = ({ valet }: Props) => {
         ? "Head to the departure hall."
         : "Drive to the parking lot on your departure day.",
       icon: valet ? (
-        <PlaneTakeoff className="w-8 h-8" />
+        <PlaneTakeoff className="w-8 h-8 text-site" />
       ) : (
-        <MapPinIcon className="w-8 h-8" />
+        <MapPinIcon className="w-8 h-8 text-site" />
       ),
     },
     {
       id: "4",
       title: "Your car will be ready for you when you come back.",
-      icon: <Check className="w-8 h-8" />,
+      icon: <Check className="w-8 h-8 text-site" />,
     },
   ];
   return (
@@ -56,10 +56,10 @@ const CheckoutTimeline = ({ valet }: Props) => {
           {elements.map((el, index) => (
             <div
               key={el.id}
-              className="flex cursor-pointer hover:bg-gray-100 transition lg:flex-col items-center text-center gap-6 relative z-20 bg-white p-2 lg:py-8 rounded-2xl "
+              className="flex  transition lg:flex-col items-center text-center gap-6 relative z-20 bg-white p-2 lg:py-8 rounded-2xl "
            
             >
-              <span className="flex items-center justify-center bg-site rounded-xl w-12 h-12 text-white shrink-0">
+              <span className="flex items-center justify-center bg-slate-100 rounded-xl w-16 h-16 text-white shrink-0">
                 {el.icon}
               </span>
               <p className="text-sm lg:max-w-[200px]">{el.title}</p>
