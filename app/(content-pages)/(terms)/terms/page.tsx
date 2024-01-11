@@ -40,7 +40,7 @@ const terms = res.data.terms
       <div className="container">
     
 
-        <h3 className="text-site text-3xl font-bold mt-12">Terms and conditions</h3>
+        <h1 className="text-site text-3xl font-bold mt-12">Terms and conditions</h1>
 
         {!terms && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

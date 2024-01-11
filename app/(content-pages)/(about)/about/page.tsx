@@ -39,7 +39,7 @@ const about = res.data.about
         </div>
      
 
-        <h3 className="text-site text-3xl font-bold">About us </h3>
+        <h1 className="text-site text-3xl mt-12 font-bold">About us </h1>
 
         {!about && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

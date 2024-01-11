@@ -26,7 +26,7 @@ const page = async ({ searchParams }: Props) => {
           <Navigator name="FAQ" />
         </div>
 
-        <h3 className="text-site text-3xl font-bold mt-12">FAQ</h3>
+        <h1 className="text-site text-3xl font-bold mt-12">FAQ</h1>
 
         <FaqCatFeed searchParams={searchParams} />
         <FaqFeed searchParams={searchParams} />

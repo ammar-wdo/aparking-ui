@@ -39,7 +39,7 @@ const privacy = res.data.privacy
       <div className="container">
     
 
-        <h3 className="text-site text-3xl mt-12 font-bold">Privacy and policy</h3>
+        <h1 className="text-site text-3xl mt-12 font-bold">Privacy and policy</h1>
 
         {!privacy && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 
