@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import PartnerGreeting from "./(components)/greeting"
 import InfoFeed from "./(components)/info-feed"
 import PartnerForm from "./(components)/partner-form"
+import Navigator from "@/components/navigator"
 
 
 type Props = {}
@@ -22,7 +23,11 @@ export const metadata: Metadata = {
 const page = (props: Props) => {
   return (
     <div className=''>
+        <div className="py-4 container">
+        <Navigator name="Become a partner" />
+        </div>
       <div className='container py-12 '>
+    
 <PartnerGreeting />
       </div>
 <InfoFeed />

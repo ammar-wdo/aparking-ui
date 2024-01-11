@@ -3,6 +3,7 @@ import Greeting from './(components)/greeting'
 import Chatfeed from './(components)/chat-feed'
 import ContactForm from './(components)/contac-us-form'
 import { Metadata } from 'next'
+import Navigator from '@/components/navigator'
 
 type Props = {}
 
@@ -24,6 +25,9 @@ const page =async (props: Props) => {
 
   return (
     <div className=''>
+        <div className="py-4 container">
+        <Navigator name="Contact us" />
+        </div>
       <div className='container py-12 '>
 <Greeting />
 <Chatfeed />

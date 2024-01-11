@@ -1,3 +1,4 @@
+import Navigator from '@/components/navigator'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { NLtimezone } from '@/lib/nl-timezone'
@@ -53,12 +54,10 @@ const page =async({params}: Props) => {
   return (
     <div className='min-h-[700px] '>
         <div className='container'>
-        <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap my-8">
-          {" "}
-          <Link href={"/"}>Home</Link> &gt;{" "}
-          <Link href={'/blog'}>Blog</Link>&gt;{" "}
-          <span className='text-black first-letter:capitalize'>{blog.title}</span>
-        </p>
+            <div className='py-4'>
+            <Navigator blog={true} blogDetails={{name:blog.title,slug:blog.slug}} />
+            </div>
+     
             <div className='w-full aspect-video md:aspect-[4/1] relative'>
                 <Image alt='featured' src={blog.featuredImage} fill className='object-cover rounded-lg' />
 

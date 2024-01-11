@@ -1,3 +1,4 @@
+import Navigator from "@/components/navigator";
 import { GET_ABOUT, GET_TERMS } from "@/links";
 import axios from "axios";
 import { Metadata } from "next";
@@ -33,11 +34,10 @@ const about = res.data.about
   return (
     <div className="min-h-[900px]">
       <div className="container">
-        <p className="text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap my-8">
-          {" "}
-          <Link href={"/"}>Home</Link> &gt;{" "}
-          <span className="capitalize text-black">About</span>{" "}
-        </p>
+        <div className="py-4">
+        <Navigator name="About" />
+        </div>
+     
 
         <h3 className="text-site text-3xl font-bold">About us </h3>
 
