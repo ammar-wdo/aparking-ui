@@ -44,8 +44,8 @@ let url = ''
             <h3 className='p-6 text-neutral-500 font-semibold'>
                 This service is not available for this date range
                 </h3></div>}
-        {service &&  <div className='w-full grid grid-cols-1 lg:grid-cols-3 items-center gap-4 border-b-2 border-b-yellow-500 border rounded-[2px]'>
-            <h3 className='font-bold text-2xl capitalize text-center lg:text-start p-3'>{service.name}</h3>
+        {service &&  <div className='w-full grid grid-cols-1 lg:grid-cols-3 border-b-2 border-b-yellow-500 border rounded-[2px]'>
+            <h3 className='font-bold text-lg self-center capitalize text-center lg:text-start p-3'>{service.name}</h3>
             <div className='text-center gap-2 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 items-center bg-gray-50 p-3 border-t lg:border-t-0 lg:border-l'> 
             <div >
             <p className='text-sm text-neutral-500'>price for {service.parkingDays} day(s)</p>

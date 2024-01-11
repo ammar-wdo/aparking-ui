@@ -55,7 +55,8 @@ const page = async ({ params }: Props) => {
         </h3>
       </Banner>
 
-      <div className="container mt-10">
+      <div className="container mt-10 px-3">
+        <div className="max-w-[1000px]">
         <Navigator
           airport={{ name: entity.airport.name, href: entity.airport.slug }}
           entity={{ name: entity.entityName, href: entity.slug }}
@@ -65,13 +66,15 @@ const page = async ({ params }: Props) => {
           <h3 className="font-bold text-3xl text-site capitalize">
             {entity?.entityName}
           </h3>
-          <article className="lg:p-12 p-4 py-8">
+          <article className=" py-8">
             <GallarySwiper gallary={entity.images} />
             <div className="lg:col-span-2 mt-12">
               <Editor initialContent={entity?.content} />
             </div>
           </article>
         </section>
+        </div>
+      
         <h3 className="text-site text-3xl font font-semibold mt-20 mb-10">
           Availability {entity?.entityName}
         </h3>

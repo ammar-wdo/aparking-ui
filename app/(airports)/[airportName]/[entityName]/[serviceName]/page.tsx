@@ -70,7 +70,7 @@ const page = async ({ params, searchParams }: Props) => {
     <div className="">
       <Header contentPages={true} />
 
-      <div className="container ">
+      <div className="mx-auto max-w-[1200px] px-3">
         <div className="mt-10">
         <Navigator
           airport={{
@@ -84,10 +84,13 @@ const page = async ({ params, searchParams }: Props) => {
           service={{ name: service.name, href: service.slug }}
         />
         </div>
-       
 
-        <div className="grid grid-cols-1   lg:grid-cols-8  mt-10 py-4 gap-4">
-          <div className="p-5 pb-6 rounded-lg bg-site h-fit lg:col-span-2 order-1 lg:order-2">
+        <h3 className="text-site text-3xl font-semibold  capitalize mt-10">
+                {service.name}
+              </h3>
+
+        <div className="grid grid-cols-1   lg:grid-cols-9   py-4 gap-x-20 mt-8 gap-y-12">
+          <div className="p-5 pb-6 rounded-lg bg-site h-fit lg:col-span-3 order-1 lg:order-2">
             <h3 className="text-white capitalize py-2 font-semibold text-2xl">
               Check availability
             </h3>
@@ -101,10 +104,8 @@ const page = async ({ params, searchParams }: Props) => {
             />
           </div>
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="flex items-center gap-12 pb-8">
-              <h3 className="text-site text-3xl font-semibold  capitalize">
-                {service.name}
-              </h3>
+            <div className="flex items-center gap-12 ">
+            
               {service.totalReviews > 0 && (
                 <div className="my-2 flex items-center gap-3">
                   <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
