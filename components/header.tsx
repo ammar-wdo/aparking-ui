@@ -28,8 +28,8 @@ const Header = async ({contentPages}: Props) => {
   const res = await axios(GET_AIRPORTS);
 
   return (
-    <div className={cn("bg-white ",contentPages&& 'bg-[#003580]')}>
-      <div className={cn("flex  sm:py-5 py-1  text-[#003580] items-center relative z-10 container justify-between",contentPages&&'text-white')}>
+    <div className={cn("bg-white sm:relative sticky top-0 z-[999] border-b sm:border-b-0 sm:z-0",contentPages&& 'bg-[#003580]')}>
+      <div className={cn("flex  py-5   text-[#003580] items-center relative z-10 container justify-between",contentPages&&'text-white')}>
         <Logo footer={contentPages} />
      
         <div className=" flex items-center gap-6">
