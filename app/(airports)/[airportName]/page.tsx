@@ -56,6 +56,8 @@ console.log(airport)
 if(!airport) return   notFound()
   
 
+
+
   return (
     <div>
       <Header />

@@ -12,7 +12,7 @@ const loading = (props: Props) => {
       <Header />
         <div className={cn("md:min-h-[500px] min-h-[600px] items-center flex bg-[#003580] relative ")}>
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
-      <div className='  h-full w-full gap-3  flex flex-col'>
+      <div className='container  h-full w-full gap-3  flex flex-col'>
     <Skeleton className='p-4 w-[300px] my-3' />
     <Skeleton className='p-12 w-full' />
 </div>
