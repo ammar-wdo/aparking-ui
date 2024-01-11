@@ -33,6 +33,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
     <Swiper
     modules={[Navigation,Pagination]}
    className='mt-8'
+   style={{paddingInline:35}}
    spaceBetween={40}
      slidesPerView={1}
      navigation
