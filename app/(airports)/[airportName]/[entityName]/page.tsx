@@ -62,7 +62,7 @@ const page = async ({ params }: Props) => {
           entity={{ name: entity.entityName, href: entity.slug }}
         />
 
-        <section className="mt-12">
+        <section className="mt-12 ">
           <h3 className="font-bold text-3xl text-site capitalize">
             {entity?.entityName}
           </h3>

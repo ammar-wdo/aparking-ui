@@ -64,7 +64,7 @@ if(!airport) return   notFound()
       <div className='container mt-10 min-h-[600px]'>
         <Navigator airport={{name:airport.name,href:airport.slug}} />
    
-      <div className='mt-12'>   <Editor initialContent={airport.content}  /></div>
+      <div className='mt-12 max-w-[1000px]'>   <Editor initialContent={airport.content}  /></div>
    
    
       </div>

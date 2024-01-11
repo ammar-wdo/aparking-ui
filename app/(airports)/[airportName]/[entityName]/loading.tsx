@@ -22,10 +22,13 @@ const loading = (props: Props) => {
 
   
     <div className='container mt-12'>
-    <Skeleton className=' p-3 w-[300px] my-10' />
+      <div className='max-w-[1000px]'>
+      <Skeleton className=' p-3 w-[300px] my-10' />
 
-    <Skeleton className=' p-4 w-[300px] ' />
-    <Skeleton className='mt-4 w-full h-[300px] ' />
+<Skeleton className=' p-4 w-[300px] ' />
+<Skeleton className='mt-4 w-full h-[300px] ' />
+      </div>
+  
         </div>
  
 
