@@ -97,7 +97,7 @@ const SearchForm = ({
         >
           {!airportSlug && !serviceId && !!airports && !!airports.length && (
             <div className="p-2 bg-white flex flex-col gap-1 pb-1">
-              <h3 className="text-black font-semibold pl-2">Airport</h3>
+              <p className="text-black font-semibold pl-2">Airport</p>
               <AirportSelect
                 airport={airport!}
                 setAirport={setAirport}
@@ -108,7 +108,7 @@ const SearchForm = ({
             </div>
           )}
           <div className="p-2 bg-white flex flex-col gap-1 pb-1">
-            <h3 className="text-black font-semibold">From</h3>
+            <p className="text-black font-semibold">From</p>
             <div className="flex items-center gap-2">
               {" "}
               <DatePicker
@@ -132,7 +132,7 @@ const SearchForm = ({
             </div>
           </div>
           <div className="p-2 bg-white flex flex-col gap-1 pb-1">
-            <h3 className="text-black font-semibold">To</h3>
+            <p className="text-black font-semibold">To</p>
             <div className="flex items-center gap-2">
               <DatePicker
                 open={openEnd}
