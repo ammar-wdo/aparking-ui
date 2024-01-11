@@ -4,6 +4,7 @@ import React from 'react'
 import FaqComponent from './faq-component'
 import { FAQ } from '@/schemas'
 import queryString from 'query-string'
+import { Accordion } from '@/components/ui/accordion'
 
 type Props = {searchParams:{[ket:string]:string | string [] | undefined}}
 
@@ -27,11 +28,12 @@ const FaqFeed = async({searchParams}: Props) => {
     <div className='mt-12'>
         {!faqs.length && <p className='text-4xl text-neutral-500 font-bold text-center'>No FAQs</p>}
 
-        <div className='flex flex-col '>
+        <Accordion type="single" collapsible>
 
 {faqs?.map((faq)=><FaqComponent key={faq.id} faq={faq} />)}
+</Accordion>
         </div>
-    </div>
+
   )
 }
 

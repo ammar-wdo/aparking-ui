@@ -14,14 +14,14 @@ type Props = {faq:{id:string,question:string,answer:string}}
 
 const FaqComponent = ({faq}: Props) => {
   return (
-    <Accordion type="single" collapsible>
-    <AccordionItem value="item-1">
+   
+    <AccordionItem value={faq.id}>
       <AccordionTrigger className={cn("hover:no-underline py-8 font-bold px-4 hover:bg-gray-100 transition text-start")}>{faq.question}?</AccordionTrigger>
       <AccordionContent className="p-8 text-start">
       <Editor  initialContent={faq.answer} />
       </AccordionContent>
     </AccordionItem>
-  </Accordion>
+  
   )
 }
 
