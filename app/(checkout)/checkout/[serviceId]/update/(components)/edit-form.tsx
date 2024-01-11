@@ -39,6 +39,7 @@ import { findTotalPrice } from "./(helpers)/findNewTotal";
 import ActionToolTip from "@/components/tool-tip";
 import { useCancel } from "@/hooks/modal-hook";
 import DateInformation from "./date-information";
+import CheckoutExtraInfo from "@/components/checkout-extra-info";
 
 type Props = {
   service: Service & { rules: Rule[]; availability: any[]; bookings: any[] };
@@ -181,6 +182,7 @@ const EditBookingForm = ({ service }: Props) => {
                 <HelpCircle className="w-4 h-4 ml-3" />
               </ActionToolTip>
             </Button>
+            <div>
           <div className="p-8 bg-white ">
             <h3 className="text-2xl font-bold ">Order overview</h3>
             {/* <ResultPersonal
@@ -245,7 +247,11 @@ const EditBookingForm = ({ service }: Props) => {
               )}
             </div>
 
-            
+
+
+     
+          </div>
+          <CheckoutExtraInfo />
           </div>
           <Button
               onClick={() =>
