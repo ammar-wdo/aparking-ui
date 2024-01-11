@@ -1,4 +1,4 @@
-import { BadgeCheck, Clock9, PlusCircle, ShieldCheck } from "lucide-react";
+import { BadgeCheck, PlusCircle, ShieldCheck, TimerReset } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -17,7 +17,7 @@ const CheckoutExtraInfo = (props: Props) => {
     },
     {
       title: "Free cancelation up to 24 hours in advance",
-      icon: <Clock9 className="text-site w-8 h-8 shrink-0" />,
+      icon: <TimerReset className="text-site w-8 h-8 shrink-0" />,
     },
     {
       title: "Access to extra services with your parking",
