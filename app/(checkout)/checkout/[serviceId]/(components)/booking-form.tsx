@@ -43,7 +43,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Tooltip } from "@/components/ui/tooltip";
 import ToolTip from "@/components/tooltip";
 import DetailsPopover from "./details-popover";
-
+import CheckoutExtraInfo from "@/components/checkout-extra-info";
 
 type Props = {
   arrivalDate: string;
@@ -52,6 +52,7 @@ type Props = {
   departureTime: string;
   totalPrice: number;
   title: string;
+ 
   extraOptions: {
     id: string;
     price: number;
@@ -120,28 +121,26 @@ const BookingForm = ({
                         className="bg-gray-50 rounded-md flex justify-between gap-3  items-center text-center w-full p-4 "
                       >
                         <div className="flex items-center gap-2">
-
-                        <Checkbox
-                        className=""
-                          checked={!!options.find((el) => el.id === option.id)}
-                          onClick={() => {
-                            handleAddDelete(option);
-                          }}
-                        />
-                        <div className="gap-4  flex items-center">
-                       
-                       <p className="first-letter:capitalize test-sm font-semibold">
-                       {option.label}
-                       </p>
-                     <DetailsPopover details={option.description} />
-                      
-                     
-                     </div>
+                          <Checkbox
+                            className=""
+                            checked={
+                              !!options.find((el) => el.id === option.id)
+                            }
+                            onClick={() => {
+                              handleAddDelete(option);
+                            }}
+                          />
+                          <div className="gap-4  flex items-center">
+                            <p className="first-letter:capitalize test-sm font-semibold">
+                              {option.label}
+                            </p>
+                            <DetailsPopover details={option.description} />
+                          </div>
                         </div>
-                     
-                      
-                     
-                        <p className=" text-sm font-bold ml-auto  sm:mr-20">€ {option.price.toFixed(2).replace('.',',')}</p>
+
+                        <p className=" text-sm font-bold ml-auto  sm:mr-20">
+                          € {option.price.toFixed(2).replace(".", ",")}
+                        </p>
                         {option.image ? (
                           <div className="relative w-[60px] aspect-square rounded-full overflow-hidden hidden sm:block">
                             <Image
@@ -169,6 +168,9 @@ const BookingForm = ({
               setPayStep={setPayStep}
             />
           </div>
+          <div>
+
+        
           <div className=" p-6 bg-white self-start">
             <h3 className="text-2xl font-bold  ">Order overview</h3>
             {/* <ResultPersonal
@@ -184,17 +186,42 @@ const BookingForm = ({
               departureDate={new Date(departureDate)}
               departureTime={departureTime}
             />
-            {!!options.length && <div className="py-3 ">
-              <p className="font-bold  text-2xl">Additional options added</p>
-              <div className="flex flex-col gap-2 mt-2">
-                {options.map(el=><div className="py-1  flex justify-between w-full items-center font-bold " key={el.id}><span className="first-letter:capitalize">{el.label} </span> <span className="">€{el.price.toFixed(2).replace('.',',')}</span></div>)}
+            {!!options.length && (
+              <div className="py-3 ">
+                <p className="font-bold  text-2xl">Additional options added</p>
+                <div className="flex flex-col gap-2 mt-2">
+                  {options.map((el) => (
+                    <div
+                      className="py-1  flex justify-between w-full items-center font-bold "
+                      key={el.id}
+                    >
+                      <span className="first-letter:capitalize">
+                        {el.label}{" "}
+                      </span>{" "}
+                      <span className="">
+                        €{el.price.toFixed(2).replace(".", ",")}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              </div>}
+              </div>
+            )}
 
-            <div className={cn("flex items-center justify-between w-full mt-6 ",!!options.length && "border-t pt-4")}>
+            <div
+              className={cn(
+                "flex items-center justify-between w-full mt-6 ",
+                !!options.length && "border-t pt-4"
+              )}
+            >
               <p>Price including VAT </p>
-              <span className="font-bold text-xl ">€{(totalPrice + optionsTotal).toFixed(2).replace('.',',')}</span>
+              <span className="font-bold text-xl ">
+                €{(totalPrice + optionsTotal).toFixed(2).replace(".", ",")}
+              </span>
             </div>
+           
+          </div>
+        <CheckoutExtraInfo />
+
           </div>
         </div>
       </form>
