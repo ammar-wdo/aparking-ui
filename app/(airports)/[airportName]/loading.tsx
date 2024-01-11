@@ -1,3 +1,4 @@
+import Header from '@/components/header'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
@@ -8,6 +9,7 @@ type Props = {}
 const loading = (props: Props) => {
   return (
     <div className='h-[1200px] pb-12'>
+      <Header />
         <div className={cn("md:min-h-[500px] min-h-[600px] items-center flex bg-[#003580] relative ")}>
       <Image fill src='/Banner.jpg' alt="banner" className="object-cover opacity-10 object-center "/>
       <div className='container h-full w-full gap-3  flex flex-col'>

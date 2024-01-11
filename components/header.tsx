@@ -15,7 +15,8 @@ import NavLinks from "./nav-links";
 
 
 type Props = {
-  contentPages?:boolean
+  contentPages?:boolean,
+
 };
 
 

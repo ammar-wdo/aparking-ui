@@ -1,5 +1,5 @@
 import React, { cache } from 'react'
-import Banner from '../../(landingPage)/(components)/banner'
+import Banner from '../../(landing-search-layout)/(landingPage)/(components)/banner'
 import axios from 'axios'
 import { GET_AIRPORTS } from '@/links'
 import { Airport } from '@/schemas'
@@ -9,6 +9,8 @@ import EntitiesFeed from './(components)/entities-feed'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { getAirport } from '@/lib/getters'
+import Header from '@/components/header'
+import Navigator from '@/components/navigator'
 
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
 
@@ -56,10 +58,12 @@ if(!airport) return   notFound()
 
   return (
     <div>
+      <Header />
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
       
       <div className='container mt-10 min-h-[600px]'>
-      <p className='text-neutral-500 flex items-center gap-1 md:gap-4  text-xs md:text-base flex-wrap '> <Link href={'/'}>Home</Link>   &gt; <span className='capitalize text-black'>{airport.name}</span> </p>
+        <Navigator airport={{name:airport.name,href:airport.slug}} />
+   
       <div className='mt-12'>   <Editor initialContent={airport.content}  /></div>
    
    

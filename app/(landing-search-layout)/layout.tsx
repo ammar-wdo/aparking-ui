@@ -3,13 +3,15 @@ import React from 'react'
 import Footer from './(landingPage)/(components)/footer'
 
 type Props = {
-    children:React.ReactNode
+    children:React.ReactNode,
+  
 }
 
 const layout = ({children}: Props) => {
+
   return (
     <div className='h-full'>
-         <Header contentPages={false}/>
+         <Header contentPages={false} />
         {children}
         <Footer />
         </div>

@@ -22,6 +22,7 @@ type Props = {
   airportProp?: string;
   airportSlug?: string;
   serviceId?: string;
+  serviceShow?:boolean
 };
 
 const SearchForm = ({
@@ -34,6 +35,8 @@ const SearchForm = ({
   airportProp,
   airportSlug,
   serviceId,
+  serviceShow
+  
 }: Props) => {
   const {
     airport,
@@ -85,11 +88,11 @@ const SearchForm = ({
         ></div>
       }
 
-      <section className="rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative z-30">
+      <section className={cn("rounded-xl flex lg:flex-row flex-col overflow-hidden mt-10 gap-1 relative z-30",serviceShow && 'lg:flex-col')}>
         <div
           className={cn(
             "grid lg:grid-cols-3 flex-1 gap-1",
-            (airportSlug || serviceId) && "lg:grid-cols-2"
+            (airportSlug || serviceId) && "lg:grid-cols-2",serviceShow && 'lg:grid-cols-1'
           )}
         >
           {!airportSlug && !serviceId && !!airports && !!airports.length && (
@@ -155,13 +158,7 @@ const SearchForm = ({
         <button
           disabled={isLoading}
           onClick={handleClick}
-          className="px-8 flex 
-          items-center
-           justify-center 
-           disabled:opacity-50 disabled:cursor-default bg-[#FEBA02]
-            hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold  
-            capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none
-             rounded-tr-none lg:rounded-tr-xl"
+          className={cn("px-8 flex items-center justify-center  disabled:opacity-50 disabled:cursor-default bg-[#FEBA02]  hover:bg-[#FEBA02]/90 transition  text-[#003580] font-semibold   capitalize py-3   lg:py-0 rounded-xl lg:rounded-l-none rounded-tl-none   rounded-tr-none lg:rounded-tr-xl",serviceShow &&'lg:rounded-tl-none  lg:py-4 lg:rounded-tr-none')}
         >
           {change ? "Change" : "Search"}
           {isLoading && (
