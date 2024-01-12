@@ -27,124 +27,159 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
-  setCarStep:Dispatch<SetStateAction<boolean>>,
-  carStep:boolean,
-  setPayStep:Dispatch<SetStateAction<boolean>>,
-  payStep:boolean,
-  extraOptions:boolean
- 
+  setCarStep: Dispatch<SetStateAction<boolean>>;
+  carStep: boolean;
+  setPayStep: Dispatch<SetStateAction<boolean>>;
+  payStep: boolean;
+  extraOptions: boolean;
 };
 
-const PaymentMethod = ({ form,setCarStep,carStep,payStep,setPayStep,extraOptions}: Props) => {
-
-  const [terms, setTerms] = useState(false)
-  const [errorTerms, setErrorTerms] = useState(false)
-
-
+const PaymentMethod = ({
+  form,
+  setCarStep,
+  carStep,
+  payStep,
+  setPayStep,
+  extraOptions,
+}: Props) => {
+  const [terms, setTerms] = useState(false);
+  const [errorTerms, setErrorTerms] = useState(false);
 
   return (
     <div className="space-y-5  bg-white p-6">
       <div>
         <div className="flex items-center ">
-        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>{extraOptions ? '4.' : '3.' }  Payment method</h3>
-            </div>
-        
-    
+          <h3 className={cn("text-2xl font-bold", !payStep && "text-gray-400")}>
+            {extraOptions ? "4." : "3."} Payment method
+          </h3>
+        </div>
       </div>
-      {payStep && <>
-    
+      {payStep && (
+        <>
+          <div className="grid gird-cols-1  gap-3">
+            <p className="font-light">How would you like to pay? *</p>
 
-     
-      <div className="grid gird-cols-1  gap-3">
-       <p className="font-light">How would you like to pay? *</p>
-     
+            <FormField
+              control={form.control}
+              name="paymentMethod"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="gap-0 "
+                    >
+                      <FormItem className="flex items-center  space-y-0   py-4 border-t  ">
+                        <FormControl>
+                          <RadioGroupItem value="IDEAL" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          iDeal
+                        </FormLabel>
 
-       <FormField
-          control={form.control}
-          name="paymentMethod"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
-           
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className="gap-0 "
-                >
-                  <FormItem className="flex items-center  space-y-0   py-4 border-t  ">
-                    <FormControl>
-                      <RadioGroupItem value="IDEAL" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      iDeal
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/ideal.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                  <FormItem className="flex items-center   space-y-0 py-4 border-t  ">
-                    <FormControl>
-                      <RadioGroupItem value="CREDIT_CARD" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      Credit Card
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/cards.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                  <FormItem className="flex items-center   space-y-0 py-4 border-y ">
-                    <FormControl>
-                      <RadioGroupItem value="PAYPAL" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      PayPal
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/paypal.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-
-       
-      </div>
-      <div>
-      <div className="pt-4 items-center flex gap-3">
-      <Checkbox
-                            className=""
-                           checked={terms}
-                            onClick={() => {
-                          setTerms(terms=>!terms);setErrorTerms(false)
-                            }}
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/ideal.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
                           />
-                          <p>I accept the <Link target="_blank" className="underline text-blue-500" href={'/terms'}>Terms and conditions</Link></p>
-      </div>
-      {errorTerms && <p className="text-xs text-rose-500 mt-2">You should accept terms and conditions</p>}
-      </div>
-     
-      <div className="flex items-center justify-between">
-        <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
-          {<ChevronLeft className="mr-1 h-4 w-4" />}Back
-        </button>
-        <Button disabled={form.formState.isSubmitting }  onClick={(e)=>{!terms && e.preventDefault();!terms && setErrorTerms(true)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
-      </div>
-      </>}
+                        </div>
+                      </FormItem>
+                      <FormItem className="flex items-center   space-y-0 py-4 border-t  ">
+                        <FormControl>
+                          <RadioGroupItem value="CREDIT_CARD" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          Credit Card
+                        </FormLabel>
+
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/cards.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
+                          />
+                        </div>
+                      </FormItem>
+                      <FormItem className="flex items-center   space-y-0 py-4 border-y ">
+                        <FormControl>
+                          <RadioGroupItem value="PAYPAL" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          PayPal
+                        </FormLabel>
+
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/paypal.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
+                          />
+                        </div>
+                      </FormItem>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div>
+            <div className="pt-4 items-center flex gap-3">
+              <Checkbox
+                className=""
+                checked={terms}
+                onClick={() => {
+                  setTerms((terms) => !terms);
+                  setErrorTerms(false);
+                }}
+              />
+              <p>
+                I accept the{" "}
+                <Link
+                  target="_blank"
+                  className="underline text-blue-500"
+                  href={"/algemene-voorwaarden"}
+                >
+                 algemene voorwaarden
+                </Link>
+              </p>
+            </div>
+            {errorTerms && (
+              <p className="text-xs text-rose-500 mt-2">
+                You should accept terms and conditions
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setPayStep(false)}
+              type="button"
+              className="font-light text-blue-600 flex text-sm items-center justify-center "
+            >
+              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+            </button>
+            <Button
+              disabled={form.formState.isSubmitting}
+              onClick={(e) => {
+                !terms && e.preventDefault();
+                !terms && setErrorTerms(true);
+              }}
+              type="submit"
+              variant={"siteTwo"}
+              className=" rounded-sm py-2 px-6"
+            >
+              Checkout{" "}
+              {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
