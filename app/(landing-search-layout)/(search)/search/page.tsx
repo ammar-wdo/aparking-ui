@@ -19,6 +19,8 @@ import ProgressBar from "@/components/progress-bar";
 import { getClientDates } from "@/app/(checkout)/checkout/[serviceId]/update/(helpers)/getClientDates";
 import { handleTimezone } from "@/lib/timezone-handler";
 import { validateDate, validateTime } from "./(helpers)/date-validator";
+import { invalidDate } from "./(helpers)/invalid-date";
+import InvalidDateComponent from "@/app/(airports)/[airportName]/[entityName]/[serviceName]/(components)/invalid-date-component";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -41,18 +43,9 @@ const page = async ({ searchParams }: Props) => {
   if (!airport || !startDate || !endDate || !startTime || !endTime)
     return redirect("/");
 
- const validStart = validateDate(startDate)
- const validEnd = validateDate(endDate)
+    const invalidDateCheck = invalidDate(startDate as string,endDate as string ,startTime as string,endTime as string)
 
- const validTimeStart = validateTime(startTime)
- const validTimeEnd = validateTime(endTime)
-
- if(!validStart || !validEnd || !validTimeEnd || !validTimeStart) return <div className="min-h-[800px] flex items-center justify-center flex-col" >
-  <p className="p-4 bg-rose-500/20 text-rose-500 border border-rose-500 ">Invalid date input </p>
-  <Button className="mt-3 " variant={'siteTwo'} asChild><Link href={'/'}>Try again</Link></Button>
-  
-
-  </div>
+    if (invalidDateCheck) return <InvalidDateComponent />
 
 
   const airportName = res.data.airports.find(

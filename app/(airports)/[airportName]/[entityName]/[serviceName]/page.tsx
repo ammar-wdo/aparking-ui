@@ -1,13 +1,8 @@
-import Banner from "@/app/(landing-search-layout)/(landingPage)/(components)/banner";
-import { ALL_SERVICES } from "@/links";
-import { Service } from "@/schemas";
-import axios from "axios";
-import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import React, { cache } from "react";
+import React from "react";
 import GallarySwiper from "./(components)/gallary-swiper";
 import dynamic from "next/dynamic";
-import { Separator } from "@/components/ui/separator";
+
 import AccordionInfo from "./(components)/accordion-info";
 
 import AvailableService from "./(components)/available-service";
@@ -18,6 +13,13 @@ import { getService } from "@/lib/getters";
 import { StarIcon } from "lucide-react";
 import Header from "@/components/header";
 import Navigator from "@/components/navigator";
+import {
+  validateDate,
+  validateTime,
+} from "@/app/(landing-search-layout)/(search)/search/(helpers)/date-validator";
+
+import InvalidDateComponent from "./(components)/invalid-date-component";
+import { invalidDate } from "@/app/(landing-search-layout)/(search)/search/(helpers)/invalid-date";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -65,6 +67,22 @@ const page = async ({ params, searchParams }: Props) => {
     params.airportName
   );
 
+  const invalidDateCheck = invalidDate(
+    startDate as string,
+    endDate as string,
+    startTime as string,
+    endTime as string
+  );
+
+  if (invalidDateCheck)
+    return (
+      <div>
+        {" "}
+        <Header contentPages={true} />
+        <InvalidDateComponent />
+      </div>
+    );
+
   if (!service) return notFound();
   return (
     <div className="">
@@ -72,33 +90,31 @@ const page = async ({ params, searchParams }: Props) => {
 
       <div className="mx-auto max-w-[1200px] px-3">
         <div className="mt-10">
-        <Navigator
-          airport={{
-            name: service.entity.airport.name,
-            href: service.entity.airport.slug,
-          }}
-          entity={{
-            name: service.entity.entityName,
-            href: service.entity.slug,
-          }}
-          service={{ name: service.name, href: service.slug }}
-        />
+          <Navigator
+            airport={{
+              name: service.entity.airport.name,
+              href: service.entity.airport.slug,
+            }}
+            entity={{
+              name: service.entity.entityName,
+              href: service.entity.slug,
+            }}
+            service={{ name: service.name, href: service.slug }}
+          />
         </div>
         <div className="mt-10 flex gap-8">
-        <h3 className="text-site text-3xl font-semibold  capitalize ">
-                {service.name}
-              </h3>
-        {service.totalReviews > 0 && (
-                <div className="my-2 flex items-center gap-3">
-                  <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
-                  <span className="font-bold">
-                    {service.totalReviews.toFixed(1)}
-                  </span>
-                </div>
-              )}
+          <h3 className="text-site text-3xl font-semibold  capitalize ">
+            {service.name}
+          </h3>
+          {service.totalReviews > 0 && (
+            <div className="my-2 flex items-center gap-3">
+              <StarIcon className="text-yellow-500 h-5 w-5 fill-yellow-500 " />{" "}
+              <span className="font-bold">
+                {service.totalReviews.toFixed(1)}
+              </span>
+            </div>
+          )}
         </div>
-
-     
 
         <div className="grid grid-cols-1   lg:grid-cols-9   py-4 gap-x-20 mt-8 gap-y-12">
           <div className="p-5 pb-6 rounded-lg bg-site h-fit lg:col-span-3 order-1 lg:order-2">
@@ -115,10 +131,7 @@ const page = async ({ params, searchParams }: Props) => {
             />
           </div>
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="flex items-center gap-12 ">
-            
-         
-            </div>
+            <div className="flex items-center gap-12 "></div>
 
             <section className="mb-8 ">
               <GallarySwiper gallary={service.images || []} />
