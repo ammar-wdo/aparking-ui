@@ -26,7 +26,8 @@ import { cn } from "@/lib/utils";
 
 
 type Props = {
-    contentPages?:boolean
+    contentPages?:boolean,
+  
 }
 export const MeneuDropdown = ({contentPages}:Props) => {
 
@@ -46,7 +47,7 @@ useEffect(()=>{setMount(true)},[])
       <PopoverTrigger asChild className="flex items-center gap-1  md:text-base text-sm font-medium"><Button name="menu-button" type="button" aria-label='Menu'  className="bg-transparent hover:bg-transparent"><Menu name="Menu" className={cn("",contentPages ? 'text-white' : "text-site")}/></Button></PopoverTrigger>
       <PopoverContent  className="mt-5 flex flex-col items-center gap-6">
         
-          <NavLinks close={closePop} col />
+          <NavLinks   close={closePop} col />
           
   
       </PopoverContent>

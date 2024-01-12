@@ -68,10 +68,10 @@ San Francisco, 94102</p>
 
         <div className='border-white border-t py-4 mt-12 flex justify-between items-center text-white font-light text-sm md:flex-row flex-col gap-4 '>
             <p>
-            Copyright © 2023 APARKING.
+            Copyright © 2024 APARKING.
             </p>
             <p className='text-center'>
-            2024 Aparking, alle rechten voorbehouden | <Link href={'/algemene-voorwaarden'}  className='underline'>Algemene voorwaarden</Link>| <Link href={'/privacy-beleid'} className='underline'>Privacy beleid</Link>
+           Alle rechten voorbehouden | <Link href={'/algemene-voorwaarden'}  className='underline'>Algemene voorwaarden</Link>| <Link href={'/privacy-beleid'} className='underline'>Privacy beleid</Link>
             </p>
 
 

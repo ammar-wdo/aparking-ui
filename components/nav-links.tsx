@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react'
 import SigninOut from './signin-out';
 import { Airport } from '@/schemas';
+import { AirportCombpBox } from './airports-combobox';
 
 type Props = {
     col?:boolean,
@@ -36,7 +37,7 @@ const NavLinks = ({col,close,airports}: Props) => {
       
         href={link}
         className={cn(
-          "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium"
+          "capitalize flex items-center relative  text-sm sm:text-base shrink-0 text-site  font-medium"
         )}
       >
         {label}{" "}
@@ -47,6 +48,7 @@ const NavLinks = ({col,close,airports}: Props) => {
         
       </div>}
     )}
+   
         <SigninOut col={col}  close={close}  />
   </nav>
   )

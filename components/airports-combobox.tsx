@@ -43,7 +43,7 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
           className="w-fit justify-between"
         >
           {value
-            ? data.find((airport) => airport.slug === value)?.name
+            ? data?.find((airport) => airport.slug === value)?.name
             : "Vliegvelden"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -54,7 +54,7 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
           <CommandEmpty>No airport found.</CommandEmpty>
           <CommandGroup>
             <ScrollArea className="h-[300px]">
-            {data.map((airport) => (
+            {data?.map((airport) => (
               <CommandItem
                 key={airport.id}
                
