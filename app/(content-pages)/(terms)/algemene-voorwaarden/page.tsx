@@ -12,11 +12,11 @@ type Props = {};
 
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions - Terms of Service for Using Aparking',
-  description: `By using Aparking, you agree to our terms and conditions. Read our terms of service to understand the guidelines, rules, and obligations when using our platform. Familiarize yourself with our terms and conditions.`,
+  title: 'Algemene voorwaarden - Terms of Service for Using Aparking',
+  description: `By using Aparking, you agree to our Algemene voorwaarden. Read our terms of service to understand the guidelines, rules, and obligations when using our platform. Familiarize yourself with our Algemene voorwaarden.`,
   openGraph:{
-    title:'Terms and Conditions - Terms of Service for Using Aparking',
-    description:`By using Aparking, you agree to our terms and conditions. Read our terms of service to understand the guidelines, rules, and obligations when using our platform. Familiarize yourself with our terms and conditions.`,
+    title:'Algemene voorwaarden - Terms of Service for Using Aparking',
+    description:`By using Aparking, you agree to our Algemene voorwaarden. Read our terms of service to understand the guidelines, rules, and obligations when using our platform. Familiarize yourself with our Algemene voorwaarden.`,
   
   }
   
@@ -35,12 +35,12 @@ const terms = res.data.terms
   return (
     <div className="min-h-[900px]">
         <div className="py-4 container">
-        <Navigator name="Terms and conditions" />
+        <Navigator name="Algemene voorwaarden" />
         </div>
       <div className="container">
     
 
-        <h1 className="text-site text-3xl font-bold mt-12">Terms and conditions</h1>
+        <h1 className="text-site text-3xl font-bold mt-12">Algemene voorwaarden</h1>
 
         {!terms && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

@@ -11,11 +11,11 @@ type Props = {};
 
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Your Privacy Matters to Aparking',
-  description: `Aparking is committed to protecting your privacy. Read our comprehensive privacy policy to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+  title: 'Privacy beleid - Your Privacy Matters to Aparking',
+  description: `Aparking is committed to protecting your privacy. Read our comprehensive Privacy beleid to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
   openGraph:{
-    title:'Privacy Policy - Your Privacy Matters to Aparking',
-    description:`Aparking is committed to protecting your privacy. Read our comprehensive privacy policy to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+    title:'Privacy beleid - Your Privacy Matters to Aparking',
+    description:`Aparking is committed to protecting your privacy. Read our comprehensive Privacy beleid to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
   
   }
   
@@ -34,12 +34,12 @@ const privacy = res.data.privacy
   return (
     <div className="min-h-[900px]">
         <div className="py-4 container">
-        <Navigator name="Privacy policy" />
+        <Navigator name="Privacy beleid" />
         </div>
       <div className="container">
     
 
-        <h1 className="text-site text-3xl mt-12 font-bold">Privacy and policy</h1>
+        <h1 className="text-site text-3xl mt-12 font-bold">Privacy beleid</h1>
 
         {!privacy && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

@@ -35,11 +35,11 @@ const about = res.data.about
     <div className="min-h-[900px]">
       <div className="container">
         <div className="py-4">
-        <Navigator name="About" />
+        <Navigator name="Over ons" />
         </div>
      
 
-        <h1 className="text-site text-3xl mt-12 font-bold">About us </h1>
+        <h1 className="text-site text-3xl mt-12 font-bold">Over ons</h1>
 
         {!about && <p className="text-3xl font-bold text-neutral-500 text-center capitalize">Empty page</p>}
 

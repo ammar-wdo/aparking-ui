@@ -2,6 +2,7 @@ import Logo from '@/components/logo'
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import LiveChatButton from './live-chat-button'
 
 type Props = {}
 
@@ -35,9 +36,9 @@ const Footer = (props: Props) => {
             <section className='mt-4'>
 <h3 className='font-bold'>Company</h3>
 <div className='mt-6 flex flex-col gap-4'>
-    <Link href={'/about'} className=' font-light text-base hover:underline '>About</Link>
-    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Contact us</Link>
-    <Link href={'/partner'} className=' font-light text-base hover:underline'>Become a partner</Link>
+    <Link href={'/over-ons'} className=' font-light text-base hover:underline '>Over ons</Link>
+    <Link href={'/contact'} className=' font-light text-base hover:underline'>Contact</Link>
+    <Link href={'/partner-worden'} className=' font-light text-base hover:underline'>Partner worden</Link>
     <Link href={'/blog'} className=' font-light text-base hover:underline'>Blog</Link>
 
 </div>
@@ -45,10 +46,9 @@ const Footer = (props: Props) => {
             <section className='mt-4 shrink-0'>
 <h3 className='font-bold'>Support</h3>
 <div className='mt-6 flex flex-col gap-4'>
-    <Link href={'/frequently-asked-questions'} className=' font-light text-base hover:underline '>FAQ</Link>
-    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Help center</Link>
-    <Link href={'/contact-us'} className=' font-light text-base hover:underline'>Report a bug</Link>
-    <Link href={'/'} className=' font-light text-base hover:underline'>Chat support </Link>
+    <Link href={'/veelgestelde-vragen'} className=' font-light text-base hover:underline '>Veelgestelde vragen</Link>
+    <Link href={'/contact'} className=' font-light text-base hover:underline'>Klantenservice</Link>
+ <LiveChatButton />
 
 </div>
             </section>
@@ -71,7 +71,7 @@ San Francisco, 94102</p>
             Copyright © 2023 APARKING.
             </p>
             <p className='text-center'>
-            All Rights Reserved | <Link href={'/terms'}  className='underline'>Terms and Conditions </Link>| <Link href={'/privacy'} className='underline'>Privacy Policy </Link>
+            2024 Aparking, alle rechten voorbehouden | <Link href={'/algemene-voorwaarden'}  className='underline'>Algemene voorwaarden</Link>| <Link href={'/privacy-beleid'} className='underline'>Privacy beleid</Link>
             </p>
 
 

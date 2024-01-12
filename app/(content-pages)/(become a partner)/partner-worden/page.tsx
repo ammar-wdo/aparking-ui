@@ -24,7 +24,7 @@ const page = (props: Props) => {
   return (
     <div className=''>
         <div className="py-4 container">
-        <Navigator name="Become a partner" />
+        <Navigator name="Partner worden" />
         </div>
       <div className='container py-12 '>
     

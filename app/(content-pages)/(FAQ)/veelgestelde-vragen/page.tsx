@@ -23,10 +23,10 @@ const page = async ({ searchParams }: Props) => {
     <div className="min-h-[900px]">
       <div className="container">
         <div className="py-4">
-          <Navigator name="FAQ" />
+          <Navigator name="Veelgestelde vragen" />
         </div>
 
-        <h1 className="text-site text-3xl font-bold mt-12">FAQ</h1>
+        <h1 className="text-site text-3xl font-bold mt-12">Veelgestelde vragen</h1>
 
         <FaqCatFeed searchParams={searchParams} />
         <FaqFeed searchParams={searchParams} />

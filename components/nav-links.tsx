@@ -22,8 +22,8 @@ const NavLinks = ({col,close,airports}: Props) => {
         },
     
         {
-          label: "contact us",
-          link:'/contact-us'
+          label: "contact",
+          link:'/contact'
         },
       ];
   return (

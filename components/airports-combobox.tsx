@@ -40,11 +40,11 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[120px] justify-between"
+          className="w-fit justify-between"
         >
           {value
             ? data.find((airport) => airport.slug === value)?.name
-            : "Airports"}
+            : "Vliegvelden"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

@@ -26,7 +26,7 @@ const page =async (props: Props) => {
   return (
     <div className=''>
         <div className="py-4 container">
-        <Navigator name="Contact us" />
+        <Navigator name="Contact" />
         </div>
       <div className='container py-12 '>
 <Greeting />
