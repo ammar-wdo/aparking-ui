@@ -73,13 +73,13 @@ const AirportCombo = ({
         >
           {(airport &&
             airports.find((airportE) => airportE.slug === airport)?.name) ||
-            "Choose an airport"}{" "}
+            "Kies vliegveld"}{" "}
           <ChevronDown className="w-4 h-4 text-neutral-400" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-fit">
       <Command>
-          <CommandInput placeholder="Choose airport" />
+          <CommandInput placeholder="Zoek vliegveld" />
           <CommandEmpty>No airports  found.</CommandEmpty>
           <CommandGroup>
             <ScrollArea className="h-[200px]">

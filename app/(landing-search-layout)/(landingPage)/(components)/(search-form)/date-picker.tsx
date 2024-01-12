@@ -43,7 +43,7 @@ React.useEffect(()=>{
         >
           <CalendarIcon className="mr-2 h-4 w-4 text-xs text-gray-600 " />
           {date ? <span className="text-xs text-gray-600 font-medium ">{format(new Date(date), "dd-MM-yyyy")}</span>: <span className="
-          font-medium  text-xs text-gray-600 ">Pick a date</span>}
+          font-medium  text-xs text-gray-600 ">Kies datum</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">

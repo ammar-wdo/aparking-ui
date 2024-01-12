@@ -42,7 +42,7 @@ const Header = async ({contentPages}: Props) => {
 
   <NavLinks  />
  
-  <AirportCombpBox hidden data={res.data.airports} />
+  <AirportCombpBox hidden data={res.data.airports} contentPages={contentPages}/>
           
          
          

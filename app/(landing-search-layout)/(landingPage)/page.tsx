@@ -19,11 +19,10 @@ export default  async function Home() {
     <main className="bg-gray-100 h-full ">
       <Banner>
       <h1 className="lg:text-4xl font-semibold text-3xl relative z-10">
-        Your hassle-free parking solution.
+      Slim Parkeren bij Vliegvelden: Vergelijk Prijzen en Opties
       </h1>
       <p className="mt-4 font-extralight text-sm relative z-10">
-        Compare parking spaces and prices at all major airports in the
-        Netherlands, Germany & Belgium Airport
+      Bespaar geld en stress met onze vergelijkingstool voor de beste parkeerplaatsen op Nederlandse vliegvelden.
       </p>
       </Banner>
       <Explain />

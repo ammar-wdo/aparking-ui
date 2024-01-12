@@ -62,7 +62,7 @@ const TimeSelect = ({
           variant={"ghost"}
           className="w-full  flex items-center justify-between"
         >
-          {time || "Select time"}{" "}
+          {time || "kies tijd"}{" "}
           <ChevronDown className="w-4 h-4 text-gray-600" />
         </Button>
       </PopoverTrigger>

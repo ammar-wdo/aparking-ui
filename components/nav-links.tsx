@@ -37,7 +37,7 @@ const NavLinks = ({col,close,airports}: Props) => {
       
         href={link}
         className={cn(
-          "capitalize flex items-center relative  text-sm sm:text-base shrink-0 text-site  font-medium"
+          "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium",close && 'text-site'
         )}
       >
         {label}{" "}
