@@ -26,15 +26,16 @@ import { ScrollArea } from "./ui/scroll-area"
 type Props = {
     data: Airport[];
     hidden?: boolean;
+    contentPages?:boolean
   };
 
-export function AirportCombpBox({ data, hidden }: Props) {
+export function AirportCombpBox({ data, hidden,contentPages }: Props) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className={hidden ? "md:flex hidden border-0  text-base hover:text-site":'border-0 text-base hover:text-site'} asChild>
+      <PopoverTrigger className={cn('text-site text-base hover:text-site border-0 ',hidden && "md:flex hidden border-0  ",contentPages && 'bg-site text-white hover:bg-transparent hover:text-white')} asChild>
         <Button
           variant="outline"
           role="combobox"

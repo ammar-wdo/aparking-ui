@@ -36,13 +36,13 @@ const Header = async ({contentPages}: Props) => {
         <div className=" flex items-center gap-6">
         <div className="flex items-center gap-2 md:hidden">
           
-        <AirportCombpBox  data={res.data.airports} />
+        <AirportCombpBox  data={res.data.airports}  contentPages={contentPages} />
           <MeneuDropdown  contentPages ={contentPages}/>
           </div>
 
   <NavLinks  />
  
-  <AirportCombpBox hidden data={res.data.airports} />
+  <AirportCombpBox hidden data={res.data.airports}  contentPages={contentPages}/>
           
          
          
