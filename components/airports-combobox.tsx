@@ -35,12 +35,12 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className={cn('text-site text-base hover:text-site border-0 ',hidden && "md:flex hidden border-0  ",contentPages && 'bg-site text-white hover:bg-transparent hover:text-white')} asChild>
+      <PopoverTrigger className={cn('text-site text-base hover:text-site bg-transparent border-0 sm:p-3 p-1',hidden && "md:flex hidden border-0  ",contentPages && ' text-white hover:bg-transparent hover:text-white')} asChild>
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-fit justify-between"
+          className={cn("w-fit justify-between " )}
         >
           {value
             ? data?.find((airport) => airport.slug === value)?.name

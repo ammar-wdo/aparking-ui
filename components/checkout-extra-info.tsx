@@ -36,7 +36,7 @@ const CheckoutExtraInfo = (props: Props) => {
       </div>
       <div className="bg-white p-6 mt-4">
         <p className="font-semibold text-lg">Do you have any questions?</p>
-        <p className="mt-4 ">We are happy to help you! <Link target="_blank" className="underline text-blue-500" href={'/contact-us'}>Contact us</Link></p>
+        <p className="mt-4 ">We are happy to help you! <Link target="_blank" className="underline text-blue-500" href={'/contact'}>Contact</Link></p>
 
       </div>
     </div>
