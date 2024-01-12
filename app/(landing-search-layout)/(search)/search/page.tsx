@@ -18,6 +18,7 @@ import { Airport } from "@/schemas";
 import ProgressBar from "@/components/progress-bar";
 import { getClientDates } from "@/app/(checkout)/checkout/[serviceId]/update/(helpers)/getClientDates";
 import { handleTimezone } from "@/lib/timezone-handler";
+import { validateDate, validateTime } from "./(helpers)/date-validator";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -40,18 +41,18 @@ const page = async ({ searchParams }: Props) => {
   if (!airport || !startDate || !endDate || !startTime || !endTime)
     return redirect("/");
 
-  // console.log(
-  //   "startDate",
-  //   clientArrivalDate.toISOString(),
-  //   "endDate",
-  //   clientDepartureDate.toISOString(),
-  //   "startTime",
-  //   startTime,
-  //   "endTime",
-  //   endTime
-  // );
+ const validStart = validateDate(startDate)
+ const validEnd = validateDate(endDate)
 
-  // console.log(service,location,key,electric)
+ const validTimeStart = validateTime(startTime)
+ const validTimeEnd = validateTime(endTime)
+
+ if(!validStart || !validEnd || !validTimeEnd || !validTimeStart) return <div className="min-h-[800px] flex items-center justify-center">
+  <p className="p-4 bg-rose-500/20 text-rose-500 border border-rose-500 ">Invalid date input </p>
+  
+
+  </div>
+
 
   const airportName = res.data.airports.find(
     (airportElement: Airport) => airportElement.slug === airport
