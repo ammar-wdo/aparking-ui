@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { AirportMenue } from "./airports-dropdown";
 import { MeneuDropdown } from "./menue-dropdown";
 import NavLinks from "./nav-links";
+import { AirportCombpBox } from "./airports-combobox";
 
 
 type Props = {
@@ -35,12 +36,13 @@ const Header = async ({contentPages}: Props) => {
         <div className=" flex items-center gap-6">
         <div className="flex items-center gap-2 md:hidden">
           
-          <AirportMenue data={res.data.airports} />
+        <AirportCombpBox  data={res.data.airports} />
           <MeneuDropdown  contentPages ={contentPages}/>
           </div>
 
   <NavLinks  />
-  <AirportMenue hidden data={res.data.airports} />
+ 
+  <AirportCombpBox hidden data={res.data.airports} />
           
          
          

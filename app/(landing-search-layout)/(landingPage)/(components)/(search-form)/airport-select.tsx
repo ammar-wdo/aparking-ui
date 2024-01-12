@@ -10,6 +10,13 @@ import {
 import React, { Dispatch, SetStateAction } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command"
 
 type Props = {
   airports: { name: string; id: string,slug:string }[];
@@ -26,6 +33,9 @@ const AirportSelect = ({
   setAirport,
   airport,
 }: Props) => {
+
+
+
 
   return (
     <Popover

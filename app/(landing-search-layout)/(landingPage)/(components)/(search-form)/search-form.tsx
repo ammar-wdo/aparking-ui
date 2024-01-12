@@ -11,6 +11,7 @@ import Filter from "@/components/sheets/filter";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { unstable_noStore as noStore } from 'next/cache';
+import AirportCombo from "./airport-combo";
 
 type Props = {
   startDateProp?: Date;
@@ -98,7 +99,7 @@ const SearchForm = ({
           {!airportSlug && !serviceId && !!airports && !!airports.length && (
             <div className="p-2 bg-white flex flex-col gap-1 pb-1">
               <p className="text-black font-semibold pl-2">Airport</p>
-              <AirportSelect
+              <AirportCombo
                 airport={airport!}
                 setAirport={setAirport}
                 airports={airports}
