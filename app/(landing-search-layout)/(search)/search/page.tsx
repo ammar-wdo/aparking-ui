@@ -47,8 +47,9 @@ const page = async ({ searchParams }: Props) => {
  const validTimeStart = validateTime(startTime)
  const validTimeEnd = validateTime(endTime)
 
- if(!validStart || !validEnd || !validTimeEnd || !validTimeStart) return <div className="min-h-[800px] flex items-center justify-center">
+ if(!validStart || !validEnd || !validTimeEnd || !validTimeStart) return <div className="min-h-[800px] flex items-center justify-center flex-col" >
   <p className="p-4 bg-rose-500/20 text-rose-500 border border-rose-500 ">Invalid date input </p>
+  <Button className="mt-3 " variant={'siteTwo'} asChild><Link href={'/'}>Try again</Link></Button>
   
 
   </div>
