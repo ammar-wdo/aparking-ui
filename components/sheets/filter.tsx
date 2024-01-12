@@ -46,7 +46,7 @@ const Filter = (props: Props) => {
         <span className="font-semibold">Filter</span>
       </SheetTrigger>
 
-      <SheetContent side={"left"} className="p-0 flex flex-col h-screen w-full">
+      <SheetContent side={"left"} className="p-0 flex flex-col h-screen w-full z-[1000]">
         <SheetHeader>
           <SheetTitle className="p-4 sm:pb-4 pb-0">Filter the results</SheetTitle>
         </SheetHeader>
