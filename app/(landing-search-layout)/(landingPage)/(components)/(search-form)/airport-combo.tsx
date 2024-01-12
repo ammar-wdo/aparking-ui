@@ -38,7 +38,9 @@ const AirportCombo = ({
 
   useEffect(()=>{
     if(airport){
-        setValue(airport)
+
+        const theAirport = airports.find(airportEl=>airportEl.slug===airport)?.name
+        setValue(theAirport||'')
     }
   },[airport])
   return (
@@ -85,18 +87,18 @@ const AirportCombo = ({
               <CommandItem
                 key={airportEl.id}
                 className="cursor-pointer"
-                value={airportEl.slug}
+                value={airportEl.name}
                 onSelect={(currentValue) => {
                    
                     setAirport(airportEl.slug);
                     setOpen(false);
-                    console.log(currentValue,airportEl.name,value)
+                   
                 }}
               >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    value === airportEl.slug ? "opacity-100" : "opacity-0"
+                    value === airportEl.name ? "opacity-100" : "opacity-0"
                   )}
                 />
                 {airportEl.name}
