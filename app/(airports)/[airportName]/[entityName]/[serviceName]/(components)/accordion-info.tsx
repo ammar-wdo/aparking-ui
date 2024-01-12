@@ -36,6 +36,7 @@ type Props = {
   }[];
 
   location?: { address: string; zipcode: string,country:string };
+  id:string,
 };
 
 const theIcons: { [key: string]: React.ReactNode } = {
@@ -61,10 +62,12 @@ const AccordionInfo = ({
   first,
   highlights,
   location,
+  id
+
 }: Props) => {
   return (
-    <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
+ 
+      <AccordionItem value={id}>
         <AccordionTrigger
           className={cn("hover:no-underline py-8 font-bold px-4 hover:bg-gray-100 transition", first && " border-t")}
         >
@@ -108,7 +111,7 @@ const AccordionInfo = ({
             </div>}
         </AccordionContent>
       </AccordionItem>
-    </Accordion>
+
   );
 };
 

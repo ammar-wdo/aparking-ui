@@ -20,6 +20,7 @@ import {
 
 import InvalidDateComponent from "./(components)/invalid-date-component";
 import { invalidDate } from "@/app/(landing-search-layout)/(search)/search/(helpers)/invalid-date";
+import { Accordion } from "@/components/ui/accordion";
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 type Props = {
@@ -141,7 +142,9 @@ const page = async ({ params, searchParams }: Props) => {
             </section>
 
             <div className="mb-12">
+            <Accordion type="single" collapsible>
               <AccordionInfo
+              id="1"
                 first
                 label="Important information"
                 editorContent={service.importantInfo}
@@ -149,14 +152,17 @@ const page = async ({ params, searchParams }: Props) => {
                 distanceToAirport={service.distanceToAirport}
               />
               <AccordionInfo
+              id="2"
                 label="Facilities"
                 facilities={service.facilities}
               />
               <AccordionInfo
+              id="3"
                 label="Highlights"
                 highlights={service.highlights}
               />
               <AccordionInfo
+              id="4"
                 label="Location"
                 location={{
                   address: service.parkingAddress,
@@ -164,6 +170,7 @@ const page = async ({ params, searchParams }: Props) => {
                   country: service.parkingCountry,
                 }}
               />
+              </Accordion>
             </div>
 
             <AvailableService
