@@ -16,9 +16,9 @@ const FaqCatFeed = async({searchParams}: Props) => {
     
   return (
     <div className="mt-12 flex items-center gap-4 flex-wrap">
-    <ClientButton label="All" categoryParam={categoryParam} link={'frequently-asked-questions'} all />
+    <ClientButton label="All" categoryParam={categoryParam} link={'veelgestelde-vragen'} all />
      {faqCat.map((category: { id: string; label: string }) => (
-       <ClientButton link={`frequently-asked-questions?category=${category.label}`} key={category.id} label={category.label} categoryParam={categoryParam} />
+       <ClientButton link={`veelgestelde-vragen?category=${category.label}`} key={category.id} label={category.label} categoryParam={categoryParam} />
      ))}
    </div>
   )
