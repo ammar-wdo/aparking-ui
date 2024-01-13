@@ -24,7 +24,7 @@ total:z.coerce.number(),
     departureTime: z.string(),
   
     departureDate: z.date(),
-    discount: z.coerce.number(),
+  
     flightNumber: z.string().min(3,{message:'Flight number is requried'}),
     isCompany: z.boolean(),
     phoneNumber: z.string().refine((value) => {
