@@ -15,7 +15,8 @@ const EntitiesFeed = async ({ airportId ,airportName,airportSlug}: Props) => {
   const entities = res.data?.entities as {
     entityName: string;
     slug:string,
-    images: string[];
+ 
+    logo:string
     id: string;
   }[];
 
@@ -29,7 +30,7 @@ const EntitiesFeed = async ({ airportId ,airportName,airportSlug}: Props) => {
           {entities.map((entity) => (
             <Link key={entity.id} href={`/${airportSlug}/${entity.slug}`}><div  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer px-8 pt-8">
                 <div className="w-full aspect-video relative">
-                    <Image alt="entity image" fill src={entity.images[0] || ''}  className="object-contain"/>
+                    <Image alt="entity image" fill src={entity.logo || ''}  className="object-contain"/>
                 </div>
                 <h3 className="text-center pt-12  pb-6 font-semibold text-site">{entity.entityName}</h3>
             </div></Link>
