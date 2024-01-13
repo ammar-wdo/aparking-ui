@@ -10,12 +10,12 @@ type Props = {};
 const InvalidDateComponent = (props: Props) => {
   return (
     <div>
-      <div className="min-h-[70vh] flex items-center justify-center flex-col ">
+      <div className="min-h-[70vh] flex items-center justify-center flex-col p-3">
       <div className=" p-4 bg-rose-500/20 text-rose-500 border border-rose-500 flex items-center gap-12">
-        <p className="">
+        <p className="sm:text-base text-xs">
           Invalid date input, please ensure that start date and end date are properly entered.{" "}
         </p>
-        <AlertTriangle />
+        <AlertTriangle className="shrink-0" />
         </div>
         <div className="w-[150px] h-[150px] relative">
 <Image alt="issue" className="object-contain" fill src={'/error-notfound.png'} />
