@@ -21,10 +21,10 @@ export default  async function Home() {
     <main className="bg-gray-100 h-full ">
       <Banner>
       <h1 className="lg:text-4xl font-semibold text-3xl relative z-10">
-      Slim Parkeren bij Vliegvelden: Vergelijk Prijzen en Opties
+      Veilig Parkeren bij Vliegvelden
       </h1>
       <p className="mt-4 font-extralight text-sm relative z-10">
-      Bespaar geld en stress met onze vergelijkingstool voor de beste parkeerplaatsen op Nederlandse vliegvelden.
+      Vergelijk prijzen en opties voor de beste parkeerplaatsen op Nederlandse vliegvelden.
       </p>
       </Banner>
       <Explain />
