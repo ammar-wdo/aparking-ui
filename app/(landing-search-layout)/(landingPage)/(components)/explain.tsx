@@ -1,41 +1,59 @@
-import { Car, MousePointerClick, SearchCheck } from 'lucide-react'
-import React from 'react'
+import { Car, MousePointerClick, SearchCheck } from "lucide-react";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Explain = (props: Props) => {
-
-const explainInfo = [
+  const explainInfo = [
     {
-        title:'Compare parking options',
-        description:'Compare various parking options, all offered by reliable parking providers.',
-        icon:<SearchCheck className='text-white w-7 h-7' />
+      title: "Reserveer Online",
+      description:
+        "Maak eenvoudig een reservering en ontvang duidelijke instructies per e-mail.",
+      icon: <SearchCheck className="text-white w-7 h-7" />,
     },
     {
-        title:'Book safely Online',
-        description:'Book your parking spot quickly and easily online.',
-        icon:<MousePointerClick className='text-white w-7 h-7'/>
+      title: "Rijd Naar het Vliegveld",
+      description:
+        "Volg onze aangegeven route en specifieke aanwijzingen, uniek per parkeeraanbieder.",
+      icon: <MousePointerClick className="text-white w-7 h-7" />,
     },
     {
-        title:'Park your car',
-        description:'At the airport, show your booking to enter the lot. Park, then enjoy your trip!',
-        icon:<Car className='text-white w-7 h-7'/>
+      title: "Auto-overdracht",
+      description:
+        "Check in bij de parkeeraanbieder, neem de gratis shuttlebus naar het vliegveld, of kies voor valet parkeren bij de vertrekhal.",
+      icon: <Car className="text-white w-7 h-7" />,
     },
-]
+    {
+      title: "Welkom Terug",
+      description:
+        "Bij terugkeer, neem de shuttlebus terug naar het parkeerterrein of wacht bij de aankomsthal als je valet parkeert. Je auto staat klaar om je direct naar huis te brengen.",
+      icon: <Car className="text-white w-7 h-7" />,
+    },
+  ];
 
   return (
-    <div className='py-12  container'>
-        <h3 className='text-center text-4xl font-semibold text-[#003580] '>How does it work?</h3>
-        <div className='mt-8 grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 lg:gap-20 gap-8 md:gap-14 mx-auto  '>
-            {explainInfo.map((card)=><div key={card.title} className='p-8 bg-white text-center flex flex-col gap-3 rounded-md items-center'>
-                <span className='p-2 rounded-full bg-[#003580] '>{card.icon}</span>
-                <h3 className='text-2xl text-[#003580] w-[200px] font-semibold'>{card.title}</h3>
-                <p className='text-sm font-light text-gray-600 w-[200px]'>{card.description}</p>
-            </div>)}
-
-        </div>
+    <div className="py-12  container">
+      <h3 className="text-center text-2xl sm:text-4xl font-semibold text-[#003580] ">
+        Parkeer Slim in 4 Stappen met Aparking
+      </h3>
+      <div className="mt-8 flex gap-4  mx-auto  overflow-x-auto p-2">
+        {explainInfo.map((card) => (
+          <div
+            key={card.title}
+            className="p-8 bg-white text-center  flex flex-col gap-3 rounded-xl shadow-sm hover:shadow-md transition items-center w-[350px] flex-shrink-0"
+          >
+            <span className="p-2 rounded-full bg-[#003580] ">{card.icon}</span>
+            <h3 className="text-lg text-[#003580] w-[200px] font-semibold">
+              {card.title}
+            </h3>
+            <p className="text-sm font-light text-gray-600 w-[250px]">
+              {card.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Explain
+export default Explain;

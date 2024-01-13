@@ -46,7 +46,7 @@ const AirportsSwiper = ({ airports }: Props) => {
     <Swiper
       style={{ paddingInline: 0 }}
       modules={[Navigation]}
-      className="h-[300px] p-0 w-full"
+      className=" p-3 w-full"
       spaceBetween={20}
       slidesPerView={4}
       navigation
@@ -74,9 +74,9 @@ const AirportsSwiper = ({ airports }: Props) => {
       }}
     >
       {airports.map((airport) => (
-        <SwiperSlide key={airport.id} className="w-[300px]">
+        <SwiperSlide key={airport.id} className="w-[300px] ">
           <Link key={airport.id} href={`/${airport.slug}`}>
-            <div className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-full">
+            <div className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-[300px]">
               <div className="relative aspect-video  ">
                 <Image
                   fill
@@ -85,11 +85,11 @@ const AirportsSwiper = ({ airports }: Props) => {
                   className="object-cover   "
                 />
               </div>
-              <div className="bg-white p-4 flex-1">
+              <div className="bg-white p-4 flex-1 flex flex-col">
                 <h3 className="text-center text-[#003580] text-lg font-semibold">
                   {airport.name}
                 </h3>
-                <p className="text-xs text-gray-600 text-center pt-3">
+                <p className="text-xs text-gray-600 text-center pt-3 mt-auto">
                   vanaf € 32,00 per week
                 </p>
               </div>
