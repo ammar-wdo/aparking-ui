@@ -14,7 +14,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 export default  async function Home() {
 
-await new Promise(res=>setTimeout(res,10000))
+
   return (
     <main className="bg-gray-100 h-full ">
       <Banner>
