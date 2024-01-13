@@ -12,6 +12,8 @@ import AirportSkeleton from './(components)/airports-skeleton'
 import { Skeleton } from '@/components/ui/skeleton'
 
 
+export const revalidate = 0
+
 export default  async function Home() {
 
 
