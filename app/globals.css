@@ -138,6 +138,10 @@ padding-inline: 35px !important;
 
 }
 
+.noScroll::-webkit-scrollbar{
+  display: none;
+}
+
 
 
 

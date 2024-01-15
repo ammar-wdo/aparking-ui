@@ -36,17 +36,17 @@ const Explain = (props: Props) => {
       <h3 className="text-center text-2xl sm:text-4xl font-semibold text-[#003580] ">
         Parkeer Slim in 4 Stappen met Aparking
       </h3>
-      <div className="mt-8 flex gap-4  mx-auto justify-between overflow-x-auto p-2">
+      <div className="mt-8 flex gap-4  justify-between overflow-x-auto p-2 noScroll xl:grid xl:grid-cols-4">
         {explainInfo.map((card) => (
           <div
             key={card.title}
-            className="p-8 bg-white text-center relative overflow-hidden   flex flex-col gap-3 rounded-md  shadow-sm hover:shadow-md transition items-center w-[350px] h-[300px] justify-center flex-shrink-0"
+            className="p-8 bg-white text-center relative overflow-hidden   flex flex-col gap-3 rounded-md  shadow-sm hover:shadow-md transition items-center w-full h-[300px] max-w-lg justify-center flex-shrink-0"
           >
             <span className="p-2 rounded-full bg-[#003580] ">{card.icon}</span>
             <h3 className="text-lg text-[#003580] w-[200px] font-semibold">
               {card.title}
             </h3>
-            <p className="text-sm font-light text-gray-600 w-[250px]">
+            <p className="text-sm font-light text-gray-600 max-w-[250px]">
               {card.description}
             </p>
             <div className="h-2 bg-yellow-500 w-full absolute   -bottom-1 transition duration-150 left-0" />
