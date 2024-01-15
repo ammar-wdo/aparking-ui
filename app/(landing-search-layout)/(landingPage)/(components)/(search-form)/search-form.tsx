@@ -117,10 +117,10 @@ const SearchForm = ({
                 setOpen={setOpenStart}
                 date={startDate}
                 setDate={setStartDate}
-                title="Arrival date"
+                title="Datum van"
               />
               <TimeSelect
-              title="Arrival time"
+              title="Aankomsttijd"
                 showAll
                 startDate={startDate}
                 endDate={endDate}
@@ -143,10 +143,10 @@ const SearchForm = ({
                 fromDate={startDate}
                 date={endDate}
                 setDate={setEndDate}
-                title="Departure date"
+                title="Datum tot"
               />
               <TimeSelect
-              title="Departure time"
+              title="Vertrektijd"
                 open={openEndTime}
                 setOpen={setOpenEndTime}
                 startTime={startTime}

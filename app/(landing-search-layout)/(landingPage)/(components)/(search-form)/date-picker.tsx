@@ -12,6 +12,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import nl from 'date-fns/locale/nl'
 
 
 type Props = {
@@ -50,6 +51,7 @@ React.useEffect(()=>{
       <PopoverContent className="w-auto p-0">
         <p className="text-center pt-1 text-site font-medium">{title}</p>
         <Calendar
+       locale={nl}
        
         className="border-0"
         disabled={(date)=>{
