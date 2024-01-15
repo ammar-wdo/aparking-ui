@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 
 import {
   DropdownMenu,
@@ -13,7 +12,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
+} from "@/components/ui/popover";
 import { Airport } from "@/schemas";
 import { ChevronDown, Menu } from "lucide-react";
 import Link from "next/link";
@@ -23,33 +22,43 @@ import NavLinks from "./nav-links";
 import SigninOut from "./signin-out";
 import { cn } from "@/lib/utils";
 
-
-
 type Props = {
-    contentPages?:boolean,
-  
-}
-export const MeneuDropdown = ({contentPages}:Props) => {
+  contentPages?: boolean;
+};
+export const MeneuDropdown = ({ contentPages }: Props) => {
+  const [openPop, setOpenPop] = useState(false);
 
-    const [openPop, setOpenPop] = useState(false)
+  const closePop = (val: boolean) => {
+    setOpenPop(val);
+  };
 
-    const closePop = (val:boolean)=>{
-        setOpenPop(val)
-    }
+  const [mount, setMount] = useState(false);
 
-const [mount,setMount] = useState(false)
-
-useEffect(()=>{setMount(true)},[])
-    if(!mount) return null
+  useEffect(() => {
+    setMount(true);
+  }, []);
+  if (!mount) return null;
 
   return (
-    <Popover open={openPop} onOpenChange={setOpenPop}  >
-      <PopoverTrigger asChild className="flex items-center gap-1  md:text-base text-sm font-medium"><Button name="menu-button" type="button" aria-label='Menu'  className="bg-transparent hover:bg-transparent"><Menu name="Menu" className={cn("",contentPages ? 'text-white' : "text-site")}/></Button></PopoverTrigger>
-      <PopoverContent  className="mt-5 flex flex-col items-center gap-6">
-        
-          <NavLinks   close={closePop} col />
-          
-  
+    <Popover open={openPop} onOpenChange={setOpenPop}>
+      <PopoverTrigger
+        asChild
+        className="flex items-center gap-1  md:text-base text-sm font-medium"
+      >
+        <Button
+          name="menu-button"
+          type="button"
+          aria-label="Menu"
+          className="bg-transparent hover:bg-transparent p-1"
+        >
+          <Menu
+            name="Menu"
+            className={cn("", contentPages ? "text-white" : "text-site")}
+          />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="mt-5 flex flex-col items-center gap-6">
+        <NavLinks close={closePop} col />
       </PopoverContent>
     </Popover>
   );

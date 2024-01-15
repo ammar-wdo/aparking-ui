@@ -68,6 +68,7 @@ const AirportCombo = ({
          pl-4"
       >
         <Button
+        name="airports"
           variant={"ghost"}
           className="w-full px-2 flex items-center text-xs text-gray-600 font-medium justify-between"
         >

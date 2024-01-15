@@ -7,7 +7,7 @@ type Props = {footer?:boolean}
 const Logo = ({footer}: Props) => {
   return (
     <Link href={'/'}>
-    <div className="relative w-40 h-8 ">
+    <div className="relative sm:w-40 sm:h-8  w-28 h-6">
       <Image src={!footer ?'/aparking-logo.svg' :'/aparking-logo-white.svg' } fill alt="logo"/>
 
     </div></Link>

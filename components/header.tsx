@@ -34,7 +34,7 @@ const Header = async ({contentPages}: Props) => {
         <Logo footer={contentPages} />
      
         <div className=" flex items-center gap-6">
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1 md:hidden">
           
         <AirportCombpBox contentPages={contentPages}  data={res.data.airports} />
           <MeneuDropdown  contentPages ={contentPages}/>

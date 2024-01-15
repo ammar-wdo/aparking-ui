@@ -25,6 +25,7 @@ type Props = {
 showAll?:boolean
   startTime: string;
   endTime: string;
+  title?:string
 };
 
 const TimeSelect = ({
@@ -37,7 +38,8 @@ const TimeSelect = ({
   endDate,
   startTime,
   endTime,
-  showAll
+  showAll,
+  title
 }: Props) => {
 
 
@@ -68,6 +70,7 @@ const TimeSelect = ({
       </PopoverTrigger>
 
       <PopoverContent className="w-fit">
+        <p className="text-xs text-site font-medium text-center ">{title}</p>
         <ScrollArea className="h-[200px] w-fit rounded-md  p-4 flex flex-col">
           {times.map((time) => {
 

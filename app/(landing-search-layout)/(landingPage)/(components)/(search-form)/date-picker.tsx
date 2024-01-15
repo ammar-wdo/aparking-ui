@@ -19,10 +19,11 @@ type Props = {
     setDate:React.Dispatch<React.SetStateAction<Date | undefined>>
     fromDate?:Date|undefined,
     open:boolean,
-    setOpen:React.Dispatch<React.SetStateAction<boolean>>
+    setOpen:React.Dispatch<React.SetStateAction<boolean>>,
+    title?:string
 
 }
-export function DatePicker({date,setDate,fromDate,open,setOpen}:Props) {
+export function DatePicker({date,setDate,fromDate,open,setOpen,title}:Props) {
 
    
   
@@ -47,9 +48,10 @@ React.useEffect(()=>{
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
+        <p className="text-center pt-1 text-site font-medium">{title}</p>
         <Calendar
-
-        className=""
+       
+        className="border-0"
         disabled={(date)=>{
             if(fromDate){
                 return date< new Date(new Date().setHours(0,0,0,0)) || date < new Date( fromDate.setHours(0,0,0,0))
