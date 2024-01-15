@@ -44,6 +44,7 @@ import { Tooltip } from "@/components/ui/tooltip";
 import ToolTip from "@/components/tooltip";
 import DetailsPopover from "./details-popover";
 import CheckoutExtraInfo from "@/components/checkout-extra-info";
+import PromoBox from "./promo-box";
 
 type Props = {
   arrivalDate: string;
@@ -71,7 +72,7 @@ const BookingForm = ({
   title,
   extraOptions,
 }: Props) => {
-  const { form, onSubmit, options, optionsTotal, handleAddDelete,accRef } = useBooking(
+  const { form, onSubmit, options, optionsTotal, handleAddDelete,accRef ,promo,reset,checkPromo,setCode,promoCode} = useBooking(
     {
       arrivalDate: new Date(arrivalDate),
       departureDate: new Date(departureDate),
@@ -85,6 +86,9 @@ const BookingForm = ({
 
   const [carStep, setCarStep] = useState(false);
   const [payStep, setPayStep] = useState(false);
+
+
+  const discountValue = promo.value ? `€${promo.value}` : promo.percentage ?  `%${promo.percentage}` : ''
 
   return (
     <Form {...form}>
@@ -188,7 +192,7 @@ const BookingForm = ({
               departureTime={departureTime}
             />
             {!!options.length && (
-              <div className="py-3 ">
+              <div className="py-3 border-b">
                 <p className="font-bold  ">Extra opties</p>
                 <div className="flex flex-col  mt-2">
                   {options.map((el) => (
@@ -207,11 +211,13 @@ const BookingForm = ({
                 </div>
               </div>
             )}
+            <PromoBox  promo={promo} setCode={setCode} promoCode={promoCode}  reset={reset} checkPromo={checkPromo} />
+
+            {discountValue && <div className="flex items-center justify-between font-medium mt-4 "><span>Discount</span> <span>{discountValue}</span></div>}
 
             <div
               className={cn(
-                "flex items-center justify-between w-full mt-6 ",
-                !!options.length && "border-t pt-4"
+                "flex items-center justify-between w-full mt-6  border-t pt-4"
               )}
             >
               <p>Price including VAT </p>

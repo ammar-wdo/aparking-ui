@@ -16,7 +16,7 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
   const arrival = format(new Date(arrivalDate),'dd/MM/yyyy')
   const departure = format(new Date(departureDate),'dd/MM/yyyy')
   return (
-    <div className=' mt-4 space-y-7 border-y-2 border-zinc-200 py-6'>
+    <div className=' mt-4 space-y-7 border-b py-6'>
         
         <div className='flex justify-between items-center'>
         <p className='capitalize  font-bold'>{title}</p>
