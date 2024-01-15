@@ -5,15 +5,15 @@ type Props = {};
 const PartnerGreeting = (props: Props) => {
   return (
     <div>
-      <h1 className="text-site text-3xl font-bold">Partner worden</h1>
+      <h1 className="text-site text-3xl font-bold">Parkeer partner worden</h1>
       <p className="text-sm text-neutral-500 max-w-[650px] mt-4">
-        Partner with Aparking to expand your parking services. Showcase your
-        facility to travelers seeking hassle-free parking. Increase your reach,
-        attract more clients, and grow with a trusted name in parking.
+        Ontdek de voordelen van een partnerschap met Aparking! Wil je jouw
+        parkeeraanbod naar nieuwe hoogten tillen? Word onze partner en geniet
+        van een grotere zichtbaarheid, een breder publiek en meer boekingen!
         <br /> <br />
-        Join Aparking for enhanced visibility. Present your facility to a wide
-        audience, growing your business alongside ours. Let’s set new standards
-        for parking convenience together
+        Vul het onderstaande formulier in en maak deel uit van ons
+        succesverhaal. Samen bieden we reizigers de ultieme parkeerervaring op
+        luchthavens in Nederland. Let's park for success!
       </p>
     </div>
   );

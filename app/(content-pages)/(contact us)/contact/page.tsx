@@ -30,7 +30,7 @@ const page =async (props: Props) => {
         </div>
       <div className='container py-12 '>
 <Greeting />
-<Chatfeed />
+
 <ContactForm />
       </div>
     </div>

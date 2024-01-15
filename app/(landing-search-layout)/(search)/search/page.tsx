@@ -54,7 +54,7 @@ const page = async ({ searchParams }: Props) => {
 
 
 
-  const time = `From ${startDate} at ${startTime} to ${endDate} at ${endTime}`;
+  const time = `Vanaf  ${startDate} om ${startTime} tot en met ${endDate} om ${endTime}`;
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
@@ -80,6 +80,8 @@ const page = async ({ searchParams }: Props) => {
             </ProgressBar>
           }
         >
+
+         
           <SearchFeed
             airport={airport}
             startDate={startDate}

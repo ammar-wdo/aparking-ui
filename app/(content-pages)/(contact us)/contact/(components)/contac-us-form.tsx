@@ -47,7 +47,8 @@ const {form ,onSubmit} = useContact()
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4  mt-6 rounded-md w-full lg:w-1/2 max-w-[600px]  "
         >
-            <h3 className="text-site text-3xl font-semibold">Contact us</h3>
+            <h3 className="text-site text-3xl font-semibold">Heeft u vragen?</h3>
+            <p className="text-sm text-neutral-500">Neem contact met ons door het onderstaand formulier in te vullen.<br/>U krijgt zo spoedig mogelijk antwoord.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <FormField
             control={form.control}
@@ -58,7 +59,7 @@ const {form ,onSubmit} = useContact()
               
                 <FormControl>
                   <Input
-                    placeholder="First name"
+                    placeholder="Voornaam"
                     className="border-none bg-transparent p-2 
                     outline-none "
                     {...field}
@@ -80,7 +81,7 @@ const {form ,onSubmit} = useContact()
                
                 <FormControl>
                   <Input
-                    placeholder="Last name"
+                    placeholder="Achternaam"
                     className="border-none bg-transparent  p-2 
                     outline-none "
                     {...field}
@@ -127,7 +128,7 @@ const {form ,onSubmit} = useContact()
               
                 <FormControl>
                   <Input
-                    placeholder="Subject"
+                    placeholder="Onderwerp"
                     className="border-none bg-transparent p-2 w-full
                     outline-none "
                     {...field}
@@ -149,7 +150,7 @@ const {form ,onSubmit} = useContact()
           
                 <FormControl>
                   <Textarea
-                    placeholder="Message"
+                    placeholder="Bericht"
                     className="border-none bg-transparent p-2 w-full
                     outline-none resize-none min-h-[300px]"
                     {...field}
@@ -169,7 +170,7 @@ const {form ,onSubmit} = useContact()
               className="py-8 w-full rounded-lg text-xl"
               disabled={isLoading}
             >
-              Send message
+              Verzend bericht
               {isLoading && <Loader2 className="ml-3 h-3 w-3 animate-spin" />}
             </Button>
           

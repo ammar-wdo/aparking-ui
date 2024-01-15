@@ -125,7 +125,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
         {!invalid && !show && (
           <div className="text-center">
             <p className="text-gray-500 text-xs">
-              Price for {service.parkingDays} day(s)
+            Prijs voor {service.parkingDays} dag(en)
             </p>
             <p className="font-bold text-3xl mt-1">
               €{(service?.totalPrice! as number)?.toFixed(2).replace(".", ",")}
@@ -139,7 +139,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             variant={"siteTwo"}
             className={cn("w-full text-lg py-7 rounded-[3px] mt-2")}
           >
-            <Link href={url}>{invalid ? "Not available" : "Book Now"}</Link>
+            <Link href={url}>{invalid ? "Niet beschikbaar" : "Reserveer Nu"}</Link>
           </Button>
         ) : (
           <Button
@@ -155,7 +155,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
           </Button>
         )}
         <p className="text-gray-500 text-xs text-center pt-3 mt-auto ">
-          Cancel for free up to 24 hours in advance
+        Tot 24 uur van tevoren gratis annuleren
         </p>
       </CardFooter>
     </Card>

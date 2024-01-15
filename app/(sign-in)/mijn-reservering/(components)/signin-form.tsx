@@ -34,7 +34,9 @@ const SigninForm = (props: Props) => {
 
   return (
     <div className="w-full p-3 max-w-[500px] mt-12 sm:mt-0">
-      <h3 className="text-3xl font-bold text-[#003580]">Check my booking</h3>
+      <h3 className="text-3xl font-bold text-[#003580]">Reservering beheren</h3>
+      <p className="text-sm text-neutral-500">Log in met uw e-mailadres en uw reserveringsnummer.</p>
+      <p className="text-sm text-neutral-500 mt-4">U kunt uw reservering wijzigen of annuleren.<br/> Uw reserveringsnummer kunt u vinden in uw bevestigingsmail.</p>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -71,7 +73,7 @@ const SigninForm = (props: Props) => {
                 <Fingerprint className="w-5 h-5 text-gray-400 " />
                 <FormControl>
                   <input
-                    placeholder="Booking Code"
+                    placeholder="Reserveringsnummer"
                     className="border-none bg-transparent  p-2 w-full
                     outline-none "
                     {...field}
@@ -95,7 +97,7 @@ const SigninForm = (props: Props) => {
               {isLoading && <Loader2 className="ml-3 h-3 w-3 animate-spin" />}
             </Button>
             <Button asChild variant={"secondary"}>
-              <Link href={"/"}>Back to main page</Link>
+              <Link href={"/"}>terug naar home pagina</Link>
             </Button>
           </div>
           {isError && (
@@ -105,7 +107,7 @@ const SigninForm = (props: Props) => {
       </Form>
 
       <div className="py-4 border-gray-100 border-t mt-6 flex justify-between items-center">
-        <p>Have a problem?</p>
+        <p>Hulp nodig?</p>
         <Link href={'/contact'} className="text-indigo-600 underline">Contact</Link>
 
       </div>

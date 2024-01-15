@@ -25,7 +25,7 @@ const PromoBox = ({promoCode,setCode,promo,reset,checkPromo}: Props) => {
   return (
     <div className='my-2'>
         <p className='py-1 font-bold'>Apply promo code</p>
-    <div className=' flex items-center gap-1'>
+    <div className=' flex items-center gap-1 mt-1'>
         <Input value={promoCode}  onChange={setCode} placeholder='Promo code' />
         <Button onClick={checkPromo} disabled={promo.loading || !!promo.label} type='button' variant={'siteTwo'}>Apply {promo.loading && <Loader className='ml-3 w-3 h-3 animate-spin' />}</Button>
 
