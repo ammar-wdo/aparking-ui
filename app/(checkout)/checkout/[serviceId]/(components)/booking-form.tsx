@@ -71,7 +71,7 @@ const BookingForm = ({
   title,
   extraOptions,
 }: Props) => {
-  const { form, onSubmit, options, optionsTotal, handleAddDelete } = useBooking(
+  const { form, onSubmit, options, optionsTotal, handleAddDelete,accRef } = useBooking(
     {
       arrivalDate: new Date(arrivalDate),
       departureDate: new Date(departureDate),
@@ -105,11 +105,12 @@ const BookingForm = ({
               carStep={carStep}
               payStep={payStep}
               setPayStep={setPayStep}
+              accRef={accRef}
             />
             {!!extraOptions.length && (
               <Accordion type="single" collapsible>
-                <AccordionItem className="border-none" value="item-1">
-                  <AccordionTrigger className="bg-white p-6 hover:no-underline">
+                <AccordionItem className="border-none" value="item">
+                  <AccordionTrigger ref={accRef}  className="bg-white p-6 hover:no-underline">
                     <h3 className="text-2xl font-bold no-underline ">
                       3. Extra options
                     </h3>
@@ -131,14 +132,14 @@ const BookingForm = ({
                             }}
                           />
                           <div className="gap-4  flex items-center">
-                            <p className="first-letter:capitalize test-sm font-semibold">
+                            <p className="first-letter:capitalize text-xs sm:text-base font-semibold">
                               {option.label}
                             </p>
                             <DetailsPopover details={option.description} />
                           </div>
                         </div>
 
-                        <p className=" text-sm font-bold ml-auto  sm:mr-20">
+                        <p className=" text-sm font-bold ml-auto  sm:mr-20 shrink-0">
                           € {option.price.toFixed(2).replace(".", ",")}
                         </p>
                         {option.image ? (

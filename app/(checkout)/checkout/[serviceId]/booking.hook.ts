@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { ADD_BOOKMARK } from "@/links";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { bookingSchema } from "@/schemas";
 import { handleTimezone } from "@/lib/timezone-handler";
@@ -36,6 +36,8 @@ export const useBooking = ({
 
   const [options, setOptions]= useState<Option[] | []>([])
   const [optionsTotal, setOptionsTotal] = useState(0)
+
+  const accRef = useRef<HTMLButtonElement | null>(null)
 
   const handleAddDelete = (option:Option)=>{
 const exist = !!options.find((el)=>el.id===option.id)
@@ -105,5 +107,5 @@ const refinedValues = {...values,arrivalDate:startDateString,departureDate:endDa
           }
   }
 
-  return { form, onSubmit,options,optionsTotal ,handleAddDelete};
+  return { form, onSubmit,options,optionsTotal ,handleAddDelete,accRef};
 };

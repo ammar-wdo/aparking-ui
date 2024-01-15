@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { Dispatch, MutableRefObject, SetStateAction, useRef, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 
@@ -28,6 +28,7 @@ type Props = {
   carStep: boolean;
   setPayStep: Dispatch<SetStateAction<boolean>>;
   payStep: boolean;
+  accRef:MutableRefObject<HTMLButtonElement | null>
 };
 
 const CarInformation = ({
@@ -36,6 +37,7 @@ const CarInformation = ({
   carStep,
   payStep,
   setPayStep,
+  accRef
 }: Props) => {
 
   const carRef = useRef<HTMLDivElement>(null)
@@ -49,6 +51,9 @@ const CarInformation = ({
 
       if(isValid){
         setPayStep(true);
+       if(accRef.current){
+        accRef.current.click()
+       }
         carRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
  
