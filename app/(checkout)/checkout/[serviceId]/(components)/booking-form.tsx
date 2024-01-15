@@ -132,7 +132,7 @@ const BookingForm = ({
                             }}
                           />
                           <div className="gap-4  flex items-center">
-                            <p className="first-letter:capitalize text-xs sm:text-base font-semibold">
+                            <p className="first-letter:capitalize text-xs sm:text-sm text-left">
                               {option.label}
                             </p>
                             <DetailsPopover details={option.description} />
@@ -189,17 +189,17 @@ const BookingForm = ({
             />
             {!!options.length && (
               <div className="py-3 ">
-                <p className="font-bold  text-2xl">Additional options added</p>
-                <div className="flex flex-col gap-2 mt-2">
+                <p className="font-bold  ">Extra opties</p>
+                <div className="flex flex-col  mt-2">
                   {options.map((el) => (
                     <div
-                      className="py-1  flex justify-between w-full items-center font-bold "
+                      className="py-1  flex justify-between w-full items-center text-neutral-500 text-xs sm:text-sm"
                       key={el.id}
                     >
                       <span className="first-letter:capitalize">
                         {el.label}{" "}
                       </span>{" "}
-                      <span className="">
+                      <span className="text-black font-semibold">
                         €{el.price.toFixed(2).replace(".", ",")}
                       </span>
                     </div>

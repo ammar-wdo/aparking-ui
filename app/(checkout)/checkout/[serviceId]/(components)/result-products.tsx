@@ -18,12 +18,16 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
   return (
     <div className=' mt-4 space-y-7 border-y-2 border-zinc-200 py-6'>
         
-          <div className=' flex items-center justify-between  capitalize text-2xl font-bold'>
-<p>{title}</p>
-<p>€ {total.toFixed(2).replace('.',',')}</p>
-          </div>
+        <div className='flex justify-between items-center'>
+        <p className='capitalize  font-bold'>{title}</p>
+        <p className='font-bold'>€{total.toFixed(2).replace('.',',')}</p>
+        </div>
+
+
+        
           <InfoComponent title='Entry date' value={`${arrival} at ${arrivalTime}`} />
           <InfoComponent title='Exit date' value={`${departure} at ${departureTime}`} />
+         
 
           
 
