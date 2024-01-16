@@ -24,7 +24,7 @@ const Airports = async (props: Props) => {
   return (
     <div className=" py-8 ">
       <h3 className="text-center text-4xl font-semibold text-[#003580] ">
-        Airports
+        Vliegvelden
       </h3>
       <div className="max-w-[1500px] mx-auto mt-6   hidden md:block  p-4">
     <AirportsSwiper airports={res.data.airports} />

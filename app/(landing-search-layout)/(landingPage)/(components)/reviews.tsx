@@ -37,7 +37,7 @@ const Reviews = async ({
         Reviews
       </h3>
       <p className="text-sm text-gray-600 text-center">
-        What do people say about our parking partners?
+        Wat zeggen de klanten over onze parkeeraanbieders
       </p>
 
       {!reviews.length ? (
