@@ -13,7 +13,7 @@ const PartnerGreeting = (props: Props) => {
         <br /> <br />
         Vul het onderstaande formulier in en maak deel uit van ons
         succesverhaal. Samen bieden we reizigers de ultieme parkeerervaring op
-        luchthavens in Nederland. Let's park for success!
+        luchthavens in Nederland. Let&apos;s park for success!
       </p>
     </div>
   );
