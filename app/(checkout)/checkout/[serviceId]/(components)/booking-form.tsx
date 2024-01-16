@@ -137,7 +137,7 @@ const BookingForm = ({
                     className="bg-white p-6 hover:no-underline"
                   >
                     <h3 className="text-2xl font-bold no-underline ">
-                      3. Extra options
+                      3. Extra opties
                     </h3>
                   </AccordionTrigger>
                   <AccordionContent className="p-6 bg-white space-y-3">
@@ -196,7 +196,7 @@ const BookingForm = ({
           </div>
           <div>
             <div className=" p-6 bg-white self-start">
-              <h3 className="text-2xl font-bold  ">Order overview</h3>
+              <h3 className="text-2xl font-bold  ">Reservering overzicht</h3>
               {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
               email={form.watch("email")}
@@ -243,7 +243,7 @@ const BookingForm = ({
                   "flex items-center justify-between w-full mt-6  border-t pt-4"
                 )}
               >
-                <p className="font-medium">Total price</p>
+                <p className="font-medium">Totaal incl. Btw</p>
                 <span
                   className={cn(
                     "font-bold  ",
@@ -256,7 +256,7 @@ const BookingForm = ({
               </div>
               {!!discountToRemove && (
                 <div className="flex items-center justify-between font-medium mt-4 ">
-                  <span>Discount</span>{" "}
+                  <span>Korting</span>{" "}
                   <span className="font-bold">
                     €{discountToRemove.toFixed(2).replace(".", ",")}
                   </span>
@@ -264,7 +264,7 @@ const BookingForm = ({
               )}
               {!!discountToRemove && (
                 <div className="flex items-center justify-between font-medium mt-4 py-2 border-t ">
-                  <span>Total with discount</span>{" "}
+                  <span>Totaal</span>{" "}
                   <span className="text-2xl font-bold">
                     €{finalTotal.toFixed(2).replace(".", ",")}
                   </span>

@@ -48,7 +48,7 @@ const Filter = (props: Props) => {
 
       <SheetContent side={"left"} className="p-0 flex flex-col h-screen w-full z-[1000]">
         <SheetHeader>
-          <SheetTitle className="p-4 sm:pb-4 pb-0">Filter the results</SheetTitle>
+          <SheetTitle className="p-4 sm:pb-4 pb-0">Filter de resultaten</SheetTitle>
         </SheetHeader>
         <div className=" flex flex-col  flex-1 pb-2">
           <div className="">
@@ -81,7 +81,7 @@ const Filter = (props: Props) => {
                   htmlFor="shuttle"
                   className="text-xs font-medium leading-none  "
                 >
-                  Shuttle-park
+                  Shuttle-parking
                 </label>
               </div>
             </div>
@@ -90,7 +90,7 @@ const Filter = (props: Props) => {
 
           <div className="mt-6">
             <h3 className="p-1 px-4 text-sm text-neutral-500 font-semibold ">
-              Parking location
+            Parkeerplaats
             </h3>
             <div className="px-4">
               <div className="flex items-center space-x-2 mt-2">
@@ -104,7 +104,7 @@ const Filter = (props: Props) => {
                   htmlFor="Indoor"
                   className="text-xs font-medium leading-none  "
                 >
-                  Indoor
+                  Binnen
                 </label>
               </div>
               <div className="flex items-center space-x-2 mt-2">
@@ -118,7 +118,7 @@ const Filter = (props: Props) => {
                   htmlFor="Outdoor"
                   className="text-xs font-medium leading-none  "
                 >
-                  Outdoor
+                  Buiten
                 </label>
               </div>
            
@@ -128,7 +128,7 @@ const Filter = (props: Props) => {
 
           <div className="mt-6">
             <h3 className="p-1 px-4 text-sm text-neutral-500 font-semibold ">
-              Electric charge
+            Elektrisch opladen
             </h3>
             <div className="px-4">
               <div className="flex items-center space-x-2 mt-2">
@@ -141,7 +141,7 @@ const Filter = (props: Props) => {
                   htmlFor="charge"
                   className="text-xs font-medium leading-none  "
                 >
-                  Electric charge
+                 Elektrische auto opladen
                 </label>
               </div>
             </div>
@@ -150,7 +150,7 @@ const Filter = (props: Props) => {
           <Separator className="mt-6" />
           <div className="mt-6">
             <h3 className="p-1 px-4 text-sm text-neutral-500 font-semibold ">
-              Car keys
+            Autosleutels
             </h3>
             <div className="px-4">
               <div className="flex items-center space-x-2 mt-2">
@@ -164,7 +164,7 @@ const Filter = (props: Props) => {
                   htmlFor="Keep"
                   className="text-xs font-medium leading-none  "
                 >
-                  Keep
+                  Meenemen
                 </label>
               </div>
               <div className="flex items-center space-x-2 mt-2">
@@ -178,7 +178,7 @@ const Filter = (props: Props) => {
                   htmlFor="Leave"
                   className="text-xs font-medium leading-none  "
                 >
-                  Leave
+                  Afgeven
                 </label>
               </div>
            

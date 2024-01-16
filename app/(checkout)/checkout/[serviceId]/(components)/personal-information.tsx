@@ -66,7 +66,7 @@ const router = useRouter()
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400")}>
-            1. Personal information
+            1. Persoonlijke informatie
           </h3>
           {carStep && (
             <span className="p-2 bg-green-500/20 rounded-full ml-auto">
@@ -81,7 +81,7 @@ const router = useRouter()
         <>
           <div className=" flex items-center   w-fit  overflow-hidden gap-7">
             <label htmlFor="for-work" className="">
-              Are you traveling for work?
+            Reist u zakelijk? 
             </label>
             <input
               id="for-work"
@@ -103,11 +103,11 @@ const router = useRouter()
                   name="companyName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company Name *</FormLabel>
+                      <FormLabel>Bedrijfsnaam *</FormLabel>
                       <FormControl>
                         <Input
                           className="rounded-none"
-                          placeholder="First Name"
+                          placeholder="Bedrijfsnaam"
                           {...field}
                         />
                       </FormControl>
@@ -121,11 +121,11 @@ const router = useRouter()
                   name="address"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Address *</FormLabel>
+                      <FormLabel>Adres *</FormLabel>
                       <FormControl>
                         <Input
                           className="rounded-none"
-                          placeholder="Address"
+                          placeholder="Adres"
                           {...field}
                         />
                       </FormControl>
@@ -139,11 +139,11 @@ const router = useRouter()
                   name="zipcode"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Zip Code *</FormLabel>
+                      <FormLabel>Postcode *</FormLabel>
                       <FormControl>
                         <Input
                           className="rounded-none"
-                          placeholder="zipcode"
+                          placeholder="Postcode"
                           {...field}
                         />
                       </FormControl>
@@ -162,11 +162,11 @@ const router = useRouter()
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name *</FormLabel>
+                  <FormLabel>Voornaam *</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="First Name"
+                      placeholder="Voornaam"
                    value={field.value}
                    onChange={(e)=>{field.onChange(e);form.clearErrors('firstName')}}
                     />
@@ -181,11 +181,11 @@ const router = useRouter()
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name *</FormLabel>
+                  <FormLabel>Achternaam*</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="Last Name"
+                      placeholder="achternaam"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('lastName')}}
                     />
@@ -200,11 +200,11 @@ const router = useRouter()
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address *</FormLabel>
+                  <FormLabel>E-mailadres*</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="Email Address"
+                      placeholder="E-mailadres"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('email')}}
                     />
@@ -219,9 +219,10 @@ const router = useRouter()
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem className="">
-                  <FormLabel>Phone Number *</FormLabel>
+                  <FormLabel>Mobiel nummer*</FormLabel>
                   <FormControl>
                     <PhoneInput
+                    placeholder="Mobiel nummer"
                       enableSearch={true}
                       buttonStyle={{ border: "none" }}
                       containerStyle={{
@@ -235,6 +236,7 @@ const router = useRouter()
                       }}
                       value={form.getValues("phoneNumber")}
                       onChange={(phone) => {form.setValue("phoneNumber", phone);form.clearErrors('phoneNumber')}}
+                      
                     />
                   </FormControl>
 
@@ -248,12 +250,12 @@ const router = useRouter()
               name="flightNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Flight Number *</FormLabel>
+                  <FormLabel>Vluchtnummer*</FormLabel>
                   <FormControl>
                     <Input
            
                       className="rounded-none"
-                      placeholder="Flight number"
+                      placeholder="Vluchtnummer"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('flightNumber');}}
                     />
@@ -270,7 +272,7 @@ const router = useRouter()
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
-              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+              {<ChevronLeft className="mr-1 h-4 w-4" />}Terug
             </button>
             <Button
               onClick={toCarInfo}
@@ -278,7 +280,7 @@ const router = useRouter()
               variant={'siteTwo'}
               className=" rounded-sm py-2 px-6"
             >
-              Next Step{" "}
+              Volgende{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
             </Button>
           </div>

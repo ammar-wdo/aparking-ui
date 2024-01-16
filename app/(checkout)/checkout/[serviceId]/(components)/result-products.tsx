@@ -25,8 +25,8 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
 
 
         
-          <InfoComponent title='Entry date' value={`${arrival} at ${arrivalTime}`} />
-          <InfoComponent title='Exit date' value={`${departure} at ${departureTime}`} />
+          <InfoComponent title='Aankomst datum' value={`${arrival} om ${arrivalTime}`} />
+          <InfoComponent title='Vertrek datum' value={`${departure} om ${departureTime}`} />
          
 
           

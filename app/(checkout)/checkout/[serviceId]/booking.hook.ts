@@ -118,7 +118,7 @@ setPromoCode(e.target.value)
 
   const checkPromo = async () => {
     if (!promoCode)
-      return setPromo((promo) => ({ ...promo, message: "Enter valid value" }));
+      return setPromo((promo) => ({ ...promo, message: "Voer een geldige waarde in" }));
     setPromo((promo) => ({ ...promo, loading: true, message: undefined }));
     try {
       const { startDateString, endDateString } = handleTimezone(

@@ -18,7 +18,7 @@ import PhoneInput from "react-phone-input-2";
 import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
-import { CheckCheck, ChevronLeft, ChevronRightIcon } from "lucide-react";
+import { CheckCheck, ChevronLeft, ChevronRightIcon, Loader } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -50,14 +50,14 @@ const PaymentMethod = ({
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", !payStep && "text-gray-400")}>
-            {extraOptions ? "4." : "3."} Payment method
+            {extraOptions ? "4." : "3."} Betaal methode
           </h3>
         </div>
       </div>
       {payStep && (
         <>
           <div className="grid gird-cols-1  gap-3">
-            <p className="font-light">How would you like to pay? *</p>
+            <p className="font-light">Hoe wil je betalen?*</p>
 
             <FormField
               control={form.control}
@@ -139,7 +139,7 @@ const PaymentMethod = ({
                 }}
               />
               <p>
-                I accept the{" "}
+              Ik ga akkoord met de {" "}
                 <Link
                   target="_blank"
                   className="underline text-blue-500"
@@ -162,7 +162,7 @@ const PaymentMethod = ({
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
-              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+              {<ChevronLeft className="mr-1 h-4 w-4" />}terug 
             </button>
             <Button
               disabled={form.formState.isSubmitting}
@@ -174,7 +174,8 @@ const PaymentMethod = ({
               variant={"siteTwo"}
               className=" rounded-sm py-2 px-6"
             >
-              Checkout{" "}
+              Reserveer{" "}
+              {form.formState.isSubmitting && <Loader className="ml-3 w-3 h-3 animate-spin" />}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
             </Button>
           </div>

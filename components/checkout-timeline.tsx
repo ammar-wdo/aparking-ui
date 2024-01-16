@@ -21,19 +21,19 @@ const CheckoutTimeline = ({ valet }: Props) => {
   const elements = [
     {
       id: "1",
-      title: "Shortly, you will get a confirmation email.",
+      title: "Binnen enkele minuten ontvangst bevestigingsmail.",
       icon: <Mail className="w-8 h-8 text-site" />,
     },
     {
       id: "2",
-      title: "Change your booking up to 24 hours before you leave.",
+      title: "Tot 24 uur van te voren wijzigen.",
       icon: <TimerReset className="w-8 h-8 text-site" />,
     },
     {
       id: "3",
       title: valet
-        ? "Head to the departure hall."
-        : "Drive to the parking lot on your departure day.",
+        ? "Op de dag van vertrek rijdt u naar de parkeeraanbieder"
+        : "Op de dag van vertrek rijdt u naar de parkeeraanbieder",
       icon: valet ? (
         <PlaneTakeoff className="w-8 h-8 text-site" />
       ) : (
@@ -42,14 +42,14 @@ const CheckoutTimeline = ({ valet }: Props) => {
     },
     {
       id: "4",
-      title: "Your car will be ready for you when you come back.",
+      title: "Bij terugkomst wordt staat de parkeeraanbieder voor u klaar.",
       icon: <Check className="w-8 h-8 text-site" />,
     },
   ];
   return (
     <div className="container px-[16px]">
       <div className=" bg-white p-6">
-        <h3 className="text-2xl font-bold border-b pb-6">What happens next?</h3>
+        <h3 className="text-2xl font-bold border-b pb-6">Wat gaat hierna gebeuren?</h3>
       
         <div className="flex  justify-between gap-2 mt-3  flex-col lg:flex-row relative">
           <div className="hidden lg:block z-10 absolute h-4 w-full border-t border-dashed top-14  border-site left-0 origin-center  "></div>

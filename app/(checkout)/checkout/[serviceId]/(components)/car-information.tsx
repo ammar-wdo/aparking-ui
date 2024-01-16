@@ -69,7 +69,7 @@ const CarInformation = ({
               (!carStep || payStep) && "text-gray-400"
             )}
           >
-            2. Car information
+            2. Voertuig gegevens
           </h3>
           {payStep && (
             <span className="p-2 bg-green-500/20 rounded-full ml-auto">
@@ -86,11 +86,11 @@ const CarInformation = ({
               name="carLicense"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Car Lisence *</FormLabel>
+                  <FormLabel>Kenteken*</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="Car Lisence"
+                      placeholder="Kenteken"
                       {...field}
                     />
                   </FormControl>
@@ -104,11 +104,11 @@ const CarInformation = ({
               name="carModel"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Car Model *</FormLabel>
+                  <FormLabel>Merk en model*</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="Car Model"
+                      placeholder="Merk en model"
                       {...field}
                     />
                   </FormControl>
@@ -122,11 +122,11 @@ const CarInformation = ({
               name="carColor"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Car Clolor *</FormLabel>
+                  <FormLabel>aantal personen*</FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-none"
-                      placeholder="Email Address"
+                      placeholder="aantal personen"
                       {...field}
                     />
                   </FormControl>
@@ -142,7 +142,7 @@ const CarInformation = ({
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
-              {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+              {<ChevronLeft className="mr-1 h-4 w-4" />}Terug
             </button>
             <Button
               onClick={toPayInfo}
@@ -150,7 +150,7 @@ const CarInformation = ({
               type="button"
               className=" text-sm transition   rounded-sm py-2 px-6"
             >
-              Final Step{" "}
+              Volgende{" "}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
             </Button>
           </div>

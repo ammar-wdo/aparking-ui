@@ -8,19 +8,19 @@ type Props = {};
 const CheckoutExtraInfo = (props: Props) => {
   const elements = [
     {
-      title: "Secure payment",
+      title: "Veilige betaling",
       icon: <ShieldCheck className="text-site w-8 h-8 shrink-0" />,
     },
     {
-      title: "All parking areas are throughly checked",
+      title: "Alle parkeerterreinen worden grondig gecontroleerd",
       icon: <BadgeCheck className="text-site w-8 h-8 shrink-0" />,
     },
     {
-      title: "Free cancelation up to 24 hours in advance",
+      title: "Gratis annuleren tot 24 uur van tevoren",
       icon: <TimerReset className="text-site w-8 h-8 shrink-0" />,
     },
     {
-      title: "Access to extra services with your parking",
+      title: "Toegang tot extra services bij uw parkeerplaats",
       icon: <PlusCircle className="text-site w-8 h-8 shrink-0" />,
     },
   ];
@@ -35,8 +35,8 @@ const CheckoutExtraInfo = (props: Props) => {
         ))}
       </div>
       <div className="bg-white p-6 mt-4">
-        <p className="font-semibold text-lg">Do you have any questions?</p>
-        <p className="mt-4 ">We are happy to help you! <Link target="_blank" className="underline text-blue-500" href={'/contact'}>Contact</Link></p>
+        <p className="font-semibold text-lg">Heeft u nog vragen?</p>
+        <p className="mt-4 ">Wij helpen u graag! <Link target="_blank" className="underline text-blue-500" href={'/contact'}>Contact</Link></p>
 
       </div>
     </div>
