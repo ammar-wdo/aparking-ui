@@ -53,7 +53,7 @@ type Props = {
   departureTime: string;
   totalPrice: number;
   title: string;
- 
+
   extraOptions: {
     id: string;
     price: number;
@@ -72,23 +72,41 @@ const BookingForm = ({
   title,
   extraOptions,
 }: Props) => {
-  const { form, onSubmit, options, optionsTotal, handleAddDelete,accRef ,promo,reset,checkPromo,setCode,promoCode} = useBooking(
-    {
-      arrivalDate: new Date(arrivalDate),
-      departureDate: new Date(departureDate),
-      arrivalTime,
-      departureTime,
-      totalPrice,
-    }
-  );
+  const {
+    form,
+    onSubmit,
+    options,
+    optionsTotal,
+    handleAddDelete,
+    accRef,
+    promo,
+    reset,
+    checkPromo,
+    setCode,
+    promoCode,
+  } = useBooking({
+    arrivalDate: new Date(arrivalDate),
+    departureDate: new Date(departureDate),
+    arrivalTime,
+    departureTime,
+    totalPrice,
+  });
 
   const isLoading = form.formState.isSubmitting;
 
   const [carStep, setCarStep] = useState(false);
   const [payStep, setPayStep] = useState(false);
 
+  const theTotal = totalPrice + optionsTotal;
 
-  const discountValue = promo.value ? `€${promo.value}` : promo.percentage ?  `%${promo.percentage}` : ''
+ 
+  const discountToRemove = promo.value
+    ? promo.value
+    : promo.percentage
+    ? (promo.percentage / 100) * theTotal
+    : 0;
+
+  const finalTotal = theTotal - discountToRemove;
 
   return (
     <Form {...form}>
@@ -114,7 +132,10 @@ const BookingForm = ({
             {!!extraOptions.length && (
               <Accordion type="single" collapsible>
                 <AccordionItem className="border-none" value="item">
-                  <AccordionTrigger ref={accRef}  className="bg-white p-6 hover:no-underline">
+                  <AccordionTrigger
+                    ref={accRef}
+                    className="bg-white p-6 hover:no-underline"
+                  >
                     <h3 className="text-2xl font-bold no-underline ">
                       3. Extra options
                     </h3>
@@ -174,61 +195,83 @@ const BookingForm = ({
             />
           </div>
           <div>
-
-        
-          <div className=" p-6 bg-white self-start">
-            <h3 className="text-2xl font-bold  ">Order overview</h3>
-            {/* <ResultPersonal
+            <div className=" p-6 bg-white self-start">
+              <h3 className="text-2xl font-bold  ">Order overview</h3>
+              {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
               email={form.watch("email")}
               phone={form.watch("phoneNumber")}
             /> */}
-            <ResultProducts
-              title={title}
-              total={totalPrice}
-              arrivalDate={new Date(arrivalDate)}
-              arrivalTime={arrivalTime}
-              departureDate={new Date(departureDate)}
-              departureTime={departureTime}
-            />
-            {!!options.length && (
-              <div className="py-3 border-b">
-                <p className="font-bold  ">Extra opties</p>
-                <div className="flex flex-col  mt-2">
-                  {options.map((el) => (
-                    <div
-                      className="py-1  flex justify-between w-full items-center text-neutral-500 text-xs sm:text-sm"
-                      key={el.id}
-                    >
-                      <span className="first-letter:capitalize">
-                        {el.label}{" "}
-                      </span>{" "}
-                      <span className="text-black font-semibold">
-                        €{el.price.toFixed(2).replace(".", ",")}
-                      </span>
-                    </div>
-                  ))}
+              <ResultProducts
+                title={title}
+                total={totalPrice}
+                arrivalDate={new Date(arrivalDate)}
+                arrivalTime={arrivalTime}
+                departureDate={new Date(departureDate)}
+                departureTime={departureTime}
+              />
+              {!!options.length && (
+                <div className="py-3 border-b">
+                  <p className="font-bold  ">Extra opties</p>
+                  <div className="flex flex-col  mt-2">
+                    {options.map((el) => (
+                      <div
+                        className="py-1  flex justify-between w-full items-center text-neutral-500 text-xs sm:text-sm"
+                        key={el.id}
+                      >
+                        <span className="first-letter:capitalize">
+                          {el.label}{" "}
+                        </span>{" "}
+                        <span className="text-black font-semibold">
+                          €{el.price.toFixed(2).replace(".", ",")}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-            <PromoBox  promo={promo} setCode={setCode} promoCode={promoCode}  reset={reset} checkPromo={checkPromo} />
-
-            {discountValue && <div className="flex items-center justify-between font-medium mt-4 "><span>Discount</span> <span>{discountValue}</span></div>}
-
-            <div
-              className={cn(
-                "flex items-center justify-between w-full mt-6  border-t pt-4"
               )}
-            >
-              <p>Price including VAT </p>
-              <span className="font-bold text-xl ">
-                €{(totalPrice + optionsTotal).toFixed(2).replace(".", ",")}
-              </span>
-            </div>
-           
-          </div>
-        <CheckoutExtraInfo />
+              <PromoBox
+                promo={promo}
+                setCode={setCode}
+                promoCode={promoCode}
+                reset={reset}
+                checkPromo={checkPromo}
+              />
 
+              <div
+                className={cn(
+                  "flex items-center justify-between w-full mt-6  border-t pt-4"
+                )}
+              >
+                <p className="font-medium">Total price</p>
+                <span
+                  className={cn(
+                    "font-bold  ",
+                    !discountToRemove && "text-2xl ",
+                    discountToRemove && "line-through"
+                  )}
+                >
+                  €{theTotal.toFixed(2).replace(".", ",")}
+                </span>
+              </div>
+              {!!discountToRemove && (
+                <div className="flex items-center justify-between font-medium mt-4 ">
+                  <span>Discount</span>{" "}
+                  <span className="font-bold">
+                    €{discountToRemove.toFixed(2).replace(".", ",")}
+                  </span>
+                </div>
+              )}
+              {!!discountToRemove && (
+                <div className="flex items-center justify-between font-medium mt-4 py-2 border-t ">
+                  <span>Total with discount</span>{" "}
+                  <span className="text-2xl font-bold">
+                    €{finalTotal.toFixed(2).replace(".", ",")}
+                  </span>
+                </div>
+              )}
+            </div>
+            <CheckoutExtraInfo />
           </div>
         </div>
       </form>

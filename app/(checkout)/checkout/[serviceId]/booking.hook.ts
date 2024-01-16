@@ -128,7 +128,8 @@ setPromoCode(e.target.value)
       const values = {
         code:promoCode,
         startDate:startDateString,
-        endDate:endDateString
+        endDate:endDateString,
+        serviceId:form.getValues('serviceId')
       }
 
       const res = await axios.post(PROMOCODE,values) 
@@ -163,6 +164,7 @@ setPromoCode(e.target.value)
       arrivalDate: startDateString,
       departureDate: endDateString,
       ids,
+      discountId:promo.id ? promo.id : undefined
     };
 
     try {
