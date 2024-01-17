@@ -38,7 +38,7 @@ export const bookingDefaultValues=(arrivalDate:Date,departureDate:Date,arrivalTi
 phoneNumber:'',
     paymentMethod:'IDEAL' as const ,
     place:'',
-    returnFlightNumber:0,
+
     numberOfPeople:1,
     
     vatNumber:'',
