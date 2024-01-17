@@ -30,7 +30,7 @@ export const bookingDefaultValues = (
     flightNumber: "",
     total: 0,
     parkingPrice: 0,
-    phoneNumber: "",
+    phoneNumber: "+31",
     paymentMethod: "IDEAL" as const,
     place: "",
 
