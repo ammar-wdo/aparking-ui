@@ -21,6 +21,7 @@ import { Separator } from "@/components/ui/separator";
 import { CheckCheck, CheckIcon, ChevronLeft, ChevronRightIcon } from "lucide-react";
 import { bookingSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
@@ -117,24 +118,28 @@ const CarInformation = ({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="carColor"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>aantal personen*</FormLabel>
-                  <FormControl>
-                    <Input
-                      className="rounded-none"
-                      placeholder="aantal personen"
-                      {...field}
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+           <FormField
+          control={form.control}
+          name="numberOfPeople"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Aantal personen*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value.toString()}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                
+                {Array(8).fill('').map((el,i)=>  <SelectItem className="cursor-pointer" key={i} value={(i +1).toString()}>{i + 1}</SelectItem>)}
+                </SelectContent>
+              </Select>
+         
+              <FormMessage />
+            </FormItem>
+          )}
+        />
           </div>
           <div className="flex items-center justify-between">
             <button

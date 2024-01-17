@@ -36,6 +36,8 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
       ? await form.trigger([
           "companyName",
           "address",
+          'place',
+          'vatNumber',
           "zipcode",
           "firstName",
           "lastName",
@@ -126,6 +128,42 @@ const router = useRouter()
                         <Input
                           className="rounded-none"
                           placeholder="Adres"
+                          {...field}
+                        />
+                      </FormControl>
+
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vatNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>VAT *</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="rounded-none"
+                          placeholder="VAT"
+                          {...field}
+                        />
+                      </FormControl>
+
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="place"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Place *</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="rounded-none"
+                          placeholder="Place"
                           {...field}
                         />
                       </FormControl>
@@ -250,7 +288,7 @@ const router = useRouter()
               name="flightNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Vluchtnummer*</FormLabel>
+                  <FormLabel>Vluchtnummer</FormLabel>
                   <FormControl>
                     <Input
            
