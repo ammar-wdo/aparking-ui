@@ -18,7 +18,7 @@ import PhoneInput from "react-phone-input-2";
 import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
-import { CheckCheck, ChevronLeft, ChevronRightIcon } from "lucide-react";
+import { CheckCheck, ChevronLeft, ChevronRightIcon, Loader } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -42,7 +42,7 @@ if(!additionalPrice) return null
    <div className="space-y-5  bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
-        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>4. Payment method</h3>
+        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>4. Betaal methode</h3>
             </div>
         
     
@@ -52,7 +52,7 @@ if(!additionalPrice) return null
 
      
       <div className="grid gird-cols-1  gap-3">
-       <p className="font-light">How would you like to pay? *</p>
+       <p className="font-light">Hoe wil je betalen?*</p>
      
 
        <FormField
@@ -122,9 +122,9 @@ if(!additionalPrice) return null
       </div>
       <div className="flex items-center justify-between">
         <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
-          {<ChevronLeft className="mr-1 h-4 w-4" />}Back
+          {<ChevronLeft className="mr-1 h-4 w-4" />}terug
         </button>
-        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6">Checkout {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
+        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6"> {form.formState.isSubmitting && <Loader className="ml-3 w-3 h-3 animate-spin" />}Reserveer {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
       </div>
       </>}
     </div>
