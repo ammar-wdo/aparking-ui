@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const bookingSchema = z
   .object({
+    id:z.string().optional(),
     bookingOnBusinessName: z.string().optional(),
     extraServiceFee: z.coerce.number(),
 
