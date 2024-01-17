@@ -3,6 +3,7 @@ import { z } from "zod";
 export const bookingSchema = z
   .object({
     id:z.string().optional(),
+    daysofparking:z.coerce.number().optional(),
     bookingOnBusinessName: z.string().optional(),
     extraServiceFee: z.coerce.number(),
 
@@ -12,19 +13,18 @@ export const bookingSchema = z
 
     firstName: z.string().min(1,{message:'First name is required'}),
     lastName: z.string().min(1,{message:'Last name is required'}),
-    email: z.string().email({message:"E-mail is required"}),
+    email: z.string().min(1,{message:"E-mail is required"}).email({message:"Invalid e-mail"}),
     carColor: z.string().optional(),
     carLicense: z.string().min(1,{message:'Car license is required'}),
     carModel: z.string().min(1,{message:'Car model is required'}),
     serviceId: z.string().min(1),
-    numberOfPeople:z.coerce.number().min(1),
-
+total:z.coerce.number(),
     companyName: z.string().optional(),
     arrivalTime: z.string(),
     departureTime: z.string(),
-
+  
     departureDate: z.date(),
-   
+  numberOfPeople:z.coerce.number().min(1),
     flightNumber: z.string().optional(),
     isCompany: z.boolean(),
     phoneNumber: z.string().refine((value) => {
@@ -49,27 +49,18 @@ export const bookingSchema = z
     message: "address is required",
     path: ["address"],
   })
-  .refine((data) => !data.isCompany || data.zipcode, {
-    message: "zipcode is required",
-    path: ["zipcode"],
+  .refine((data) => !data.isCompany || data.vatNumber, {
+    message: "vat is required",
+    path: ["vatNumber"],
   })
   .refine((data) => !data.isCompany || data.place, {
     message: "place is required",
     path: ["place"],
   })
-  .refine((data) => !data.isCompany || data.vatNumber, {
-    message: "vat is required",
-    path: ["vatNumber"],
-  })
-  .refine(
-    (data) =>
-      new Date(data.arrivalDate).getTime() <=
-      new Date(data.departureDate).getTime(),
-    {
-      message: "departure time should be greater or equal to arrival time",
-      path: ["paymentMethod"],
-    }
-  );
+  .refine((data) => !data.isCompany || data.zipcode, {
+    message: "zipcode is required",
+    path: ["zipcode"],
+  }).refine((data)=>new Date(data.arrivalDate).getTime() <= new Date(data.departureDate).getTime(),{message:'departure time should be greater or equal to arrival time',path:["paymentMethod"]})
   ;
 
 
