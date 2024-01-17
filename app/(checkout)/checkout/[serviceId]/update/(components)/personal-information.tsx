@@ -75,7 +75,7 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray ,personalStep
 const router = useRouter()
 
   return (
-    <div className="space-y-5 bg-white p-6">
+    <div className="space-y-5 bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400",!personalStep && 'text-gray-400')}>
@@ -119,7 +119,7 @@ const router = useRouter()
                       <FormLabel>Company Name *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="First Name"
                           {...field}
                         />
@@ -137,7 +137,7 @@ const router = useRouter()
                       <FormLabel>Address *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Address"
                           {...field}
                         />
@@ -155,7 +155,7 @@ const router = useRouter()
                       <FormLabel>VAT *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="VAT"
                           {...field}
                         />
@@ -173,7 +173,7 @@ const router = useRouter()
                       <FormLabel>Place *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Place"
                           {...field}
                         />
@@ -191,7 +191,7 @@ const router = useRouter()
                       <FormLabel>Zip Code *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="zipcode"
                           {...field}
                         />
@@ -214,7 +214,7 @@ const router = useRouter()
                   <FormLabel>First Name *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="First Name"
                    value={field.value}
                    onChange={(e)=>{field.onChange(e);form.clearErrors('firstName')}}
@@ -233,7 +233,7 @@ const router = useRouter()
                   <FormLabel>Last Name *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Last Name"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('lastName')}}
@@ -252,7 +252,7 @@ const router = useRouter()
                   <FormLabel>Email Address *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Email Address"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('email')}}
@@ -308,7 +308,7 @@ const router = useRouter()
                   <FormControl>
                     <Input
            
-                      className="rounded-none"
+                      className=""
                       placeholder="Flight number"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('flightNumber');}}

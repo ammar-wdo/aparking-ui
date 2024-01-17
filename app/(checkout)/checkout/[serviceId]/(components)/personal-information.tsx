@@ -64,7 +64,7 @@ const PersonalInformation = ({ form, setCarStep, carStep }: Props) => {
 const router = useRouter()
 
   return (
-    <div ref={personalRef} className="space-y-5 bg-white p-6">
+    <div ref={personalRef} className="space-y-5 bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", carStep && "text-gray-400")}>
@@ -108,7 +108,7 @@ const router = useRouter()
                       <FormLabel>Bedrijfsnaam *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Bedrijfsnaam"
                           {...field}
                         />
@@ -126,7 +126,7 @@ const router = useRouter()
                       <FormLabel>Adres *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Adres"
                           {...field}
                         />
@@ -144,7 +144,7 @@ const router = useRouter()
                       <FormLabel>VAT *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="VAT"
                           {...field}
                         />
@@ -162,7 +162,7 @@ const router = useRouter()
                       <FormLabel>Place *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Place"
                           {...field}
                         />
@@ -180,7 +180,7 @@ const router = useRouter()
                       <FormLabel>Postcode *</FormLabel>
                       <FormControl>
                         <Input
-                          className="rounded-none"
+                          className=""
                           placeholder="Postcode"
                           {...field}
                         />
@@ -203,7 +203,7 @@ const router = useRouter()
                   <FormLabel>Voornaam *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Voornaam"
                    value={field.value}
                    onChange={(e)=>{field.onChange(e);form.clearErrors('firstName')}}
@@ -222,7 +222,7 @@ const router = useRouter()
                   <FormLabel>Achternaam*</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="achternaam"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('lastName')}}
@@ -241,7 +241,7 @@ const router = useRouter()
                   <FormLabel>E-mailadres*</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="E-mailadres"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('email')}}
@@ -292,7 +292,7 @@ const router = useRouter()
                   <FormControl>
                     <Input
            
-                      className="rounded-none"
+                      className=""
                       placeholder="Vluchtnummer"
                       value={field.value}
                       onChange={(e)=>{field.onChange(e);form.clearErrors('flightNumber');}}

@@ -29,7 +29,7 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
 
   
   return (
-    <div className=' mt-4 space-y-7 border-y-2 border-zinc-200'>
+    <div className=' mt-4 space-y-7 border-y pb-4'>
     
           <div className='mt-5 flex items-center justify-between font-bold text-xl capitalize'>
 <p>{title}</p>
@@ -37,13 +37,13 @@ const ResultProducts = ({title,total,arrivalDate,arrivalTime,departureDate,depar
           </div>
           <div className='space-y-4'>
             <div className='flex w-full items-center justify-between gap-4'>
-            <InfoComponent title='Entry date' value={`${arrival} at ${arrivalTime}`} />
-          <InfoComponent title='New entry date' value={`${newArrival} at ${newArrivalTime}`} />
+            <InfoComponent title='Aankomst Datum' value={`${arrival} om ${arrivalTime}`} />
+          <InfoComponent title='New Aankomst Datum' value={`${newArrival} om ${newArrivalTime}`} />
             </div>
             <div className='flex w-full items-center justify-between gap-4'>
                  
-          <InfoComponent title='Exit date' value={`${departure} at ${departureTime}`} />
-          <InfoComponent title='New exit date' value={`${newDeparture} at ${newDepartureTime}`} />
+          <InfoComponent title='Vertrek Datum' value={`${departure} om ${departureTime}`} />
+          <InfoComponent title='New Vertrek Datum' value={`${newDeparture} om ${newDepartureTime}`} />
             </div>
      
           </div>

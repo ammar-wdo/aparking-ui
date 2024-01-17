@@ -142,6 +142,10 @@ padding-inline: 35px !important;
   display: none;
 }
 
+.checkoutElement{
+  @apply  shadow-sm rounded-md  
+}
+
 
 
 

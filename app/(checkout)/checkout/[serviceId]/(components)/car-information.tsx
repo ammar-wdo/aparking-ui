@@ -61,7 +61,7 @@ const CarInformation = ({
   };
 
   return (
-    <div ref={carRef} className="space-y-5  bg-white p-6">
+    <div ref={carRef} className="space-y-5  bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
           <h3
@@ -90,7 +90,7 @@ const CarInformation = ({
                   <FormLabel>Kenteken*</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Kenteken"
                       {...field}
                     />
@@ -108,7 +108,7 @@ const CarInformation = ({
                   <FormLabel>Merk en model*</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Merk en model"
                       {...field}
                     />

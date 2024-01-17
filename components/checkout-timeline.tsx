@@ -48,7 +48,7 @@ const CheckoutTimeline = ({ valet }: Props) => {
   ];
   return (
     <div className="container px-[16px]">
-      <div className=" bg-white p-6">
+      <div className=" bg-white p-6 checkoutElement">
         <h3 className="text-2xl font-bold border-b pb-6">Wat gaat hierna gebeuren?</h3>
       
         <div className="flex  justify-between gap-2 mt-3  flex-col lg:flex-row relative">

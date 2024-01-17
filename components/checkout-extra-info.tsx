@@ -25,8 +25,8 @@ const CheckoutExtraInfo = (props: Props) => {
     },
   ];
   return (
-    <div className="mt-4">
-      <div className="bg-white p-6 flex flex-col gap-7">
+    <div className="mt-4 ">
+      <div className="bg-white p-6  flex flex-col gap-7 checkoutElement">
         {elements.map((el) => (
           <div key={el.title} className="flex items-center gap-4 ">
             {el.icon}
@@ -34,7 +34,7 @@ const CheckoutExtraInfo = (props: Props) => {
           </div>
         ))}
       </div>
-      <div className="bg-white p-6 mt-4">
+      <div className="bg-white  p-6 mt-4 checkoutElement">
         <p className="font-semibold text-lg">Heeft u nog vragen?</p>
         <p className="mt-4 ">Wij helpen u graag! <Link target="_blank" className="underline text-blue-500" href={'/contact'}>Contact</Link></p>
 

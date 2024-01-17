@@ -141,7 +141,7 @@ const DateInformation = ({
   const router = useRouter();
 
   return (
-    <div className="space-y-5 bg-white p-6">
+    <div className="space-y-5 bg-white p-6 checkoutElement">
       <div className="flex items-center">
         <h3
           className={cn("text-2xl font-bold", personalStep && "text-gray-400")}

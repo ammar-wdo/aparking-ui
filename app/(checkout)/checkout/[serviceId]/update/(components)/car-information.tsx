@@ -57,7 +57,7 @@ const CarInformation = ({
   };
 
   return (
-    <div className="space-y-5  bg-white p-6">
+    <div className="space-y-5  bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
           <h3
@@ -86,7 +86,7 @@ const CarInformation = ({
                   <FormLabel>Car Lisence *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Car Lisence"
                       {...field}
                     />
@@ -104,7 +104,7 @@ const CarInformation = ({
                   <FormLabel>Car Model *</FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-none"
+                      className=""
                       placeholder="Car Model"
                       {...field}
                     />

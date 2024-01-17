@@ -46,7 +46,7 @@ const PaymentMethod = ({
   const [errorTerms, setErrorTerms] = useState(false);
 
   return (
-    <div className="space-y-5  bg-white p-6">
+    <div className="space-y-5  bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
           <h3 className={cn("text-2xl font-bold", !payStep && "text-gray-400")}>

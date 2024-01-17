@@ -130,11 +130,12 @@ const BookingForm = ({
               accRef={accRef}
             />
             {!!extraOptions.length && (
+              <div className="checkoutElement bg-white overflow-hidden">
               <Accordion type="single" collapsible>
                 <AccordionItem className="border-none" value="item">
                   <AccordionTrigger
                     ref={accRef}
-                    className="bg-white p-6 hover:no-underline"
+                    className="bg-white p-6 hover:no-underline "
                   >
                     <h3 className="text-2xl font-bold no-underline ">
                       3. Extra opties
@@ -144,7 +145,7 @@ const BookingForm = ({
                     {extraOptions.map((option) => (
                       <article
                         key={option.id}
-                        className="bg-gray-50 rounded-md flex justify-between gap-3  items-center text-center w-full p-4 "
+                        className="bg-gray-50 checkoutElement flex justify-between gap-3  items-center text-center w-full p-4 "
                       >
                         <div className="flex items-center gap-2">
                           <Checkbox
@@ -184,6 +185,7 @@ const BookingForm = ({
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+              </div>
             )}
             <PaymentMethod
               extraOptions={!!extraOptions.length}
@@ -195,7 +197,7 @@ const BookingForm = ({
             />
           </div>
           <div>
-            <div className=" p-6 bg-white self-start">
+            <div className=" p-6 bg-white self-start checkoutElement">
               <h3 className="text-2xl font-bold  ">Reservering overzicht</h3>
               {/* <ResultPersonal
               name={`${form.watch("firstName")} ${form.watch("lastName")}`}
@@ -238,9 +240,18 @@ const BookingForm = ({
                 checkPromo={checkPromo}
               />
 
-              <div
+           
+              {!!discountToRemove && (
+                <div className="flex items-center justify-between font-medium mt-4 border-t pt-4">
+                  <span>Korting</span>{" "}
+                  <span className="font-bold">
+                    €{discountToRemove.toFixed(2).replace(".", ",")}
+                  </span>
+                </div>
+              )}
+                 <div
                 className={cn(
-                  "flex items-center justify-between w-full mt-6  border-t pt-4"
+                  "flex items-center justify-between w-full   pt-4"
                 )}
               >
                 <p className="font-medium">Totaal incl. Btw</p>
@@ -255,15 +266,7 @@ const BookingForm = ({
                 </span>
               </div>
               {!!discountToRemove && (
-                <div className="flex items-center justify-between font-medium mt-4 ">
-                  <span>Korting</span>{" "}
-                  <span className="font-bold">
-                    €{discountToRemove.toFixed(2).replace(".", ",")}
-                  </span>
-                </div>
-              )}
-              {!!discountToRemove && (
-                <div className="flex items-center justify-between font-medium mt-4 py-2 border-t ">
+                <div className="flex items-center justify-between font-medium mt-4 pt-6 border-t ">
                   <span>Totaal</span>{" "}
                   <span className="text-2xl font-bold">
                     €{finalTotal.toFixed(2).replace(".", ",")}
