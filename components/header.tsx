@@ -36,8 +36,8 @@ const Header = async ({contentPages}: Props) => {
         <div className=" flex items-center gap-6">
         <div className="flex items-center gap-1 md:hidden">
           
-        <AirportCombpBox contentPages={contentPages}  data={res.data.airports} />
-          <MeneuDropdown  contentPages ={contentPages}/>
+        <SigninOut     />
+          <MeneuDropdown airports={res.data.airports} contentPages ={contentPages}/>
           </div>
 
   <NavLinks  />
@@ -55,3 +55,39 @@ const Header = async ({contentPages}: Props) => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+// return (
+//   <div className={cn("bg-white sm:relative sticky top-0 z-[999] border-b sm:border-b-0 sm:z-0",contentPages&& 'bg-[#003580]')}>
+//     <div className={cn("flex  py-5   text-[#003580] items-center relative z-10 container justify-between",contentPages&&'text-white')}>
+//       <Logo footer={contentPages} />
+   
+//       <div className=" flex items-center gap-6">
+//       <div className="flex items-center gap-1 md:hidden">
+        
+//       <AirportCombpBox contentPages={contentPages}  data={res.data.airports} />
+//         <MeneuDropdown  contentPages ={contentPages}/>
+//         </div>
+
+// <NavLinks  />
+
+// <AirportCombpBox hidden data={res.data.airports} contentPages={contentPages}/>
+        
+       
+       
+//       </div>
+
+    
+//     </div>
+//   </div>
+// );

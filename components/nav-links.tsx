@@ -11,9 +11,10 @@ type Props = {
     col?:boolean,
     close?:(val:boolean)=>void
     airports?:Airport[]
+    contentPages?:boolean
 }
 
-const NavLinks = ({col,close,airports}: Props) => {
+const NavLinks = ({col,close,airports,contentPages}: Props) => {
 
 
     const links = [
@@ -49,7 +50,8 @@ const NavLinks = ({col,close,airports}: Props) => {
       </div>}
     )}
    
-        <SigninOut col={col}  close={close}  />
+        {!col && <SigninOut  />}
+        {col &&  <AirportCombpBox  data={airports!} contentPages={contentPages}/>}
   </nav>
   )
 }

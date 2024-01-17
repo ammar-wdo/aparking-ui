@@ -24,8 +24,9 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   contentPages?: boolean;
+  airports:Airport[]
 };
-export const MeneuDropdown = ({ contentPages }: Props) => {
+export const MeneuDropdown = ({ contentPages,airports }: Props) => {
   const [openPop, setOpenPop] = useState(false);
 
   const closePop = (val: boolean) => {
@@ -58,7 +59,7 @@ export const MeneuDropdown = ({ contentPages }: Props) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="mt-5 flex flex-col items-center gap-6">
-        <NavLinks close={closePop} col />
+        <NavLinks airports={airports} close={closePop} col  contentPages={contentPages}/>
       </PopoverContent>
     </Popover>
   );
