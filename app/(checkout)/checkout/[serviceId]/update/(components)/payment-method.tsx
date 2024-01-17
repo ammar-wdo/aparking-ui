@@ -18,7 +18,12 @@ import PhoneInput from "react-phone-input-2";
 import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { Separator } from "@/components/ui/separator";
-import { CheckCheck, ChevronLeft, ChevronRightIcon, Loader } from "lucide-react";
+import {
+  CheckCheck,
+  ChevronLeft,
+  ChevronRightIcon,
+  Loader,
+} from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -26,111 +31,133 @@ import { bookingSchema } from "@/schemas";
 
 type Props = {
   form: UseFormReturn<z.infer<typeof bookingSchema>>;
-  setCarStep:Dispatch<SetStateAction<boolean>>,
-  carStep:boolean,
-  setPayStep:Dispatch<SetStateAction<boolean>>,
-  payStep:boolean,
-  additionalPrice:number | undefined
- 
+  setCarStep: Dispatch<SetStateAction<boolean>>;
+  carStep: boolean;
+  setPayStep: Dispatch<SetStateAction<boolean>>;
+  payStep: boolean;
+  additionalPrice: number | undefined;
 };
 
-const PaymentMethod = ({ form,payStep,setPayStep,additionalPrice }: Props) => {
-
-if(!additionalPrice) return null
+const PaymentMethod = ({
+  form,
+  payStep,
+  setPayStep,
+  additionalPrice,
+}: Props) => {
+  if (!additionalPrice) return null;
 
   return (
-   <div className="space-y-5  bg-white p-6 checkoutElement">
+    <div className="space-y-5  bg-white p-6 checkoutElement">
       <div>
         <div className="flex items-center ">
-        <h3 className={cn("text-2xl font-bold",(!payStep) && 'text-gray-400')}>4. Betaal methode</h3>
-            </div>
-        
-    
+          <h3 className={cn("text-2xl font-bold", !payStep && "text-gray-400")}>
+            4. Betaal methode
+          </h3>
+        </div>
       </div>
-      {payStep && <>
-    
+      {payStep && (
+        <>
+          <div className="grid gird-cols-1  gap-3">
+            <p className="font-light">Hoe wil je betalen?*</p>
 
-     
-      <div className="grid gird-cols-1  gap-3">
-       <p className="font-light">Hoe wil je betalen?*</p>
-     
+            <FormField
+              control={form.control}
+              name="paymentMethod"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="gap-0 "
+                    >
+                      <FormItem className="flex items-center  space-y-0   py-4 border-t  ">
+                        <FormControl>
+                          <RadioGroupItem value="IDEAL" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          iDeal
+                        </FormLabel>
 
-       <FormField
-          control={form.control}
-          name="paymentMethod"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/ideal.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
+                          />
+                        </div>
+                      </FormItem>
+                      <FormItem className="flex items-center   space-y-0 py-4 border-t  ">
+                        <FormControl>
+                          <RadioGroupItem value="CREDIT_CARD" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          Credit Card
+                        </FormLabel>
+
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/cards.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
+                          />
+                        </div>
+                      </FormItem>
+                      <FormItem className="flex items-center   space-y-0 py-4 border-y ">
+                        <FormControl>
+                          <RadioGroupItem value="PAYPAL" />
+                        </FormControl>
+                        <FormLabel className="font-normal ml-4">
+                          PayPal
+                        </FormLabel>
+
+                        <div className="w-20 aspect-video relative ml-auto">
+                          <Image
+                            src={"/paypal.png"}
+                            fill
+                            alt="ideal"
+                            className="object-contain"
+                          />
+                        </div>
+                      </FormItem>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setPayStep(false)}
+              type="button"
+              className="font-light text-blue-600 flex text-sm items-center justify-center "
+            >
+              {<ChevronLeft className="mr-1 h-4 w-4" />}terug
+            </button>
+            <Button
+              disabled={form.formState.isSubmitting}
+              onClick={() => {
+                console.log(form.formState.errors);
+              }}
+              type="submit"
+              variant={"siteTwo"}
+              className=" rounded-sm py-2 px-6"
+            >
+              {" "}
            
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className="gap-0 "
-                >
-                  <FormItem className="flex items-center  space-y-0   py-4 border-t  ">
-                    <FormControl>
-                      <RadioGroupItem value="IDEAL" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      iDeal
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/ideal.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                  <FormItem className="flex items-center   space-y-0 py-4 border-t  ">
-                    <FormControl>
-                      <RadioGroupItem value="CREDIT_CARD" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      Credit Card
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/cards.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                  <FormItem className="flex items-center   space-y-0 py-4 border-y ">
-                    <FormControl>
-                      <RadioGroupItem value="PAYPAL" />
-                    </FormControl>
-                    <FormLabel className="font-normal ml-4">
-                      PayPal
-                    </FormLabel>
-                  
-                    <div className="w-20 aspect-video relative ml-auto">
-                        <Image src={'/paypal.png'} fill alt="ideal" className="object-contain"/>
-                    </div>
-             
-                   
-                  </FormItem>
-                
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-
-       
-      </div>
-      <div className="flex items-center justify-between">
-        <button onClick={()=>setPayStep(false)} type="button" className="font-light text-blue-600 flex text-sm items-center justify-center ">
-          {<ChevronLeft className="mr-1 h-4 w-4" />}terug
-        </button>
-        <Button disabled={form.formState.isSubmitting}  onClick={()=>{console.log(form.formState.errors)}} type="submit" variant={'siteTwo'} className=" rounded-sm py-2 px-6"> {form.formState.isSubmitting && <Loader className="ml-3 w-3 h-3 animate-spin" />}Reserveer {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}</Button>
-      </div>
-      </>}
+              Reserveer{" "}
+              {form.formState.isSubmitting && (
+                <Loader className="ml-3 w-3 h-3 animate-spin" />
+              )}
+              {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
+            </Button>
+          </div>
+        </>
+      )}
     </div>
-
-
-  
   );
 };
 
