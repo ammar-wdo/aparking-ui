@@ -46,7 +46,7 @@ const CarInformation = ({
 
     const isValid = await form.trigger([
        "carLicense",
-       "carColor",
+       "numberOfPeople",
        "carModel"
       ],{shouldFocus:true})
 
@@ -127,7 +127,7 @@ const CarInformation = ({
               <Select onValueChange={field.onChange} defaultValue={field.value.toString()}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
+                    <SelectValue placeholder="Aantal personen" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>

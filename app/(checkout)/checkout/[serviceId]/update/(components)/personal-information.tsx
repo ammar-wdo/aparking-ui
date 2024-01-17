@@ -49,6 +49,8 @@ const PersonalInformation = ({ form, setCarStep, carStep,timeArray ,personalStep
           "zipcode",
           "firstName",
           "lastName",
+          'place',
+          'vatNumber',
           "email",
           "arrivalDate",
           "departureDate",
@@ -137,6 +139,42 @@ const router = useRouter()
                         <Input
                           className="rounded-none"
                           placeholder="Address"
+                          {...field}
+                        />
+                      </FormControl>
+
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vatNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>VAT *</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="rounded-none"
+                          placeholder="VAT"
+                          {...field}
+                        />
+                      </FormControl>
+
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="place"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Place *</FormLabel>
+                      <FormControl>
+                        <Input
+                          className="rounded-none"
+                          placeholder="Place"
                           {...field}
                         />
                       </FormControl>
