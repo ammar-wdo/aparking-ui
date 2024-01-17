@@ -59,7 +59,7 @@ const page = async ({ params, searchParams }: Props) => {
   if (!service) return redirect("/");
 console.log('parking type',service)
   return (
-    <div className="md:p-8  bg-gray-100 min-h-screen">
+    <div className="md:p-8  bg-gray-100 min-h-screen pb-8">
       <BookingForm
         extraOptions={service.extraOptions}
         arrivalDate={startDate}
