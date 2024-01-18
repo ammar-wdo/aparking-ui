@@ -43,7 +43,7 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
         {" "}
         <Menu
           name="Menu"
-          className={cn("w-8 h-8 mr-4", contentPages ? "text-white" : "text-site")}
+          className={cn("w-8 h-8 ", contentPages ? "text-white" : "text-site")}
         />
       </SheetTrigger>
       <SheetContent className="z-[99999] w-full" side={"right"} >
