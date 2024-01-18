@@ -19,24 +19,23 @@ import { useState } from "react";
 
 type Props = {
   contentPages?: boolean;
-  airports:Airport[]
+  airports: Airport[];
 };
 
 const links = [
   {
     label: "home",
-    link:'/'
+    link: "/",
   },
 
   {
     label: "contact",
-    link:'/contact'
+    link: "/contact",
   },
 ];
 
-const MobileSheet = ({ contentPages ,airports}: Props) => {
-
-  const [show, setShow] = useState(false)
+const MobileSheet = ({ contentPages, airports }: Props) => {
+  const [show, setShow] = useState(false);
   return (
     <Sheet>
       <SheetTrigger>
@@ -47,36 +46,46 @@ const MobileSheet = ({ contentPages ,airports}: Props) => {
         />
       </SheetTrigger>
       <SheetContent className="z-[99999] w-full" side={"right"}>
-        <div className="mt-12 text-left">
-        {!show ?<nav className={cn(" gap-6 items-center px-1 md:flex hidden", 'flex flex-col w-full items-end')}>
-    {links.map(({ label  ,link},i) => 
-      
-    { return  <div   key={label} className={cn("relative group")}>
-     {<Link
-    
-      
-        href={link}
-        className={cn(
-          "capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium",  'text-site'
-        )}
-      >
-        {label}{" "}
-       
-      </Link>}
-     
-  
-        
-      </div>}
-    )}
+        <div className="mt-12 text-left w-full">
+          {!show ? (
+            <nav
+              className={cn(
+                " gap-6  px-1 md:flex hidden",
+                "flex flex-col w-full "
+              )}
+            >
+              {links.map(({ label, link }, i) => (
+                <Link
+                  href={link}
+                  className={cn(
+                    "capitalize flex items-center relative  text-sm sm:text-base shrink-0  font-medium text-site border-b w-full p-3"
+                  )}
+                >
+                  {label}{" "}
+                </Link>
+              ))}
 
-    <button onClick={()=>setShow(true)} className="capitalize flex items-center relative  text-sm sm:text-base shrink-0   font-medium text-site">Airports</button>
-   
-    
-   
-  </nav> :    <div> <button onClick={()=>setShow(false)} className="flex items-center mb-4 text-site font-semibold"><ArrowLeft className="mr-3 w-3 h-3 " />Back</button><AirportCommand  data={airports!}/></div>}
-    
+              <button
+                onClick={() => setShow(true)}
+                className="capitalize flex items-center relative  text-sm sm:text-base shrink-0  w-full p-3 border-b font-medium text-site"
+              >
+                Airports
+              </button>
+            </nav>
+          ) : (
+            <div>
+              {" "}
+              <button
+                onClick={() => setShow(false)}
+                className="flex items-center mb-4 text-site font-semibold"
+              >
+                <ArrowLeft className="mr-3 w-3 h-3 " />
+                Back
+              </button>
+              <AirportCommand data={airports!} />
+            </div>
+          )}
         </div>
-      
       </SheetContent>
     </Sheet>
   );

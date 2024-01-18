@@ -51,7 +51,7 @@ const NavLinks = ({col,close,airports,contentPages}: Props) => {
       </div>}
     )}
    
-       <SigninOut  />
+    
    
   </nav>
   )
