@@ -13,6 +13,7 @@ import { AirportMenue } from "./airports-dropdown";
 import { MeneuDropdown } from "./menue-dropdown";
 import NavLinks from "./nav-links";
 import { AirportCombpBox } from "./airports-combobox";
+import MobileSheet from "./mobile-sheet";
 
 
 type Props = {
@@ -37,7 +38,8 @@ const Header = async ({contentPages}: Props) => {
         <div className="flex items-center gap-1 md:hidden">
           
         <SigninOut     />
-          <MeneuDropdown airports={res.data.airports} contentPages ={contentPages}/>
+      
+          <MobileSheet airports={res.data.airports} contentPages={contentPages}/>
           </div>
 
   <NavLinks  />

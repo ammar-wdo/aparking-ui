@@ -25,31 +25,14 @@ import { ScrollArea } from "./ui/scroll-area"
 
 type Props = {
     data: Airport[];
-    hidden?: boolean;
-    contentPages?:boolean
+  
   };
 
-export function AirportCombpBox({ data, hidden,contentPages }: Props) {
-  const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+export function AirportCommand({ data }: Props) {
+ 
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger className={cn('text-site text-base hover:text-site bg-transparent border-0 sm:p-3 p-1',hidden && "md:flex hidden border-0  ",contentPages && ' text-white hover:bg-transparent hover:text-white')} asChild>
-        <Button
-        name="airports"
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className={cn("w-fit justify-between text-sm sm:text-base" )}
-        >
-          {value
-            ? data?.find((airport) => airport.slug === value)?.name
-            : "Vliegvelden"}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-fit p-0 ">
+   
         <Command>
           <CommandInput placeholder="Search airport..." />
           <CommandEmpty>No airport found.</CommandEmpty>
@@ -65,7 +48,7 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
             asChild
             className="w-full justify-start"
             key={airport.id}
-            onClick={() => setOpen(false)}
+          
           >
             <Link
               href={`/${airport.slug}`}
@@ -80,7 +63,6 @@ export function AirportCombpBox({ data, hidden,contentPages }: Props) {
             
           </CommandGroup>
         </Command>
-      </PopoverContent>
-    </Popover>
+
   )
 }

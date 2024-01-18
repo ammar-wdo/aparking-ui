@@ -6,6 +6,7 @@ import React from 'react'
 import SigninOut from './signin-out';
 import { Airport } from '@/schemas';
 import { AirportCombpBox } from './airports-combobox';
+import { AirportCommand } from './airports-command';
 
 type Props = {
     col?:boolean,
@@ -29,7 +30,7 @@ const NavLinks = ({col,close,airports,contentPages}: Props) => {
         },
       ];
   return (
-    <nav className={cn(" gap-6 items-center px-1 md:flex hidden",col && 'flex flex-col w-full')}>
+    <nav className={cn(" gap-6 items-center px-1 md:flex hidden",col && 'flex flex-col w-full items-end')}>
     {links.map(({ label  ,link},i) => 
       
     { return  <div   key={label} className={cn("relative group")}>
@@ -50,8 +51,8 @@ const NavLinks = ({col,close,airports,contentPages}: Props) => {
       </div>}
     )}
    
-        {!col && <SigninOut  />}
-        {col &&  <AirportCombpBox  data={airports!} contentPages={contentPages}/>}
+       <SigninOut  />
+   
   </nav>
   )
 }

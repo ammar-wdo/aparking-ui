@@ -27,7 +27,7 @@ const SigninOut = ({ col, close }: Props) => {
       >
         <Link href={"/mijn-reservering"}>Mijn reservering</Link>
       </Button>
-      <Link className="text-yellow-500 block md:hidden mr-3 p-1 rounded-full border-yellow-500 border-2" href={"/mijn-reservering"}><User /></Link>
+      <Link className="text-site block md:hidden mr-3 p-1 rounded-full border-[#FEBA02] border-2 bg-[#FEBA02]" href={"/mijn-reservering"}><User /></Link>
     </div>
   );
 };
