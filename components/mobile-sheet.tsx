@@ -56,6 +56,7 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
             >
               {links.map(({ label, link }, i) => (
                 <Link
+                key={label}
                   href={link}
                   className={cn(
                     "capitalize flex items-center relative  text-sm sm:text-base shrink-0  font-medium text-site border-b w-full p-3"
