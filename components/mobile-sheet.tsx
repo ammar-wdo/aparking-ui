@@ -38,7 +38,7 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
   const [show, setShow] = useState(false);
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger name="menu" title="menu" aria-label="menu">
         {" "}
         <Menu
           name="Menu"

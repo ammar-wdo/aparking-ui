@@ -25,9 +25,9 @@ const SigninOut = ({ col, close }: Props) => {
           col && "flex w-full"
         )}
       >
-        <Link href={"/mijn-reservering"}>Mijn reservering</Link>
+        <Link aria-label="Mijn reservering" href={"/mijn-reservering"}>Mijn reservering</Link>
       </Button>
-      <Link className="text-site block md:hidden mr-3 p-1 rounded-full border-[#FEBA02] border-2 bg-[#FEBA02]" href={"/mijn-reservering"}><User /></Link>
+      <Link aria-label="Mijn reservering" className="text-site block md:hidden mr-3 p-1 rounded-full border-[#FEBA02] border-2 bg-[#FEBA02]" href={"/mijn-reservering"}><User /></Link>
     </div>
   );
 };
