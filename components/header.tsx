@@ -37,7 +37,7 @@ const Header = async ({ contentPages }: Props) => {
       >
         <Logo footer={contentPages} />
 
-        <div className=" flex items-center gap-6">
+        <div className=" flex items-center gap-3 md:gap-6">
           <NavLinks />
 
           <AirportCombpBox
