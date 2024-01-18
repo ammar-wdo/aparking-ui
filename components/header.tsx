@@ -47,12 +47,12 @@ const Header = async ({ contentPages }: Props) => {
           />
           <SigninOut />
 
-          <div className="flex items-center gap-1 md:hidden">
+       
             <MobileSheet
               airports={res.data.airports}
               contentPages={contentPages}
             />
-          </div>
+          
         </div>
       </div>
     </div>

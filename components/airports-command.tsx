@@ -43,20 +43,14 @@ export function AirportCommand({ data }: Props) {
                 key={airport.id}
                
               >
-            <Button
-            variant={"ghost"}
-            asChild
-            className="w-full justify-start"
-            key={airport.id}
-          
-          >
+         
             <Link
               href={`/${airport.slug}`}
-              className="shrink-0  text-[#003580]  font-medium hover:text-site"
+              className="shrink-0  text-[#003580]  font-medium hover:text-site py-3 w-full block"
             >
               {airport.name}
             </Link>
-          </Button>
+  
               </CommandItem>
             ))}
             </ScrollArea>

@@ -7,6 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Airport } from "@/schemas";
@@ -37,15 +38,16 @@ const links = [
 const MobileSheet = ({ contentPages, airports }: Props) => {
   const [show, setShow] = useState(false);
   return (
-    <Sheet>
-      <SheetTrigger name="menu" title="menu" aria-label="menu">
+    <Sheet >
+      <SheetTrigger name="menu" title="menu" aria-label="menu" className="flex md:hidden">
         {" "}
         <Menu
           name="Menu"
-          className={cn("", contentPages ? "text-white" : "text-site")}
+          className={cn("w-8 h-8 mr-4", contentPages ? "text-white" : "text-site")}
         />
       </SheetTrigger>
-      <SheetContent className="z-[99999] w-full" side={"right"}>
+      <SheetContent className="z-[99999] w-full" side={"right"} >
+    
         <div className="mt-12 text-left w-full">
           {!show ? (
             <nav
@@ -88,6 +90,7 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
           )}
         </div>
       </SheetContent>
+    
     </Sheet>
   );
 };
