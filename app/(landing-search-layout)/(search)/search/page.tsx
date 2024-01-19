@@ -54,7 +54,7 @@ const page = async ({ searchParams }: Props) => {
 
 
 
-  const time = `Vanaf  ${startDate} om ${startTime} tot en met ${endDate} om ${endTime}`;
+  const time = `Vanaf  ${startDate.split('-').reverse().join('-')} om ${startTime}  tot en met ${endDate.split('-').reverse().join('-')} om ${endTime}`;
 
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
