@@ -48,12 +48,8 @@ const page = async ({ params }: Props) => {
 
   return (
     <div>
-      <Header />
-      <Banner noForm>
-        <h3 className="text-white text-3xl font-bold capitalize">
-          {entity?.entityName}
-        </h3>
-      </Banner>
+      <Header  contentPages={true}/>
+    
 
       <div className="container mt-10 px-3">
         <div className="max-w-[1000px]">
