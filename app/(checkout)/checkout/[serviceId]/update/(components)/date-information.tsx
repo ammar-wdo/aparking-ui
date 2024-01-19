@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { useUser } from "@/hooks/user-hook";
 import { handleTimezone } from "@/lib/timezone-handler";
+import { getCurrentDateInNetherlands } from "@/lib/toAmsterdam";
 import { cn } from "@/lib/utils";
 import { ALL_SERVICES } from "@/links";
 import { bookingSchema } from "@/schemas";
@@ -231,9 +232,9 @@ const DateInformation = ({
                             arrive.setMinutes(+minutes)
 
 
-                            const amesterdam = new Date()
-                            amesterdam.setHours(new Date().getUTCHours()+1)
-                            amesterdam.setMinutes(new Date().getUTCMinutes())
+                            // const amesterdam = new Date()
+                            // amesterdam.setHours(new Date().getUTCHours()+1)
+                            // amesterdam.setMinutes(new Date().getUTCMinutes())
                  
                  
                          
@@ -242,7 +243,7 @@ const DateInformation = ({
                  
                          
                  
-                             if(amesterdam > arrive)  return null
+                             if(getCurrentDateInNetherlands() > arrive)  return null
 
                             
                             return <SelectItem key={el} value={el}>

@@ -13,6 +13,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getClientDates } from "@/app/(checkout)/checkout/[serviceId]/update/(helpers)/getClientDates";
+import { getCurrentDateInNetherlands } from "@/lib/toAmsterdam";
 
 type Props = {
   times: string[];
@@ -108,9 +109,9 @@ const TimeSelect = ({
             startDateConst.setHours(+hours)
             startDateConst.setMinutes(+minutes)
 
-           const amesterdam = new Date()
-           amesterdam.setHours(new Date().getUTCHours()+1)
-           amesterdam.setMinutes(new Date().getUTCMinutes())
+          //  const amesterdam = new Date()
+          //  amesterdam.setHours(new Date().getUTCHours()+1)
+          //  amesterdam.setMinutes(new Date().getUTCMinutes())
 
 
         
@@ -119,7 +120,7 @@ const TimeSelect = ({
 
         
 
-            if(amesterdam > startDateConst)  return null //compare with utc instead of new Date()
+            if(getCurrentDateInNetherlands() > startDateConst)  return null //compare with utc instead of new Date()
  
               
             }
