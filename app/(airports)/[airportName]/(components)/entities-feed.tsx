@@ -21,7 +21,7 @@ const EntitiesFeed = async ({ airportId ,airportName,airportSlug}: Props) => {
   }[];
 
   return (
-    <div className="bg-gray-100 lg:p-12 p-3">
+    <div className="bg-gray-100 lg:p-12 p-3 pb-12">
       <div style={{paddingLeft:0,paddingRight:0}} className={"container "}>
 
         <h3 className="text-site font-bold text-2xl py-10 ">Parking providers at {airportName}</h3>
