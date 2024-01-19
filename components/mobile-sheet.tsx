@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Airport } from "@/schemas";
-import { ArrowLeft, Menu } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import NavLinks from "./nav-links";
 import { AirportCommand } from "./airports-command";
 import Link from "next/link";
@@ -70,9 +70,9 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
 
               <button
                 onClick={() => setShow(true)}
-                className="capitalize flex items-center relative  text-sm sm:text-base shrink-0  w-full p-3 border-b font-medium text-site"
+                className="capitalize flex items-center relative justify-between  text-sm sm:text-base shrink-0  w-full p-3 border-b font-medium text-site"
               >
-                Airports
+                Airports <span><ChevronRight  className="text-site"/></span>
               </button>
             </nav>
           ) : (
@@ -82,7 +82,7 @@ const MobileSheet = ({ contentPages, airports }: Props) => {
                 onClick={() => setShow(false)}
                 className="flex items-center mb-4 text-site font-semibold"
               >
-                <ArrowLeft className="mr-3 w-3 h-3 " />
+                <ChevronLeft className="mr-3 " />
                 Back
               </button>
               <AirportCommand data={airports!} />
