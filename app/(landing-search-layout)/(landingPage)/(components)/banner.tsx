@@ -32,7 +32,7 @@ const Banner = async ({
     <div
       className={cn(
         "md:min-h-[500px] min-h-[400px] py-12 items-center flex bg-[#003580] relative ",
-        noForm && "min-h-[500px] "
+        noForm && "md:min-h-[350px] min-h-[200px]"
       )}
     >
       <Image
@@ -44,7 +44,7 @@ const Banner = async ({
       <div className={"container "}>
         <div className={cn(" text-white relative ", noForm && "xl:px-0")}>
           {airportName && (
-            <p className="text-4xl py-3 font-semibold capitalize">
+            <p className="sm:text-4xl text-xl py-3 font-semibold capitalize">
               {airportName}
             </p>
           )}

@@ -59,7 +59,7 @@ const page = async ({ searchParams }: Props) => {
   return (
     <div className="bg-gray-200 pb-10 min-h-screen">
       <Banner noForm={true} airportName={airportName?.name}>
-        <p className="text-white">{time}</p>
+        <p className="text-white sm:text-base text-xs">{time}</p>
       </Banner>
 
       <div className="container">
