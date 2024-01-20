@@ -171,7 +171,7 @@ setPromoCode(e.target.value)
       const result = await axios.post(ADD_BOOKMARK, refinedValues);
       router.push(result.data.url);
 
-      toast.success("Successfully booked");
+    
     } catch (error: any) {
       console.log(error);
 

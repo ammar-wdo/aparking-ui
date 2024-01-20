@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import {Figtree} from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner'
 import ModalProvider from '@/components/providers/modal-provider'
@@ -8,6 +9,8 @@ import CrispProvider from '@/components/providers/crisp-provier'
 
 
 const inter = Inter({ subsets: ['latin'] })
+// const figtree = Figtree({ subsets: ['latin'] })
+
 
 export const metadata: Metadata = {
   title: 'Compare Airport Parking Services - Book Secure Parking | Aparking',
