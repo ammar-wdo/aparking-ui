@@ -153,7 +153,7 @@ userEndFullTime.setHours(+userEndHours,+userEndMinutes,0,0)
     );
     const refinedValues = {
       ...values,
-      email:values.email.toLocaleLowerCase(),
+      email:values.email.toLowerCase(),
       arrivalDate: startDateString,
       departureDate: endDateString,
       bookingCode: user?.bookingCode,

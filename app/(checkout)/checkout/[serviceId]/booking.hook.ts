@@ -161,6 +161,7 @@ setPromoCode(e.target.value)
 
     const refinedValues = {
       ...values,
+      email:values.email.toLowerCase(),
       arrivalDate: startDateString,
       departureDate: endDateString,
       ids,
