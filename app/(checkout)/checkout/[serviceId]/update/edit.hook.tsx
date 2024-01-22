@@ -35,6 +35,7 @@ export const useEditBooking = (
       arrivalDate: new Date(user?.arrivalDate!),
       departureDate: new Date(user?.departureDate!),
       serviceId: serviceId as string,
+   
     },
   });
 
@@ -152,6 +153,7 @@ userEndFullTime.setHours(+userEndHours,+userEndMinutes,0,0)
     );
     const refinedValues = {
       ...values,
+      email:values.email.toLocaleLowerCase(),
       arrivalDate: startDateString,
       departureDate: endDateString,
       bookingCode: user?.bookingCode,
