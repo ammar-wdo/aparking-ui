@@ -42,7 +42,7 @@ let url = ''
     <div  ref={cardRef} className='  '>
         {response && <div className='w-full grid grid-cols-1 lg:grid-cols-3 items-center gap-4 border-b-2 border-b-yellow-500 border rounded-[2px] bg-gray-50 grayscale-[10] opacity-70'>
             <h3 className='p-6 text-neutral-500 font-semibold'>
-                This service is not available for this date range
+            Deze dienst is niet beschikbaar voor deze datumbereik.
                 </h3></div>}
         {service &&  <div className='w-full grid grid-cols-1 lg:grid-cols-3 border-b-2 border-b-yellow-500 border rounded-[2px]'>
             <h3 className='font-bold text-lg self-center capitalize text-center lg:text-start p-3'>{service.name}</h3>
