@@ -41,7 +41,7 @@ let url = ''
   return (
     <div  ref={cardRef} className='  '>
         {response && <div className='w-full grid grid-cols-1 lg:grid-cols-3 items-center gap-4 border-b-2 border-b-yellow-500 border rounded-[2px] bg-gray-50 grayscale-[10] opacity-70'>
-            <h3 className='p-6 text-neutral-500 font-semibold'>
+            <h3 className='p-6 text-neutral-500 font-semibold lg:col-span-3'>
             Deze dienst is niet beschikbaar voor deze datumbereik.
                 </h3></div>}
         {service &&  <div className='w-full grid grid-cols-1 lg:grid-cols-3 border-b-2 border-b-yellow-500 border rounded-[2px]'>
