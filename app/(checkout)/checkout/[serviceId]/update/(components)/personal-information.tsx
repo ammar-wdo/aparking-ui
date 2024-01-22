@@ -252,6 +252,8 @@ const router = useRouter()
                   <FormLabel>E-mailadres *</FormLabel>
                   <FormControl>
                     <Input
+                    disabled
+                    readOnly={true}
                       className=""
                       placeholder="E-mailadres"
                       value={field.value}
