@@ -20,7 +20,7 @@ const page = async({params}: Props) => {
 
 if(!service) return redirect('/')
   return (
-    <div className='p-8 bg-gray-100 min-h-screen'>
+    <div className='py-8 bg-gray-100 min-h-screen'>
    
     <EditBookingForm  service={service} />
     </div>

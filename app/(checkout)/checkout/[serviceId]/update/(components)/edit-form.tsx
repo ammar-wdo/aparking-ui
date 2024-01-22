@@ -85,7 +85,7 @@ const EditBookingForm = ({ service }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 container"
+        className="space-y-8 container p-0"
       >
         <div className=" grid lg:grid-cols-3 grid-cols-1 gap-10">
           <div className="space-y-5  lg:col-span-2 ">
