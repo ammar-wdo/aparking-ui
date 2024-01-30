@@ -36,7 +36,7 @@ export default function RootLayout({
         <ModalProvider />
         <Toaster richColors position="top-right" />
       </body>
-      <GoogleTagManager gtmId="GTM-XYZ" />
+      <GoogleTagManager gtmId="GTM-PGZ6VTB" />
     </html>
   );
 }
