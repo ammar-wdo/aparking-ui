@@ -5,6 +5,8 @@ import './globals.css'
 import { Toaster } from 'sonner'
 import ModalProvider from '@/components/providers/modal-provider'
 import CrispProvider from '@/components/providers/crisp-provier'
+import Gtm from '@/components/google-tag-manager'
+
 
 
 
@@ -32,11 +34,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <CrispProvider />
+      <Gtm/>
+   
       <body className={inter.className}>
-
+      <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-PGZ6VTB"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            ></iframe>
+          </noscript>
      {children}
 <ModalProvider />
       <Toaster richColors position='top-right'/></body>
+
+
     </html>
   )
 }
