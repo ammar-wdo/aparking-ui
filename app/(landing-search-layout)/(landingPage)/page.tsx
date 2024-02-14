@@ -10,9 +10,21 @@ import Footer from './(components)/footer'
 import { Suspense } from 'react'
 import AirportSkeleton from './(components)/airports-skeleton'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Metadata } from 'next'
 
 
 export const revalidate = 0
+
+export const metadata: Metadata = {
+  title: "Parkeren bij vliegvelden vergelijken - Zorgeloos op reis",
+  description:
+    "Ga je binnenkort op reis? Aparking vergelijkt parkeren bij vliegvelden voor zowel lang als kort parkeren. Parkeer al v.a. €1,39 per dag. ",
+  openGraph: {
+    title: "Parkeren bij vliegvelden vergelijken - Zorgeloos op reis",
+    description:
+      "Ga je binnenkort op reis? Aparking vergelijkt parkeren bij vliegvelden voor zowel lang als kort parkeren. Parkeer al v.a. €1,39 per dag. ",
+  },
+};
 
 export default  async function Home() {
 
