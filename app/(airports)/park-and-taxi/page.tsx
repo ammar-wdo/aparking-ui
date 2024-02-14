@@ -57,7 +57,7 @@ const page = (props: Props) => {
           Ervaren Chauffeurs en Snelle Service
         </h2>
         <p className="text-gray-700">
-          De taxi's die bij Park & Taxi worden ingezet, zijn perfect aangepast
+          De taxi&apos;s die bij Park & Taxi worden ingezet, zijn perfect aangepast
           aan de eisen van de luchthaven. Met ervaren chauffeurs die de lokale
           verkeerssituaties kennen, garandeert Park & Taxi een vlotte en snelle
           rit naar waar je ook moet zijn. Deze service biedt niet alleen
