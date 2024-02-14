@@ -35,7 +35,7 @@ const Explain = (props: Props) => {
   return (
     <div className="py-12  container">
       <h3 className="text-center text-2xl sm:text-4xl font-semibold text-[#003580] ">
-        Parkeer Slim in 4 Stappen met Aparking
+      Luchthaven parkeren in 4 eenvoudige stappen
       </h3>
       <div className="mt-8 flex gap-4  justify-between overflow-x-auto p-2 noScroll xl:grid xl:grid-cols-4 snap-x  snap-mandatory">
         {explainInfo.map((card) => (
