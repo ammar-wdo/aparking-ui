@@ -23,7 +23,7 @@ const page = (props: Props) => {
           {" "}
           Park & OV: Jouw Slimme Parkeerkeuze bij het Vliegveld
         </h1>
-        <h2 className="text-2xl font-semibold mb-2 text-[#003580] mt-8"></h2>
+        <h2 className="text-2xl font-semibold mb-2 text-[#003580] mt-8">Parkeren en Reizen: Het Gemak van Park & OV</h2>
         <p className="text-gray-700">
           Met Park & OV combineer je het beste van twee werelden voor jouw
           luchthavenreizen. Rij naar het vliegveld in je eigen auto en parkeer
