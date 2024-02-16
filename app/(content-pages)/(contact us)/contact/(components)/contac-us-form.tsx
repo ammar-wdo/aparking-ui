@@ -11,11 +11,11 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Fingerprint, Loader2, Mail } from "lucide-react";
-import { useUser } from "@/hooks/user-hook";
-import { redirect, useRouter } from "next/navigation";
-import { useEffect } from "react";
+
+import {  Loader2, Mail } from "lucide-react";
+
+
+
 import { useContact } from "../contact-us.hook";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
@@ -29,7 +29,6 @@ const ContactForm = (props: Props) => {
 const {form ,onSubmit} = useContact()
   const isLoading = form.formState.isSubmitting;
 
-  const router = useRouter();
 
 
 
@@ -38,7 +37,7 @@ const {form ,onSubmit} = useContact()
   return (
     <div className="w-full  flex gap-20 lg:flex-row flex-col  justify-between items-center lg:items-stretch  mt-24">
         <div className="relative  lg:w-1/2 aspect-video w-full  rounded-xl overflow-hidden hidden lg:block">
-            <Image fill alt="contact-img" src={'/parking-signin.jpeg'} className="object-cover" />
+            <Image fill alt="contact-img" src={'/contact.png'} className="object-cover" />
 
         </div>
   

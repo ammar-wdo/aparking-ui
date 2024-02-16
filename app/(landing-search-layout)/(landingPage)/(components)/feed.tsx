@@ -58,7 +58,7 @@ const Feed = (props: Props) => {
             fill
             alt="airport-feed"
             className="object-cover"
-            src={"/airport-feed.webp"}
+            src={"/content.png"}
           />
         </div>
       </div>

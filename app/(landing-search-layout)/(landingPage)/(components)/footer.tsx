@@ -16,7 +16,7 @@ import Image from "next/image";
 
 type Props = {};
 
-const Footer = (props: Props) => {
+const Footer =async (props: Props) => {
   return (
     <div className="py-12 bg-[#003580] px-0 md:px-8">
       <div className="container">
@@ -81,7 +81,7 @@ const Footer = (props: Props) => {
             <h3 className="font-bold">Vliegvelden</h3>
             <div className="mt-6 flex flex-col gap-4">
               <Link
-                href={"/schiphol-airport"}
+                href={"/parkeren-schiphol"}
                 className="capitalize font-light text-base hover:underline "
               >
                
