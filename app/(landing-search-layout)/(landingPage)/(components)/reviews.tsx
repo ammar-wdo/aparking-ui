@@ -42,7 +42,7 @@ const Reviews = async ({
 
       {!reviews.length ? (
         <h3 className="py-10 text-xl text-gray-600 text-center font-bold">
-          No reviews
+          Geen Reviews
         </h3>
       ) : (
         <ReviewsSlide reviews={reviews} />
