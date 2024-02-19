@@ -147,7 +147,7 @@ const DateInformation = ({
         <h3
           className={cn("text-2xl font-bold", personalStep && "text-gray-400")}
         >
-          1.Date information
+          1.Informatie over de datum.
         </h3>
         {personalStep && (
           <span className="p-2 bg-green-500/20 rounded-full ml-auto">
@@ -165,7 +165,7 @@ const DateInformation = ({
                 name="arrivalDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>New Arrival date</FormLabel>
+                    <FormLabel>Nieuwe aankomstdatum.</FormLabel>
                     <Popover open={startOpen} onOpenChange={setStart}>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -179,7 +179,7 @@ const DateInformation = ({
                             {field.value ? (
                               format(new Date(field.value), "PPP")
                             ) : (
-                              <span>Pick a date</span>
+                              <span>Kies een datum.</span>
                             )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
@@ -210,7 +210,7 @@ const DateInformation = ({
                 name="arrivalTime"
                 render={({ field }) => (
                   <FormItem className="space-y-0 w-full">
-                    <FormLabel>New Arrival Time</FormLabel>
+                    <FormLabel>Nieuwe aankomsttijd.</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -266,7 +266,7 @@ const DateInformation = ({
                 name="departureDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel>New Departure Date</FormLabel>
+                    <FormLabel>Nieuwe vertrekdatum.</FormLabel>
                     <Popover open={endOpen} onOpenChange={setEnd}>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -280,7 +280,7 @@ const DateInformation = ({
                             {field.value ? (
                               format(new Date(field.value), "PPP")
                             ) : (
-                              <span>Pick a date</span>
+                              <span>Kies een datum.</span>
                             )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
@@ -314,7 +314,7 @@ const DateInformation = ({
                 name="departureTime"
                 render={({ field }) => (
                   <FormItem className="space-y-0 p-0 w-full">
-                    <FormLabel className="p-0 ">New Departure Time</FormLabel>
+                    <FormLabel className="p-0 ">Nieuwe vertrektijd.</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -374,7 +374,7 @@ const DateInformation = ({
             >
               {differentDate ? (
                 <>
-                  Check availability{" "}
+                 Controleer de beschikbaarheid.{" "}
                   {isLoading && (
                     <Loader className="ml-2 w-4 h-4 animate-spin" />
                   )}
