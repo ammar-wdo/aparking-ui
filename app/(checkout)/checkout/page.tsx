@@ -27,17 +27,17 @@ if(!booking) return redirect('/')
 
  return <div className='p-12 h-screen flex items-center justify-center text-center bg-[#F3F3F3]'>
   <div className=''>
-  <p className=''>Thank you for your booking </p>
+  <p className=''>Bedankt voor uw reservering.</p>
   <div className='relative w-40 aspect-square mx-auto'>
     <Image src={'/success.gif'} alt='success' fill className='object-cover'  />
   </div>
 
 
 <div className='mt-2 flex items-center gap-5 justify-center'>
-  <p className='font-semibold text-3xl'>Booking  <span className=' text-[#003580]'>{booking.bookingCode}</span> Confirmed</p>
+  <p className='font-semibold text-3xl'>Reservering  <span className=' text-[#003580]'>{booking.bookingCode}</span> bevestigd.</p>
  
 </div>
-<p className='text-sm py-4 text-neutral-500'>You will receive an email with all the informations you need</p>
+<p className='text-sm py-4 text-neutral-500'>U ontvangt een e-mail met alle informatie die u nodig heeft.</p>
 <Button asChild variant={'siteTwo'}><Link replace href={'/'}>Home page</Link></Button>
 
 
