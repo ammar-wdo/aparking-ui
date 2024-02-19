@@ -11,12 +11,12 @@ export const bookingSchema = z
 
     arrivalDate: z.date(),
 
-    firstName: z.string().min(1,{message:'First name is required'}),
-    lastName: z.string().min(1,{message:'Last name is required'}),
-    email: z.string().min(1,{message:"E-mail is required"}).email({message:"Invalid e-mail"}),
+    firstName: z.string().min(1,{message:'Voornaam is verplicht.'}),
+    lastName: z.string().min(1,{message:'Achternaam is verplicht.'}),
+    email: z.string().min(1,{message:"E-mail is verplicht."}).email({message:"Ongeldige e-mail."}),
     carColor: z.string().optional(),
-    carLicense: z.string().min(1,{message:'Car license is required'}),
-    carModel: z.string().min(1,{message:'Car model is required'}),
+    carLicense: z.string().min(1,{message:'Verplicht.'}),
+    carModel: z.string().min(1,{message:'Verplicht.'}),
     serviceId: z.string().min(1),
 total:z.coerce.number(),
     companyName: z.string().optional(),
@@ -30,7 +30,7 @@ total:z.coerce.number(),
     phoneNumber: z.string().refine((value) => {
       const phoneRegex = /^(?:[0-9]){1,3}(?:[ -]*[0-9]){6,14}$/;
       return phoneRegex.test(value);
-    }, "Invalid phone number"),
+    }, "Ongeldig telefoonnummer."),
 
     parkingPrice: z.coerce.number(),
 
@@ -42,23 +42,23 @@ total:z.coerce.number(),
     zipcode: z.string().optional(),
   })
   .refine((data) => !data.isCompany || data.zipcode, {
-    message: "company name is required",
+    message: "Verplicht.",
     path: ["companyName"],
   })
   .refine((data) => !data.isCompany || data.address, {
-    message: "address is required",
+    message: "Verplicht.",
     path: ["address"],
   })
   .refine((data) => !data.isCompany || data.vatNumber, {
-    message: "vat is required",
+    message: "Verplicht.",
     path: ["vatNumber"],
   })
   .refine((data) => !data.isCompany || data.place, {
-    message: "place is required",
+    message: "Verplicht.",
     path: ["place"],
   })
   .refine((data) => !data.isCompany || data.zipcode, {
-    message: "zipcode is required",
+    message: "Verplicht.",
     path: ["zipcode"],
   }).refine((data)=>new Date(data.arrivalDate).getTime() <= new Date(data.departureDate).getTime(),{message:'departure time should be greater or equal to arrival time',path:["paymentMethod"]})
   ;
