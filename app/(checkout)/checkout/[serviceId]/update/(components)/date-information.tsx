@@ -380,7 +380,7 @@ const DateInformation = ({
                   )}
                 </>
               ) : (
-                "Volgende stap."
+                "Volgende"
               )}
               {<ChevronRightIcon className="w-3 h-3 ml-1 text-white" />}
             </Button>
