@@ -156,7 +156,7 @@ const router = useRouter()
                       <FormControl>
                         <Input
                           className=""
-                          placeholder="VAT"
+                          placeholder="BTW Nummer"
                           {...field}
                         />
                       </FormControl>
@@ -174,7 +174,7 @@ const router = useRouter()
                       <FormControl>
                         <Input
                           className=""
-                          placeholder="Place"
+                          placeholder="Plaats"
                           {...field}
                         />
                       </FormControl>

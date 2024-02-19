@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Fingerprint, Loader2, Mail } from "lucide-react";
 import { useUser } from "@/hooks/user-hook";
-import { redirect, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import {  useRouter } from "next/navigation";
+
 
 type Props = {};
 
