@@ -34,7 +34,7 @@ const onCancel = async()=>{
       router.push(`${res.data.redirect_url}`)
    
 
-      toast.success('Successfully canceled')
+      toast.success('Succesvol geannuleerd')
     } catch (error:any) {
         console.log(error)
 
