@@ -16,7 +16,7 @@ const page = ({params}: Props) => {
       <div className='text-center'>
         <p className='text-xl font-semibold'>Uw reservering is succesvol geannuleerd.</p>
         <p className='text-sm text-neutral-500'>Er is een probleem opgetreden.? <Link href={'/contact-us'} className='text-blue-500'>Neem contact met ons op.</Link ></p>
-        <Button asChild variant={'siteTwo'} className='mt-3'><Link href={'/'}>Home page</Link></Button>
+        <Button asChild variant={'siteTwo'} className='mt-3'><Link href={'/'}>Home pagina</Link></Button>
       </div>
     </div>
     </>

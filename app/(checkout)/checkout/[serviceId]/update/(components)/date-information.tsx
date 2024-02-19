@@ -362,7 +362,7 @@ const DateInformation = ({
               type="button"
               className="font-light text-blue-600 flex text-sm items-center justify-center "
             >
-              {<ChevronLeft className="mr-1 h-4 w-4" />}Home page
+              {<ChevronLeft className="mr-1 h-4 w-4" />}Home pagina
             </Link>
 
             <Button
