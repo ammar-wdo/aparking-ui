@@ -151,7 +151,7 @@ const PaymentMethod = ({
             </div>
             {errorTerms && (
               <p className="text-xs text-rose-500 mt-2">
-                You should accept terms and conditions
+              U dient de algemene voorwaarden te accepteren.
               </p>
             )}
           </div>
