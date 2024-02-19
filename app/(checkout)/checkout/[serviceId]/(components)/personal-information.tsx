@@ -141,7 +141,7 @@ const router = useRouter()
                   name="vatNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>VAT *</FormLabel>
+                      <FormLabel>BTW Nummer*</FormLabel>
                       <FormControl>
                         <Input
                           className=""
@@ -159,7 +159,7 @@ const router = useRouter()
                   name="place"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Place *</FormLabel>
+                      <FormLabel>Plaats*</FormLabel>
                       <FormControl>
                         <Input
                           className=""

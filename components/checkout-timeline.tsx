@@ -26,7 +26,7 @@ const CheckoutTimeline = ({ valet }: Props) => {
     },
     {
       id: "2",
-      title: "Tot 24 uur van te voren wijzigen.",
+      title: "Tot 24 uur van te voren gratis annuleren/wijzigen.",
       icon: <TimerReset className="w-8 h-8 text-site" />,
     },
     {
