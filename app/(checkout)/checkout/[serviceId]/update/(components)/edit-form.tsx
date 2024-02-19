@@ -144,7 +144,7 @@ const EditBookingForm = ({ service }: Props) => {
                   variant={"siteTwo"}
                   className="w-full mt-4"
                 >
-                  Save changes{" "}
+                  Wijzigingen opslaan.{" "}
                   {isLoading && (
                     <Loader className="ml-3 w-4 h-4 animate-spin" />
                   )}
@@ -155,7 +155,7 @@ const EditBookingForm = ({ service }: Props) => {
                   className="w-full "
                   onClick={() => setPayStep(false)}
                 >
-                  Back
+                  Terug
                 </Button>
               </div>
             )}
@@ -173,7 +173,7 @@ const EditBookingForm = ({ service }: Props) => {
               className=" rounded-sm w-full mb-4 lg:flex hidden"
               type="button"
             >
-              Cancel your booking{" "}
+             Annuleer uw reservering.{" "}
               <ActionToolTip
                 side="right"
                 title="If you cancel your booking before 24 hours ,then you will be refunded"
@@ -231,7 +231,7 @@ const EditBookingForm = ({ service }: Props) => {
                     <div className="flex flex-col w-full gap-3">
                       <div className="flex items-center justify-between">
                       <p className="font-medium">
-                        Additional days{" "}
+                      Extra dagen{" "}
                         
                       </p>
                       <p className="font-bold text-xl">
@@ -241,7 +241,7 @@ const EditBookingForm = ({ service }: Props) => {
                     
                       <div className="flex items-center justify-between">
                       <p className=" font-medium">
-                        Additional price
+                      Extra prijs
                       </p>
                       <p className="font-bold text-xl">€{additionalPrice?.toFixed(2).replace(".", ",")}</p>
                       </div>
@@ -260,7 +260,7 @@ const EditBookingForm = ({ service }: Props) => {
 
                   {available === "false" && (
                     <p className="text-sm text-rose-500 pb-3 text-center font-bold py-3">
-                      Not available for this date
+                     Niet beschikbaar voor deze datum
                     </p>
                   )}
                 </div>
@@ -279,7 +279,7 @@ const EditBookingForm = ({ service }: Props) => {
               className=" rounded-sm w-full mt-4 lg:hidden flex"
               type="button"
             >
-              Cancel your booking{" "}
+              Annuleer uw reservering{" "}
               <ActionToolTip
                 side="right"
                 title="If you cancel your booking before 24 hours ,then you will be refunded"
