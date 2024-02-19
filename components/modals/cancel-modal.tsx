@@ -49,14 +49,14 @@ const onCancel = async()=>{
     
     <DialogContent>
       <DialogHeader>
-        <DialogTitle>Are you sure absolutely sure?</DialogTitle>
+        <DialogTitle>Bent u absoluut zeker?</DialogTitle>
         <DialogDescription>
-         Your booking would be permenantly canceled!
+        Uw reservering wordt permanent geannuleerd!
         </DialogDescription>
       </DialogHeader>
       <DialogFooter>
-        <Button type="button" onClick={setClose} variant={'ghost'}>No</Button>
-        <Button type="button" disabled={loading} onClick={onCancel} variant={'destructive'}>Yes {loading && <Loader className="animate-spin ml-3 h-3 w-3" />}</Button>
+        <Button type="button" onClick={setClose} variant={'ghost'}>Nee</Button>
+        <Button type="button" disabled={loading} onClick={onCancel} variant={'destructive'}>Ja {loading && <Loader className="animate-spin ml-3 h-3 w-3" />}</Button>
       </DialogFooter>
     </DialogContent>
   </Dialog>
