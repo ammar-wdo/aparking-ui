@@ -40,13 +40,9 @@ const Reviews = async ({
         Wat zeggen de klanten over onze parkeeraanbieders
       </p>
 
-      {!reviews.length ? (
-        <h3 className="py-10 text-xl text-gray-600 text-center font-bold">
-          Geen Reviews
-        </h3>
-      ) : (
+   
         <ReviewsSlide reviews={reviews} />
-      )}
+     
     </div>
   );
 };
