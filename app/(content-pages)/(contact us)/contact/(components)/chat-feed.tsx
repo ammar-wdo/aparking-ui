@@ -23,7 +23,7 @@ const Chatfeed = (props: Props) => {
   return (
 
      
-        <div key={option.label} className="rounded-lg overflow-hidden">
+        <div key={option.label} className="rounded-lg overflow-hidden max-w-[600px] justify-self-end w-full">
           <div className="bg-gray-100 p-6 pb-12">
             <h3 className="text-site font-bold text-2xl">{option.label}</h3>
             <p className="text-neutral-500 text-sm">{option.description}</p>
