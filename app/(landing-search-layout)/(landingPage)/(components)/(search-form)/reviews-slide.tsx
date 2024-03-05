@@ -24,59 +24,7 @@ type FullReview = Review & {
 type Props = { reviews: FullReview[] };
 
 
-const defaultReviews = [
-  {
-    
-    name:"Rob Keulemans",
-    description:"Altijd (wij zijn vaste klant) super optijd zowel heen als terug, met vriendelijk personeel, waarvan een aantal al weet waar we naar toe gaan en snappen dat we naar Kenia veel koffers met kadootjes bij ons hebben voor de 150 dove kinderen die we daar ondersteunen",
-    stars:5
-  },
-  {
-    name:"Martien",
-    description:"Prima service. Brengen en halen was goed geregeld.",
-    stars:5
-  },
-  {
-    name:"Freddy Drost",
-    description:"Maar reeds een x aantal jaren met tevredenheid gebruikt van hun diensten en dan voornamelijk 'Valet parkeren'",
-    stars:4
-  },
-  {
-    name:"Monique",
-    description:"Ik heb al diverse malen gebruik gemaakt van uw diensten, zowel zakelijk als privé. Gaat altijd goed",
-    stars:4
-  },
-  {
-    name:"Sandra Weening",
-    description:"Al meerdere jaren een betrouwbare parkeerservice!",
-    stars:4
-  },
-  {
-    name:"Aydin",
-    description:"Super snel en netjes",
-    stars:4
-  },
-  {
-    name:"Gé Stroeken",
-    description:"Meerdere keren gebruik van gemaakt omdat we zeer tevreden zijn",
-    stars:5
-  },
-  {
-    name:"Dick Guit",
-    description:"De service rondom t valet parkeren was prima verzorgd. Geen zorgen om t parkeren van je auto.",
-    stars:5
-  },
-  {
-    name:"Rob de Bruin",
-    description:"Altijd vriendelijk en correcte chauffeurs; petje af !",
-    stars:5
-  },
-  {
-    name:"Parnassus Europe BV",
-    description:"Fantastische en professionele service",
-    stars:5
-  },
-]
+
 
 const ReviewsSlide = ({ reviews }: Props) => {
 
@@ -107,29 +55,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
   
    >
 
-    {defaultReviews.map((el,index)=><SwiperSlide key={index}>
-    <div className=" rounded-lg p-3 bg-white flex flex-col shadow-sm hover:shadow-md transition min-h-[200px]">
-           
-             
-               <Slicer content={el.description} />
-              
-              <div className=" mt-auto border-t pt-3 ">
-              <div className="flex items-center gap-3 ">
-                <ReactStars
-                  value={el.stars}
-                  edit={false}
-                  size={14}
-                  color2="#FEBA02"
-                />
-                <p className="font-semibold text-gray-600 text-sm">
-                  {el.name}
-                </p>
-              </div>
-           
-              </div>
-            
-            </div>
-    </SwiperSlide>)}
+   
     
       {reviews.map((review) => {
         const showCase: { [key: string]: string } = {
