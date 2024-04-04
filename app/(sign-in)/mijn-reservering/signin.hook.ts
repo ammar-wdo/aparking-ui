@@ -12,8 +12,8 @@ import { useRouter } from "next/navigation"
 
  
 const formSchema = z.object({
-  email: z.string().email(),
-  bookingCode:z.string().min(1,{message:"Booking code is required"})
+  email: z.string({required_error:'Verplicht veld'}).email('Ongeldig e-mail'),
+  bookingCode:z.string({required_error:'Verplicht veld'}).min(1,{message:"Reserveringsnummer verplicht"})
 })
 
 export const useSignin = ()=>{
