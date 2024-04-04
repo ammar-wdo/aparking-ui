@@ -35,7 +35,7 @@ type Props = {
     icon: string;
   }[];
 
-  location?: { address: string; zipcode: string,country:string };
+  location?: { adress: string; postcode: string,land:string };
   id:string,
 };
 
@@ -77,8 +77,8 @@ const AccordionInfo = ({
           {editorContent && <Editor initialContent={editorContent} />}
           {timeToAirport && distanceToAirport && (
             <div className="mt-4 font-semibold">
-              <p>Time to ariport: {timeToAirport}</p>
-              <p>Distance to airport: {distanceToAirport}</p>
+              <p>Tijd naar vliegveld: {timeToAirport}</p>
+              <p>Afstand naar vliegveld: {distanceToAirport}</p>
             </div>
           )}
           {facilities && (
@@ -105,9 +105,9 @@ const AccordionInfo = ({
           )}
 
           {location && <div>
-            <p>Country: {location.country}</p>
-            <p>Address: {location.address}</p>
-            <p>Zipcode: {location.zipcode}</p>
+            <p>Country: {location.land}</p>
+            <p>Address: {location.adress}</p>
+            <p>Zipcode: {location.postcode}</p>
             </div>}
         </AccordionContent>
       </AccordionItem>

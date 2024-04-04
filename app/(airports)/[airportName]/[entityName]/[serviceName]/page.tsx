@@ -146,28 +146,29 @@ const page = async ({ params, searchParams }: Props) => {
               <AccordionInfo
               id="1"
                 first
-                label="Important information"
+                label="Belangrijke informatie"
                 editorContent={service.importantInfo}
                 timeToAirport={service.timeToAirport}
                 distanceToAirport={service.distanceToAirport}
               />
               <AccordionInfo
               id="2"
-                label="Facilities"
+                label="
+                Faciliteiten"
                 facilities={service.facilities}
               />
               <AccordionInfo
               id="3"
-                label="Highlights"
+                label="Hoogtepunten"
                 highlights={service.highlights}
               />
               <AccordionInfo
               id="4"
-                label="Location"
+                label="Locatie"
                 location={{
-                  address: service.parkingAddress,
-                  zipcode: service.parkingZipcode,
-                  country: service.parkingCountry,
+                  adress: service.parkingAddress,
+                  postcode: service.parkingZipcode,
+                  land: service.parkingCountry,
                 }}
               />
               </Accordion>
