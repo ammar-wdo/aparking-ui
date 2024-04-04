@@ -150,7 +150,7 @@ const ListCard = ({ service, invalid, show }: Props) => {
             <Link
               href={`/${service.entity.airport.slug}/${service.entity.slug}/${service.slug}`}
             >
-              More details
+              Meer details
             </Link>
           </Button>
         )}

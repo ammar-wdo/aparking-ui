@@ -72,7 +72,7 @@ const page = async ({ params }: Props) => {
         </div>
       
         <h3 className="text-site text-3xl font font-semibold mt-20 mb-10">
-          Availability {entity?.entityName}
+          Beschikbaarheid {entity?.entityName}
         </h3>
       </div>
       <ServciesFeed entityId={entity.id} />
