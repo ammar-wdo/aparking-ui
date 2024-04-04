@@ -42,7 +42,7 @@ const CheckoutTimeline = ({ valet }: Props) => {
     },
     {
       id: "4",
-      title: "Bij terugkomst wordt staat de parkeeraanbieder voor u klaar.",
+      title: "Bij terugkomst  staat de parkeeraanbieder voor u klaar.",
       icon: <Check className="w-8 h-8 text-site" />,
     },
   ];
