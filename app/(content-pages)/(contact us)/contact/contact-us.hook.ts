@@ -42,7 +42,7 @@ export const useContact = ()=>{
      async function onSubmit(values: z.infer<typeof contactSchema>) {
         try {
           const res = await axios.post(CONTACT_US,values)
-toast.success("message successfully sent ")
+toast.success("Verzonden")
 form.reset()
 
         } catch (error) {
