@@ -17,7 +17,7 @@ const CategoryFeed = async ({searchParams}: Props) => {
 
   return (
     <div>
-      <h3 className="text-xl font-semibold text-site">Categories</h3>
+      <h3 className="text-xl font-semibold text-site">Categorieën</h3>
       <div className="mt-2 flex items-center gap-4 flex-wrap">
        <ClientButton label="All" categoryParam={categoryParam} link={'blog'} all />
         {categories.map((category: { id: string; label: string }) => (

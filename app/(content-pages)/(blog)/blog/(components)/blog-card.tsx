@@ -64,7 +64,7 @@ const BlogCard = ({blog}: Props) => {
         className="font-semibold text-slate-500 text-sm "
         href={`/blog/${blog.slug}`}
       >
-        Read more
+        Lees meer
       </Link>
     </CardFooter>
  
