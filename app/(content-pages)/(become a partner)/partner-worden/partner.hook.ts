@@ -4,11 +4,11 @@
 import * as z from "zod"
  
 const partnerSchema = z.object({
-  firstName: z.string().min(2).max(50),
-  lastname: z.string().min(2).max(50),
-  email: z.string().email(),
-  subject: z.string().optional(),
-  message:z.string().min(2)
+  firstName: z.string({required_error:"Verplicht veld"}).min(2,'Minimaal 2 letters').max(50,'Maximaal 50 letters'),
+  lastname: z.string({required_error:"Verplicht veld"}).min(2,'Minimaal 2 letters').max(50,'Maximaal 50 letters'),
+  email: z.string({required_error:"Verplicht veld"}).email('Ongeldig e-mail'),
+  subject: z.string({required_error:"Verplicht veld"}).optional(),
+  message:z.string({required_error:"Verplicht veld"}).min(2,'Minimaal 2 letters')
 })
 
 
