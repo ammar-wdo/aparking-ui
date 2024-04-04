@@ -34,7 +34,7 @@ const Reviews = async ({
   return (
     <div className="container py-12">
       <h3 className="text-center text-4xl font-semibold text-[#003580] ">
-        Reviews
+        Beoordeling
       </h3>
       <p className="text-sm text-gray-600 text-center">
         Wat zeggen de klanten over onze parkeeraanbieders

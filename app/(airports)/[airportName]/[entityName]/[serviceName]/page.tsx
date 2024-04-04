@@ -120,7 +120,7 @@ const page = async ({ params, searchParams }: Props) => {
         <div className="grid grid-cols-1   lg:grid-cols-9   py-4 gap-x-20 mt-8 gap-y-12">
           <div className="p-5 pb-6 rounded-lg bg-site h-fit lg:col-span-3 order-1 lg:order-2">
             <h3 className="text-white capitalize py-2 font-semibold text-2xl">
-              Check availability
+              Check beschikbaarheid
             </h3>
             <SearchForm
               serviceShow={true}
