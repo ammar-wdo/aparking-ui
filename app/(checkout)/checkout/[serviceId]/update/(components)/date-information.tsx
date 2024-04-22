@@ -177,7 +177,7 @@ const DateInformation = ({
                             )}
                           >
                             {field.value ? (
-                              format(new Date(field.value), "PPP")
+                              format(new Date(field.value), "dd-MM-yyyy")
                             ) : (
                               <span>Kies een datum.</span>
                             )}
@@ -278,7 +278,7 @@ const DateInformation = ({
                             )}
                           >
                             {field.value ? (
-                              format(new Date(field.value), "PPP")
+                              format(new Date(field.value), "dd-MM-yyyy")
                             ) : (
                               <span>Kies een datum.</span>
                             )}
