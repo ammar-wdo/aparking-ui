@@ -8,7 +8,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 
 type FullReview = Review & {
   id: string;
-  booking: { firstName: string; lastName: string };
+firstName:string,lastName:string
   entity: { entityName: string,slug:string ,airport:{name:string,slug:string}};
   createdAt:Date
 };

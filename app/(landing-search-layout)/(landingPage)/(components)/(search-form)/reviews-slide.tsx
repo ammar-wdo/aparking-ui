@@ -17,7 +17,7 @@ import Slicer from "./slicer";
 
 type FullReview = Review & {
   id: string;
-  booking: { firstName: string; lastName: string };
+ firstName:string,lastName:string
   entity: { entityName: string,slug:string,airport:{name:string,slug:string}};
   createdAt:Date
 };
@@ -59,8 +59,8 @@ const ReviewsSlide = ({ reviews }: Props) => {
     
       {reviews.map((review) => {
         const showCase: { [key: string]: string } = {
-          FULLNAME: `${review.booking.firstName} ${review.booking.lastName}`,
-          FIRSTNAME: `${review.booking.firstName}`,
+          FULLNAME: `${review.firstName} ${review.lastName}`,
+          FIRSTNAME: `${review.firstName}`,
           ANOUNYMOS: "Anonymous",
         };
 
