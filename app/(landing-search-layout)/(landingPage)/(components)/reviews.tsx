@@ -10,7 +10,8 @@ type FullReview = Review & {
   id: string;
 firstName:string,lastName:string
   entity: { entityName: string,slug:string ,airport:{name:string,slug:string}};
-  createdAt:Date
+  createdAt:Date,
+  placeHolderDate:Date
 };
 
 const Reviews = async ({

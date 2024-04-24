@@ -20,6 +20,7 @@ type FullReview = Review & {
  firstName:string,lastName:string
   entity: { entityName: string,slug:string,airport:{name:string,slug:string}};
   createdAt:Date
+  placeHolderDate:Date
 };
 type Props = { reviews: FullReview[] };
 
@@ -88,7 +89,7 @@ const ReviewsSlide = ({ reviews }: Props) => {
                   {showCase[review.visibility]}
                 </p>
               </div>
-              <p className="text-xs mt-1 text-neutral-500">{NLtimezone(new Date(review.createdAt),'Europe/Amsterdam')}</p>
+              <p className="text-xs mt-1 text-neutral-500">{NLtimezone(new Date(review.placeHolderDate || review.createdAt),'Europe/Amsterdam')}</p>
               </div>
             
             </div>
