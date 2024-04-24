@@ -8,11 +8,11 @@ import Navigator from "@/components/navigator";
 type Props = { searchParams: { [ket: string]: string | string[] | undefined } };
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions - Aparking Airport Parking Services",
-  description: `Find answers to commonly asked questions about Aparking's airport parking services. Get information about booking, payment, cancellations, and more to make your parking experience hassle-free.`,
+  title: "Veelgestelde vragen - Aparking Luchthavenparkeerdiensten",
+  description: `Vind antwoorden op veelgestelde vragen over de luchthavenparkeerdiensten van Aparking. Ontvang informatie over boekingen, betalingen, annuleringen en meer om uw parkeerervaring probleemloos te maken.`,
   openGraph: {
-    title: "Frequently Asked Questions - Aparking Airport Parking Services",
-    description: `Find answers to commonly asked questions about Aparking's airport parking services. Get information about booking, payment, cancellations, and more to make your parking experience hassle-free.`,
+    title: "Veelgestelde vragen - Aparking Luchthavenparkeerdiensten",
+    description: `Vind antwoorden op veelgestelde vragen over de luchthavenparkeerdiensten van Aparking. Ontvang informatie over boekingen, betalingen, annuleringen en meer om uw parkeerervaring probleemloos te maken.`,
   },
 };
 

@@ -11,11 +11,11 @@ type Props = {};
 
 
 export const metadata: Metadata = {
-  title: 'Privacy beleid - Your Privacy Matters to Aparking',
-  description: `Aparking is committed to protecting your privacy. Read our comprehensive Privacy beleid to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+  title: 'Privacybeleid - Uw privacy is belangrijk voor Aparking',
+  description: `Aparking is toegewijd aan het beschermen van uw privacy. Lees ons uitgebreide privacybeleid om te begrijpen hoe we uw persoonlijke informatie verzamelen, gebruiken en beschermen wanneer u gebruikmaakt van onze diensten. Uw privacy is belangrijk voor ons.`,
   openGraph:{
-    title:'Privacy beleid - Your Privacy Matters to Aparking',
-    description:`Aparking is committed to protecting your privacy. Read our comprehensive Privacy beleid to understand how we collect, use, and safeguard your personal information when you use our services. Your privacy matters to us.`,
+    title:'Privacybeleid - Uw privacy is belangrijk voor Aparking',
+    description:`Aparking is toegewijd aan het beschermen van uw privacy. Lees ons uitgebreide privacybeleid om te begrijpen hoe we uw persoonlijke informatie verzamelen, gebruiken en beschermen wanneer u gebruikmaakt van onze diensten. Uw privacy is belangrijk voor ons.`,
   
   }
   

@@ -10,11 +10,11 @@ type Props = {}
 
 
 export const metadata: Metadata = {
-  title: 'Partner with Aparking - Join Our Network of Parking Providers',
-  description: `Become a partner with Aparking and expand your reach to a wider audience. Join our network of trusted parking providers and increase your bookings. Start a partnership with Aparking today.`,
+  title: 'Werk samen met Aparking - Sluit je aan bij ons netwerk van parkeeraanbieders',
+  description: `Word een partner van Aparking en vergroot uw bereik naar een breder publiek. Sluit u aan bij ons netwerk van vertrouwde parkeeraanbieders en verhoog uw boekingen. Begin vandaag nog een partnerschap met Aparking.`,
   openGraph:{
-    title:'Partner with Aparking - Join Our Network of Parking Providers',
-    description:`Become a partner with Aparking and expand your reach to a wider audience. Join our network of trusted parking providers and increase your bookings. Start a partnership with Aparking today.`,
+    title:'Werk samen met Aparking - Sluit je aan bij ons netwerk van parkeeraanbieders',
+    description:`Word een partner van Aparking en vergroot uw bereik naar een breder publiek. Sluit u aan bij ons netwerk van vertrouwde parkeeraanbieders en verhoog uw boekingen. Begin vandaag nog een partnerschap met Aparking.`,
   
   }
   

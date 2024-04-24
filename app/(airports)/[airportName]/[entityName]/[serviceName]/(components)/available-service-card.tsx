@@ -48,12 +48,12 @@ let url = ''
             <h3 className='font-bold text-lg self-center capitalize text-center lg:text-start p-3'>{service.name}</h3>
             <div className='text-center gap-2 lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 items-center bg-gray-50 p-3 border-t lg:border-t-0 lg:border-l'> 
             <div >
-            <p className='text-sm text-neutral-500'>price for {service.parkingDays} day(s)</p>
+            <p className='text-sm text-neutral-500'>Prijs voor {service.parkingDays} Dag(en)</p>
                 <p className='text-xl font-bold'>€{service.totalPrice}</p>
                 </div>
                
                 <div>
-                <Button asChild variant={'siteTwo'} className='w-full'><Link href={url}>Book now</Link></Button>
+                <Button asChild variant={'siteTwo'} className='w-full'><Link href={url}>Reserveer Nu</Link></Button>
                 </div>
             </div>
 

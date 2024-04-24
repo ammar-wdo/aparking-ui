@@ -11,11 +11,11 @@ type Props = {};
 
 
 export const metadata: Metadata = {
-  title: 'About Aparking - Your Trusted Source for Airport Parking Comparisons',
-  description: 'Learn more about Aparking, the leading platform for comparing airport parking services. Discover how we help travelers find the best parking options, save money, and enjoy a stress-free travel experience.',
+  title: 'Over Aparking - Uw Vertrouwde Bron voor Vergelijkingen van Luchthavenparking',
+  description: 'Ontdek meer over Aparking, het toonaangevende platform voor het vergelijken van luchthavenparkeerdiensten. Leer hoe wij reizigers helpen om de beste parkeeropties te vinden, geld te besparen en te genieten van een stressvrije reiservaring.',
   openGraph:{
-    title:'About Aparking - Your Trusted Source for Airport Parking Comparisons',
-    description:'Learn more about Aparking, the leading platform for comparing airport parking services. Discover how we help travelers find the best parking options, save money, and enjoy a stress-free travel experience.',
+    title:'Over Aparking - Uw Vertrouwde Bron voor Vergelijkingen van Luchthavenparking',
+    description:'Ontdek meer over Aparking, het toonaangevende platform voor het vergelijken van luchthavenparkeerdiensten. Leer hoe wij reizigers helpen om de beste parkeeropties te vinden, geld te besparen en te genieten van een stressvrije reiservaring.',
   
   }
   

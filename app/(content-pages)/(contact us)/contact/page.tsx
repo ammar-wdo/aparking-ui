@@ -9,11 +9,11 @@ type Props = {}
 
 
 export const metadata: Metadata = {
-  title: 'Contact Aparking - Get in Touch with Our Team',
-  description: 'Contact Aparking to get assistance, provide feedback, or inquire about our services. Our dedicated team is here to help answer your questions and ensure you have a seamless parking booking experience.',
+  title: 'Neem contact op met Aparking - Kom in contact met ons team',
+  description: 'Neem contact op met Aparking voor assistentie, feedback of vragen over onze diensten. Ons toegewijde team staat klaar om uw vragen te beantwoorden en ervoor te zorgen dat u een naadloze parkeerboekingservaring heeft.',
   openGraph:{
-    title:'Contact Aparking - Get in Touch with Our Team',
-    description:'Contact Aparking to get assistance, provide feedback, or inquire about our services. Our dedicated team is here to help answer your questions and ensure you have a seamless parking booking experience.',
+    title:'Neem contact op met Aparking - Kom in contact met ons team',
+    description:'Neem contact op met Aparking voor assistentie, feedback of vragen over onze diensten. Ons toegewijde team staat klaar om uw vragen te beantwoorden en ervoor te zorgen dat u een naadloze parkeerboekingservaring heeft.',
   
   }
   

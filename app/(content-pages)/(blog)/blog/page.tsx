@@ -13,11 +13,11 @@ type Props = {
 
 
 export const metadata: Metadata = {
-  title: 'Airport Parking Tips and Insights - Aparking Blog',
-  description: `Explore our blog for useful tips, insights, and advice on airport parking. Stay up to date with the latest trends, parking hacks, and travel tips to make your journey smoother and more enjoyable.`,
+  title: 'Luchthavenparkeertips en inzichten - Aparking Blog',
+  description: `Verken onze blog voor nuttige tips, inzichten en adviezen over luchthavenparking. Blijf op de hoogte van de laatste trends, parkeerhacks en reistips om uw reis soepeler en plezieriger te maken..`,
   openGraph:{
-    title:'Airport Parking Tips and Insights - Aparking Blog',
-    description:`Explore our blog for useful tips, insights, and advice on airport parking. Stay up to date with the latest trends, parking hacks, and travel tips to make your journey smoother and more enjoyable.`,
+    title:'Luchthavenparkeertips en inzichten - Aparking Blog',
+    description:`Verken onze blog voor nuttige tips, inzichten en adviezen over luchthavenparking. Blijf op de hoogte van de laatste trends, parkeerhacks en reistips om uw reis soepeler en plezieriger te maken..`,
   
   }
   
