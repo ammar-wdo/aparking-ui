@@ -41,7 +41,7 @@ export default  async function Home() {
       </Banner>
       <Explain />
       <Suspense fallback={<AirportSkeleton />} ><Airports /></Suspense>
-      {/* <Suspense fallback={<Skeleton className='h-[350px]' />}><Reviews /></Suspense> */}
+      <Suspense fallback={<Skeleton className='h-[350px]' />}><Reviews /></Suspense>
   <Feed />
  
     </main>
