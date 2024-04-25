@@ -13,6 +13,7 @@ export const DELETE_BOOKING = BASE_URL + '/api/booking/cancel'
 export const GET_AIRPORTS = BASE_URL + '/api/airport'
 
 export const CONTACT_US = BASE_URL + '/api/contact-us'
+export const PARTNER = BASE_URL + '/api/partner'
 
 
 export const GET_ENTITIES = BASE_URL + '/api/entities'

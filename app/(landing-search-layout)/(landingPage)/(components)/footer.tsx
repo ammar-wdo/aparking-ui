@@ -94,7 +94,7 @@ Amsterdam Airport Schiphol (AMS)
                Rotterdam The Hague Airport (RTM)
               </Link>
               <Link
-                href={"/eindhoven-airpor"}
+                href={"/parkeren-eindhoven-airport"}
                 className="capitalize font-light text-base hover:underline"
               >
                 Eindhoven Airport (EIN)

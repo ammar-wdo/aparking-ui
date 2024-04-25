@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import axios from "axios"
-import { CONTACT_US } from "@/links"
+import { CONTACT_US, PARTNER } from "@/links"
 
 
 
@@ -42,8 +42,8 @@ export const usePartner = ()=>{
      async function onSubmit(values: z.infer<typeof partnerSchema>) {
         try {
          
-        //   const res = await axios.post(CONTACT_US,values)
-toast.success("message successfully sent ")
+          const res = await axios.post(PARTNER,values)
+toast.success("Verzonden")
 form.reset()
 
         } catch (error) {
