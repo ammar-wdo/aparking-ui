@@ -34,12 +34,12 @@ if(!airport) return {
 
  
   return {
-    title:`Compare Airport Parking Options - ${airport.name} | Aparking"` ,
-    description:`Find and compare the best airport parking options at ${airport.name}. Save time and money by booking secure and affordable parking with Aparking. Reserve your spot now!`,
+    title:`Vergelijk Airport Parking opties - ${airport.name} | Aparking"` ,
+    description:`Vind en vergelijk de beste parkeeropties op ${airport.name}. Bespaar tijd en geld door veilige en betaalbare parkeergelegenheid te boeken bij Aparking. Reserveer nu uw plek!`,
     
     openGraph: {
-      title:`Compare Airport Parking Options - ${airport.name} | Aparking"` ,
-    description:`Find and compare the best airport parking options at ${airport.name}. Save time and money by booking secure and affordable parking with Aparking. Reserve your spot now!`,
+      title:`Vergelijk Airport Parking opties - ${airport.name} | Aparking"` ,
+    description:`Vind en vergelijk de beste parkeeropties op ${airport.name}. Bespaar tijd en geld door veilige en betaalbare parkeergelegenheid te boeken bij Aparking. Reserveer nu uw plek!`,
       images: [...airport.images],
     },
   }

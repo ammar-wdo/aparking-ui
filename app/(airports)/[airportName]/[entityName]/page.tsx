@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 
   return {
-    title: `${entity.entityName} - Compare Parking Services | Aparking`,
-    description: `Discover the best parking services offered by ${entity.entityName}. Compare prices, locations, and amenities to find the ideal parking solution for your needs. Book with confidence through Aparking.`,
+    title: `${entity.entityName} - Vergelijk Parking Services | Aparking`,
+    description: `Ontdek de beste parkeerdiensten aangeboden door ${entity.entityName}. Vergelijk prijzen, locaties en voorzieningen om de ideale parkeeroplossing voor uw behoeften te vinden. Boek met vertrouwen via Aparking.`,
     openGraph: {
-      title: `${entity.entityName} - Compare Parking Services | Aparking`,
-      description: `Discover the best parking services offered by ${entity.entityName}. Compare prices, locations, and amenities to find the ideal parking solution for your needs. Book with confidence through Aparking.`,
+      title: `${entity.entityName} - Vergelijk Parking Services | Aparking`,
+      description: `Ontdek de beste parkeerdiensten aangeboden door ${entity.entityName}. Vergelijk prijzen, locaties en voorzieningen om de ideale parkeeroplossing voor uw behoeften te vinden. Boek met vertrouwen via Aparking.`,
       images: [...entity.images],
     },
   };

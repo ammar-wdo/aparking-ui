@@ -2,11 +2,24 @@ import React from 'react'
 import SigninForm from './(components)/signin-form'
 import CheckoutHeader from '@/app/(checkout)/(components)/checkout-header'
 import Image from 'next/image'
+import { Metadata } from 'next'
 
 type Props = {}
 
-const page = async(props: Props) => {
 
+
+export const metadata: Metadata = {
+  title: "Mijn reservering | Aparking",
+  description:
+    "login om uw reserveringsinformatie te bekijken. ",
+  openGraph: {
+    title: "Mijn reservering | Aparking",
+    description:
+      "login om uw reserveringsinformatie te bekijken. ",
+  },
+};
+
+const page = async(props: Props) => {
 
   return (
     <div className='h-screen flex flex-col'>
