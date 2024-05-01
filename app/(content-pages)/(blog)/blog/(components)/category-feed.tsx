@@ -13,7 +13,9 @@ const CategoryFeed = async ({searchParams}: Props) => {
 
   const categories = res.data.categories;
 
-  const categoryParam = searchParams.category
+  const categoryParam = searchParams.category as string | undefined
+
+  
 
   return (
     <div>
