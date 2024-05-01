@@ -43,7 +43,7 @@ const Airports = async (props: Props) => {
             </div>
             <div className="bg-white p-4 flex-1">
 <h3 className="text-center text-[#003580] text-lg font-semibold">{airport.name}</h3>
-<p className="text-xs text-gray-600 text-center pt-3">vanaf € 32,00 per week</p>
+{!!airport.cheapestSeventhDayPrice && <p className="text-xs text-gray-600 text-center pt-3">{`vanaf € ${airport.cheapestSeventhDayPrice.toFixed(2)} per week`}</p>}
             </div>
           </div>
           </Link>
