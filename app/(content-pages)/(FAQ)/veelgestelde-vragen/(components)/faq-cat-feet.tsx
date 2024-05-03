@@ -11,7 +11,7 @@ const FaqCatFeed = async({searchParams}: Props) => {
 
     const faqCat = res.data.faqCat
 
-    const categoryParam = searchParams.category
+    const categoryParam = searchParams.category as string
 
     
   return (
