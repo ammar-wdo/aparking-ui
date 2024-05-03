@@ -110,7 +110,7 @@ if(!airport) return   notFound()
 <h2 className="text-site font-bold text-2xl py-10 mb-8">FAQs {airport.name}</h2>
 
       <Accordion type="single" collapsible>
-{airport.faq.map((faq,i)=><AirportFaqComponent  i={i.toString()} answer={faq.answer} question={faq.question} />)}
+{airport.faq.map((faq,i)=><AirportFaqComponent key={i}  i={i.toString()} answer={faq.answer} question={faq.question} />)}
 
 </Accordion>
       </section>
