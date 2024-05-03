@@ -56,7 +56,7 @@ const CheckoutTimeline = ({ valet }: Props) => {
           {elements.map((el, index) => (
             <div
               key={el.id}
-              className="flex  transition lg:flex-col items-center text-center gap-6 relative z-20 bg-white p-2 lg:py-8 rounded-2xl "
+              className="flex  transition lg:flex-col items-center text-center gap-6 relative z-20 bg-white  p-2 lg:py-8 rounded-2xl "
            
             >
               <span className="flex items-center justify-center bg-slate-100 rounded-xl w-16 h-16 text-white shrink-0">
