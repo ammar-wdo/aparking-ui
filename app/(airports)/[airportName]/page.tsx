@@ -11,6 +11,10 @@ import { Metadata } from 'next'
 import { getAirport } from '@/lib/getters'
 import Header from '@/components/header'
 import Navigator from '@/components/navigator'
+import Image from 'next/image'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { cn } from '@/lib/utils'
+import AirportFaqComponent from './(components)/faq-component'
 
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false })
 
@@ -65,12 +69,53 @@ if(!airport) return   notFound()
       
       <div className='container mt-10 min-h-[600px]'>
         <Navigator airport={{name:airport.name,href:airport.slug}} />
+
+{/* first block */}
+        <section className='mt-24'>
+          <article className='grid grid-cols-1 lg:grid-cols-2 gap-32'>
+
+<Editor initialContent={airport.blockOneContent}  />
+<div className='relative w-full h-full'>
+  <Image src={airport.blockOneImage} fill alt='airport figure' className='object-cover rounded-xl' />
+
+</div>
+
+
+          </article>
+
+        </section>
+
+
+        {/* second block */}
+        <section className='mt-20'>
+          <article className='grid grid-cols-1 lg:grid-cols-2 gap-32'>
+          <div className='relative w-full h-full'>
+  <Image src={airport.blockTwoImage} fill alt='airport figure' className='object-cover rounded-xl' />
+
+</div>
+<Editor initialContent={airport.blockTwoContent}  />
+
+
+
+          </article>
+
+        </section>
    
       <div className='mt-12 max-w-[1000px]'>   <Editor initialContent={airport.content}  /></div>
    
    
       </div>
       <EntitiesFeed airportName={airport?.name} airportSlug={airport?.slug} airportId={airport?.id} />
+      <section className='mt-12 container py-8'>
+<h2 className="text-site font-bold text-2xl py-10 mb-8">FAQs {airport.name}</h2>
+
+      <Accordion type="single" collapsible>
+{airport.faq.map((faq,i)=><AirportFaqComponent  i={i.toString()} answer={faq.answer} question={faq.question} />)}
+
+</Accordion>
+      </section>
+
+     
     </div>
   )
 }

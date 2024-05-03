@@ -173,7 +173,13 @@ export type Airport ={
   content:string,
   images:string[],
   slug:string,
-  cheapestSeventhDayPrice:number | null
+  cheapestSeventhDayPrice:number | null,
+  faq:{question:string,answer:string}[]
+  blockOneImage:string,
+blockTwoImage:string,
+
+blockOneContent:string,
+blockTwoContent:string,
   createdAt:Date,
   updatedAt:Date,
 }
