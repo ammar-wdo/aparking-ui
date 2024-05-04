@@ -132,7 +132,7 @@ const page = async (props: Props) => {
   ];
 
   return (
-    <div className="min-h-[900px] pb-24">
+    <div className="min-h-[900px] ">
       <div className="py-6 bg-muted">
         <div className="container">
           <Navigator name="Over ons" />
@@ -205,7 +205,7 @@ const page = async (props: Props) => {
       
       </section>
       {/* FAQs */}
-  <div className="py-12 bg-muted mt-24">
+  <div className="py-12 bg-muted mt-24 ">
         <section className=" container py-4">
           <h2 className="text-site font-bold text-2xl py-10 ">
           Veelgestelde vragen 

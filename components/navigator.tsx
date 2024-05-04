@@ -17,14 +17,14 @@ const Navigator = ({ airport, entity, service,blog ,blogDetails,name}: Props) =>
 
 if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto text-neutral-400">
 <span>
-  <Link className="hover:text-site" href={"/"}>
+  <Link className="hover:text-site font-semibold" href={"/"}>
     Home
   </Link>
 </span>{" "}
 <span className={cn("flex items-center gap-1 shrink-0")}>
   <ChevronRight className="w-5 h-5" />
   <Link
-    className={'text-black'}
+    className={'text-black font-semibold'}
     href={``}
   >
    {name}
@@ -35,14 +35,14 @@ if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto 
 
   if(blog) return  <div className="flex items-center gap-3 w-full overflow-x-auto text-neutral-400">
   <span>
-    <Link className="hover:text-site" href={"/"}>
+    <Link className="hover:text-site font-semibold" href={"/"}>
       Home
     </Link>
   </span>{" "}
   <span className={cn("flex items-center gap-1 shrink-0")}>
     <ChevronRight className="w-5 h-5" />
     <Link
-      className={!blogDetails ? "text-black hover:text-site" : "hover:text-site"}
+      className={!blogDetails ? "text-black hover:text-site font-semibold" : "hover:text-site font-semibold"}
       href={`/blog`}
     >
      Blog
@@ -53,7 +53,7 @@ if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto 
           <ChevronRight className="w-5 h-5" />
           <Link
             className={
-              !service ? "text-black hover:text-site" : "hover:text-site"
+              !service ? "text-black hover:text-site font-semibold" : "hover:text-site font-semibold"
             }
             href={`/blog/${blogDetails.slug}`}
           >
@@ -66,14 +66,14 @@ if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto 
   return (
     <div className="flex items-center gap-3 w-full overflow-x-auto text-neutral-400">
       <span>
-        <Link className="hover:text-site" href={"/"}>
+        <Link className="hover:text-site font-semibold" href={"/"}>
           Home
         </Link>
       </span>{" "}
       <span className={cn("flex items-center gap-1 shrink-0")}>
         <ChevronRight className="w-5 h-5" />
         <Link
-          className={!entity ? "text-black hover:text-site" : "hover:text-site"}
+          className={!entity ? "text-black hover:text-site font-semibold" : "hover:text-site font-semibold"}
           href={`/${airport?.href}`}
         >
           {airport?.name}
@@ -84,7 +84,7 @@ if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto 
           <ChevronRight className="w-5 h-5" />
           <Link
             className={
-              !service ? "text-black hover:text-site" : "hover:text-site"
+              !service ? "text-black hover:text-site font-semibold" : "hover:text-site font-semibold"
             }
             href={`/${airport?.href}/${entity.href}`}
           >
@@ -96,7 +96,7 @@ if(name) return  <div className="flex items-center gap-3 w-full overflow-x-auto 
         <span className="flex items-center gap-1 shrink-0">
           <ChevronRight className="w-5 h-5" />
           <Link
-            className="text-black hover:text-site"
+            className="text-black hover:text-site font-semibold"
             href={`/${airport?.href}/${entity.href}/${service.href}`}
           >
             {service.name}
