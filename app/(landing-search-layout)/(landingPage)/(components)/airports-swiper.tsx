@@ -13,9 +13,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 type Props = {
   airports: Airport[];
+  airportPage?:boolean,
+  airportSlug?:string
 };
 
-const AirportsSwiper = ({ airports }: Props) => {
+
+
+const AirportsSwiper = ({ airports,airportPage,airportSlug }: Props) => {
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
@@ -73,8 +77,10 @@ const AirportsSwiper = ({ airports }: Props) => {
         }
       }}
     >
-      {airports.map((airport) => (
-        <SwiperSlide key={airport.id} className="w-[300px] ">
+      {airports.map((airport) => {
+
+        if(!!airportSlug && airportSlug === airport.slug) return 
+       return  <SwiperSlide key={airport.id} className="w-[300px] ">
           <Link key={airport.id} href={`/${airport.slug}`}>
             <div className="rounded-md overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-[300px]">
               <div className="relative aspect-video  ">
@@ -96,7 +102,7 @@ const AirportsSwiper = ({ airports }: Props) => {
             </div>
           </Link>
         </SwiperSlide>
-      ))}
+      })}
     </Swiper>
   );
 };
