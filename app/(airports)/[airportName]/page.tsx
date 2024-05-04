@@ -95,9 +95,9 @@ const page = async ({ params }: Props) => {
       <div className="container mt-10 min-h-[600px]">
         {/* first block */}
         <section className="mt-24">
-          <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-32 gap-6">
+          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
             <Editor initialContent={airport.blockOneContent} />
-            <div className="relative w-full h-full min-h-[400px]">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(-45deg)',transformOrigin: 'center center'}}>
               <Image
                 src={airport.blockOneImage}
                 fill
@@ -129,8 +129,8 @@ const page = async ({ params }: Props) => {
 
         {/* second block */}
         <section className="mt-20">
-          <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-32 gap-6">
-            <div className="relative w-full h-full min-h-[400px]">
+          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(45deg)',transformOrigin: 'center center'}}>
               <Image
                 src={airport.blockTwoImage}
                 fill

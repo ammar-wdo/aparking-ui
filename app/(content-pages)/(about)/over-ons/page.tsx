@@ -138,7 +138,7 @@ const page = async (props: Props) => {
   ];
 
   return (
-    <div className="min-h-[900px] ">
+    <div style={{ perspective: '100px' }} className="min-h-[900px] ">
       <div className="py-6 bg-muted">
         <div className="container">
           <Navigator name="Over ons" />
@@ -184,14 +184,14 @@ const page = async (props: Props) => {
 
 
           {/* second block */}
-          <section className="mt-20">
-          <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-32 gap-6">
-            <div className="relative w-full h-full min-h-[400px]">
+          <section  className="mt-20">
+          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(45deg)',transformOrigin: 'center center'}}>
               <Image
                 src={about.blockTwoImage}
                 fill
                 alt="airport figure"
-                className="object-cover rounded-xl"
+                className="object-cover rounded-2xl"
               />
             </div>
             <Editor initialContent={about.blockTwoContent} />
