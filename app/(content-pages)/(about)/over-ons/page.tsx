@@ -138,7 +138,7 @@ const page = async (props: Props) => {
   ];
 
   return (
-    <div style={{ perspective: '100px' }} className="min-h-[900px] ">
+    <div style={{ perspective: '100px' }} className="min-h-[900px]  pb-20 ">
       <div className="py-6 bg-muted">
         <div className="container">
           <Navigator name="Over ons" />
