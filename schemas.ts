@@ -184,6 +184,16 @@ blockTwoContent:string,
   updatedAt:Date,
 }
 
+export type About = {
+  faq:{question:string,answer:string}[]
+  content:string,
+  blockOneContent:string,
+  blockTwoContent:string,
+  blockTwoImage:string,
+  createdAt:Date,
+  updatedAt:Date,
+}
+
 
 export const reviewSchema = z.object({
 bookingId:z.string().min(1),
