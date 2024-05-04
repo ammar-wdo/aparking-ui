@@ -144,7 +144,7 @@ const page = async ({ params }: Props) => {
         {/* airports */}
 
         <section className="bg-muted p-4 sm:p-12 mt-12">
-          <article className="min-w-[350px]">
+          <article className="">
             <h3 className="text-site font-bold text-2xl py-10 ">Eenvoudig vergelijken &
 parkeren bij vliegvelden</h3>
 <p className="text-site">
