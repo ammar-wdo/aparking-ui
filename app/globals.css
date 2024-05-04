@@ -146,6 +146,10 @@ padding-inline: 35px !important;
   @apply  shadow-sm rounded-md  
 }
 
+h2.bn-inline-content {
+  color: #003580 !important;
+}
+
 
 
 
