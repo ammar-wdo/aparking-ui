@@ -33,11 +33,11 @@ const page = async (props: Props) => {
   const res = await axios<{about?:About,success:boolean,error?:string}>(GET_ABOUT);
 
   if(!res.data.success) return <div className="min-h-screen flex items-center justify-center">{JSON.stringify(res.data.error,null,2)}</div>
-  
 
 
+if(!res.data.about) return 
 
-  const about = res.data.about as About;
+  const about = res.data.about 
 
   const firstBlockCards = [
     {
