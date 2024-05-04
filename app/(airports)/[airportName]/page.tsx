@@ -82,7 +82,7 @@ const page = async ({ params }: Props) => {
   if (!airport) return notFound();
 
   return (
-    <div>
+    <div className="pb-20">
       <Header />
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
       <div className="p-6 bg-muted">
