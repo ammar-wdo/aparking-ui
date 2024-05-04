@@ -86,7 +86,10 @@ const page = async ({ params }: Props) => {
       <Header />
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
       <div className="p-6 bg-muted">
+        <div className="container">
         <Navigator airport={{ name: airport.name, href: airport.slug }} />
+        </div>
+        
       </div>
 
       <div className="container mt-10 min-h-[600px]">
@@ -142,7 +145,7 @@ const page = async ({ params }: Props) => {
 
         <section className="bg-muted p-4 sm:p-12 mt-12">
           <article className="min-w-[350px]">
-            <h3 className="text-site font-bold text-2xl py-10 mb-8">Eenvoudig vergelijken &
+            <h3 className="text-site font-bold text-2xl py-10 ">Eenvoudig vergelijken &
 parkeren bij vliegvelden</h3>
 <p className="text-site">
 Sed ut perspiciatis unde omnis iste natus error
