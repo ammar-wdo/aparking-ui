@@ -49,14 +49,17 @@ const page = async ({ params }: Props) => {
   return (
     <div>
       <Header  contentPages={true}/>
-    
-
-      <div className="container mt-10 px-3">
-        <div className="max-w-[1000px]">
-        <Navigator
+      <div className="p-6 bg-muted">
+        <div className="container">
+      <Navigator
           airport={{ name: entity.airport.name, href: entity.airport.slug }}
           entity={{ name: entity.entityName, href: entity.slug }}
         />
+        </div>
+</div>
+      <div className="container mt-10 px-3">
+        <div className="max-w-[1000px]">
+      
 
         <section className="mt-12 ">
           <h3 className="font-bold text-3xl text-site capitalize">

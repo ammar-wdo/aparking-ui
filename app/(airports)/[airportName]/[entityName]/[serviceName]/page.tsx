@@ -88,10 +88,9 @@ const page = async ({ params, searchParams }: Props) => {
   return (
     <div className="">
       <Header contentPages={true} />
-
-      <div className="mx-auto max-w-[1200px] px-3">
-        <div className="mt-10">
-          <Navigator
+      <div className="p-6 bg-muted">
+        <div className="container">
+      <Navigator
             airport={{
               name: service.entity.airport.name,
               href: service.entity.airport.slug,
@@ -102,7 +101,12 @@ const page = async ({ params, searchParams }: Props) => {
             }}
             service={{ name: service.name, href: service.slug }}
           />
-        </div>
+          </div>
+          </div>
+      <div className="mx-auto max-w-[1200px] px-3">
+        
+         
+        
         <div className="mt-10 flex gap-8">
           <h3 className="text-site text-3xl font-semibold  capitalize ">
             {service.name}
