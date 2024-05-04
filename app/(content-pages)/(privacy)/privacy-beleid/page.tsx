@@ -33,9 +33,12 @@ const privacy = res.data.privacy
 
   return (
     <div className="min-h-[900px]">
-        <div className="py-4 container">
+      <div className="bg-muted p-6">
+      <div className="container">
         <Navigator name="Privacy beleid" />
         </div>
+      </div>
+       
       <div className="container">
     
 

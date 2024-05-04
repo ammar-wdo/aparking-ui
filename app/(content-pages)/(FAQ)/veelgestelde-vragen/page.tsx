@@ -21,10 +21,10 @@ export const revalidate = 0;
 const page = async ({ searchParams }: Props) => {
   return (
     <div className="min-h-[900px]">
+        <div className="p-6 bg-muted">
+        <div className="container">  <Navigator name="Veelgestelde vragen" /></div></div>
       <div className="container">
-        <div className="py-4">
-          <Navigator name="Veelgestelde vragen" />
-        </div>
+      
 
         <h1 className="text-site text-3xl font-bold mt-12">Veelgestelde vragen</h1>
 

@@ -23,9 +23,12 @@ export const metadata: Metadata = {
 const page = (props: Props) => {
   return (
     <div className=''>
-        <div className="py-4 container">
+      <div className="p-6 bg-muted">
+        <div className="container">
         <Navigator name="Partner worden" />
         </div>
+        </div>
+       
       <div className='container py-12 '>
     
 <PartnerGreeting />
