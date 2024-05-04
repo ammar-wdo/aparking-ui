@@ -81,9 +81,11 @@ const page = async ({ params }: Props) => {
     <div>
       <Header />
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
-
+<div className="p-6 bg-muted">
+<Navigator airport={{ name: airport.name, href: airport.slug }} />
+</div>
+     
       <div className="container mt-10 min-h-[600px]">
-        <Navigator airport={{ name: airport.name, href: airport.slug }} />
 
         {/* first block */}
         <section className="mt-24">
@@ -131,18 +133,19 @@ const page = async ({ params }: Props) => {
           </article>
         </section>
 
-        <div className="mt-12 max-w-[1000px]">
-          {" "}
-          <Editor initialContent={airport.content} />
-        </div>
-      </div>
-      <EntitiesFeed
+        {/* entities */}
+        <EntitiesFeed
         airportName={airport?.name}
         airportSlug={airport?.slug}
         airportId={airport?.id}
       />
-      <section className="mt-12 container py-8">
-        <h2 className="text-site font-bold text-2xl py-10 mb-8">
+
+      
+      </div>
+  {/* FAQs */}
+  <div className="py-12 bg-muted">
+        <section className=" container py-4">
+        <h2 className="text-site font-bold text-2xl py-10 ">
           FAQs {airport.name}
         </h2>
 
@@ -157,6 +160,15 @@ const page = async ({ params }: Props) => {
           ))}
         </Accordion>
       </section>
+      </div>
+      {/* Main content */}
+
+        <div className="mt-12 max-w-[1000px] container">
+          {" "}
+          <Editor initialContent={airport.content} />
+        </div>
+    
+     
     </div>
   );
 };
