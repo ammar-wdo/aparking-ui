@@ -1,4 +1,4 @@
-import React, { cache } from "react";
+import React, { Suspense, cache } from "react";
 import Banner from "../../(landing-search-layout)/(landingPage)/(components)/banner";
 import axios from "axios";
 import { GET_AIRPORTS } from "@/links";
@@ -21,6 +21,8 @@ import {
 import { cn } from "@/lib/utils";
 import AirportFaqComponent from "./(components)/faq-component";
 import { Bus, CalendarCheck, CalendarHeart, Clock4 } from "lucide-react";
+import AirportSkeleton from "@/app/(landing-search-layout)/(landingPage)/(components)/airports-skeleton";
+import Airports from "@/app/(landing-search-layout)/(landingPage)/(components)/airports";
 
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
@@ -47,29 +49,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-
 const explaination = [
   {
-    icon:<CalendarCheck  className="text-site" size={20}/>,
-    title:'Eenvoudig reserveren', 
-    description:'Maak eenvoudig eenreservering en ontvang duidelijke instructies per e- mail'
+    icon: <CalendarCheck className="text-site" size={20} />,
+    title: "Eenvoudig reserveren",
+    description:
+      "Maak eenvoudig eenreservering en ontvang duidelijke instructies per e- mail",
   },
   {
-    icon:<Clock4  className="text-site" size={20}/>,
-    title:'Keurig op tijd', 
-    description:'Direct klaar voor u bijaankomst: een punctuele chauffeur'
+    icon: <Clock4 className="text-site" size={20} />,
+    title: "Keurig op tijd",
+    description: "Direct klaar voor u bijaankomst: een punctuele chauffeur",
   },
   {
-    icon:<Bus  className="text-site" size={20}/>,
-    title:'Zorgeloze reizen', 
-    description:'Geniet van zorgeloos reizen met onze betrouwbare en professionele service'
+    icon: <Bus className="text-site" size={20} />,
+    title: "Zorgeloze reizen",
+    description:
+      "Geniet van zorgeloos reizen met onze betrouwbare en professionele service",
   },
   {
-    icon:<CalendarHeart  className="text-site" size={20}/>,
-    title:'Altijd laagste prijs', 
-    description:'Geniet van zorgeloos reizen met onze betrouwbare en professionele service'
+    icon: <CalendarHeart className="text-site" size={20} />,
+    title: "Altijd laagste prijs",
+    description:
+      "Geniet van zorgeloos reizen met onze betrouwbare en professionele service",
   },
-]
+];
 
 const page = async ({ params }: Props) => {
   const airport = await getAirport(params.airportName);
@@ -81,12 +85,11 @@ const page = async ({ params }: Props) => {
     <div>
       <Header />
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
-<div className="p-6 bg-muted">
-<Navigator airport={{ name: airport.name, href: airport.slug }} />
-</div>
-     
-      <div className="container mt-10 min-h-[600px]">
+      <div className="p-6 bg-muted">
+        <Navigator airport={{ name: airport.name, href: airport.slug }} />
+      </div>
 
+      <div className="container mt-10 min-h-[600px]">
         {/* first block */}
         <section className="mt-24">
           <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-32 gap-6">
@@ -109,12 +112,15 @@ const page = async ({ params }: Props) => {
             Hierom is Aparking de best keuze
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
-{explaination.map((el,i)=><article className="bg-white rounded-lg p-4 " key={i}>
-  <div>{el.icon}</div>
-  <h3 className="text-site font-semibold text-lg mt-4">{el.title}</h3>
-  <p className="text-site font-light mt-4">{el.description}</p>
-</article>)}
-
+            {explaination.map((el, i) => (
+              <article className="bg-white rounded-lg p-4 " key={i}>
+                <div>{el.icon}</div>
+                <h3 className="text-site font-semibold text-lg mt-4">
+                  {el.title}
+                </h3>
+                <p className="text-site font-light mt-4">{el.description}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -132,43 +138,44 @@ const page = async ({ params }: Props) => {
             <Editor initialContent={airport.blockTwoContent} />
           </article>
         </section>
+        {/* airports */}
+
+        <Suspense fallback={<AirportSkeleton />}>
+          <Airports airportPage={true} airportSlug={airport.slug} />
+        </Suspense>
 
         {/* entities */}
         <EntitiesFeed
-        airportName={airport?.name}
-        airportSlug={airport?.slug}
-        airportId={airport?.id}
-      />
-
-      
+          airportName={airport?.name}
+          airportSlug={airport?.slug}
+          airportId={airport?.id}
+        />
       </div>
-  {/* FAQs */}
-  <div className="py-12 bg-muted">
+      {/* FAQs */}
+      <div className="py-12 bg-muted">
         <section className=" container py-4">
-        <h2 className="text-site font-bold text-2xl py-10 ">
-          FAQs {airport.name}
-        </h2>
+          <h2 className="text-site font-bold text-2xl py-10 ">
+            FAQs {airport.name}
+          </h2>
 
-        <Accordion type="single" collapsible>
-          {airport.faq.map((faq, i) => (
-            <AirportFaqComponent
-              key={i}
-              i={i.toString()}
-              answer={faq.answer}
-              question={faq.question}
-            />
-          ))}
-        </Accordion>
-      </section>
+          <Accordion type="single" collapsible>
+            {airport.faq.map((faq, i) => (
+              <AirportFaqComponent
+                key={i}
+                i={i.toString()}
+                answer={faq.answer}
+                question={faq.question}
+              />
+            ))}
+          </Accordion>
+        </section>
       </div>
       {/* Main content */}
 
-        <div className="mt-12 max-w-[1000px] container">
-          {" "}
-          <Editor initialContent={airport.content} />
-        </div>
-    
-     
+      <div className="mt-12 max-w-[1000px] container">
+        {" "}
+        <Editor initialContent={airport.content} />
+      </div>
     </div>
   );
 };
