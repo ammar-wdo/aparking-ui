@@ -30,7 +30,7 @@ const Airports = async ({airportPage,airportSlug}: Props) => {
         Vliegvelden
       </h3>}
       <div className="max-w-[1500px] mx-auto mt-6   hidden md:block  p-4">
-    <AirportsSwiper airports={res.data.airports} />
+    <AirportsSwiper airports={res.data.airports} airportPage={airportPage} airportSlug={airportSlug} />
       </div>
       <div className="md:hidden flex items-stretch gap-4 overflow-x-auto w-full relative z-50 p-8">
       {res.data.airports.map((airport: Airport) => {

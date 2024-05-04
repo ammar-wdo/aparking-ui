@@ -140,9 +140,21 @@ const page = async ({ params }: Props) => {
         </section>
         {/* airports */}
 
+        <section className="bg-muted p-4 sm:p-12 mt-12 flex items-center gap-12 flex-col md:flex-row">
+          <article className="">
+            <h3 className="text-site font-bold text-2xl py-10 mb-8">Eenvoudig vergelijken &
+parkeren bij vliegvelden</h3>
+<p className="text-site">
+Sed ut perspiciatis unde omnis iste natus error
+sit voluptatem accusantium.
+</p>
+          </article>
         <Suspense fallback={<AirportSkeleton />}>
           <Airports airportPage={true} airportSlug={airport.slug} />
         </Suspense>
+        </section>
+
+       
 
         {/* entities */}
         <EntitiesFeed
