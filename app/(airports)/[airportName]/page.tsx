@@ -94,7 +94,7 @@ const page = async ({ params }: Props) => {
 
       <div className="container mt-10 min-h-[600px]">
         {/* first block */}
-        <section className="my-24">
+        <section className="lg:my-32 my-12">
           <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
             <Editor initialContent={airport.blockOneContent} />
             <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(-45deg)',transformOrigin: 'center center'}}>
@@ -128,7 +128,7 @@ const page = async ({ params }: Props) => {
         </section>
 
         {/* second block */}
-        <section className="my-20">
+        <section className="lg:my-32 my-12">
           <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
             <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(45deg)',transformOrigin: 'center center'}}>
               <Image
