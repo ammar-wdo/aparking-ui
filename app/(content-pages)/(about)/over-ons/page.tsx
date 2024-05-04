@@ -32,12 +32,13 @@ export const revalidate = 0;
 const page = async (props: Props) => {
   const res = await axios<{about?:About,success:boolean,error?:string}>(GET_ABOUT);
 
-  if(!res.data.success) return <div className="min-h-screen flex items-center justify-center">{JSON.stringify(res.data.error,null,2)}</div>
+  if(!res.data.success) return <div className="min-h-screen flex items-center justify-center"><p className="text-xl font-bold capitalize text-gray-400">Something went wrong</p></div>
 
 
-if(!res.data.about) return 
+
 
   const about = res.data.about 
+  if(!about) return <div className="min-h-screen flex items-center justify-center"><p className="text-xl font-bold capitalize text-gray-400">Empty page</p></div>
 
   const firstBlockCards = [
     {
@@ -201,11 +202,7 @@ if(!res.data.about) return
   
         
 
-        {!about && (
-          <p className="text-3xl font-bold text-neutral-500 text-center capitalize">
-            Empty page
-          </p>
-        )}
+      
 
       
       </section>
