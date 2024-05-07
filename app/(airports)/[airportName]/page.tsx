@@ -101,7 +101,7 @@ const page = async ({ params }: Props) => {
               <Image
                 src={airport.blockOneImage}
                 fill
-                alt="airport figure"
+                alt={airport.blockOneImageAlt}
                 className="object-cover rounded-xl"
               />
             </div>
@@ -134,7 +134,7 @@ const page = async ({ params }: Props) => {
               <Image
                 src={airport.blockTwoImage}
                 fill
-                alt="airport figure"
+                alt={airport.blockTwoImageAlt}
                 className="object-cover rounded-xl"
               />
             </div>

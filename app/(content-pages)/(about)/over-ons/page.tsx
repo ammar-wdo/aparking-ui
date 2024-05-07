@@ -190,7 +190,7 @@ const page = async (props: Props) => {
               <Image
                 src={about.blockTwoImage}
                 fill
-                alt="airport figure"
+                alt={about.blockTwoImageAlt}
                 className="object-cover rounded-2xl"
               />
             </div>

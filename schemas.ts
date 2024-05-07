@@ -176,7 +176,9 @@ export type Airport ={
   cheapestSeventhDayPrice:number | null,
   faq:{question:string,answer:string}[]
   blockOneImage:string,
+  blockOneImageAlt:string,
 blockTwoImage:string,
+blockTwoImageAlt:string
 
 blockOneContent:string,
 blockTwoContent:string,
@@ -189,6 +191,7 @@ export type About = {
   content:string,
   blockOneContent:string,
   blockTwoContent:string,
+  blockTwoImageAlt:string,
   blockTwoImage:string,
   createdAt:Date,
   updatedAt:Date,
