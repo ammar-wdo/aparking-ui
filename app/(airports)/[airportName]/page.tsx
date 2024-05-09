@@ -88,21 +88,20 @@ const page = async ({ params }: Props) => {
       <Banner airportName={airport?.name} airportSlug={airport?.slug}></Banner>
       <div className="p-6 bg-muted">
         <div className="container">
-        <Navigator airport={{ name: airport.name, href: airport.slug }} />
+          <Navigator airport={{ name: airport.name, href: airport.slug }} />
         </div>
-        
       </div>
 
       <div className="container mt-10 min-h-[600px]">
         {/* first block */}
         <section className="lg:my-32 my-12">
-          <article  className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+          <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
             <div className="space-y-4">
-            <Editor initialContent={airport.blockOneContent} />
-            <AirportUpButton className="rounded-lg px-6"/>
+              <Editor initialContent={airport.blockOneContent} />
+              <AirportUpButton className="rounded-lg px-6" />
             </div>
-          
-            <div className="relative w-full h-full min-h-[400px] hidden lg:block" >
+
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block">
               <Image
                 src={airport.blockOneImage}
                 fill
@@ -116,9 +115,32 @@ const page = async ({ params }: Props) => {
         {/* explaination */}
 
         <section className="container p-4 sm:p-12 bg-muted rounded-xl mt-20">
-          <h3 className="text-site font-bold text-2xl py-10 mb-8">
-            Hierom is Aparking de best keuze
-          </h3>
+          <div className="py-10  flex justify-between items-center flex-col md:flex-row gap-12">
+            <h3 className="text-site font-bold text-2xl ">
+              Hierom is Aparking de best keuze
+            </h3>
+            <div className="p-6 rounded-lg shadow-sm flex md:gap-12 gap-4 bg-white flex-col sm:flex-row">
+              <div>
+                <h3 className="text-site font-semibold text-lg">
+                  Beoordeeld met een
+                </h3>
+                <div className="flex items-center gap-0.5">
+                  <p className="shrink-0 text-muted-foreground">Op basis van 1.429</p>
+                  <Image
+                    width={30}
+                    height={30}
+                    src={"/google-icon-small.webp"}
+                    alt="google-icon"
+                  />
+                  <p className="shrink-0 text-muted-foreground">reviews</p>
+                </div>
+              </div>
+              <div className="rounded-lg bg-[#FEBA02] p-1 flex items-center justify-center w-22 h-22">
+                <p className="text-3xl font-bold text-site ">9.9</p>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
             {explaination.map((el, i) => (
               <article className="bg-white rounded-lg p-4 " key={i}>
@@ -134,8 +156,8 @@ const page = async ({ params }: Props) => {
 
         {/* second block */}
         <section className="lg:my-32 my-12">
-          <article  className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
-            <div className="relative w-full h-full min-h-[400px] hidden lg:block" >
+          <article className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block">
               <Image
                 src={airport.blockTwoImage}
                 fill
@@ -144,29 +166,27 @@ const page = async ({ params }: Props) => {
               />
             </div>
             <div className="space-y-4">
-            <Editor initialContent={airport.blockTwoContent} />
-            <AirportUpButton className="rounded-lg px-6"/>
+              <Editor initialContent={airport.blockTwoContent} />
+              <AirportUpButton className="rounded-lg px-6" />
             </div>
-          
           </article>
         </section>
         {/* airports */}
 
         <section className="bg-muted p-4 sm:p-12 mt-12">
           <article className="">
-            <h3 className="text-site font-bold text-2xl py-10 ">Eenvoudig vergelijken &
-parkeren bij vliegvelden</h3>
-<p className="text-site">
-Sed ut perspiciatis unde omnis iste natus error
-sit voluptatem accusantium.
-</p>
+            <h3 className="text-site font-bold text-2xl py-10 ">
+              Eenvoudig vergelijken & parkeren bij vliegvelden
+            </h3>
+            <p className="text-site">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium.
+            </p>
           </article>
-        <Suspense fallback={<AirportSkeleton />}>
-          <Airports airportPage={true} airportSlug={airport.slug} />
-        </Suspense>
+          <Suspense fallback={<AirportSkeleton />}>
+            <Airports airportPage={true} airportSlug={airport.slug} />
+          </Suspense>
         </section>
-
-       
 
         {/* entities */}
         <EntitiesFeed
