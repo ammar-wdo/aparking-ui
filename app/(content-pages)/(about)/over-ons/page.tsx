@@ -185,8 +185,8 @@ const page = async (props: Props) => {
 
           {/* second block */}
           <section  className="mt-20">
-          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
-            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(45deg)',transformOrigin: 'center center'}}>
+          <article  className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block">
               <Image
                 src={about.blockTwoImage}
                 fill

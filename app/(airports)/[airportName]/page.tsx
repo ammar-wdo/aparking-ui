@@ -23,6 +23,7 @@ import AirportFaqComponent from "./(components)/faq-component";
 import { Bus, CalendarCheck, CalendarHeart, Clock4 } from "lucide-react";
 import AirportSkeleton from "@/app/(landing-search-layout)/(landingPage)/(components)/airports-skeleton";
 import Airports from "@/app/(landing-search-layout)/(landingPage)/(components)/airports";
+import AirportUpButton from "@/components/airport-up-button";
 
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
@@ -95,9 +96,13 @@ const page = async ({ params }: Props) => {
       <div className="container mt-10 min-h-[600px]">
         {/* first block */}
         <section className="lg:my-32 my-12">
-          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+          <article  className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+            <div className="space-y-4">
             <Editor initialContent={airport.blockOneContent} />
-            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(-45deg)',transformOrigin: 'center center'}}>
+            <AirportUpButton className="rounded-lg px-6"/>
+            </div>
+          
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block" >
               <Image
                 src={airport.blockOneImage}
                 fill
@@ -129,8 +134,8 @@ const page = async ({ params }: Props) => {
 
         {/* second block */}
         <section className="lg:my-32 my-12">
-          <article style={{perspective:'2600px'}} className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
-            <div className="relative w-full h-full min-h-[400px] hidden lg:block" style={{transform: 'rotateY(45deg)',transformOrigin: 'center center'}}>
+          <article  className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+            <div className="relative w-full h-full min-h-[400px] hidden lg:block" >
               <Image
                 src={airport.blockTwoImage}
                 fill
@@ -138,7 +143,11 @@ const page = async ({ params }: Props) => {
                 className="object-cover rounded-xl"
               />
             </div>
+            <div className="space-y-4">
             <Editor initialContent={airport.blockTwoContent} />
+            <AirportUpButton className="rounded-lg px-6"/>
+            </div>
+          
           </article>
         </section>
         {/* airports */}
