@@ -40,14 +40,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Not found",
       description: "This slug does not exist",
     };
-
+const title  = service.seoTitle ? service.seoTitle :  `${service.name} reviews & prices - Compare Parking Services | Aparking"`
+const description = service.seoDescription ? service.seoDescription : `${service.name} a ${service.parkingType} parking service, located just ${service.distanceToAirport} km away from ${service.entity.airport.name} about ${service.timeToAirport} min . Save time and book your parking spot now with Aparking. `
   return {
-    title: `${service.name} reviews & prices - Compare Parking Services | Aparking"`,
-    description: `${service.name} a ${service.parkingType} parking service, located just ${service.distanceToAirport} km away from ${service.entity.airport.name} about ${service.timeToAirport} min . Save time and book your parking spot now with Aparking. `,
+    title:title,
+    description: description,
 
     openGraph: {
-      title: `${service.name} reviews & prices - Compare Parking Services | Aparking"`,
-      description: `${service.name} a ${service.parkingType} parking service, located just ${service.distanceToAirport} km away from ${service.entity.airport.name} about ${service.timeToAirport} min . Save time and book your parking spot now with Aparking. `,
+      title:title,
+      description: description,
       images: [...(service.images || [])],
     },
   };

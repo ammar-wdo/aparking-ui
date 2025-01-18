@@ -31,20 +31,21 @@ type Props = { params: { airportName: string } };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const airport = await getAirport(params.airportName);
-
+ 
   if (!airport)
     return {
       title: "Not found",
       description: "This slug does not exist",
     };
-
+const title = airport.seoTitle ?airport.seoTitle:  `Vergelijk Airport Parking opties - ${airport.name} | Aparking"`
+const description = airport.seoDescription ?airport.seoDescription:  `Vind en vergelijk de beste parkeeropties op ${airport.name}. Bespaar tijd en geld door veilige en betaalbare parkeergelegenheid te boeken bij Aparking. Reserveer nu uw plek!`
   return {
-    title: `Vergelijk Airport Parking opties - ${airport.name} | Aparking"`,
-    description: `Vind en vergelijk de beste parkeeropties op ${airport.name}. Bespaar tijd en geld door veilige en betaalbare parkeergelegenheid te boeken bij Aparking. Reserveer nu uw plek!`,
+    title:title,
+    description:description,
 
     openGraph: {
-      title: `Vergelijk Airport Parking opties - ${airport.name} | Aparking"`,
-      description: `Vind en vergelijk de beste parkeeropties op ${airport.name}. Bespaar tijd en geld door veilige en betaalbare parkeergelegenheid te boeken bij Aparking. Reserveer nu uw plek!`,
+      title:title,
+      description:description,
       images: [...airport.images],
     },
   };

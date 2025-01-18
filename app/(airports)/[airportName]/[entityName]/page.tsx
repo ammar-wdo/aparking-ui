@@ -27,13 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: "Not found",
       description: "This slug does not exist",
     };
-
+const title = entity.seoTitle ? entity.seoTitle : `${entity.entityName} - Vergelijk Parking Services | Aparking`
+const description = entity.seoDescription ? entity.seoDescription : `Ontdek de beste parkeerdiensten aangeboden door ${entity.entityName}. Vergelijk prijzen, locaties en voorzieningen om de ideale parkeeroplossing voor uw behoeften te vinden. Boek met vertrouwen via Aparking.`
   return {
-    title: `${entity.entityName} - Vergelijk Parking Services | Aparking`,
-    description: `Ontdek de beste parkeerdiensten aangeboden door ${entity.entityName}. Vergelijk prijzen, locaties en voorzieningen om de ideale parkeeroplossing voor uw behoeften te vinden. Boek met vertrouwen via Aparking.`,
+    title:title,
+    description:description,
     openGraph: {
-      title: `${entity.entityName} - Vergelijk Parking Services | Aparking`,
-      description: `Ontdek de beste parkeerdiensten aangeboden door ${entity.entityName}. Vergelijk prijzen, locaties en voorzieningen om de ideale parkeeroplossing voor uw behoeften te vinden. Boek met vertrouwen via Aparking.`,
+      title:title,
+      description:description,
       images: [...entity.images],
     },
   };
